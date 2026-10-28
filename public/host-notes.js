@@ -39,5 +39,12 @@ export function compileHostProgram(program, value) {
   if (!program) return null;
   const state = hostNoteState(value);
   const templateOpeningQuestion = program.templateOpeningQuestion ?? program.openingQuestion;
-  return { ...program, templateOpeningQuestion, openingQuestion: state.notes.question || templateOpeningQuestion, schedule: hostRunningOrder(program, state.notes), preparationStatus: state.status, contentSource: 'Application template with explicitly host-entered content choices. Qloo supports the shortlist, not these interpretations or permissions.' };
+  const templatePreparation = program.templatePreparation ?? program.preparation ?? [];
+  const preparation = templatePreparation.map((text,index) => {
+    if (index === 0 && state.notes.excerpt) return 'Confirm the chosen book introduction or excerpt and keep the required material available.';
+    if (index === 1 && state.notes.recording) return 'Confirm the selected recording and permitted use, or keep the recorded discussion-only choice.';
+    if (index === 2 && state.notes.filmMoment) return 'Prepare the chosen film focus and discussion question. No full screening is assumed.';
+    return text;
+  });
+  return { ...program, templateOpeningQuestion, templatePreparation, preparation, openingQuestion: state.notes.question || templateOpeningQuestion, schedule: hostRunningOrder(program, state.notes), preparationStatus: state.status, contentSource: 'Application template with explicitly host-entered content choices. Qloo supports the shortlist, not these interpretations or permissions.' };
 }

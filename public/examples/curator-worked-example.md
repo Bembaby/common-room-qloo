@@ -60,9 +60,9 @@ All four content choices are recorded. The host still checks availability, permi
 
 ## Host preparation
 
-- Prepare a short excerpt or a discussion-only introduction to Having and Being Had.
-- Choose a recording by Tyler, the Creator if playback is appropriate and permitted, or discuss it without playback.
-- Prepare a conversation prompt about Joker; a full screening is not part of this timed salon.
+- Confirm the chosen book introduction or excerpt and keep the required material available.
+- Confirm the selected recording and permitted use, or keep the recorded discussion-only choice.
+- Prepare the chosen film focus and discussion question. No full screening is assumed.
 - Check availability, access needs and any permissions before inviting guests. No rights or venue arrangements are verified.
 
 ## One connecting question

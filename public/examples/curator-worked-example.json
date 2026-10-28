@@ -689,9 +689,9 @@
       }
     ],
     "preparation": [
-      "Prepare a short excerpt or a discussion-only introduction to Having and Being Had.",
-      "Choose a recording by Tyler, the Creator if playback is appropriate and permitted, or discuss it without playback.",
-      "Prepare a conversation prompt about Joker; a full screening is not part of this timed salon.",
+      "Confirm the chosen book introduction or excerpt and keep the required material available.",
+      "Confirm the selected recording and permitted use, or keep the recorded discussion-only choice.",
+      "Prepare the chosen film focus and discussion question. No full screening is assumed.",
       "Check availability, access needs and any permissions before inviting guests. No rights or venue arrangements are verified."
     ],
     "description": "A 60-minute conversation at Independent Bookshop / Worked curator example, built around Having and Being Had, Tyler, the Creator, and Joker. Each selection has an inspectable reason to be in the room.",
@@ -732,6 +732,12 @@
     ],
     "note": "This is a proposed cultural shortlist and timed planning template. The host must choose the actual materials and connecting question before hosting. No screening, performer availability, inventory, licensing, attendance, or sales is verified.",
     "templateOpeningQuestion": "What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker?",
+    "templatePreparation": [
+      "Prepare a short excerpt or a discussion-only introduction to Having and Being Had.",
+      "Choose a recording by Tyler, the Creator if playback is appropriate and permitted, or discuss it without playback.",
+      "Prepare a conversation prompt about Joker; a full screening is not part of this timed salon.",
+      "Check availability, access needs and any permissions before inviting guests. No rights or venue arrangements are verified."
+    ],
     "preparationStatus": "host_choices_recorded",
     "contentSource": "Application template with explicitly host-entered content choices. Qloo supports the shortlist, not these interpretations or permissions."
   },

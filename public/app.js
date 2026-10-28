@@ -247,7 +247,8 @@ function briefMarkdown(result) {
   }
   if (result.program) {
     lines.push(hostNotesMarkdown(currentHostNotes));
-    lines.push('## Host preparation', '', ...(result.program.preparation ?? []).map(value => `- ${value}`), '', '## One connecting question', '', compileHostProgram(result.program,currentHostNotes).openingQuestion || curation?.connectionQuestion || '', '');
+    const compiledProgram = compileHostProgram(result.program,currentHostNotes);
+    lines.push('## Host preparation', '', ...compiledProgram.preparation.map(value => `- ${value}`), '', '## One connecting question', '', compiledProgram.openingQuestion || curation?.connectionQuestion || '', '');
     lines.push(`## ${result.program.title}`, '', result.program.description, '', '| Minutes | Activity |', '| --- | --- |');
     for (const row of result.program.schedule) lines.push(`| ${row.minutes} | ${row.label.replaceAll('|', '/')} |`);
     lines.push('', '## Host prompts', '');
@@ -479,6 +480,7 @@ function updateHostCopy() {
   $('.curatorial-note').classList.toggle('has-host-question',Boolean(state.notes.question));
   $('.curation-context').textContent = state.notes.question ? 'Host-authored interpretation. Qloo supplied the shortlist and ranks; it did not verify this thematic connection or any permissions.' : 'This is a draft discussion prompt. Qloo supports the shortlist; choose your materials and connection in the host copy below.';
   $('.host-notes-copy').replaceChildren(node('h4', { text: 'Your content choices' }), ...hostFields.map(field => node('div', { class: 'host-choice' }, [node('strong', { text: field.label }), paragraph(state.notes[field.key] || 'Still to choose before hosting.')])), paragraph('Host-entered notes. Qloo does not verify these materials, the connection or permissions.', 'explanation'));
+  $('.preparation-details ul').replaceChildren(...compileHostProgram(currentResult.program,state.notes).preparation.map(text => node('li',{text})));
   hostRunningOrder(currentResult.program, state.notes).forEach((row, index) => {
     const activity = document.querySelectorAll('#host-copy .program-row > div:last-child > p')[index];
     if (activity) activity.textContent = row.activity;

@@ -24,9 +24,11 @@ test('host choices enter the running order and portable copy without changing pr
   assert.equal(JSON.stringify(result), before);
   const compiled=compileHostProgram(result.program,notes);
   assert.equal(compiled.openingQuestion,notes.question);
+  assert.ok(compiled.preparation[1].startsWith('Confirm the selected recording'));
   assert.ok(!compiled.schedule[2].activity.includes('participant-chosen recording'));
   assert.equal(result.program.openingQuestion,JSON.parse(before).program.openingQuestion);
   assert.deepEqual(compileHostProgram(compiled,notes),compiled);
   assert.equal(compileHostProgram(compiled,{}).openingQuestion,result.program.openingQuestion);
+  assert.deepEqual(compileHostProgram(compiled,{}).preparation,result.program.preparation);
   assert.deepEqual(normalizeHostNotes({ question: '\u0000A\nquestion', extra: 'not supported' }), { excerpt: '', recording: '', filmMoment: '', question: 'A question' });
 });
