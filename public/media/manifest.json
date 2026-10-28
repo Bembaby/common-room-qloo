@@ -1,28 +1,28 @@
 {
-  "createdAt": "2026-10-28T20:30:11.300Z",
-  "category": "narrated_actual_application_execution_and_saved_result_interaction",
+  "createdAt": "2026-10-28T21:40:02.766Z",
+  "category": "narrated_actual_native_browser_execution_and_saved_result_interaction",
   "sourceRevisions": [
-    "03a449e3b3726fef80fbc35835ba2c5a5df68673"
+    "ae6a6850bce42bcdc4d83880334e01ea7dbe1e10"
   ],
   "runIds": [
-    "bee88242-d9c0-4df2-a5ff-a2a1910a187d",
-    "06b5564d-c50d-476b-bfd5-062da28700a7",
-    "c80c9a19-b186-4c02-b389-d56aa2ffe313"
+    "5cd52db5-e04f-44ca-b34f-bc794c51118d",
+    "a9a0d7e2-21a1-414e-9db9-677bd3bdff49",
+    "8a71df8a-90b1-450a-a97d-ee591a06afc6"
   ],
-  "durationSeconds": 88.6,
-  "videoFrames": 2658,
+  "durationSeconds": 122.4,
+  "videoFrames": 3672,
   "frameRate": 30,
   "pixelAspectRatio": "1:1",
-  "wordCount": 229,
-  "standardCaptionCues": 53,
-  "outputSha256": "01cd562914747193658e8d079e3ba5f8c243587fc032b48bbea60f85386eade3",
+  "wordCount": 240,
+  "standardCaptionCues": 56,
+  "outputSha256": "24d705a7b0b540b192cae0ac3a0fee5919fa714365754b99e87af2b099e767ed",
   "captionFiles": {
-    "srt": "0a47fe913c6998822b18f5a17f927e3aba2a1bc6d6a02143018d1cae1f32391e",
-    "vtt": "a1e1ad78dac030b18589a70b00da16ec04c89e846b9bcb0895f5e92d6f933abc"
+    "srt": "8a1eb353e15d5072833e9ba04ad61cdb211e24098754fa2b87b49453c7082a7a",
+    "vtt": "657b2e330df26ccb2f75656cd0d097845ab03452e4dc829ccc03eb282c651c6c"
   },
   "voice": "ElevenLabs Jessica premade female voice, Eleven v3 Conversational; synthetic narration selected after a sample comparison",
-  "captionMethod": "229 individual word highlights use actual provider character timing, retimed by exact audio phrase edits. Phrase-aware standard cues preserve titles and complete clauses. Centisecond event rounding precedes the 30fps grid.",
-  "processing": "Actual application videos with waiting cuts and paced typing. Saved-result scenes reopen the same actual runs and make no new provider claim. Host notes, downloads, reload, veto staging and refusal are recorded interactions. No generated application behavior, frozen screenshots or added top provenance labels.",
-  "reviewLimit": "The root runtime cannot listen. The owner selected the short Jessica sample; full-take subjective listening is not claimed. File decode, exact picture length, actual text/timing, visual cuts and native-player checks are separate evidence.",
+  "captionMethod": "240 individual word highlights use actual provider character timing shifted exactly by inter-word silence insertion. 56 phrase-aware standard cues. Centisecond event rounding precedes the 30 fps grid.",
+  "processing": "Full native Chrome window with real address bar and loading state. Editorial camera moves ease into focused views and return to the full window. Long waits are cut and typing is paced. The same real fresh result is reopened for export and reload; the reload makes zero queries. Veto and strict cases are new real queries. 39 pauses retain the original speech phonemes and pitch. No generated application behavior, frozen screenshots or added top provenance labels.",
+  "reviewLimit": "The root runtime cannot listen. The owner chose the Jessica sample; full-take subjective listening approval is not claimed. Objective audio levels, decoded visual sequence, text/timing and native player checks are distinct evidence.",
   "hostExample": "Illustrative host-authored preparation by Codex, not a venue pilot or a Qloo-derived theme."
 }

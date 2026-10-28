@@ -11,7 +11,7 @@ test('provider and reopened text uses the requested punctuation without changing
   const copy = presentationCopy(original);
   assert.equal(copy.description, 'Group-five members-formed in England.');
   assert.equal(copy.presentationNormalization.replacements, 2);
-  assert.equal(copy.presentationNormalization.decisionDataChanged, false);
+  assert.equal(copy.presentationNormalization.entityIdsAndNumericScoresChanged, false);
   assert.equal(original.description.includes(dash), true);
   assert.deepEqual(copy.scores, original.scores);
   assert.deepEqual(copy.decision, original.decision);

@@ -1,3 +1,11 @@
+<!-- R6_PUBLIC_START -->
+# Current native-browser demonstration, October 28
+
+Recorded source ae6a6850bce42bcdc4d83880334e01ea7dbe1e10. New anonymous runs 5cd52db5-e04f-44ca-b34f-bc794c51118d, a9a0d7e2-21a1-414e-9db9-677bd3bdff49, 8a71df8a-90b1-450a-a97d-ee591a06afc6 respectively verify fresh, binding veto and strict refusal after targeted refinement. 216/180/270 bundles independently enumerated; minimum 66.67/70/70, average 72.22/73.89/74.82, policy gains all 0. The 42 actual workflow starts raised the retained lifetime ledger from 404 to 446/1000, without a reset or limit increase.
+
+The new 122.4-second film records the real full native browser. A continuation reopened the same actual fresh result for exports and a verified navigation reload with zero Qloo queries, then made the veto and strict queries. The original failed keyboard shortcut and first rejected edit remain private. All narration words use actual provider timing plus exact silence offsets. Public punctuation normalization preserves entity IDs, ordering, ranks, affinities and numeric scores; original collected responses remain private. [Film details](DEMO_SCRIPT.md). Older records below are historical.
+<!-- R6_PUBLIC_END -->
+
 ## Current demo replacement, October 28
 
 The current 88.6-second Jessica walkthrough records actual interactions from source 03a449e and the three new anonymous Qloo runs documented in [DEMO_SCRIPT.md](DEMO_SCRIPT.md). Host typing, downloads, reload, staged veto and refusal are visible. Saved-result interaction remains separate from fresh execution. All three new policy gains are zero. Earlier checkpoints below retain their original evidence category.

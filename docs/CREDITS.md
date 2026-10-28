@@ -1,3 +1,9 @@
+<!-- R6_PUBLIC_START -->
+# Current native-browser walkthrough, October 28
+
+Jessica is an ElevenLabs premade female voice rendered with authorized existing credits. The 122.4-second film preserves its speech phonemes and adds pauses only between actual aligned words. Full native Chrome capture and editorial eased camera moves show real application behavior. Existing public-domain Degas artwork and licensed font credits below still apply. No Higgsfield generation, music playback, film excerpt or cloned personal voice is used.
+<!-- R6_PUBLIC_END -->
+
 # Visual asset credits
 
 Verified October 21, 2026. Assets are self-hosted; the app does not contact the museum or a font CDN while running. No museum logo or endorsement is implied.

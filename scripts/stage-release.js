@@ -24,6 +24,21 @@ async function collect(path) {
   }
 }
 for (const directory of directories) await collect(directory);
+// Reusing a staging checkout must not retain unreviewed nested copies.
+const allowed = new Set(files);
+async function inspectDestination(path = '') {
+  let entries;
+  try { entries = await readdir(resolve(destination, path), { withFileTypes: true }); }
+  catch (error) { if (error.code === 'ENOENT') return; throw error; }
+  for (const entry of entries) {
+    if (!path && ['.git', 'node_modules', '.vercel'].includes(entry.name)) continue;
+    const name = path ? `${path}/${entry.name}` : entry.name;
+    if (entry.isSymbolicLink()) throw new Error(`Unreviewed staging link: ${name}`);
+    if (entry.isDirectory()) await inspectDestination(name);
+    else if (!allowed.has(name)) throw new Error(`Unlisted staging file: ${name}. Archive it outside the release tree before staging.`);
+  }
+}
+await inspectDestination();
 const secrets = [];
 for (const name of ['.env', '.env.local']) {
   try {
@@ -40,7 +55,8 @@ const manifest = [];
 for (const path of files.sort()) {
   const bytes = await readFile(resolve(root, path));
   const text = bytes.toString('utf8');
-  if (/\.(?:js|json|html|css|md|txt|srt|vtt)$/i.test(path) && text.includes(String.fromCodePoint(0x2014))) throw new Error(`Typography scan failed: ${path}`);
+  const forbiddenTypography = [String.fromCodePoint(0x2014), '&' + 'mdash;', '&#' + '8212;', '&#x' + '2014;', '\\u' + '2014'];
+  if (/\.(?:js|json|html|css|md|txt|srt|vtt)$/i.test(path) && forbiddenTypography.some(mark => text.toLowerCase().includes(mark))) throw new Error(`Typography scan failed: ${path}`);
   if (secrets.some(secret => text.includes(secret)) || /(?:github_pat_|ghp_|vercel_blob_rw_)[A-Za-z0-9_]{20,}/.test(text)) throw new Error(`Credential scan failed: ${path}`);
   const target = resolve(destination, path);
   if (relative(destination, target).startsWith('..')) throw new Error('Unsafe release path.');

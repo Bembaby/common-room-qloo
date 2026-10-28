@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "id": "bee88242-d9c0-4df2-a5ff-a2a1910a187d",
+  "id": "5cd52db5-e04f-44ca-b34f-bc794c51118d",
   "mode": "live",
   "evidenceLabel": "Live Qloo graph evidence",
   "status": "ready",
@@ -67,8 +67,8 @@
       ]
     }
   ],
-  "generatedAt": "2026-10-28T19:46:45.457Z",
-  "elapsedMs": 67139,
+  "generatedAt": "2026-10-28T21:19:05.175Z",
+  "elapsedMs": 53731,
   "decision": {
     "feasible": true,
     "reasons": [],
@@ -1028,7 +1028,7 @@
         }
       },
       "catalogue": {
-        "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+        "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group-Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway-rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
         "releaseYear": null,
         "contentRating": null,
         "source": "Qloo catalogue metadata",
@@ -1486,7 +1486,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "fe3607eb288736052ae5a1fe120d62f3478013fe6c8039dbeecab313776ff5e5",
-        "fetchedAt": "2026-10-28T19:45:42.553Z"
+        "fetchedAt": "2026-10-28T21:18:15.733Z"
       },
       "resolvedAnchors": [
         {
@@ -1555,7 +1555,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "4ccccd79b946c93ad8b907069e8d9f6615a55e420a2e663d9f6451c72c6d5929",
-        "fetchedAt": "2026-10-28T19:45:45.238Z"
+        "fetchedAt": "2026-10-28T21:18:18.370Z"
       },
       "resolvedAnchors": [
         {
@@ -1624,7 +1624,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "fdbc8368aadb6514b99bee95e93d7888ed0e944df368aaf2db1a2d4d017deb8c",
-        "fetchedAt": "2026-10-28T19:45:50.639Z"
+        "fetchedAt": "2026-10-28T21:18:23.660Z"
       },
       "resolvedAnchors": [
         {
@@ -1641,7 +1641,7 @@
           "domain": "artist",
           "rawAffinity": 0.9442755563639301,
           "catalogue": {
-            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group-Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway-rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
             "releaseYear": null,
             "contentRating": null,
             "source": "Qloo catalogue metadata"
@@ -1693,7 +1693,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "6f57a2ac7b34127b96df4745856e72a8fdeefdb518536cd5e8c9b8962e61b8c5",
-        "fetchedAt": "2026-10-28T19:45:55.852Z"
+        "fetchedAt": "2026-10-28T21:18:29.270Z"
       },
       "resolvedAnchors": [
         {
@@ -1762,7 +1762,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "47e4b73d7858d6675ba07020249f1b76841620c4b946fc125ba2ddd337dcaf5a",
-        "fetchedAt": "2026-10-28T19:45:59.456Z"
+        "fetchedAt": "2026-10-28T21:18:32.926Z"
       },
       "resolvedAnchors": [
         {
@@ -1831,7 +1831,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "85bb2fdbe2235bd2c78f58fb5c75ed37b73c20b6c1390a7986a5b468ec9675f4",
-        "fetchedAt": "2026-10-28T19:46:03.178Z"
+        "fetchedAt": "2026-10-28T21:18:36.343Z"
       },
       "resolvedAnchors": [
         {
@@ -1907,7 +1907,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "97d1b6061c388feb74319dea69cee8d09829ebb65a2ff33c38e5ae5e3c323bed",
-        "fetchedAt": "2026-10-28T19:46:09.510Z"
+        "fetchedAt": "2026-10-28T21:18:40.103Z"
       },
       "resolvedAnchors": [
         {
@@ -2019,7 +2019,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "fce09ec69fc58d540358dd7e6e5ea82ae04cca1a8d79d3bef78879f14f775d79",
-        "fetchedAt": "2026-10-28T19:46:15.814Z"
+        "fetchedAt": "2026-10-28T21:18:49.860Z"
       },
       "resolvedAnchors": [
         {
@@ -2131,7 +2131,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "927817a92028d08723d74fe966c09351cfa78336116f8d6215e4f5f8a3cbd2ea",
-        "fetchedAt": "2026-10-28T19:46:22.128Z"
+        "fetchedAt": "2026-10-28T21:18:53.654Z"
       },
       "resolvedAnchors": [
         {
@@ -2148,7 +2148,7 @@
           "domain": "artist",
           "rawAffinity": 0.9442755563639301,
           "catalogue": {
-            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group-Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway-rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
             "releaseYear": null,
             "contentRating": null,
             "source": "Qloo catalogue metadata"
@@ -2243,7 +2243,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "ec426a6862fd2d923149c5edc4043391478f4bc8bc49b390cdbce88613da1559",
-        "fetchedAt": "2026-10-28T19:46:25.868Z"
+        "fetchedAt": "2026-10-28T21:18:57.500Z"
       },
       "resolvedAnchors": [
         {
@@ -2296,7 +2296,7 @@
           "domain": "artist",
           "rawAffinity": 0.7919218255561347,
           "catalogue": {
-            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group-Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway-rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
             "releaseYear": null,
             "contentRating": null,
             "source": "Qloo catalogue metadata"
@@ -2355,7 +2355,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "11fdcbaeca8002f4fdbdc2ca60b092ae2388ccc6176d21375138b374bf134919",
-        "fetchedAt": "2026-10-28T19:46:35.675Z"
+        "fetchedAt": "2026-10-28T21:19:01.357Z"
       },
       "resolvedAnchors": [
         {
@@ -2467,7 +2467,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "a504ff4b368c578c87e5889bdc22ec740d60751457aba1b1afe71680b6881174",
-        "fetchedAt": "2026-10-28T19:46:45.438Z"
+        "fetchedAt": "2026-10-28T21:19:05.154Z"
       },
       "resolvedAnchors": [
         {
@@ -2779,6 +2779,11 @@
     "No venue logistics, availability, rights, ticketing, or revenue is verified.",
     "The search is bounded to one refinement and at most ten candidates per domain."
   ],
+  "presentationNormalization": {
+    "punctuation": "Long dash replaced with an ASCII hyphen for display and export.",
+    "replacements": 8,
+    "entityIdsAndNumericScoresChanged": false
+  },
   "hostNotes": {
     "notes": {
       "excerpt": "Introduce Having and Being Had through ownership and belonging. Ask guests to name an object that signals belonging. Discussion only; no passage is reproduced.",
@@ -2794,12 +2799,7 @@
   },
   "exportContext": {
     "source": "Result restored from this tab",
-    "originalGeneratedAt": "2026-10-28T19:46:45.457Z",
+    "originalGeneratedAt": "2026-10-28T21:19:05.175Z",
     "newProviderQuery": false
-  },
-  "presentationNormalization": {
-    "punctuation": "Long dash replaced with a spaced hyphen for display and export.",
-    "replacements": 8,
-    "decisionDataChanged": false
   }
 }

@@ -1,6 +1,6 @@
 # Saved worked example, not a new query
 
-Actual anonymous Qloo run `bee88242-d9c0-4df2-a5ff-a2a1910a187d`, October 28, 2026, source `03a449e3b3726fef80fbc35835ba2c5a5df68673`. Reopened to record and export host preparation, without another provider query. The introduction, recording, film focus and question are an illustrative host-authored example by Codex, not venue research or a Qloo-derived theme. No playback, screening or rights verification is claimed.
+Actual anonymous Qloo run 5cd52db5-e04f-44ca-b34f-bc794c51118d, October 28,2026, recorded source ae6a6850bce42bcdc4d83880334e01ea7dbe1e10. Reopened to export the same four host choices without a new query. These choices are an illustrative host-authored example by Codex, not venue research or a Qloo-derived theme. No playback, screening or rights verification is claimed. Public punctuation is normalized; entity IDs, order, ranks, affinities and numeric scores are preserved.
 
 # Common Room event brief
 
@@ -8,9 +8,9 @@ Evidence: Live Qloo graph evidence
 
 Status: ready
 Venue: Common Room / Bookshop evening
-Run: bee88242-d9c0-4df2-a5ff-a2a1910a187d
+Run: 5cd52db5-e04f-44ca-b34f-bc794c51118d
 
-Generated: 2026-10-28T19:46:45.457Z
+Generated: 2026-10-28T21:19:05.175Z
 
 ## Decision
 

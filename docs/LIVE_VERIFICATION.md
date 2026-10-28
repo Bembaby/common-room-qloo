@@ -1,3 +1,9 @@
+<!-- R6_PUBLIC_START -->
+# Current execution and media verification, October 28
+
+The current native-browser demo and new actual Qloo run IDs are documented in [EVIDENCE.md](EVIDENCE.md). Independent calculations verify 216/180/270 bundles and binding refusal/veto behavior. 61 core tests pass. Media checks cover the exact 3,672-frame file, 240 actual timed words, 56 cues, full decode, safe caption area and native browser playback at 1440/768/390/320. Objective levels are approximately -16.29 LUFS and -1.30 dBTP after AAC. This does not claim subjective listening approval. Older checkpoints below keep their original category.
+<!-- R6_PUBLIC_END -->
+
 # Current demo and anonymous execution verification, October 28
 
 Source 03a449e executed fresh, veto and strict cases, independently checked across 216/180/270 combinations. The current demo uses those actual runs with recorded host preparation and same-tab recovery. Read DEMO_SCRIPT.md and EVIDENCE.md for source, run IDs and exact scope. The 59-test suite and scoped UI checks remain separate from provider evidence.

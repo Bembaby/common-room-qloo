@@ -10,7 +10,7 @@ export function presentationCopy(value) {
     return presentationText(item);
   }));
   if (replacements && copy && typeof copy === 'object' && !Array.isArray(copy)) {
-    copy.presentationNormalization = { punctuation: 'Long dash replaced with an ASCII hyphen for display and export.', replacements, decisionDataChanged: false };
+    copy.presentationNormalization = { punctuation: 'Long dash replaced with an ASCII hyphen for display and export.', replacements, entityIdsAndNumericScoresChanged: false };
   }
   return copy;
 }

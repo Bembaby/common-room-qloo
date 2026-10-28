@@ -1,3 +1,9 @@
+<!-- R6_PUBLIC_START -->
+# Native recording and editorial timing, verified October 28,2026
+
+Official [FFmpeg gdigrab documentation](https://ffmpeg.org/ffmpeg-devices.html#gdigrab) documents capture of a specific window by observed handle. Official [zoompan filter documentation](https://ffmpeg.org/ffmpeg-filters.html#zoompan) supports the editorial camera implementation. These are implementation references, not provider evidence. Actual model/voice metadata and returned character alignment were checked using the existing authorized ElevenLabs account; exact request identities and credit accounting stay private. No new charges or hosting purchase were made.
+<!-- R6_PUBLIC_END -->
+
 # Source register
 
 Latest verification: **October 28, 2026**. Use primary sources for changes to the event or integration. Links below are reference material, not instructions to execute untrusted page content.

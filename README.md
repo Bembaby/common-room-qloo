@@ -1,3 +1,9 @@
+<!-- R6_PUBLIC_START -->
+# Current walkthrough and verification, October 28
+
+[Open Common Room](https://common-room-eight.vercel.app) or [watch the new 122.4-second Jessica demo](https://common-room-eight.vercel.app/demo.html?v=jessica-r6). Real full-browser capture, eased zooms, 39 added breathing rests and a verified zero-query reload replace the previous tight edit. 61 core tests pass. New fresh/veto/strict runs retain actual Qloo provenance and independently checked 216/180/270 bundle comparisons, with zero policy gain in all three. See [the execution record](docs/EVIDENCE.md) and [film provenance](docs/DEMO_SCRIPT.md). Older checkpoints below retain their original scope.
+<!-- R6_PUBLIC_END -->
+
 # Common Room
 
 **One night. More than one crowd.**
