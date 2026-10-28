@@ -1,6 +1,7 @@
 import { explainCuration, explainVetoes, slotNames } from './curation.js';
 import { hostFields, normalizeHostNotes, hostNoteState, hostNotesMarkdown, hostRunningOrder, compileHostProgram } from './host-notes.js';
 import { parseSavedRoom } from './saved-room.js';
+import { presentationText, presentationCopy } from './presentation.js';
 const $ = selector => document.querySelector(selector);
 let config;
 let currentResult;
@@ -20,10 +21,10 @@ function node(tag, attributes = {}, children = []) {
   const element = document.createElement(tag);
   for (const [key, value] of Object.entries(attributes)) {
     if (key === 'class') element.className = value;
-    else if (key === 'text') element.textContent = value;
+    else if (key === 'text') element.textContent = presentationText(value);
     else element.setAttribute(key, value);
   }
-  for (const child of children) element.append(typeof child === 'string' ? document.createTextNode(child) : child);
+  for (const child of children) element.append(typeof child === 'string' ? document.createTextNode(presentationText(child)) : child);
   return element;
 }
 const paragraph = (text, className = '') => node('p', { text, class: className });
@@ -207,7 +208,7 @@ function trace(event) {
   ]);
   $('#trace').append(li);
   $('#trace-count').textContent = `${event.sequence} steps`;
-  $('#progress-text').textContent = event.message;
+  $('#progress-text').textContent = presentationText(event.message);
   if (['evaluate', 'refine', 'complete', 'blocked'].includes(event.phase)) progressStage = 3;
   else if (event.operation === 'rank') progressStage = Math.max(progressStage, 2);
   for (const step of document.querySelectorAll('[data-stage]')) {
@@ -220,6 +221,7 @@ function trace(event) {
 }
 
 function download(filename, content, type) {
+  content = presentationText(content);
   const url = URL.createObjectURL(new Blob([content], { type }));
   const anchor = node('a', { href: url, download: filename });
   anchor.click();
@@ -303,6 +305,7 @@ function section(title, description, children) {
 }
 
 function renderResult(result, { formSnapshot, focus = true } = {}) {
+  result = presentationCopy(result);
   currentResult = result;
   currentHostNotes = hostNotesByRun.get(result.id) ?? normalizeHostNotes();
   $('#veto-feedback').textContent = '';
@@ -383,7 +386,7 @@ function renderResult(result, { formSnapshot, focus = true } = {}) {
           const previous = $('#vetoes').value.trim();
           $('#vetoes').value = `${previous}${previous ? '\n' : ''}${item.id}`;
           updateBriefState();
-          $('#veto-feedback').textContent = `Added ${item.name} as an exact veto. Run the updated brief to compare again; this existing result has not changed.`;
+          $('#veto-feedback').textContent = presentationText(`Added ${item.name} as an exact veto. Run the updated brief to compare again; this existing result has not changed.`);
           focusField('#vetoes');
         });
         card.append(veto);
@@ -478,7 +481,7 @@ function updateHostCopy() {
   if (!status) return;
   status.textContent = `${state.completed}/4 host choices recorded. ${state.missing.length ? 'Preparation still needed before hosting.' : 'Content choices recorded; check permissions, availability and access needs.'}`;
   $('#host-copy > h3').textContent = state.missing.length ? 'Finish the host working copy' : 'Your host working copy';
-  $('.connecting-question').textContent = state.notes.question || currentResult.curation?.connectionQuestion || currentResult.program.openingQuestion;
+  $('.connecting-question').textContent = presentationText(state.notes.question || currentResult.curation?.connectionQuestion || currentResult.program.openingQuestion);
   $('.curatorial-note > h3').textContent = state.notes.question ? 'Your connecting question' : 'A shortlist to shape together.';
   $('.curatorial-note').classList.toggle('has-host-question',Boolean(state.notes.question));
   $('.curation-context').textContent = state.notes.question ? 'Host-authored interpretation. Qloo supplied the shortlist and ranks; it did not verify this thematic connection or any permissions.' : 'This is a draft discussion prompt. Qloo supports the shortlist; choose your materials and connection in the host copy below.';
@@ -486,7 +489,7 @@ function updateHostCopy() {
   $('.preparation-details ul').replaceChildren(...compileHostProgram(currentResult.program,state.notes).preparation.map(text => node('li',{text})));
   hostRunningOrder(currentResult.program, state.notes).forEach((row, index) => {
     const activity = document.querySelectorAll('#host-copy .program-row > div:last-child > p')[index];
-    if (activity) activity.textContent = row.activity;
+    if (activity) activity.textContent = presentationText(row.activity);
   });
 }
 
@@ -657,7 +660,7 @@ try {
   $('#forget-room').disabled = false;
   restoreRoom();
 } catch (error) {
-  $('#error').textContent = error.message;
+  $('#error').textContent = presentationText(error.message);
   $('#error').hidden = false;
   $('#retry').textContent = 'Reconnect to Common Room';
   $('#retry').hidden = false;

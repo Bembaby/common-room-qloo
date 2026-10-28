@@ -71,8 +71,8 @@
     },
     {
       "path": "public/examples/curator-worked-example.json",
-      "bytes": 124721,
-      "sha256": "629e488a6a0951841083509c63dc13b62d101ef027c4346c28569fadd67b8b21"
+      "bytes": 124902,
+      "sha256": "795400b7655e73cc1c4d975c96c4fb3aba2f14e2ca034c1d416c4193dfef2bd3"
     }
   ],
   "updatedAt": "2026-10-28T18:56:12.610Z"

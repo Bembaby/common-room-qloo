@@ -40,6 +40,7 @@ const manifest = [];
 for (const path of files.sort()) {
   const bytes = await readFile(resolve(root, path));
   const text = bytes.toString('utf8');
+  if (/\.(?:js|json|html|css|md|txt|srt|vtt)$/i.test(path) && text.includes(String.fromCodePoint(0x2014))) throw new Error(`Typography scan failed: ${path}`);
   if (secrets.some(secret => text.includes(secret)) || /(?:github_pat_|ghp_|vercel_blob_rw_)[A-Za-z0-9_]{20,}/.test(text)) throw new Error(`Credential scan failed: ${path}`);
   const target = resolve(destination, path);
   if (relative(destination, target).startsWith('..')) throw new Error('Unsafe release path.');

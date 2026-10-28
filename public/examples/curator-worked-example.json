@@ -1028,7 +1028,7 @@
         }
       },
       "catalogue": {
-        "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+        "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
         "releaseYear": null,
         "contentRating": null,
         "source": "Qloo catalogue metadata",
@@ -1641,7 +1641,7 @@
           "domain": "artist",
           "rawAffinity": 0.9442755563639301,
           "catalogue": {
-            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
             "releaseYear": null,
             "contentRating": null,
             "source": "Qloo catalogue metadata"
@@ -2148,7 +2148,7 @@
           "domain": "artist",
           "rawAffinity": 0.9442755563639301,
           "catalogue": {
-            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
             "releaseYear": null,
             "contentRating": null,
             "source": "Qloo catalogue metadata"
@@ -2296,7 +2296,7 @@
           "domain": "artist",
           "rawAffinity": 0.7919218255561347,
           "catalogue": {
-            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group - Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway - rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
             "releaseYear": null,
             "contentRating": null,
             "source": "Qloo catalogue metadata"
@@ -2796,5 +2796,10 @@
     "source": "Result restored from this tab",
     "originalGeneratedAt": "2026-10-28T19:46:45.457Z",
     "newProviderQuery": false
+  },
+  "presentationNormalization": {
+    "punctuation": "Long dash replaced with a spaced hyphen for display and export.",
+    "replacements": 8,
+    "decisionDataChanged": false
   }
 }

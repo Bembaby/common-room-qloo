@@ -9,6 +9,7 @@ import { QlooHarnessAdapter, HARNESS_VERSION } from './harness.js';
 import { WorkflowBudget } from './budget.js';
 import { validateInput } from './input.js';
 import { liveSample, resolvedAnchors } from './live-sample.js';
+import { presentationCopy } from '../public/presentation.js';
 
 const files = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
@@ -20,6 +21,7 @@ files.set("/finish.css", ["finish.css", "text/css; charset=utf-8"]);
 files.set('/curation.js', ['curation.js', 'text/javascript; charset=utf-8']);
 files.set('/host-notes.js', ['host-notes.js', 'text/javascript; charset=utf-8']);
 files.set('/saved-room.js', ['saved-room.js', 'text/javascript; charset=utf-8']);
+files.set('/presentation.js', ['presentation.js', 'text/javascript; charset=utf-8']);
 files.set('/examples/curator-worked-example.md', ['examples/curator-worked-example.md', 'text/plain; charset=utf-8']);
 files.set('/examples/curator-worked-example.json', ['examples/curator-worked-example.json', 'application/json; charset=utf-8']);
 files.set('/demo.html', ['demo.html', 'text/html; charset=utf-8']);
@@ -141,11 +143,11 @@ export function createApp({ env = process.env, adapterFactory, budgetFactory } =
       const adapter = adapterFactory ? adapterFactory(input) : mode === 'live' ? new QlooHarnessAdapter({ env }) : new FixtureAdapter(input);
       const streaming = path.endsWith('/stream');
       if (streaming) response.writeHead(200, { 'Content-Type': 'application/x-ndjson; charset=utf-8', 'X-Accel-Buffering': 'no' });
-      const result = await runPlan(input, adapter, {
+      const result = presentationCopy(await runPlan(input, adapter, {
         maxWorkflows: perPlanLimit,
         beforeWorkflow: () => (planBudget ?? globalBudget)?.consume(),
         onEvent: event => { if (streaming && !response.destroyed) response.write(`${JSON.stringify({ type: 'trace', data: event })}\n`); }
-      });
+      }));
       // Functions may freeze as soon as the response ends. Complete the shared
       // lease release first; failed releases remain locked until safe expiry.
       await releaseBudget({ completed: true });
