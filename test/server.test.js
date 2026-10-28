@@ -7,6 +7,7 @@ import { createApp } from '../src/server.js';
 import { FixtureAdapter, fixture } from '../src/fixtures.js';
 import { WorkflowBudget } from '../src/budget.js';
 import { AppError } from '../src/errors.js';
+import { BlobWorkflowBudget } from '../src/blob-budget.js';
 
 async function serve(options, action) {
   const app = createApp(options);
@@ -15,6 +16,50 @@ async function serve(options, action) {
   finally { await new Promise(resolve => app.close(resolve)); }
 }
 const post = (base, body, extra = {}) => fetch(`${base}/api/plan`, { method: 'POST', headers: { 'Content-Type': 'application/json', ...extra }, body: JSON.stringify(body) });
+
+test('confirmed identity-choice stops reconcile only unstarted slots; uncertain failures retain the full reservation', async () => {
+  for (const code of ['QLOO_NEEDS_INPUT', 'QLOO_TIMEOUT', 'QLOO_SCHEMA']) {
+    let state = { version: 1, reservations: [], lease: null, totalReserved: 0 };
+    let revision = 1;
+    const client = {
+      get: async () => { const text = JSON.stringify(state); return { statusCode: 200, stream: new Response(text).body, blob: { etag: String(revision), size: text.length } }; },
+      put: async (_path, text, options) => { assert.equal(options.ifMatch, String(revision)); state = JSON.parse(text); revision++; }
+    };
+    const input = structuredClone(fixture.input);input.circles = input.circles.slice(0, 2);
+    await serve({ env: { APP_MODE: 'live' }, budgetFactory: () => new BlobWorkflowBudget({ client }), adapterFactory: brief => {
+      const adapter = new FixtureAdapter(brief);
+      adapter.recommend = async () => { throw new AppError(code, 'Injected bounded failure', 422, { choices: [] }); };
+      return adapter;
+    } }, async base => {
+      const response = await post(base, input);const value = await response.json();
+      assert.equal(response.status, 422);assert.equal(value.error.code, code);
+      assert.equal(state.totalReserved, code === 'QLOO_NEEDS_INPUT' ? 1 : 15);
+      assert.equal(state.reservations[0].count, code === 'QLOO_NEEDS_INPUT' ? 1 : 15);
+      assert.equal(state.lease, null);
+      if (code === 'QLOO_NEEDS_INPUT') assert.equal(value.error.details.circleId, 'circle-1');
+      assert.equal(value.program, undefined);
+    });
+  }
+});
+
+test('the exact two-anchor ambiguity journey retains 1 plus 2 plus 12 workflow starts instead of three full plans', async () => {
+  let state = { version: 1, reservations: [], lease: null, totalReserved: 0 }, revision = 1, attempt = 0;
+  const client = {
+    get: async () => { const text = JSON.stringify(state); return { statusCode: 200, stream: new Response(text).body, blob: { etag: String(revision), size: text.length } }; },
+    put: async (_path,text,options) => { assert.equal(options.ifMatch,String(revision));state=JSON.parse(text);revision++; }
+  };
+  const input=structuredClone(fixture.input);input.circles=input.circles.slice(0,2);
+  await serve({ env:{APP_MODE:'live'},budgetFactory:()=>new BlobWorkflowBudget({client,env:{QLOO_MAX_WORKFLOWS_PER_HOUR:'22'}}),adapterFactory:brief=>{
+    const current=++attempt,adapter=new FixtureAdapter(brief),recommend=adapter.recommend.bind(adapter);let calls=0;
+    adapter.recommend=async(...args)=>{calls++;if(current===1&&calls===1||current===2&&calls===2)throw new AppError('QLOO_NEEDS_INPUT','Injected resolved stop',422,{choices:[]});return recommend(...args);};return adapter;
+  }},async base=>{
+    assert.equal((await post(base,input)).status,422);
+    assert.equal((await post(base,input)).status,422);
+    const final=await post(base,input);assert.equal(final.status,200);const result=await final.json();
+    assert.equal(result.mode,'fixture');assert.equal(result.budget.workflowCount,12);
+    assert.deepEqual(state.reservations.map(row=>row.count),[1,2,12]);assert.equal(state.totalReserved,15);
+  });
+});
 
 test('an asynchronous hosted quota failure stops before any provider adapter is constructed', async () => {
   let adapters = 0;

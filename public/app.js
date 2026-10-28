@@ -1,4 +1,6 @@
 import { explainCuration, explainVetoes, slotNames } from './curation.js';
+import { hostFields, normalizeHostNotes, hostNoteState, hostNotesMarkdown, hostRunningOrder } from './host-notes.js';
+import { parseSavedRoom } from './saved-room.js';
 const $ = selector => document.querySelector(selector);
 let config;
 let currentResult;
@@ -7,6 +9,10 @@ let resultFormSnapshot;
 let progressStage = 1;
 let elapsedTimer;
 const chosenIdentities = new Map();
+const hostNotesByRun = new Map();
+let currentHostNotes = normalizeHostNotes();
+let restoredResult = false;
+const savedKey = mode => `common-room-saved-room-v1-${mode}`;
 const scrollBehavior = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
 function node(tag, attributes = {}, children = []) {
@@ -41,23 +47,75 @@ function updateBriefState() {
   if (notice) notice.hidden = !changed;
   for (const veto of document.querySelectorAll('[data-veto]')) veto.disabled = Boolean(changed || busy);
   $('#run span').textContent = changed ? 'Update the common thread' : 'Find our common thread';
+  saveRoom();
 }
 
-function renderChoices(choices = []) {
+function saveRoom() {
+  if (!config || !$('#circle-name-2')) return;
+  try {
+    sessionStorage.setItem(savedKey(config.mode), JSON.stringify({ version: 1, mode: config.mode, savedAt: new Date().toISOString(), busy, form: {
+      venue: $('#venue').value, minutes: $('#minutes').value, coverage: $('#coverage').value, circleCount: $('#circle-count').value, vetoes: $('#vetoes').value,
+      circles: [...document.querySelectorAll('#circles .circle')].map(circle => ({ name: circle.querySelector('input').value, anchors: circle.querySelector('textarea').value }))
+    }, identities: [...chosenIdentities].slice(-40), result: currentResult ?? null, resultFormSnapshot, notes: currentHostNotes }));
+    const message = 'Saved locally in this tab. Reopening makes no provider call. Export a copy to keep it elsewhere.';
+    if ($('#saved-room-status').textContent !== message) $('#saved-room-status').textContent = message;
+  } catch {
+    $('#saved-room-status').textContent = 'Local saving is unavailable. Keep this page open and export your brief and evidence before leaving.';
+  }
+}
+
+function restoreRoom() {
+  try {
+    const raw = sessionStorage.getItem(savedKey(config.mode));
+    if (!raw) return;
+    const saved = parseSavedRoom(raw, config.mode), form = saved.form;
+    $('#venue').value = form.venue;$('#minutes').value = form.minutes;$('#coverage').value = form.coverage;$('#coverage-value').textContent = form.coverage;$('#circle-count').value = form.circleCount;$('#vetoes').value = form.vetoes;
+    form.circles.forEach((circle,index)=>{$(`#circle-name-${index}`).value=circle.name;$(`#circle-anchors-${index}`).value=circle.anchors;});
+    chosenIdentities.clear();saved.identities.forEach(([key,value])=>chosenIdentities.set(key,value));syncCircles();
+    if (saved.result) {
+      hostNotesByRun.set(saved.result.id,saved.notes);renderResult(saved.result,{formSnapshot:saved.resultFormSnapshot,focus:false});restoredResult=true;
+      $('#empty').hidden=true;
+      $('#results').prepend(node('div',{class:'previous-result-notice',role:'status'},[paragraph(`Saved result from ${new Date(saved.result.generatedAt).toLocaleString()}. No new Qloo query was made. Its original evidence and host notes are restored from this tab.`)]));
+    }
+    if (saved.busy) {
+      $('#error').replaceChildren(paragraph('The previous attempt was interrupted in this tab and may have used quota. No automatic retry was made. Review your preserved brief before trying again.'));
+      $('#error').hidden=false;$('#retry').hidden=false;
+    }
+    updateBriefState();
+  } catch {
+    reset({ clearSaved: false });
+    $('#saved-room-status').textContent = 'The saved room could not be reopened. You can start a new brief; no provider query was made.';
+  }
+}
+
+function renderChoices(choices = [], context = {}) {
   const panel = $('#resolution');
   panel.replaceChildren();
   panel.hidden = true;
   for (const choice of choices) {
     if (!choice.candidates?.length) continue;
-    const group = node('section', { class: 'resolution-choice' }, [node('h3', { text: `Which ${choice.input} did you mean?` }), paragraph('Qloo returned these identities. Choose a specific cultural anchor, then run your brief again.')]);
+    const group = node('section', { class: 'resolution-choice' }, [node('h3', { text: `Which ${choice.input} did you mean?` }), paragraph(`${context.circleName ? context.circleName + ': ' : ''}Qloo returned these identities. Choose a specific cultural anchor, then run your brief again.`)]);
     for (const candidate of choice.candidates) {
-      const button = node('button', { type: 'button', class: 'secondary', text: `${candidate.name} · ${candidate.type.replace('urn:entity:', '')}` });
+      const button = node('button', { type: 'button', class: 'secondary', text: `${candidate.name} · ${candidate.type.replace('urn:entity:', '')} · ${candidate.id.slice(-6)}` });
       button.addEventListener('click', () => {
-        for (const input of document.querySelectorAll('#circles textarea')) {
-          input.value = input.value.split('\n').map(anchor => anchor.trim() === choice.input ? candidate.name : anchor).join('\n');
+        let changed = false;
+        for (const [index, input] of [...document.querySelectorAll('#circles textarea')].entries()) {
+          if (context.circleId && context.circleId !== `circle-${index + 1}`) continue;
+          if (changed && !context.circleId) break;
+          input.value = input.value.split('\n').map((anchor, line) => {
+            if (anchor.trim() !== choice.input) return anchor;
+            chosenIdentities.set(`${index}:${line}:${candidate.name}`, candidate.id);
+            changed = true;
+            return candidate.name;
+          }).join('\n');
         }
-        chosenIdentities.set(candidate.name, candidate.id);
+        if (!changed) {
+          group.replaceChildren(paragraph('This anchor has changed since the choice was requested. Run the updated brief to resolve its current identity.', 'resolution-selected'));
+          $('#retry').focus();
+          return;
+        }
         group.replaceChildren(paragraph(`Selected ${candidate.name} (${candidate.type.replace('urn:entity:', '')}). Its exact Qloo identity is retained for your next run; the name stays readable in your brief.`, 'resolution-selected'));
+        updateBriefState();
         $('#retry').focus();
       });
       group.append(button);
@@ -67,11 +125,13 @@ function renderChoices(choices = []) {
   }
 }
 
-function reset() {
+function reset({ clearSaved = true } = {}) {
   if (busy) return;
   currentResult = undefined;
   resultFormSnapshot = undefined;
   chosenIdentities.clear();
+  hostNotesByRun.clear();currentHostNotes=normalizeHostNotes();restoredResult=false;
+  if (clearSaved) { try { sessionStorage.removeItem(savedKey(config.mode)); } catch {} }
   $('#run span').textContent = 'Find our common thread';
   $('#results').hidden = true;
   $('#error').hidden = true;
@@ -100,6 +160,7 @@ function reset() {
     $('#circles').append(card);
   });
   syncCircles();
+  if (clearSaved) $('#saved-room-status').textContent = 'Saved room cleared. The sample is ready; no query has been made.';
 }
 
 function syncCircles() {
@@ -116,8 +177,10 @@ function readInput() {
     venue: $('#venue').value,
     circles: config.sample.circles.slice(0, Number($('#circle-count').value)).map((_, index) => ({
       name: $(`#circle-name-${index}`).value,
-      anchors: $(`#circle-anchors-${index}`).value.split('\n').map(value => value.trim()).filter(Boolean)
-        .map(value => chosenIdentities.get(value) ?? config.resolvedAnchors?.find(anchor => anchor.name === value)?.id ?? value)
+      anchors: $(`#circle-anchors-${index}`).value.split('\n').map((value, line) => {
+        const text = value.trim();
+        return chosenIdentities.get(`${index}:${line}:${text}`) ?? config.resolvedAnchors?.find(anchor => anchor.name === text)?.id ?? text;
+      }).filter(Boolean)
     })),
     minutes: Number($('#minutes').value),
     minimumCoverage: Number($('#coverage').value),
@@ -158,6 +221,10 @@ function briefMarkdown(result) {
     `Generated: ${result.generatedAt}`, '',
     '## Decision', '', ...(result.decision.reasons.length ? result.decision.reasons : ['The brief meets the stated comparison threshold and exact vetoes.']), ''
   ];
+  lines.push('## Originating cultural anchors', '');
+  for (const circle of result.anchorEvidence ?? result.input.circles.map(circle => ({ ...circle, anchors: circle.anchors.map(input => ({ input, name: input })) }))) {
+    lines.push(`### ${circle.name}`, '', ...circle.anchors.map(anchor => `- ${anchor.name ?? anchor.input}${anchor.type ? ` (${anchor.type.replace('urn:entity:', '')})` : ''}${anchor.id ? `; Qloo ID: ${anchor.id}` : ''}. Source: ${anchor.source ?? 'Provided input'}.`), '');
+  }
   const bundle = result.decision.selected ?? result.decision.bestUnqualified;
   const curation = result.curation ?? explainCuration(bundle, result.input, result.decision.baseline, result.evidence);
   lines.push('## Binding vetoes', '', ...(result.input.vetoes.length ? result.input.vetoes.map(veto => `- ${veto}`) : ['None specified.']), '');
@@ -170,11 +237,12 @@ function briefMarkdown(result) {
     if (result.decision.baseline) lines.push('', `Average-only selections: ${result.decision.baseline.items.map(item => item.name).join('; ')}.`, curation.sameAsAverage ? 'Both policies selected the same three works in this run.' : 'Both policies used the same eligible shortlist and binding vetoes.', '');
   }
   if (result.program) {
+    lines.push(hostNotesMarkdown(currentHostNotes));
     lines.push('## Host preparation', '', ...(result.program.preparation ?? []).map(value => `- ${value}`), '', '## One connecting question', '', result.program.openingQuestion ?? curation?.connectionQuestion ?? '', '');
     lines.push(`## ${result.program.title}`, '', result.program.description, '', '| Minutes | Activity |', '| --- | --- |');
     for (const row of result.program.schedule) lines.push(`| ${row.minutes} | ${row.label.replaceAll('|', '/')} |`);
     lines.push('', '## Host prompts', '');
-    for (const row of result.program.schedule) lines.push(`- ${row.activity}`);
+    for (const row of hostRunningOrder(result.program, currentHostNotes)) lines.push(`- ${row.activity}`);
     lines.push('', result.program.note, '');
   }
   lines.push('## Coverage', '', result.scoring.explanation, '');
@@ -183,13 +251,14 @@ function briefMarkdown(result) {
   return lines.join('\n');
 }
 
-function matrix(bundle, input) {
+function matrix(bundle, input, anchorEvidence = []) {
   const table = node('table', { class: 'matrix', 'aria-label': 'Relative rank coverage by taste circle and selected cultural work' });
   const head = node('tr', {}, [node('th', { scope: 'col', text: 'Taste circle' }), ...['Read', 'Listen', 'Discuss', 'Coverage'].map(text => node('th', { scope: 'col', text }))]);
   table.append(node('thead', {}, [head]));
   const body = node('tbody');
   input.circles.forEach(circle => {
-    const cells = [node('td', { text: circle.name })];
+    const names = anchorEvidence.find(row => row.circleId === circle.id)?.anchors.map(anchor => anchor.name ?? anchor.input).join(' / ');
+    const cells = [node('td', {}, [node('strong', { text: circle.name }), ...(names ? [paragraph(names, 'originating-anchor')] : [])])];
     for (const item of bundle.items) {
       const score = item.scores[circle.id];
       const value = score?.relativeScore ?? 0;
@@ -210,7 +279,8 @@ function matrix(bundle, input) {
     }
     const coverage = bundle.metrics.coverage.find(row => row.circleId === circle.id).score;
     values.append(node('div', { class: 'circle-coverage' }, [node('dt', { text: 'Coverage' }), node('dd', { text: format(coverage) })]));
-    mobile.append(node('section', {}, [node('h4', { text: circle.name }), values]));
+    const names = anchorEvidence.find(row => row.circleId === circle.id)?.anchors.map(anchor => anchor.name ?? anchor.input).join(' / ');
+    mobile.append(node('section', {}, [node('h4', { text: circle.name }), ...(names ? [paragraph(names, 'originating-anchor')] : []), values]));
   });
   return node('div', {}, [node('div', { class: 'matrix-scroll' }, [table]), mobile]);
 }
@@ -219,10 +289,11 @@ function section(title, description, children) {
   return node('section', { class: 'result-section', tabindex: '-1' }, [node('h3', { text: title }), paragraph(description), ...children]);
 }
 
-function renderResult(result) {
+function renderResult(result, { formSnapshot, focus = true } = {}) {
   currentResult = result;
+  currentHostNotes = hostNotesByRun.get(result.id) ?? normalizeHostNotes();
   $('#veto-feedback').textContent = '';
-  resultFormSnapshot = JSON.stringify(readInput());
+  resultFormSnapshot = formSnapshot ?? JSON.stringify(readInput());
   const container = $('#results');
   container.replaceChildren();
   container.hidden = false;
@@ -232,7 +303,7 @@ function renderResult(result) {
   let curatorialNote;
   container.append(node('div', { class: 'decision-header' }, [
     node('div', {}, [node('h3', { text: ready ? result.program.title : 'Keep the room open.' }), paragraph(ready ? `${result.input.minutes} minutes · ${result.input.venue}` : 'This brief needs a decision from its owner.')]),
-    node('span', { class: `pill${ready ? '' : ' blocked'}`, text: ready ? 'BRIEF READY' : 'CONSTRAINTS NOT MET' })
+    node('span', { class: `pill${ready ? '' : ' blocked'}`, text: ready ? 'SHORTLIST READY' : 'CONSTRAINTS NOT MET' })
   ]));
   container.append(paragraph(result.evidenceLabel, 'artifact-note'));
   container.append(node('div', { id: 'stale-notice', class: 'stale-notice', role: 'status', hidden: '' }, [paragraph('Your brief has changed. This result and its exports still describe the previous brief.'), node('button', { type: 'submit', form: 'planner', class: 'secondary', text: 'Run the updated brief' })]));
@@ -240,7 +311,7 @@ function renderResult(result) {
   const brief = node('button', { class: 'secondary', type: 'button', text: ready ? 'Export host brief' : 'Export decision note' });
   brief.addEventListener('click', () => download(ready ? 'common-room-brief.md' : 'common-room-decision.md', briefMarkdown(result), 'text/markdown'));
   const evidence = node('button', { class: 'secondary', type: 'button', text: 'Export evidence JSON' });
-  evidence.addEventListener('click', () => download('common-room-evidence.json', JSON.stringify(result, null, 2), 'application/json'));
+  evidence.addEventListener('click', () => download('common-room-evidence.json', JSON.stringify({ ...result, ...(ready ? { hostNotes: hostNoteState(currentHostNotes) } : {}), ...(restoredResult ? { exportContext: { source: 'Result restored from this tab', originalGeneratedAt: result.generatedAt, newProviderQuery: false } } : {}) }, null, 2), 'application/json'));
   exports.append(brief, evidence);
   if (ready) {
     const print = node('button', { type: 'button', class: 'text-button', text: 'Print host copy' });
@@ -253,9 +324,9 @@ function renderResult(result) {
     for (const [id, label] of [['program-selections','The program'],['circle-coverage','Every circle'],['program-tradeoffs','The tradeoff'],['host-copy','Host copy']]) nav.append(node('a', { href: `#${id}`, text: label }));
     container.append(nav);
     curatorialNote = node('section', { class: 'curatorial-note', tabindex: '-1' }, [
-      node('h3', { text: 'Three works. One conversation.' }),
+      node('h3', { text: 'A shortlist to shape together.' }),
       paragraph(curation.connectionQuestion, 'connecting-question'),
-      paragraph('Carry one detail into the next work, then compare what changed. Your guests make the connection; Qloo supplies rankings, not shared themes. No full screening is assumed.', 'curation-context')
+      paragraph('This is a draft discussion prompt. Qloo supports the shortlist; you choose the passage, recording and substantive connection in the host copy below. No full screening is assumed.', 'curation-context')
     ]);
   }
   if (!ready) {
@@ -281,6 +352,17 @@ function renderResult(result) {
         paragraph(facts.invitations.length ? `Highest of these three for ${facts.invitations.join(' and ')}, by relative rank.` : 'Part of the balanced bundle. No circle ranks it highest among these three selections.', 'work-reason'),
         paragraph(`Ranked by ${facts.observedCircles} of ${result.input.circles.length} circles. ${result.mode === 'fixture' ? 'Synthetic rankings.' : 'Actual Qloo rankings.'}`, 'work-source')
       ]);
+      const catalogue = node('details', { class: 'catalogue-details' }, [node('summary', { text: 'About this selection & its source' })]);
+      if (item.catalogue?.description) catalogue.append(paragraph(item.catalogue.description, 'catalogue-note'));
+      else catalogue.append(paragraph('A catalogue description was not returned. Research this exact work before choosing your discussion material.', 'explanation'));
+      if (item.catalogue?.releaseYear || item.catalogue?.contentRating) catalogue.append(paragraph([item.catalogue.releaseYear, item.catalogue.contentRating].filter(Boolean).join(' · '), 'catalogue-facts'));
+      const source = node('a', { href: `#evidence-${item.id}`, text: `Inspect ${result.mode === 'fixture' ? 'fixture' : 'Qloo'} identity & source`, class: 'catalogue-source' });
+      source.addEventListener('click', event => {
+        event.preventDefault();
+        const row = $(`#evidence-${item.id}`);row.closest('details').open = true;row.focus({ preventScroll: true });row.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
+      });
+      catalogue.append(source, node('a', { href: `https://www.google.com/search?q=${encodeURIComponent(`${item.name} ${item.domain === 'artist' ? 'music artist' : item.domain}`)}`, target: '_blank', rel: 'noreferrer', text: 'Research this title or artist', class: 'catalogue-source' }), paragraph('Search by name only; external pages are not verified by Common Room.', 'explanation'));
+      card.append(catalogue);
       if (ready) {
         const veto = node('button', { ...(item.domain === 'book' ? { id: 'veto-selected' } : {}), type: 'button', class: 'text-button veto-work', 'data-veto': item.id, text: `Veto this ${item.domain}` });
         veto.addEventListener('click', () => {
@@ -297,7 +379,7 @@ function renderResult(result) {
     })));
     if (ready) evidenceContainer.append(curatorialNote);
     const coverageSection = section('A reason for every seat', `Lowest circle coverage: ${curation.weakestCircles.join(' and ')}, at ${format(bundle.metrics.minimum)}/100. Your minimum is ${result.input.minimumCoverage}.`, [
-      matrix(bundle, result.input), paragraph('100 means first in this shortlist. It does not mean certain interest. A missing graph result is shown as ? and counted conservatively as 0.', 'explanation')
+      matrix(bundle, result.input, result.anchorEvidence), paragraph('100 means first in this shortlist. It does not mean certain interest. A missing graph result is shown as ? and counted conservatively as 0.', 'explanation')
     ]);
     coverageSection.id = 'circle-coverage';
     const entryList = node('ul', { class: 'entry-points' });
@@ -330,7 +412,8 @@ function renderResult(result) {
         rows.push(paragraph(`${circle.name}: ${score.observed ? `rank ${score.rank}/${score.totalOptions}; raw ${result.mode === 'fixture' ? 'synthetic' : 'Qloo'} affinity ${score.rawAffinity ?? 'not supplied'}` : 'not returned'}; ${score.workflowId}.`));
         rows.push(paragraph(`Source: ${workflow.provenance.source}. ${workflow.provenance.endpoint ?? 'Local fixture, no API endpoint.'}`));
       }
-      details.append(node('div', { class: 'evidence-row' }, rows));
+      rows.push(paragraph(`Catalogue source: ${item.catalogue?.workflowId ?? 'No catalogue text supplied'}. Descriptive metadata is separate from rank evidence.`));
+      details.append(node('div', { class: 'evidence-row', id: `evidence-${item.id}`, tabindex: '-1' }, rows));
     }
     evidenceContainer.append(details);
   }
@@ -347,29 +430,58 @@ function renderResult(result) {
       minute += row.minutes;
       return node('li', { class: 'program-row' }, [node('div', { class: 'schedule-time' }, [node('span', { class: 'time-range', text: `${time(start)} to ${time(minute)}` }), node('span', { class: 'duration', text: `${row.minutes} min` })]), node('div', {}, [node('h4', { text: row.label }), paragraph(row.activity)])]);
     }));
-    const host = section('A night the host can actually run', result.program.description, [
+    const host = section('Finish the host working copy', 'Choose the content and question before hosting. Your notes stay in this page and appear in print, Markdown and JSON; they do not change Qloo rankings.', [
       node('details', { class: 'preparation-details' }, [node('summary', { text: 'Before guests arrive' }), node('ul', {}, (result.program.preparation ?? []).map(text => node('li', { text })))]),
       schedule,
       paragraph(result.program.note, 'explanation')
     ]);
+    const workbench = node('fieldset', { class: 'host-workbench' }, [node('legend', { text: 'Four choices that make this your evening' }), paragraph('', 'host-note-status')]);
+    for (const field of hostFields) {
+      const input = node('textarea', { id: `host-${field.key}`, rows: field.key === 'question' ? '3' : '2', maxlength: String(field.max), placeholder: field.placeholder });input.value = currentHostNotes[field.key];
+      input.addEventListener('input', () => {
+        currentHostNotes = normalizeHostNotes(Object.fromEntries(hostFields.map(row => [row.key, $(`#host-${row.key}`).value])));
+        hostNotesByRun.set(result.id, currentHostNotes);updateHostCopy();saveRoom();
+      });
+      workbench.append(node('div', { class: ['filmMoment','question'].includes(field.key) ? 'host-note-field host-question' : 'host-note-field' }, [node('label', { for: input.id, text: field.label }), input]));
+    }
+    const captured = node('section', { class: 'host-notes-copy', 'aria-label': 'Host-entered content choices' });
+    host.insertBefore(workbench, host.querySelector('.preparation-details'));
+    host.insertBefore(captured, host.querySelector('.preparation-details'));
     host.id = 'host-copy';host.classList.add('host-sheet');container.append(host);
+    updateHostCopy();
   }
   const generated = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(result.generatedAt));
   container.append(paragraph(`${generated} · ${result.budget.workflowCount}/${result.budget.workflowLimit} bounded workflows · ${result.decision.refined ? 'One targeted refinement used' : 'No refinement used'} · No auto-publishing`, 'explanation run-metadata'));
   const heading = container.querySelector('.decision-header h3');
   heading.setAttribute('tabindex', '-1');
-  heading.focus({ preventScroll: true });
-  heading.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
+  if (focus) { heading.focus({ preventScroll: true });heading.scrollIntoView({ behavior: scrollBehavior(), block: 'start' }); }
+}
+
+function updateHostCopy() {
+  const state = hostNoteState(currentHostNotes);
+  const status = $('.host-note-status');
+  if (!status) return;
+  status.textContent = `${state.completed}/4 host choices recorded. ${state.missing.length ? 'Preparation still needed before hosting.' : 'Content choices recorded; check permissions, availability and access needs.'}`;
+  $('.host-notes-copy').replaceChildren(node('h4', { text: 'Your content choices' }), ...hostFields.map(field => node('div', { class: 'host-choice' }, [node('strong', { text: field.label }), paragraph(state.notes[field.key] || 'Still to choose before hosting.')])), paragraph('Host-entered notes. Qloo does not verify these materials, the connection or permissions.', 'explanation'));
+  hostRunningOrder(currentResult.program, state.notes).forEach((row, index) => {
+    const activity = document.querySelectorAll('#host-copy .program-row > div:last-child > p')[index];
+    if (activity) activity.textContent = row.activity;
+  });
 }
 
 async function run(event) {
   event.preventDefault();
   if (busy) return;
+  const previousResult = currentResult;
+  const previousSnapshot = resultFormSnapshot;
+  const previousRestored = restoredResult;
   busy = true;
+  saveRoom();
   $('#run').disabled = true;
   $('#quick-run').disabled = true;
   $('#quick-run').textContent = 'Working through the brief';
   $('#reset').disabled = true;
+  $('#forget-room').disabled = true;
   $('#strict').disabled = true;
   $('#error').hidden = true;
   $('#retry').hidden = true;
@@ -413,7 +525,7 @@ async function run(event) {
       if (!line.trim()) return;
       const item = JSON.parse(line);
       if (item.type === 'trace') trace(item.data);
-      if (item.type === 'result') { renderResult(item.data); gotResult = true; }
+      if (item.type === 'result') { renderResult(item.data); restoredResult = false; gotResult = true; }
       if (item.type === 'error') throw providerError(item.error);
     };
     while (true) {
@@ -430,9 +542,14 @@ async function run(event) {
     $('#results').hidden = true;
     currentResult = undefined;
     resultFormSnapshot = undefined;
+    if (previousResult) {
+      renderResult(previousResult, { formSnapshot: previousSnapshot, focus: false });
+      restoredResult = previousRestored;
+      $('#results').prepend(node('div', { class: 'previous-result-notice', role: 'status' }, [paragraph('This attempt did not complete. The result below is your earlier completed run, with its original evidence and host notes. It is not a fresh result for the failed attempt.')]));
+    }
     const recoveries = {
       BUSY: 'Another room is being planned. Wait for it to finish, then try your preserved brief again.',
-      GLOBAL_WORKFLOW_LIMIT: 'The shared hourly allowance is reserved. Return after the window resets. Your brief is still here.',
+      GLOBAL_WORKFLOW_LIMIT: error.message,
       TOTAL_WORKFLOW_LIMIT: 'The event allowance is reserved. Live planning is paused. You can still edit your brief.',
       BUDGET_STORAGE: 'The shared quota store could not be checked. Live planning is paused. Try again later.',
       QLOO_NEEDS_INPUT: 'Qloo found more than one matching identity. Choose the intended anchor below, then try again.',
@@ -443,7 +560,7 @@ async function run(event) {
     $('#error').hidden = false;
     $('#retry').textContent = 'Try the brief again';
     $('#retry').hidden = false;
-    renderChoices(error.details?.choices);
+    renderChoices(error.details?.choices, error.details);
     $('#error').focus({ preventScroll: true });
     $('#error').scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
   } finally {
@@ -453,6 +570,7 @@ async function run(event) {
     $('#quick-run').disabled = false;
     $('#quick-run').textContent = 'Plan this brief';
     $('#reset').disabled = false;
+    $('#forget-room').disabled = false;
     $('#strict').disabled = false;
     $('#running').hidden = true;
     $('#planner').setAttribute('aria-busy', 'false');
@@ -472,6 +590,7 @@ $('#retry').addEventListener('click', () => {
   else $('#planner').requestSubmit();
 });
 $('#reset').addEventListener('click', reset);
+$('#forget-room').addEventListener('click', reset);
 $('#strict').addEventListener('click', () => {
   if (busy) return;
   $('#coverage').value = 95;
@@ -500,7 +619,9 @@ try {
   $('#start-note').textContent = config.mode === 'live'
     ? 'The sample is ready to run. Live searches can take a couple of minutes.'
     : 'Explore the fixed sample. Synthetic evidence, with no Qloo API calls.';
-  reset();
+  reset({ clearSaved: false });
+  $('#forget-room').disabled = false;
+  restoreRoom();
 } catch (error) {
   $('#error').textContent = error.message;
   $('#error').hidden = false;

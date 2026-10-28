@@ -59,7 +59,7 @@ function upstreamFailure(envelope, exitCode) {
   return new AppError('QLOO_UPSTREAM', 'Qloo did not complete this workflow. Inspect your local harness configuration before retrying.', 502);
 }
 
-export function validateEnvelope(envelope, { operation, domain, optionIds }) {
+export function validateEnvelope(envelope, { operation, domain, optionIds, signals = [] }) {
   if (!envelope || typeof envelope !== 'object' || Array.isArray(envelope)) throw new AppError('QLOO_SCHEMA', 'Qloo returned an invalid JSON envelope.', 502);
   if (envelope.error || envelope.status === 'error') throw upstreamFailure(envelope);
   if (envelope.schema_version !== RESULT_SCHEMA || envelope.operation !== operation) {
@@ -100,7 +100,16 @@ export function validateEnvelope(envelope, { operation, domain, optionIds }) {
       throw new AppError('QLOO_SCHEMA', 'The Qloo affinity value is not a finite number under the supported contract.', 502);
     }
     seen.add(entity.entity_id);
-    return { id: entity.entity_id, name: entity.name, domain, rawAffinity: entity.affinity ?? null };
+    // Optional catalogue text stays bounded display data. It never chooses a
+    // tool, changes a constraint or enters a command or language-model prompt.
+    const properties = entity.properties && typeof entity.properties === 'object' && !Array.isArray(entity.properties) ? entity.properties : {};
+    const catalogueText = value => typeof value === 'string' && !/[\u0000-\u0008\u000e-\u001f\u007f]/u.test(value) ? value.replace(/\s+/gu, ' ').trim().slice(0, 600) : '';
+    const description = catalogueText(properties.short_description) || catalogueText(properties.description);
+    const year = Number(properties.release_year);
+    const releaseYear = Number.isInteger(year) && year >= 1000 && year <= 2100 ? year : null;
+    const contentRating = typeof properties.content_rating === 'string' && /^[\w +()-]{1,32}$/u.test(properties.content_rating) ? properties.content_rating : null;
+    const catalogue = description || releaseYear || contentRating ? { description: description || null, releaseYear, contentRating, source: 'Qloo catalogue metadata' } : undefined;
+    return { id: entity.entity_id, name: entity.name, domain, rawAffinity: entity.affinity ?? null, ...(catalogue ? { catalogue } : {}) };
   });
   if (envelope.result_count !== undefined && envelope.result_count !== entities.length) {
     throw new AppError('QLOO_SCHEMA', 'Qloo result_count did not match the result list.', 502);
@@ -108,6 +117,9 @@ export function validateEnvelope(envelope, { operation, domain, optionIds }) {
   const queryDigest = createHash('sha256').update(JSON.stringify(provenance.requests)).digest('hex');
   return {
     entities,
+    resolvedAnchors: (Array.isArray(envelope.interpretation?.signals) ? envelope.interpretation.signals : [])
+      .filter(anchor => signals.includes(anchor?.input) && UUID.test(anchor?.entityId ?? '') && cleanText(anchor?.name, 240))
+      .slice(0, 3).map(anchor => ({ input: anchor.input, id: anchor.entityId, name: anchor.name, type: /^urn:entity:[a-z_]+$/u.test(anchor.type ?? '') ? anchor.type : null })),
     provenance: {
       mode: 'live', source: 'Qloo API', endpoint: '/v2/insights',
       documentation: 'https://docs.qloo.com/reference/insights-api-deep-dive',
@@ -162,7 +174,7 @@ export class QlooHarnessAdapter {
     try { envelope = JSON.parse(result.stdout); }
     catch { throw new AppError('QLOO_SCHEMA', 'The Qloo harness did not return a single valid JSON result.', 502); }
     if (result.code !== 0) throw upstreamFailure(envelope, result.code);
-    return validateEnvelope(envelope, { operation, domain, optionIds: options.entities ? new Set(options.entities.map(entity => entity.id)) : undefined });
+    return validateEnvelope(envelope, { operation, domain, signals, optionIds: options.entities ? new Set(options.entities.map(entity => entity.id)) : undefined });
   }
 
   recommend(circle, domain, limit = 3) { return this.workflow('recommend', domain, circle.anchors, { limit }); }

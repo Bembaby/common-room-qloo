@@ -42,9 +42,9 @@ The app supplies at most ten candidate IDs. It uses the same candidate IDs for e
 
 The required envelope has `schema_version: "1.0-preview.1"`, the requested operation, a supported status, and a results array. Each accepted entity has a UUID `entity_id`, a bounded nonempty `name`, and either the expected `urn:entity:*` type or generic `type: "urn:entity"` with that exact cultural subtype. An optional affinity must be finite and numeric. The generic-type/subtype representation was observed in actual event results October 28 and verified against `compactEntity` in pinned `dist/qloo-tools.js`, which preserves both fields. Wrong or absent subtypes remain rejected.
 
-Successful results must identify `Qloo API` as their provenance source, `/v2/insights` as the endpoint, and at least one corresponding GET request in the provenance array. Names, IDs, type, affinity, and a bounded provenance summary enter the application model. Arbitrary entity descriptions and nested metadata do not.
+Successful results must identify `Qloo API` as their provenance source, `/v2/insights` as the endpoint, and at least one corresponding GET request in the provenance array. Names, IDs, type, affinity, and a bounded provenance summary enter the application model. Optional catalogue descriptions are limited to600 characters of literal display text, with a bounded year/rating. Arbitrary nested metadata, images, addresses and instructions do not enter tool decisions. Catalogue facts never change scores or constraints.
 
-The harness also supplies interpretation, resolution, query-intent, and execution metadata. Common Room does not depend on every optional field. It validates the fields needed to establish the identity, domain, score provenance, and request relationship of each candidate.
+The harness also supplies interpretation, resolution, query-intent, and execution metadata. Common Room does not depend on every optional field. It retains bounded `interpretation.signals` identities only when their input belongs to the actual requested signals. The original input, resolved name/type/UUID and workflow are preserved together. These optional fields are confirmed in pinned `compactEntity` and `interpretedEntity` source; absence remains explicit rather than invented.
 
 | Condition | App behavior |
 | --- | --- |

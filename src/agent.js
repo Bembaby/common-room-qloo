@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { AppError } from './errors.js';
-import { DOMAINS, validateInput, isVetoed } from './input.js';
+import { DOMAINS, UUID, validateInput, isVetoed } from './input.js';
 import { optimize, rankScores } from './optimizer.js';
 import { explainCuration } from '../public/curation.js';
 
@@ -36,7 +36,7 @@ function makeProgram(bundle, input, curation) {
       { minutes: discuss, label: `Discuss: ${movie.name}`, activity: `Use ${movie.name} as a film conversation prompt. Ask: ${curation.connectionQuestion} Let participants name the connection or disagreement; do not assume a shared theme.`, entityId: movie.id },
       { minutes: close, label: 'Leave with a bridge', activity: 'Each participant names one unfamiliar work they now want to explore. Collect voluntary feedback before repeating the event.' }
     ],
-    note: 'This is a planning brief with discussion prompts. No screening, performer availability, inventory, licensing, attendance, or sales is verified.'
+    note: 'This is a proposed cultural shortlist and timed planning template. The host must choose the actual materials and connecting question before hosting. No screening, performer availability, inventory, licensing, attendance, or sales is verified.'
   };
 }
 
@@ -68,9 +68,17 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
     workflowCount += 1;
     const workflowId = `workflow-${String(workflowCount).padStart(2, '0')}`;
     emit('tool', `${operation === 'recommend' ? 'Discover' : 'Compare'} ${domain} candidates for ${circle.name}.`, { workflowId, operation, circleId: circle.id, domain });
-    const result = operation === 'recommend'
-      ? await adapter.recommend(circle, domain, options.limit ?? 3)
-      : await adapter.rank(circle, domain, options.entities);
+    let result;
+    try {
+      result = operation === 'recommend'
+        ? await adapter.recommend(circle, domain, options.limit ?? 3)
+        : await adapter.rank(circle, domain, options.entities);
+    } catch (error) {
+      if (error instanceof AppError && error.code === 'QLOO_NEEDS_INPUT') {
+        error.details = { ...error.details, circleId: circle.id, circleName: circle.name };
+      }
+      throw error;
+    }
     if (!result || result.provenance?.mode !== adapter.mode || !Array.isArray(result.entities)) {
       throw new AppError('EVIDENCE_MODE_MISMATCH', 'The adapter returned evidence inconsistent with the active mode.', 502);
     }
@@ -78,6 +86,7 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
       workflowId, operation, circleId: circle.id, domain,
       inputs: { anchors: [...circle.anchors], ...(options.entities ? { optionIds: options.entities.map(entity => entity.id) } : { limit: options.limit ?? 3 }) },
       provenance: result.provenance,
+      resolvedAnchors: result.resolvedAnchors ?? [],
       results: result.entities
     });
     emit('observed', `${result.entities.length} ${domain} results received.`, { workflowId, resultCount: result.entities.length });
@@ -95,6 +104,7 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
       }
       if (!existing && [...catalogMap.values()].filter(item => item.domain === domain).length >= 10) continue;
       const record = existing ?? { id: entity.id, name: entity.name, domain, discoveryIds: [], scores: {} };
+      if (entity.catalogue && !record.catalogue) record.catalogue = { ...entity.catalogue, workflowId: result.workflowId };
       record.discoveryIds.push(result.workflowId);
       catalogMap.set(entity.id, record);
     }
@@ -153,6 +163,11 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
     version: '1.0', id, mode: adapter.mode,
     evidenceLabel: adapter.mode === 'live' ? 'Live Qloo graph evidence' : 'Synthetic fixture evidence. No Qloo API was called.',
     status: feasible ? 'ready' : 'blocked', input,
+    anchorEvidence: input.circles.map(circle => ({ circleId: circle.id, name: circle.name, anchors: circle.anchors.map(value => {
+      const record = evidence.find(row => row.circleId === circle.id && row.resolvedAnchors.some(anchor => anchor.input === value));
+      const resolved = record?.resolvedAnchors.find(anchor => anchor.input === value);
+      return resolved ? { ...resolved, workflowId: record.workflowId, source: 'Qloo resolver' } : { input: value, name: UUID.test(value) ? null : value, id: UUID.test(value) ? value : null, type: null, source: adapter.mode === 'fixture' ? 'Synthetic fixture input' : 'Provided input; readable identity not returned' };
+    }) })),
     generatedAt: new Date().toISOString(), elapsedMs: Date.now() - started,
     decision: {
       feasible, reasons,

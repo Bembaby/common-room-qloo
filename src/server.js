@@ -18,6 +18,8 @@ const files = new Map([
 
 files.set("/finish.css", ["finish.css", "text/css; charset=utf-8"]);
 files.set('/curation.js', ['curation.js', 'text/javascript; charset=utf-8']);
+files.set('/host-notes.js', ['host-notes.js', 'text/javascript; charset=utf-8']);
+files.set('/saved-room.js', ['saved-room.js', 'text/javascript; charset=utf-8']);
 files.set('/demo.html', ['demo.html', 'text/html; charset=utf-8']);
 files.set('/demo.css', ['demo.css', 'text/css; charset=utf-8']);
 for (const [name, type] of Object.entries({ 'common-room-demo.mp4': 'video/mp4', 'common-room-demo.vtt': 'text/vtt; charset=utf-8', 'common-room-demo.srt': 'application/x-subrip', 'demo-poster.jpg': 'image/jpeg', 'transcript.txt': 'text/plain; charset=utf-8', 'manifest.json': 'application/json' })) {
@@ -148,7 +150,10 @@ export function createApp({ env = process.env, adapterFactory, budgetFactory } =
       if (streaming) return response.end(`${JSON.stringify({ type: 'result', data: result })}\n`);
       return sendJSON(200, result);
     } catch (error) {
-      await releaseBudget();
+      // A needs-input envelope follows a fully closed, successful subprocess.
+      // Keep every workflow already started, but reconcile slots the serial
+      // planner demonstrably never started. Unknown failures stay conservative.
+      await releaseBudget({ completed: error instanceof AppError && error.code === 'QLOO_NEEDS_INPUT' });
       const safe = publicError(error);
       if (response.headersSent) response.end(`${JSON.stringify({ type: 'error', error: safe })}\n`);
       else sendJSON(error instanceof AppError ? error.status : 500, { error: safe });
