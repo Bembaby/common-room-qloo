@@ -1,6 +1,6 @@
 # Rules checkpoint and judging map
 
-Official overview rechecked October 28, 2026; formal rules reviewed October 21 against the [official overview](https://qloo.devpost.com/) and [official rules](https://qloo.devpost.com/rules). Recheck before submitting. This is a short working checklist, not a replacement for the complete rules or personal eligibility review.
+Official dates, announcements, submission requirements, formal rules and registration state rechecked October 28, 2026 against the [official overview](https://qloo.devpost.com/) and [official rules](https://qloo.devpost.com/rules). Registration already exists. The deadline and optional-video requirement remain unchanged. Recheck before submitting. This is a short working checklist, not a replacement for the complete rules or personal eligibility review.
 
 ## Current event facts
 
