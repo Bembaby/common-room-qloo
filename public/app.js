@@ -100,7 +100,7 @@ function renderChoices(choices = [], context = {}) {
   panel.hidden = true;
   for (const choice of choices) {
     if (!choice.candidates?.length || !choice.input?.trim()) continue;
-    const group = node('section', { class: 'resolution-choice' }, [node('h3', { text: `Which ${choice.input} did you mean?` }), paragraph(`${context.circleName ? context.circleName + ': ' : ''}Qloo returned these identities. Choose a specific cultural anchor, then run your brief again.`)]);
+    const group = node('section', { class: 'resolution-choice' }, [node('p',{class:'resolution-eyebrow',text:'A quick identity check'}),node('h3', { text: `Which ${choice.input} did you mean?` }), paragraph(`${context.circleName ? context.circleName + ': ' : ''}Choose the author, artist or work you have in mind. Your brief is saved.`)]);
     for (const candidate of choice.candidates) {
       const button = node('button', { type: 'button', class: 'secondary', text: `${candidate.name} · ${candidate.type.replace('urn:entity:', '')} · ${candidate.id.slice(-6)}` });
       button.addEventListener('click', () => {
@@ -122,6 +122,9 @@ function renderChoices(choices = [], context = {}) {
           return;
         }
         group.replaceChildren(paragraph(`Selected ${candidate.name} (${candidate.type.replace('urn:entity:', '')}). Its exact Qloo identity is retained for your next run; the name stays readable in your brief.`, 'resolution-selected'));
+        const moreChoices = Boolean($('#resolution button'));
+        $('#retry').disabled = moreChoices;
+        $('#retry').textContent = moreChoices ? 'Choose the remaining identities' : 'Continue with this choice';
         updateBriefState();
         $('#retry').focus();
       });
@@ -585,12 +588,15 @@ async function run(event) {
       edit.addEventListener('click',()=>focusField(`#circle-anchors-${Number(error.details.circleId.slice(-1))-1}`));$('#error').append(edit);
     }
     if (error.code) $('#error').append(paragraph(`Reference: ${error.code}`, 'error-reference'));
-    $('#error').hidden = false;
-    $('#retry').textContent = 'Try the brief again';
+    const identityChoice = error.code === 'QLOO_NEEDS_INPUT' && error.details?.choices?.some(choice=>choice.input?.trim()&&choice.candidates?.length);
+    $('#error').hidden = Boolean(identityChoice);
+    $('#retry').textContent = identityChoice ? 'Choose an identity to continue' : 'Try the brief again';
+    $('#retry').disabled = Boolean(identityChoice);
     $('#retry').hidden = false;
     renderChoices(error.details?.choices, error.details);
-    $('#error').focus({ preventScroll: true });
-    $('#error').scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
+    const recoveryTarget = identityChoice ? $('#resolution') : $('#error');
+    recoveryTarget.focus({ preventScroll: true });
+    recoveryTarget.scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
   } finally {
     clearInterval(elapsedTimer);
     busy = false;
