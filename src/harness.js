@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { resolve, join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { pathToFileURL } from 'node:url';
 import { AppError } from './errors.js';
 import { UUID } from './input.js';
 
@@ -127,7 +128,7 @@ export class QlooHarnessAdapter {
       QLOO_BASE_URL: QLOO_EVENT_BASE_URL,
       QLOO_TRUSTED_BASE_URL: QLOO_EVENT_BASE_URL,
       QLOO_RESOLUTION_PROVIDER: 'native',
-      NODE_OPTIONS: `--import=${new URL('./qloo-fetch-pacing.js', import.meta.url).href}`,
+      NODE_OPTIONS: `--import=${pathToFileURL(resolve('src/qloo-fetch-pacing.js')).href}`,
       QLOO_HOME: env.VERCEL === '1' ? join(tmpdir(), 'common-room-qloo-harness') : resolve('.data/qloo-harness')
     });
     this.execute = execute;
