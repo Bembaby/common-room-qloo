@@ -9,6 +9,7 @@ let resultFormSnapshot;
 let progressStage = 1;
 let elapsedTimer;
 const chosenIdentities = new Map();
+const originalAnchorLabels = new Map();
 const hostNotesByRun = new Map();
 let currentHostNotes = normalizeHostNotes();
 let restoredResult = false;
@@ -56,7 +57,7 @@ function saveRoom() {
     sessionStorage.setItem(savedKey(config.mode), JSON.stringify({ version: 1, mode: config.mode, savedAt: new Date().toISOString(), busy, form: {
       venue: $('#venue').value, minutes: $('#minutes').value, coverage: $('#coverage').value, circleCount: $('#circle-count').value, vetoes: $('#vetoes').value,
       circles: [...document.querySelectorAll('#circles .circle')].map(circle => ({ name: circle.querySelector('input').value, anchors: circle.querySelector('textarea').value }))
-    }, identities: [...chosenIdentities].slice(-40), result: currentResult ?? null, resultFormSnapshot, notes: currentHostNotes }));
+    }, identities: [...chosenIdentities].slice(-40), originalLabels: [...originalAnchorLabels].slice(-40), result: currentResult ?? null, resultFormSnapshot, notes: currentHostNotes }));
     const message = 'Saved locally in this tab. Reopening makes no provider call. Export a copy to keep it elsewhere.';
     if ($('#saved-room-status').textContent !== message) $('#saved-room-status').textContent = message;
   } catch {
@@ -71,7 +72,7 @@ function restoreRoom() {
     const saved = parseSavedRoom(raw, config.mode), form = saved.form;
     $('#venue').value = form.venue;$('#minutes').value = form.minutes;$('#coverage').value = form.coverage;$('#coverage-value').textContent = form.coverage;$('#circle-count').value = form.circleCount;$('#vetoes').value = form.vetoes;
     form.circles.forEach((circle,index)=>{$(`#circle-name-${index}`).value=circle.name;$(`#circle-anchors-${index}`).value=circle.anchors;});
-    chosenIdentities.clear();saved.identities.forEach(([key,value])=>chosenIdentities.set(key,value));syncCircles();
+    chosenIdentities.clear();saved.identities.forEach(([key,value])=>chosenIdentities.set(key,value));originalAnchorLabels.clear();(saved.originalLabels??[]).forEach(([key,value])=>originalAnchorLabels.set(key,value));syncCircles();
     if (saved.result) {
       hostNotesByRun.set(saved.result.id,saved.notes);renderResult(saved.result,{formSnapshot:saved.resultFormSnapshot,focus:false});restoredResult=true;
       $('#empty').hidden=true;
@@ -105,6 +106,7 @@ function renderChoices(choices = [], context = {}) {
           input.value = input.value.split('\n').map((anchor, line) => {
             if (anchor.trim() !== choice.input) return anchor;
             chosenIdentities.set(`${index}:${line}:${candidate.name}`, candidate.id);
+            originalAnchorLabels.set(`${index}:${line}:${candidate.name}`, choice.input);
             changed = true;
             return candidate.name;
           }).join('\n');
@@ -130,6 +132,7 @@ function reset({ clearSaved = true } = {}) {
   currentResult = undefined;
   resultFormSnapshot = undefined;
   chosenIdentities.clear();
+  originalAnchorLabels.clear();
   hostNotesByRun.clear();currentHostNotes=normalizeHostNotes();restoredResult=false;
   if (clearSaved) { try { sessionStorage.removeItem(savedKey(config.mode)); } catch {} }
   $('#run span').textContent = 'Find our common thread';
@@ -180,7 +183,8 @@ function readInput() {
       anchors: $(`#circle-anchors-${index}`).value.split('\n').map((value, line) => {
         const text = value.trim();
         return chosenIdentities.get(`${index}:${line}:${text}`) ?? config.resolvedAnchors?.find(anchor => anchor.name === text)?.id ?? text;
-      }).filter(Boolean)
+      }).filter(Boolean),
+      anchorLabels: $(`#circle-anchors-${index}`).value.split('\n').map((value,line)=>originalAnchorLabels.get(`${index}:${line}:${value.trim()}`)??value.trim()).filter(Boolean)
     })),
     minutes: Number($('#minutes').value),
     minimumCoverage: Number($('#coverage').value),
@@ -223,7 +227,7 @@ function briefMarkdown(result) {
   ];
   lines.push('## Originating cultural anchors', '');
   for (const circle of result.anchorEvidence ?? result.input.circles.map(circle => ({ ...circle, anchors: circle.anchors.map(input => ({ input, name: input })) }))) {
-    lines.push(`### ${circle.name}`, '', ...circle.anchors.map(anchor => `- ${anchor.name ?? anchor.input}${anchor.type ? ` (${anchor.type.replace('urn:entity:', '')})` : ''}${anchor.id ? `; Qloo ID: ${anchor.id}` : ''}. Source: ${anchor.source ?? 'Provided input'}.`), '');
+    lines.push(`### ${circle.name}`, '', ...circle.anchors.map(anchor => `- ${anchor.name ?? anchor.input}${anchor.type ? ` (${anchor.type.replace('urn:entity:', '')})` : ''}${anchor.id ? `; Qloo ID: ${anchor.id}` : ''}${anchor.enteredText && anchor.enteredText !== anchor.name ? `; host entered: ${anchor.enteredText}` : ''}. Source: ${anchor.source ?? 'Provided input'}.`), '');
   }
   const bundle = result.decision.selected ?? result.decision.bestUnqualified;
   const curation = result.curation ?? explainCuration(bundle, result.input, result.decision.baseline, result.evidence);
@@ -430,6 +434,7 @@ function renderResult(result, { formSnapshot, focus = true } = {}) {
       minute += row.minutes;
       return node('li', { class: 'program-row' }, [node('div', { class: 'schedule-time' }, [node('span', { class: 'time-range', text: `${time(start)} to ${time(minute)}` }), node('span', { class: 'duration', text: `${row.minutes} min` })]), node('div', {}, [node('h4', { text: row.label }), paragraph(row.activity)])]);
     }));
+    schedule.dataset.program = `${result.input.venue} / Running order`;
     const host = section('Finish the host working copy', 'Choose the content and question before hosting. Your notes stay in this page and appear in print, Markdown and JSON; they do not change Qloo rankings.', [
       node('details', { class: 'preparation-details' }, [node('summary', { text: 'Before guests arrive' }), node('ul', {}, (result.program.preparation ?? []).map(text => node('li', { text })))]),
       schedule,
@@ -440,7 +445,7 @@ function renderResult(result, { formSnapshot, focus = true } = {}) {
       const input = node('textarea', { id: `host-${field.key}`, rows: field.key === 'question' ? '3' : '2', maxlength: String(field.max), placeholder: field.placeholder });input.value = currentHostNotes[field.key];
       input.addEventListener('input', () => {
         currentHostNotes = normalizeHostNotes(Object.fromEntries(hostFields.map(row => [row.key, $(`#host-${row.key}`).value])));
-        hostNotesByRun.set(result.id, currentHostNotes);updateHostCopy();saveRoom();
+        fitHostField(input);hostNotesByRun.set(result.id, currentHostNotes);updateHostCopy();saveRoom();
       });
       workbench.append(node('div', { class: ['filmMoment','question'].includes(field.key) ? 'host-note-field host-question' : 'host-note-field' }, [node('label', { for: input.id, text: field.label }), input]));
     }
@@ -448,10 +453,11 @@ function renderResult(result, { formSnapshot, focus = true } = {}) {
     host.insertBefore(workbench, host.querySelector('.preparation-details'));
     host.insertBefore(captured, host.querySelector('.preparation-details'));
     host.id = 'host-copy';host.classList.add('host-sheet');container.append(host);
+    host.querySelectorAll('textarea').forEach(fitHostField);
     updateHostCopy();
   }
   const generated = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(result.generatedAt));
-  container.append(paragraph(`${generated} · ${result.budget.workflowCount}/${result.budget.workflowLimit} bounded workflows · ${result.decision.refined ? 'One targeted refinement used' : 'No refinement used'} · No auto-publishing`, 'explanation run-metadata'));
+  container.append(paragraph(`${generated} · Run ${result.id} · ${result.budget.workflowCount}/${result.budget.workflowLimit} bounded workflows · ${result.decision.refined ? 'One targeted refinement used' : 'No refinement used'} · No auto-publishing`, 'explanation run-metadata'));
   const heading = container.querySelector('.decision-header h3');
   heading.setAttribute('tabindex', '-1');
   if (focus) { heading.focus({ preventScroll: true });heading.scrollIntoView({ behavior: scrollBehavior(), block: 'start' }); }
@@ -462,12 +468,19 @@ function updateHostCopy() {
   const status = $('.host-note-status');
   if (!status) return;
   status.textContent = `${state.completed}/4 host choices recorded. ${state.missing.length ? 'Preparation still needed before hosting.' : 'Content choices recorded; check permissions, availability and access needs.'}`;
+  $('#host-copy > h3').textContent = state.missing.length ? 'Finish the host working copy' : 'Your host working copy';
   $('.host-notes-copy').replaceChildren(node('h4', { text: 'Your content choices' }), ...hostFields.map(field => node('div', { class: 'host-choice' }, [node('strong', { text: field.label }), paragraph(state.notes[field.key] || 'Still to choose before hosting.')])), paragraph('Host-entered notes. Qloo does not verify these materials, the connection or permissions.', 'explanation'));
   hostRunningOrder(currentResult.program, state.notes).forEach((row, index) => {
     const activity = document.querySelectorAll('#host-copy .program-row > div:last-child > p')[index];
     if (activity) activity.textContent = row.activity;
   });
 }
+
+function fitHostField(field) {
+  field.style.height = 'auto';
+  field.style.height = `${Math.max(84, Math.min(320, field.scrollHeight + 2))}px`;
+}
+window.addEventListener('resize', () => document.querySelectorAll('.host-workbench textarea').forEach(fitHostField));
 
 async function run(event) {
   event.preventDefault();

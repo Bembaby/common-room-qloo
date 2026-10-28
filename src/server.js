@@ -20,6 +20,8 @@ files.set("/finish.css", ["finish.css", "text/css; charset=utf-8"]);
 files.set('/curation.js', ['curation.js', 'text/javascript; charset=utf-8']);
 files.set('/host-notes.js', ['host-notes.js', 'text/javascript; charset=utf-8']);
 files.set('/saved-room.js', ['saved-room.js', 'text/javascript; charset=utf-8']);
+files.set('/examples/curator-worked-example.md', ['examples/curator-worked-example.md', 'text/plain; charset=utf-8']);
+files.set('/examples/curator-worked-example.json', ['examples/curator-worked-example.json', 'application/json; charset=utf-8']);
 files.set('/demo.html', ['demo.html', 'text/html; charset=utf-8']);
 files.set('/demo.css', ['demo.css', 'text/css; charset=utf-8']);
 for (const [name, type] of Object.entries({ 'common-room-demo.mp4': 'video/mp4', 'common-room-demo.vtt': 'text/vtt; charset=utf-8', 'common-room-demo.srt': 'application/x-subrip', 'demo-poster.jpg': 'image/jpeg', 'transcript.txt': 'text/plain; charset=utf-8', 'manifest.json': 'application/json' })) {

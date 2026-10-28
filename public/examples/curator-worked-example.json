@@ -1,0 +1,2771 @@
+{
+  "version": "1.0",
+  "id": "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+  "mode": "live",
+  "evidenceLabel": "Live Qloo graph evidence",
+  "status": "ready",
+  "input": {
+    "venue": "Independent Bookshop / Worked curator example",
+    "circles": [
+      {
+        "id": "circle-1",
+        "name": "Speculative fiction readers",
+        "anchors": [
+          "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ]
+      },
+      {
+        "id": "circle-2",
+        "name": "Hip-hop listeners",
+        "anchors": [
+          "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ]
+      }
+    ],
+    "vetoes": [],
+    "minimumCoverage": 60,
+    "minutes": 60,
+    "scenario": "common-room"
+  },
+  "anchorEvidence": [
+    {
+      "circleId": "circle-1",
+      "name": "Speculative fiction readers",
+      "anchors": [
+        {
+          "input": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "name": "Ursula K. Le Guin",
+          "type": "urn:entity:author",
+          "workflowId": "workflow-01",
+          "source": "Qloo resolver"
+        }
+      ]
+    },
+    {
+      "circleId": "circle-2",
+      "name": "Hip-hop listeners",
+      "anchors": [
+        {
+          "input": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "name": "Kendrick Lamar",
+          "type": "urn:entity:artist",
+          "workflowId": "workflow-02",
+          "source": "Qloo resolver"
+        }
+      ]
+    }
+  ],
+  "generatedAt": "2026-10-28T18:21:13.525Z",
+  "elapsedMs": 75302,
+  "decision": {
+    "feasible": true,
+    "reasons": [],
+    "selected": {
+      "items": [
+        {
+          "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+          "name": "Having and Being Had",
+          "domain": "book",
+          "discoveryIds": [
+            "workflow-01"
+          ],
+          "scores": {
+            "circle-1": {
+              "circleId": "circle-1",
+              "observed": true,
+              "rank": 1,
+              "totalOptions": 6,
+              "relativeScore": 100,
+              "rawAffinity": 0.8762126818051422,
+              "evidenceId": "workflow-07:98687A20-65EF-4344-86A0-1DAAB026656B",
+              "workflowId": "workflow-07",
+              "note": "Rank among the same candidate shortlist."
+            },
+            "circle-2": {
+              "circleId": "circle-2",
+              "observed": true,
+              "rank": 4,
+              "totalOptions": 6,
+              "relativeScore": 50,
+              "rawAffinity": 0.7602621760329124,
+              "evidenceId": "workflow-08:98687A20-65EF-4344-86A0-1DAAB026656B",
+              "workflowId": "workflow-08",
+              "note": "Rank among the same candidate shortlist."
+            }
+          },
+          "catalogue": {
+            "description": "Eula Biss critiques capitalism through personal essays after buying her first home.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata",
+            "workflowId": "workflow-01"
+          }
+        },
+        {
+          "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "name": "Tyler, the Creator",
+          "domain": "artist",
+          "discoveryIds": [
+            "workflow-04"
+          ],
+          "scores": {
+            "circle-1": {
+              "circleId": "circle-1",
+              "observed": true,
+              "rank": 4,
+              "totalOptions": 6,
+              "relativeScore": 50,
+              "rawAffinity": 0.8060728544462124,
+              "evidenceId": "workflow-09:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+              "workflowId": "workflow-09",
+              "note": "Rank among the same candidate shortlist."
+            },
+            "circle-2": {
+              "circleId": "circle-2",
+              "observed": true,
+              "rank": 1,
+              "totalOptions": 6,
+              "relativeScore": 100,
+              "rawAffinity": 0.9642988545319553,
+              "evidenceId": "workflow-10:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+              "workflowId": "workflow-10",
+              "note": "Rank among the same candidate shortlist."
+            }
+          },
+          "catalogue": {
+            "description": "Tyler, The Creator (Tyler Gregory Okonma) is an American artist whose work spans rap, singing, production and visual design. Rising to prominence as the founder and central figure of the alternative collective Odd Future, Tyler built a reputation for provocative lyrics, bold production choices and strong personal branding through fashion (Golf Wang) and the Camp Flog Gnaw Carnival. His albums blend hip hop with pop, R&B and psychedelic elements, culminating in mainstream critical success with records like Igor.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata",
+            "workflowId": "workflow-04"
+          }
+        },
+        {
+          "id": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "name": "Joker",
+          "domain": "movie",
+          "discoveryIds": [
+            "workflow-05"
+          ],
+          "scores": {
+            "circle-1": {
+              "circleId": "circle-1",
+              "observed": true,
+              "rank": 2,
+              "totalOptions": 6,
+              "relativeScore": 83.33,
+              "rawAffinity": 0.894259822379504,
+              "evidenceId": "workflow-11:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+              "workflowId": "workflow-11",
+              "note": "Rank among the same candidate shortlist."
+            },
+            "circle-2": {
+              "circleId": "circle-2",
+              "observed": true,
+              "rank": 4,
+              "totalOptions": 6,
+              "relativeScore": 50,
+              "rawAffinity": 0.9015454401169599,
+              "evidenceId": "workflow-12:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+              "workflowId": "workflow-12",
+              "note": "Rank among the same candidate shortlist."
+            }
+          },
+          "catalogue": {
+            "description": "Joker (2019), directed by Todd Phillips and starring Joaquin Phoenix, Robert De Niro and Zazie Beetz, is a crime-drama thriller presented as a bleak character study and origin story. It follows a marginalized party clown and failed stand-up comedian who, amid poverty, illness, and social rejection, slips into violence and social unrest. The film combines gritty, period-inflected visuals with a psychological focus on trauma, identity, and class, delivering an intense, morally ambiguous emotional experience.",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata",
+            "workflowId": "workflow-05"
+          }
+        }
+      ],
+      "metrics": {
+        "coverage": [
+          {
+            "circleId": "circle-1",
+            "name": "Speculative fiction readers",
+            "score": 77.78,
+            "supportedSlots": 3,
+            "reasons": [
+              {
+                "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
+                "domain": "book",
+                "score": 100,
+                "observed": true,
+                "evidenceId": "workflow-07:98687A20-65EF-4344-86A0-1DAAB026656B"
+              },
+              {
+                "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+                "domain": "artist",
+                "score": 50,
+                "observed": true,
+                "evidenceId": "workflow-09:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+              },
+              {
+                "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+                "domain": "movie",
+                "score": 83.33,
+                "observed": true,
+                "evidenceId": "workflow-11:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+              }
+            ]
+          },
+          {
+            "circleId": "circle-2",
+            "name": "Hip-hop listeners",
+            "score": 66.67,
+            "supportedSlots": 3,
+            "reasons": [
+              {
+                "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
+                "domain": "book",
+                "score": 50,
+                "observed": true,
+                "evidenceId": "workflow-08:98687A20-65EF-4344-86A0-1DAAB026656B"
+              },
+              {
+                "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+                "domain": "artist",
+                "score": 100,
+                "observed": true,
+                "evidenceId": "workflow-10:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+              },
+              {
+                "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+                "domain": "movie",
+                "score": 50,
+                "observed": true,
+                "evidenceId": "workflow-12:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+              }
+            ]
+          }
+        ],
+        "minimum": 66.67,
+        "average": 72.22,
+        "spread": 11.11
+      }
+    },
+    "bestUnqualified": null,
+    "baseline": {
+      "items": [
+        {
+          "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+          "name": "Having and Being Had",
+          "domain": "book",
+          "discoveryIds": [
+            "workflow-01"
+          ],
+          "scores": {
+            "circle-1": {
+              "circleId": "circle-1",
+              "observed": true,
+              "rank": 1,
+              "totalOptions": 6,
+              "relativeScore": 100,
+              "rawAffinity": 0.8762126818051422,
+              "evidenceId": "workflow-07:98687A20-65EF-4344-86A0-1DAAB026656B",
+              "workflowId": "workflow-07",
+              "note": "Rank among the same candidate shortlist."
+            },
+            "circle-2": {
+              "circleId": "circle-2",
+              "observed": true,
+              "rank": 4,
+              "totalOptions": 6,
+              "relativeScore": 50,
+              "rawAffinity": 0.7602621760329124,
+              "evidenceId": "workflow-08:98687A20-65EF-4344-86A0-1DAAB026656B",
+              "workflowId": "workflow-08",
+              "note": "Rank among the same candidate shortlist."
+            }
+          },
+          "catalogue": {
+            "description": "Eula Biss critiques capitalism through personal essays after buying her first home.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata",
+            "workflowId": "workflow-01"
+          }
+        },
+        {
+          "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "name": "Tyler, the Creator",
+          "domain": "artist",
+          "discoveryIds": [
+            "workflow-04"
+          ],
+          "scores": {
+            "circle-1": {
+              "circleId": "circle-1",
+              "observed": true,
+              "rank": 4,
+              "totalOptions": 6,
+              "relativeScore": 50,
+              "rawAffinity": 0.8060728544462124,
+              "evidenceId": "workflow-09:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+              "workflowId": "workflow-09",
+              "note": "Rank among the same candidate shortlist."
+            },
+            "circle-2": {
+              "circleId": "circle-2",
+              "observed": true,
+              "rank": 1,
+              "totalOptions": 6,
+              "relativeScore": 100,
+              "rawAffinity": 0.9642988545319553,
+              "evidenceId": "workflow-10:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+              "workflowId": "workflow-10",
+              "note": "Rank among the same candidate shortlist."
+            }
+          },
+          "catalogue": {
+            "description": "Tyler, The Creator (Tyler Gregory Okonma) is an American artist whose work spans rap, singing, production and visual design. Rising to prominence as the founder and central figure of the alternative collective Odd Future, Tyler built a reputation for provocative lyrics, bold production choices and strong personal branding through fashion (Golf Wang) and the Camp Flog Gnaw Carnival. His albums blend hip hop with pop, R&B and psychedelic elements, culminating in mainstream critical success with records like Igor.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata",
+            "workflowId": "workflow-04"
+          }
+        },
+        {
+          "id": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "name": "Joker",
+          "domain": "movie",
+          "discoveryIds": [
+            "workflow-05"
+          ],
+          "scores": {
+            "circle-1": {
+              "circleId": "circle-1",
+              "observed": true,
+              "rank": 2,
+              "totalOptions": 6,
+              "relativeScore": 83.33,
+              "rawAffinity": 0.894259822379504,
+              "evidenceId": "workflow-11:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+              "workflowId": "workflow-11",
+              "note": "Rank among the same candidate shortlist."
+            },
+            "circle-2": {
+              "circleId": "circle-2",
+              "observed": true,
+              "rank": 4,
+              "totalOptions": 6,
+              "relativeScore": 50,
+              "rawAffinity": 0.9015454401169599,
+              "evidenceId": "workflow-12:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+              "workflowId": "workflow-12",
+              "note": "Rank among the same candidate shortlist."
+            }
+          },
+          "catalogue": {
+            "description": "Joker (2019), directed by Todd Phillips and starring Joaquin Phoenix, Robert De Niro and Zazie Beetz, is a crime-drama thriller presented as a bleak character study and origin story. It follows a marginalized party clown and failed stand-up comedian who, amid poverty, illness, and social rejection, slips into violence and social unrest. The film combines gritty, period-inflected visuals with a psychological focus on trauma, identity, and class, delivering an intense, morally ambiguous emotional experience.",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata",
+            "workflowId": "workflow-05"
+          }
+        }
+      ],
+      "metrics": {
+        "coverage": [
+          {
+            "circleId": "circle-1",
+            "name": "Speculative fiction readers",
+            "score": 77.78,
+            "supportedSlots": 3,
+            "reasons": [
+              {
+                "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
+                "domain": "book",
+                "score": 100,
+                "observed": true,
+                "evidenceId": "workflow-07:98687A20-65EF-4344-86A0-1DAAB026656B"
+              },
+              {
+                "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+                "domain": "artist",
+                "score": 50,
+                "observed": true,
+                "evidenceId": "workflow-09:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+              },
+              {
+                "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+                "domain": "movie",
+                "score": 83.33,
+                "observed": true,
+                "evidenceId": "workflow-11:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+              }
+            ]
+          },
+          {
+            "circleId": "circle-2",
+            "name": "Hip-hop listeners",
+            "score": 66.67,
+            "supportedSlots": 3,
+            "reasons": [
+              {
+                "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
+                "domain": "book",
+                "score": 50,
+                "observed": true,
+                "evidenceId": "workflow-08:98687A20-65EF-4344-86A0-1DAAB026656B"
+              },
+              {
+                "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+                "domain": "artist",
+                "score": 100,
+                "observed": true,
+                "evidenceId": "workflow-10:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+              },
+              {
+                "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+                "domain": "movie",
+                "score": 50,
+                "observed": true,
+                "evidenceId": "workflow-12:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+              }
+            ]
+          }
+        ],
+        "minimum": 66.67,
+        "average": 72.22,
+        "spread": 11.11
+      }
+    },
+    "minimumCoverage": 60,
+    "minimumGainVsAverage": 0,
+    "averageTradeoff": 0,
+    "refined": false,
+    "initialMinimum": 66.67,
+    "comparison": "The baseline maximizes average rank coverage on the exact same eligible shortlist. It is not a measured real-world popularity baseline."
+  },
+  "curation": {
+    "entryPoints": [
+      {
+        "circleId": "circle-1",
+        "name": "Speculative fiction readers",
+        "works": [
+          {
+            "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+            "name": "Having and Being Had",
+            "domain": "book",
+            "rank": 1,
+            "totalOptions": 6,
+            "score": 100
+          }
+        ]
+      },
+      {
+        "circleId": "circle-2",
+        "name": "Hip-hop listeners",
+        "works": [
+          {
+            "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+            "name": "Tyler, the Creator",
+            "domain": "artist",
+            "rank": 1,
+            "totalOptions": 6,
+            "score": 100
+          }
+        ]
+      }
+    ],
+    "works": [
+      {
+        "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+        "name": "Having and Being Had",
+        "domain": "book",
+        "invitations": [
+          "Speculative fiction readers"
+        ],
+        "ranks": [
+          {
+            "name": "Speculative fiction readers",
+            "circleId": "circle-1",
+            "observed": true,
+            "rank": 1,
+            "totalOptions": 6,
+            "relativeScore": 100,
+            "rawAffinity": 0.8762126818051422,
+            "evidenceId": "workflow-07:98687A20-65EF-4344-86A0-1DAAB026656B",
+            "workflowId": "workflow-07",
+            "note": "Rank among the same candidate shortlist."
+          },
+          {
+            "name": "Hip-hop listeners",
+            "circleId": "circle-2",
+            "observed": true,
+            "rank": 4,
+            "totalOptions": 6,
+            "relativeScore": 50,
+            "rawAffinity": 0.7602621760329124,
+            "evidenceId": "workflow-08:98687A20-65EF-4344-86A0-1DAAB026656B",
+            "workflowId": "workflow-08",
+            "note": "Rank among the same candidate shortlist."
+          }
+        ],
+        "observedCircles": 2
+      },
+      {
+        "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+        "name": "Tyler, the Creator",
+        "domain": "artist",
+        "invitations": [
+          "Hip-hop listeners"
+        ],
+        "ranks": [
+          {
+            "name": "Speculative fiction readers",
+            "circleId": "circle-1",
+            "observed": true,
+            "rank": 4,
+            "totalOptions": 6,
+            "relativeScore": 50,
+            "rawAffinity": 0.8060728544462124,
+            "evidenceId": "workflow-09:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+            "workflowId": "workflow-09",
+            "note": "Rank among the same candidate shortlist."
+          },
+          {
+            "name": "Hip-hop listeners",
+            "circleId": "circle-2",
+            "observed": true,
+            "rank": 1,
+            "totalOptions": 6,
+            "relativeScore": 100,
+            "rawAffinity": 0.9642988545319553,
+            "evidenceId": "workflow-10:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+            "workflowId": "workflow-10",
+            "note": "Rank among the same candidate shortlist."
+          }
+        ],
+        "observedCircles": 2
+      },
+      {
+        "id": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+        "name": "Joker",
+        "domain": "movie",
+        "invitations": [],
+        "ranks": [
+          {
+            "name": "Speculative fiction readers",
+            "circleId": "circle-1",
+            "observed": true,
+            "rank": 2,
+            "totalOptions": 6,
+            "relativeScore": 83.33,
+            "rawAffinity": 0.894259822379504,
+            "evidenceId": "workflow-11:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+            "workflowId": "workflow-11",
+            "note": "Rank among the same candidate shortlist."
+          },
+          {
+            "name": "Hip-hop listeners",
+            "circleId": "circle-2",
+            "observed": true,
+            "rank": 4,
+            "totalOptions": 6,
+            "relativeScore": 50,
+            "rawAffinity": 0.9015454401169599,
+            "evidenceId": "workflow-12:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+            "workflowId": "workflow-12",
+            "note": "Rank among the same candidate shortlist."
+          }
+        ],
+        "observedCircles": 2
+      }
+    ],
+    "circles": [
+      {
+        "circleId": "circle-1",
+        "name": "Speculative fiction readers",
+        "score": 77.78,
+        "supportedSlots": 3,
+        "reasons": [
+          {
+            "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
+            "domain": "book",
+            "score": 100,
+            "observed": true,
+            "evidenceId": "workflow-07:98687A20-65EF-4344-86A0-1DAAB026656B"
+          },
+          {
+            "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+            "domain": "artist",
+            "score": 50,
+            "observed": true,
+            "evidenceId": "workflow-09:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+          },
+          {
+            "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+            "domain": "movie",
+            "score": 83.33,
+            "observed": true,
+            "evidenceId": "workflow-11:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+          }
+        ],
+        "baseline": 77.78,
+        "delta": 0,
+        "meetsMinimum": true
+      },
+      {
+        "circleId": "circle-2",
+        "name": "Hip-hop listeners",
+        "score": 66.67,
+        "supportedSlots": 3,
+        "reasons": [
+          {
+            "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
+            "domain": "book",
+            "score": 50,
+            "observed": true,
+            "evidenceId": "workflow-08:98687A20-65EF-4344-86A0-1DAAB026656B"
+          },
+          {
+            "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+            "domain": "artist",
+            "score": 100,
+            "observed": true,
+            "evidenceId": "workflow-10:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+          },
+          {
+            "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+            "domain": "movie",
+            "score": 50,
+            "observed": true,
+            "evidenceId": "workflow-12:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+          }
+        ],
+        "baseline": 66.67,
+        "delta": 0,
+        "meetsMinimum": true
+      }
+    ],
+    "vetoes": [],
+    "weakestCircles": [
+      "Hip-hop listeners"
+    ],
+    "sameAsAverage": true,
+    "connectionQuestion": "What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker?",
+    "note": "Entry points describe the strongest relative ranks among these three selections. Connections between the works are prompts for participants, not Qloo-supplied themes or predictions about people."
+  },
+  "program": {
+    "title": "Three Ways Into One Room",
+    "venue": "Independent Bookshop / Worked curator example",
+    "format": "A hosted conversation salon",
+    "durationMinutes": 60,
+    "openingQuestion": "What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker?",
+    "invitations": [
+      {
+        "circleId": "circle-1",
+        "name": "Speculative fiction readers",
+        "works": [
+          {
+            "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+            "name": "Having and Being Had",
+            "domain": "book",
+            "rank": 1,
+            "totalOptions": 6,
+            "score": 100
+          }
+        ]
+      },
+      {
+        "circleId": "circle-2",
+        "name": "Hip-hop listeners",
+        "works": [
+          {
+            "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+            "name": "Tyler, the Creator",
+            "domain": "artist",
+            "rank": 1,
+            "totalOptions": 6,
+            "score": 100
+          }
+        ]
+      }
+    ],
+    "preparation": [
+      "Prepare a short excerpt or a discussion-only introduction to Having and Being Had.",
+      "Choose a recording by Tyler, the Creator if playback is appropriate and permitted, or discuss it without playback.",
+      "Prepare a conversation prompt about Joker; a full screening is not part of this timed salon.",
+      "Check availability, access needs and any permissions before inviting guests. No rights or venue arrangements are verified."
+    ],
+    "description": "A 60-minute conversation at Independent Bookshop / Worked curator example, built around Having and Being Had, Tyler, the Creator, and Joker. Each selection has an inspectable reason to be in the room.",
+    "schedule": [
+      {
+        "minutes": 5,
+        "label": "Open the room",
+        "activity": "Invite each circle to introduce a familiar way into the program. Speculative fiction readers: Having and Being Had. Hip-hop listeners: Tyler, the Creator."
+      },
+      {
+        "minutes": 18,
+        "label": "Read: Having and Being Had",
+        "activity": "Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?",
+        "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B"
+      },
+      {
+        "minutes": 14,
+        "label": "Listen: Tyler, the Creator",
+        "activity": "Discuss a participant-chosen recording by Tyler, the Creator. Ask: what feeling or detail would you connect to the book discussion?",
+        "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+      },
+      {
+        "minutes": 18,
+        "label": "Discuss: Joker",
+        "activity": "Use Joker as a film conversation prompt. Ask: What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker? Let participants name the connection or disagreement; do not assume a shared theme.",
+        "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+      },
+      {
+        "minutes": 5,
+        "label": "Leave with a bridge",
+        "activity": "Each participant names one unfamiliar work they now want to explore. Collect voluntary feedback before repeating the event."
+      }
+    ],
+    "note": "This is a proposed cultural shortlist and timed planning template. The host must choose the actual materials and connecting question before hosting. No screening, performer availability, inventory, licensing, attendance, or sales is verified."
+  },
+  "scoring": {
+    "explanation": "For each circle and domain, every candidate is ranked against the same shortlist. Relative score = 100 × (shortlist size - rank + 1) / shortlist size. Missing candidates receive 0 as a conservative evidence gap. A circle coverage score is the mean across the three slots. The agent maximizes the lowest circle coverage, then the average. These are application-derived rank scores, not Qloo probabilities, measured satisfaction, attendance, or revenue.",
+    "minimumCandidatesPerDomain": 3,
+    "missingMeans": "Unobserved evidence, not dislike."
+  },
+  "budget": {
+    "workflowCount": 12,
+    "workflowLimit": 15,
+    "note": "A harness workflow may make several Qloo HTTP calls for entity resolution. This is not an API-request count."
+  },
+  "catalog": [
+    {
+      "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+      "name": "Having and Being Had",
+      "domain": "book",
+      "discoveryIds": [
+        "workflow-01"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 1,
+          "totalOptions": 6,
+          "relativeScore": 100,
+          "rawAffinity": 0.8762126818051422,
+          "evidenceId": "workflow-07:98687A20-65EF-4344-86A0-1DAAB026656B",
+          "workflowId": "workflow-07",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 4,
+          "totalOptions": 6,
+          "relativeScore": 50,
+          "rawAffinity": 0.7602621760329124,
+          "evidenceId": "workflow-08:98687A20-65EF-4344-86A0-1DAAB026656B",
+          "workflowId": "workflow-08",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Eula Biss critiques capitalism through personal essays after buying her first home.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-01"
+      }
+    },
+    {
+      "id": "0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+      "name": "Liberation Day",
+      "domain": "book",
+      "discoveryIds": [
+        "workflow-01"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 2,
+          "totalOptions": 6,
+          "relativeScore": 83.33,
+          "rawAffinity": 0.8758590935242447,
+          "evidenceId": "workflow-07:0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+          "workflowId": "workflow-07",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 5,
+          "totalOptions": 6,
+          "relativeScore": 33.33,
+          "rawAffinity": 0.6418067790668698,
+          "evidenceId": "workflow-08:0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+          "workflowId": "workflow-08",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "A collection of short stories exploring power, ethics, and justice in various settings.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-01"
+      }
+    },
+    {
+      "id": "5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+      "name": "Checkout 19",
+      "domain": "book",
+      "discoveryIds": [
+        "workflow-01"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 3,
+          "totalOptions": 6,
+          "relativeScore": 66.67,
+          "rawAffinity": 0.8709583426982554,
+          "evidenceId": "workflow-07:5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+          "workflowId": "workflow-07",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 6,
+          "totalOptions": 6,
+          "relativeScore": 16.67,
+          "rawAffinity": 0.6289829532310065,
+          "evidenceId": "workflow-08:5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+          "workflowId": "workflow-08",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "A young woman discovers her creative genius through literature and personal encounters.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-01"
+      }
+    },
+    {
+      "id": "F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+      "name": "LeBron, Inc.: The Making of a Billion-Dollar Athlete",
+      "domain": "book",
+      "discoveryIds": [
+        "workflow-02"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 5,
+          "totalOptions": 6,
+          "relativeScore": 33.33,
+          "rawAffinity": 0.6272306774633907,
+          "evidenceId": "workflow-07:F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+          "workflowId": "workflow-07",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 1,
+          "totalOptions": 6,
+          "relativeScore": 100,
+          "rawAffinity": 0.9103351649682356,
+          "evidenceId": "workflow-08:F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+          "workflowId": "workflow-08",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "The book details LeBron James's transformation from a basketball star to a business mogul and global brand.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-02"
+      }
+    },
+    {
+      "id": "2865BCC2-9760-435A-9B18-45F1E9E7C084",
+      "name": "The Boys of Dunbar: A Story of Love, Hope, and Basketball",
+      "domain": "book",
+      "discoveryIds": [
+        "workflow-02"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 6,
+          "totalOptions": 6,
+          "relativeScore": 16.67,
+          "rawAffinity": 0.5848174706661229,
+          "evidenceId": "workflow-07:2865BCC2-9760-435A-9B18-45F1E9E7C084",
+          "workflowId": "workflow-07",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 2,
+          "totalOptions": 6,
+          "relativeScore": 83.33,
+          "rawAffinity": 0.9013491270982429,
+          "evidenceId": "workflow-08:2865BCC2-9760-435A-9B18-45F1E9E7C084",
+          "workflowId": "workflow-08",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "As the crack epidemic swept across inner-city America in the early 1980s, the streets of Baltimore were crime ridden. For poor kids from the housing projects, the future looked bleak. But basketball could provide the quickest ticket out, an opportunity to earn a college scholarship and perhaps even play in the NBA. Dunbar High School had one of the most successful basketball programs, not only in Baltimore but in the entire country, and in the early 1980s, the Dunbar Poets were arguably the best high school team of all time. Four starting players-Muggsy Bogues, Reggie Williams, David Wingate, ",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-02"
+      }
+    },
+    {
+      "id": "9E5710CE-D7F4-4E27-8909-B2E690FF0A91",
+      "name": "Showtime: Magic, Kareem, Riley, and the Los Angeles Lakers Dynasty of the 1980s",
+      "domain": "book",
+      "discoveryIds": [
+        "workflow-02"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 4,
+          "totalOptions": 6,
+          "relativeScore": 50,
+          "rawAffinity": 0.6309702250385171,
+          "evidenceId": "workflow-07:9E5710CE-D7F4-4E27-8909-B2E690FF0A91",
+          "workflowId": "workflow-07",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 3,
+          "totalOptions": 6,
+          "relativeScore": 66.67,
+          "rawAffinity": 0.8995037363131687,
+          "evidenceId": "workflow-08:9E5710CE-D7F4-4E27-8909-B2E690FF0A91",
+          "workflowId": "workflow-08",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "An in-depth look at the Los Angeles Lakers' 1980s dynasty, highlighting their success, key figures, and cultural impact.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-02"
+      }
+    },
+    {
+      "id": "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+      "name": "Radiohead",
+      "domain": "artist",
+      "discoveryIds": [
+        "workflow-03"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 1,
+          "totalOptions": 6,
+          "relativeScore": 100,
+          "rawAffinity": 0.9442755563639301,
+          "evidenceId": "workflow-09:70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+          "workflowId": "workflow-09",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 4,
+          "totalOptions": 6,
+          "relativeScore": 50,
+          "rawAffinity": 0.7919218255561347,
+          "evidenceId": "workflow-10:70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+          "workflowId": "workflow-10",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-03"
+      }
+    },
+    {
+      "id": "C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+      "name": "Pixies",
+      "domain": "artist",
+      "discoveryIds": [
+        "workflow-03"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 2,
+          "totalOptions": 6,
+          "relativeScore": 83.33,
+          "rawAffinity": 0.9405634781670398,
+          "evidenceId": "workflow-09:C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+          "workflowId": "workflow-09",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 5,
+          "totalOptions": 6,
+          "relativeScore": 33.33,
+          "rawAffinity": 0.7692014349373733,
+          "evidenceId": "workflow-10:C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+          "workflowId": "workflow-10",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Pixies are an American alternative rock band formed in Boston in 1986. Known for their loud-quiet-loud dynamics, surreal and often cryptic lyrics, and a blend of melodic hooks with abrasive guitar textures, they released seminal records including Come On Pilgrim (EP), Surfer Rosa, Doolittle, Bossanova and Trompe le Monde. They split in 1993, reunited in 2004 and have continued to record and tour with lineup changes (notably Kim Deal on bass and vocals until 2013, Paz Lenchantin 2016–2024, and Emma Richardson joining in 2024). Frequently cited as a key influence on the alternative and grunge ex",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-03"
+      }
+    },
+    {
+      "id": "8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+      "name": "Beck",
+      "domain": "artist",
+      "discoveryIds": [
+        "workflow-03"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 3,
+          "totalOptions": 6,
+          "relativeScore": 66.67,
+          "rawAffinity": 0.9382513499081678,
+          "evidenceId": "workflow-09:8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+          "workflowId": "workflow-09",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 6,
+          "totalOptions": 6,
+          "relativeScore": 16.67,
+          "rawAffinity": 0.7598421811380748,
+          "evidenceId": "workflow-10:8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+          "workflowId": "workflow-10",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Beck Hansen is an American singer-songwriter and multi-instrumentalist celebrated for eclectic, genre-blending music that mixes folk, hip-hop, electronic, rock and experimental pop. Rising from the early-90s anti-folk and underground scenes in Los Angeles and New York, he broke into the mainstream with the 1994 hit \"Loser\" and consolidated critical and commercial success with albums such as Odelay, Sea Change, Morning Phase and Colors. His work is marked by inventive sampling, ironic and poetic lyrics, diverse production approaches and frequent collaborations with producers and guest musicians",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-03"
+      }
+    },
+    {
+      "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+      "name": "Tyler, the Creator",
+      "domain": "artist",
+      "discoveryIds": [
+        "workflow-04"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 4,
+          "totalOptions": 6,
+          "relativeScore": 50,
+          "rawAffinity": 0.8060728544462124,
+          "evidenceId": "workflow-09:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "workflowId": "workflow-09",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 1,
+          "totalOptions": 6,
+          "relativeScore": 100,
+          "rawAffinity": 0.9642988545319553,
+          "evidenceId": "workflow-10:375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "workflowId": "workflow-10",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Tyler, The Creator (Tyler Gregory Okonma) is an American artist whose work spans rap, singing, production and visual design. Rising to prominence as the founder and central figure of the alternative collective Odd Future, Tyler built a reputation for provocative lyrics, bold production choices and strong personal branding through fashion (Golf Wang) and the Camp Flog Gnaw Carnival. His albums blend hip hop with pop, R&B and psychedelic elements, culminating in mainstream critical success with records like Igor.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-04"
+      }
+    },
+    {
+      "id": "E39030CC-3348-409F-B89F-66B4EA92BFD8",
+      "name": "A$AP Rocky",
+      "domain": "artist",
+      "discoveryIds": [
+        "workflow-04"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 5,
+          "totalOptions": 6,
+          "relativeScore": 33.33,
+          "rawAffinity": 0.775436537240674,
+          "evidenceId": "workflow-09:E39030CC-3348-409F-B89F-66B4EA92BFD8",
+          "workflowId": "workflow-09",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 2,
+          "totalOptions": 6,
+          "relativeScore": 83.33,
+          "rawAffinity": 0.9639455618304392,
+          "evidenceId": "workflow-10:E39030CC-3348-409F-B89F-66B4EA92BFD8",
+          "workflowId": "workflow-10",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "A$AP Rocky (Rakim Athelaston Mayers) is an American rapper, singer, songwriter and producer from Harlem, New York. Rising to fame with his 2011 mixtape Live.Love.ASAP and singles like \"Peso,\" he became a central figure in the A$AP Mob collective. Rocky is noted for blending atmospheric, experimental production with mainstream rap, his strong ties to fashion and visual style, and high-profile collaborations across hip hop and pop. He has released multiple acclaimed albums, including Long.Live.ASAP (2013), AT.LONG.LAST.ASAP (2015) and Testing (2018).",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-04"
+      }
+    },
+    {
+      "id": "870C2FE9-88A2-49D7-B263-F8F99D364CD6",
+      "name": "ScHoolboy Q",
+      "domain": "artist",
+      "discoveryIds": [
+        "workflow-04"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 6,
+          "totalOptions": 6,
+          "relativeScore": 16.67,
+          "rawAffinity": 0.7435409827288433,
+          "evidenceId": "workflow-09:870C2FE9-88A2-49D7-B263-F8F99D364CD6",
+          "workflowId": "workflow-09",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 3,
+          "totalOptions": 6,
+          "relativeScore": 66.67,
+          "rawAffinity": 0.9618239465834652,
+          "evidenceId": "workflow-10:870C2FE9-88A2-49D7-B263-F8F99D364CD6",
+          "workflowId": "workflow-10",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "ScHoolboy Q is an American rapper from Los Angeles known for gritty, street-centered storytelling and a raspy delivery. A core member of the Black Hippy collective alongside Kendrick Lamar, Ab-Soul and Jay Rock, he rose from mixtape notoriety to mainstream success with projects on Top Dawg Entertainment and major labels. His music blends West Coast gangsta rap traditions with introspective narratives about drug use, violence, fatherhood and survival.",
+        "releaseYear": null,
+        "contentRating": null,
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-04"
+      }
+    },
+    {
+      "id": "20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+      "name": "Black Mirror: Bandersnatch",
+      "domain": "movie",
+      "discoveryIds": [
+        "workflow-05"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 1,
+          "totalOptions": 6,
+          "relativeScore": 100,
+          "rawAffinity": 0.9049440865666761,
+          "evidenceId": "workflow-11:20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+          "workflowId": "workflow-11",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 5,
+          "totalOptions": 6,
+          "relativeScore": 33.33,
+          "rawAffinity": 0.8569129946436634,
+          "evidenceId": "workflow-12:20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+          "workflowId": "workflow-12",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Black Mirror: Bandersnatch (2018), directed by David Slade and created by Charlie Brooker, is an interactive psychological science-fiction drama starring Fionn Whitehead, Craig Parkinson and Alice Lowe. The piece follows a young programmer adapting a puzzling fantasy novel into a branching video game, with the interactive format folding the viewer’s choices into a meditation on free will, agency and mental deterioration. Through nonlinear, meta-fictional paths the work exposes a variety of outcomes and hidden narrative layers, producing a tense, unsettling and rewatchable experience that inter",
+        "releaseYear": 2018,
+        "contentRating": "TV-MA",
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-05"
+      }
+    },
+    {
+      "id": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+      "name": "Joker",
+      "domain": "movie",
+      "discoveryIds": [
+        "workflow-05"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 2,
+          "totalOptions": 6,
+          "relativeScore": 83.33,
+          "rawAffinity": 0.894259822379504,
+          "evidenceId": "workflow-11:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "workflowId": "workflow-11",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 4,
+          "totalOptions": 6,
+          "relativeScore": 50,
+          "rawAffinity": 0.9015454401169599,
+          "evidenceId": "workflow-12:5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "workflowId": "workflow-12",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Joker (2019), directed by Todd Phillips and starring Joaquin Phoenix, Robert De Niro and Zazie Beetz, is a crime-drama thriller presented as a bleak character study and origin story. It follows a marginalized party clown and failed stand-up comedian who, amid poverty, illness, and social rejection, slips into violence and social unrest. The film combines gritty, period-inflected visuals with a psychological focus on trauma, identity, and class, delivering an intense, morally ambiguous emotional experience.",
+        "releaseYear": 2019,
+        "contentRating": "R",
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-05"
+      }
+    },
+    {
+      "id": "420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+      "name": "Bird Box",
+      "domain": "movie",
+      "discoveryIds": [
+        "workflow-05"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 3,
+          "totalOptions": 6,
+          "relativeScore": 66.67,
+          "rawAffinity": 0.8916406130168526,
+          "evidenceId": "workflow-11:420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+          "workflowId": "workflow-11",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 6,
+          "totalOptions": 6,
+          "relativeScore": 16.67,
+          "rawAffinity": 0.8372650899592261,
+          "evidenceId": "workflow-12:420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+          "workflowId": "workflow-12",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Bird Box (2018), directed by Susanne Bier and based on the novel by Josh Malerman, is a post-apocalyptic horror-thriller starring Sandra Bullock, Trevante Rhodes and John Malkovich. The film follows a mother who must protect two children in a world where an unseen presence drives people to suicide, alternating between the collapse of society and a perilous river journey to safety. Combining elements of psychological suspense, survival horror and speculative science fiction, the story focuses on trauma, parental duty, trust and the moral costs of survival. Its tone is tense, melancholic and emo",
+        "releaseYear": 2018,
+        "contentRating": "R",
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-05"
+      }
+    },
+    {
+      "id": "375E97BE-B457-443C-960E-DFEE01DF8BD1",
+      "name": "BlacKkKlansman",
+      "domain": "movie",
+      "discoveryIds": [
+        "workflow-06"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 5,
+          "totalOptions": 6,
+          "relativeScore": 33.33,
+          "rawAffinity": 0.8673907398507458,
+          "evidenceId": "workflow-11:375E97BE-B457-443C-960E-DFEE01DF8BD1",
+          "workflowId": "workflow-11",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 1,
+          "totalOptions": 6,
+          "relativeScore": 100,
+          "rawAffinity": 0.926541408195683,
+          "evidenceId": "workflow-12:375E97BE-B457-443C-960E-DFEE01DF8BD1",
+          "workflowId": "workflow-12",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "BlacKkKlansman (2018), directed by Spike Lee and starring John David Washington, Adam Driver and Laura Harrier, is a biographical crime drama with sharp satirical edges. The film follows a Black Colorado Springs detective who infiltrates a local Ku Klux Klan chapter by conducting phone contact while a white colleague attends meetings in person. Combining investigative suspense with political commentary and archival material, it explores racism, identity, and institutional power while alternating dark humor and moral outrage. The result is emotionally charged, provocative, and stylistically bol",
+        "releaseYear": 2018,
+        "contentRating": "R",
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-06"
+      }
+    },
+    {
+      "id": "19ECFF12-037A-40F5-ABF5-412FD6C96668",
+      "name": "Blindspotting",
+      "domain": "movie",
+      "discoveryIds": [
+        "workflow-06"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 6,
+          "totalOptions": 6,
+          "relativeScore": 16.67,
+          "rawAffinity": 0.8424504329644585,
+          "evidenceId": "workflow-11:19ECFF12-037A-40F5-ABF5-412FD6C96668",
+          "workflowId": "workflow-11",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 2,
+          "totalOptions": 6,
+          "relativeScore": 83.33,
+          "rawAffinity": 0.9242563483665455,
+          "evidenceId": "workflow-12:19ECFF12-037A-40F5-ABF5-412FD6C96668",
+          "workflowId": "workflow-12",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Blindspotting (2018), directed by Carlos López Estrada and written by Daveed Diggs and Rafael Casal, is a comedy-crime-drama starring Daveed Diggs, Rafael Casal, and Janina Gavankar. The film follows a man trying to finish his last three days of probation while his friendship with a volatile coworker is tested after a nearby police shooting in Oakland. It blends sharp humor, spoken-word performances, and tense interpersonal drama to examine race, gentrification, loyalty, and trauma. The result is emotionally urgent, often unsettling, and politically resonant.",
+        "releaseYear": 2018,
+        "contentRating": "R",
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-06"
+      }
+    },
+    {
+      "id": "24A2FD28-FC76-4CCD-AC43-A015B539DBAA",
+      "name": "Uncut Gems",
+      "domain": "movie",
+      "discoveryIds": [
+        "workflow-06"
+      ],
+      "scores": {
+        "circle-1": {
+          "circleId": "circle-1",
+          "observed": true,
+          "rank": 4,
+          "totalOptions": 6,
+          "relativeScore": 50,
+          "rawAffinity": 0.8674602028364647,
+          "evidenceId": "workflow-11:24A2FD28-FC76-4CCD-AC43-A015B539DBAA",
+          "workflowId": "workflow-11",
+          "note": "Rank among the same candidate shortlist."
+        },
+        "circle-2": {
+          "circleId": "circle-2",
+          "observed": true,
+          "rank": 3,
+          "totalOptions": 6,
+          "relativeScore": 66.67,
+          "rawAffinity": 0.9125632167256916,
+          "evidenceId": "workflow-12:24A2FD28-FC76-4CCD-AC43-A015B539DBAA",
+          "workflowId": "workflow-12",
+          "note": "Rank among the same candidate shortlist."
+        }
+      },
+      "catalogue": {
+        "description": "Uncut Gems (2019), directed by Joshua Safdie and Ben Safdie, is a crime-drama thriller starring Adam Sandler, Julia Fox, LaKeith Stanfield, Idina Menzel and Kevin Garnett. The film follows a charismatic yet self-destructive New York jeweler who, burdened by debt and a gambling addiction, stakes everything on a rare Ethiopian opal while navigating loan sharks, a collapsing marriage and a risky auction. Stylistically tense, frenetic, and claustrophobic, the picture emphasizes an adrenaline-driven performance and abrasive sound design to explore obsession, consequence, and moral deterioration. Th",
+        "releaseYear": 2019,
+        "contentRating": "R",
+        "source": "Qloo catalogue metadata",
+        "workflowId": "workflow-06"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "workflowId": "workflow-01",
+      "operation": "recommend",
+      "circleId": "circle-1",
+      "domain": "book",
+      "inputs": {
+        "anchors": [
+          "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ],
+        "limit": 3
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "fe3607eb288736052ae5a1fe120d62f3478013fe6c8039dbeecab313776ff5e5",
+        "fetchedAt": "2026-10-28T18:20:02.762Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "name": "Ursula K. Le Guin",
+          "type": "urn:entity:author"
+        }
+      ],
+      "results": [
+        {
+          "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+          "name": "Having and Being Had",
+          "domain": "book",
+          "rawAffinity": 0.8762126818051422,
+          "catalogue": {
+            "description": "Eula Biss critiques capitalism through personal essays after buying her first home.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+          "name": "Liberation Day",
+          "domain": "book",
+          "rawAffinity": 0.8758590935242447,
+          "catalogue": {
+            "description": "A collection of short stories exploring power, ethics, and justice in various settings.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+          "name": "Checkout 19",
+          "domain": "book",
+          "rawAffinity": 0.8709583426982554,
+          "catalogue": {
+            "description": "A young woman discovers her creative genius through literature and personal encounters.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-02",
+      "operation": "recommend",
+      "circleId": "circle-2",
+      "domain": "book",
+      "inputs": {
+        "anchors": [
+          "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ],
+        "limit": 3
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "4ccccd79b946c93ad8b907069e8d9f6615a55e420a2e663d9f6451c72c6d5929",
+        "fetchedAt": "2026-10-28T18:20:05.527Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "name": "Kendrick Lamar",
+          "type": "urn:entity:artist"
+        }
+      ],
+      "results": [
+        {
+          "id": "F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+          "name": "LeBron, Inc.: The Making of a Billion-Dollar Athlete",
+          "domain": "book",
+          "rawAffinity": 0.9103351649682356,
+          "catalogue": {
+            "description": "The book details LeBron James's transformation from a basketball star to a business mogul and global brand.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "2865BCC2-9760-435A-9B18-45F1E9E7C084",
+          "name": "The Boys of Dunbar: A Story of Love, Hope, and Basketball",
+          "domain": "book",
+          "rawAffinity": 0.9013491270982429,
+          "catalogue": {
+            "description": "As the crack epidemic swept across inner-city America in the early 1980s, the streets of Baltimore were crime ridden. For poor kids from the housing projects, the future looked bleak. But basketball could provide the quickest ticket out, an opportunity to earn a college scholarship and perhaps even play in the NBA. Dunbar High School had one of the most successful basketball programs, not only in Baltimore but in the entire country, and in the early 1980s, the Dunbar Poets were arguably the best high school team of all time. Four starting players-Muggsy Bogues, Reggie Williams, David Wingate, ",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "9E5710CE-D7F4-4E27-8909-B2E690FF0A91",
+          "name": "Showtime: Magic, Kareem, Riley, and the Los Angeles Lakers Dynasty of the 1980s",
+          "domain": "book",
+          "rawAffinity": 0.8995037363131687,
+          "catalogue": {
+            "description": "An in-depth look at the Los Angeles Lakers' 1980s dynasty, highlighting their success, key figures, and cultural impact.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-03",
+      "operation": "recommend",
+      "circleId": "circle-1",
+      "domain": "artist",
+      "inputs": {
+        "anchors": [
+          "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ],
+        "limit": 3
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "fdbc8368aadb6514b99bee95e93d7888ed0e944df368aaf2db1a2d4d017deb8c",
+        "fetchedAt": "2026-10-28T18:20:10.910Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "name": "Ursula K. Le Guin",
+          "type": "urn:entity:author"
+        }
+      ],
+      "results": [
+        {
+          "id": "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+          "name": "Radiohead",
+          "domain": "artist",
+          "rawAffinity": 0.9442755563639301,
+          "catalogue": {
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+          "name": "Pixies",
+          "domain": "artist",
+          "rawAffinity": 0.9405634781670398,
+          "catalogue": {
+            "description": "Pixies are an American alternative rock band formed in Boston in 1986. Known for their loud-quiet-loud dynamics, surreal and often cryptic lyrics, and a blend of melodic hooks with abrasive guitar textures, they released seminal records including Come On Pilgrim (EP), Surfer Rosa, Doolittle, Bossanova and Trompe le Monde. They split in 1993, reunited in 2004 and have continued to record and tour with lineup changes (notably Kim Deal on bass and vocals until 2013, Paz Lenchantin 2016–2024, and Emma Richardson joining in 2024). Frequently cited as a key influence on the alternative and grunge ex",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+          "name": "Beck",
+          "domain": "artist",
+          "rawAffinity": 0.9382513499081678,
+          "catalogue": {
+            "description": "Beck Hansen is an American singer-songwriter and multi-instrumentalist celebrated for eclectic, genre-blending music that mixes folk, hip-hop, electronic, rock and experimental pop. Rising from the early-90s anti-folk and underground scenes in Los Angeles and New York, he broke into the mainstream with the 1994 hit \"Loser\" and consolidated critical and commercial success with albums such as Odelay, Sea Change, Morning Phase and Colors. His work is marked by inventive sampling, ironic and poetic lyrics, diverse production approaches and frequent collaborations with producers and guest musicians",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-04",
+      "operation": "recommend",
+      "circleId": "circle-2",
+      "domain": "artist",
+      "inputs": {
+        "anchors": [
+          "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ],
+        "limit": 3
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "6f57a2ac7b34127b96df4745856e72a8fdeefdb518536cd5e8c9b8962e61b8c5",
+        "fetchedAt": "2026-10-28T18:20:16.352Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "name": "Kendrick Lamar",
+          "type": "urn:entity:artist"
+        }
+      ],
+      "results": [
+        {
+          "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "name": "Tyler, the Creator",
+          "domain": "artist",
+          "rawAffinity": 0.9642988545319553,
+          "catalogue": {
+            "description": "Tyler, The Creator (Tyler Gregory Okonma) is an American artist whose work spans rap, singing, production and visual design. Rising to prominence as the founder and central figure of the alternative collective Odd Future, Tyler built a reputation for provocative lyrics, bold production choices and strong personal branding through fashion (Golf Wang) and the Camp Flog Gnaw Carnival. His albums blend hip hop with pop, R&B and psychedelic elements, culminating in mainstream critical success with records like Igor.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "E39030CC-3348-409F-B89F-66B4EA92BFD8",
+          "name": "A$AP Rocky",
+          "domain": "artist",
+          "rawAffinity": 0.9639455618304392,
+          "catalogue": {
+            "description": "A$AP Rocky (Rakim Athelaston Mayers) is an American rapper, singer, songwriter and producer from Harlem, New York. Rising to fame with his 2011 mixtape Live.Love.ASAP and singles like \"Peso,\" he became a central figure in the A$AP Mob collective. Rocky is noted for blending atmospheric, experimental production with mainstream rap, his strong ties to fashion and visual style, and high-profile collaborations across hip hop and pop. He has released multiple acclaimed albums, including Long.Live.ASAP (2013), AT.LONG.LAST.ASAP (2015) and Testing (2018).",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "870C2FE9-88A2-49D7-B263-F8F99D364CD6",
+          "name": "ScHoolboy Q",
+          "domain": "artist",
+          "rawAffinity": 0.9618239465834652,
+          "catalogue": {
+            "description": "ScHoolboy Q is an American rapper from Los Angeles known for gritty, street-centered storytelling and a raspy delivery. A core member of the Black Hippy collective alongside Kendrick Lamar, Ab-Soul and Jay Rock, he rose from mixtape notoriety to mainstream success with projects on Top Dawg Entertainment and major labels. His music blends West Coast gangsta rap traditions with introspective narratives about drug use, violence, fatherhood and survival.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-05",
+      "operation": "recommend",
+      "circleId": "circle-1",
+      "domain": "movie",
+      "inputs": {
+        "anchors": [
+          "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ],
+        "limit": 3
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "47e4b73d7858d6675ba07020249f1b76841620c4b946fc125ba2ddd337dcaf5a",
+        "fetchedAt": "2026-10-28T18:20:19.975Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "name": "Ursula K. Le Guin",
+          "type": "urn:entity:author"
+        }
+      ],
+      "results": [
+        {
+          "id": "20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+          "name": "Black Mirror: Bandersnatch",
+          "domain": "movie",
+          "rawAffinity": 0.9049440865666761,
+          "catalogue": {
+            "description": "Black Mirror: Bandersnatch (2018), directed by David Slade and created by Charlie Brooker, is an interactive psychological science-fiction drama starring Fionn Whitehead, Craig Parkinson and Alice Lowe. The piece follows a young programmer adapting a puzzling fantasy novel into a branching video game, with the interactive format folding the viewer’s choices into a meditation on free will, agency and mental deterioration. Through nonlinear, meta-fictional paths the work exposes a variety of outcomes and hidden narrative layers, producing a tense, unsettling and rewatchable experience that inter",
+            "releaseYear": 2018,
+            "contentRating": "TV-MA",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "name": "Joker",
+          "domain": "movie",
+          "rawAffinity": 0.894259822379504,
+          "catalogue": {
+            "description": "Joker (2019), directed by Todd Phillips and starring Joaquin Phoenix, Robert De Niro and Zazie Beetz, is a crime-drama thriller presented as a bleak character study and origin story. It follows a marginalized party clown and failed stand-up comedian who, amid poverty, illness, and social rejection, slips into violence and social unrest. The film combines gritty, period-inflected visuals with a psychological focus on trauma, identity, and class, delivering an intense, morally ambiguous emotional experience.",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+          "name": "Bird Box",
+          "domain": "movie",
+          "rawAffinity": 0.8916406130168526,
+          "catalogue": {
+            "description": "Bird Box (2018), directed by Susanne Bier and based on the novel by Josh Malerman, is a post-apocalyptic horror-thriller starring Sandra Bullock, Trevante Rhodes and John Malkovich. The film follows a mother who must protect two children in a world where an unseen presence drives people to suicide, alternating between the collapse of society and a perilous river journey to safety. Combining elements of psychological suspense, survival horror and speculative science fiction, the story focuses on trauma, parental duty, trust and the moral costs of survival. Its tone is tense, melancholic and emo",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-06",
+      "operation": "recommend",
+      "circleId": "circle-2",
+      "domain": "movie",
+      "inputs": {
+        "anchors": [
+          "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ],
+        "limit": 3
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "85bb2fdbe2235bd2c78f58fb5c75ed37b73c20b6c1390a7986a5b468ec9675f4",
+        "fetchedAt": "2026-10-28T18:20:23.597Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "name": "Kendrick Lamar",
+          "type": "urn:entity:artist"
+        }
+      ],
+      "results": [
+        {
+          "id": "375E97BE-B457-443C-960E-DFEE01DF8BD1",
+          "name": "BlacKkKlansman",
+          "domain": "movie",
+          "rawAffinity": 0.926541408195683,
+          "catalogue": {
+            "description": "BlacKkKlansman (2018), directed by Spike Lee and starring John David Washington, Adam Driver and Laura Harrier, is a biographical crime drama with sharp satirical edges. The film follows a Black Colorado Springs detective who infiltrates a local Ku Klux Klan chapter by conducting phone contact while a white colleague attends meetings in person. Combining investigative suspense with political commentary and archival material, it explores racism, identity, and institutional power while alternating dark humor and moral outrage. The result is emotionally charged, provocative, and stylistically bol",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "19ECFF12-037A-40F5-ABF5-412FD6C96668",
+          "name": "Blindspotting",
+          "domain": "movie",
+          "rawAffinity": 0.9242563483665455,
+          "catalogue": {
+            "description": "Blindspotting (2018), directed by Carlos López Estrada and written by Daveed Diggs and Rafael Casal, is a comedy-crime-drama starring Daveed Diggs, Rafael Casal, and Janina Gavankar. The film follows a man trying to finish his last three days of probation while his friendship with a volatile coworker is tested after a nearby police shooting in Oakland. It blends sharp humor, spoken-word performances, and tense interpersonal drama to examine race, gentrification, loyalty, and trauma. The result is emotionally urgent, often unsettling, and politically resonant.",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "24A2FD28-FC76-4CCD-AC43-A015B539DBAA",
+          "name": "Uncut Gems",
+          "domain": "movie",
+          "rawAffinity": 0.9125632167256916,
+          "catalogue": {
+            "description": "Uncut Gems (2019), directed by Joshua Safdie and Ben Safdie, is a crime-drama thriller starring Adam Sandler, Julia Fox, LaKeith Stanfield, Idina Menzel and Kevin Garnett. The film follows a charismatic yet self-destructive New York jeweler who, burdened by debt and a gambling addiction, stakes everything on a rare Ethiopian opal while navigating loan sharks, a collapsing marriage and a risky auction. Stylistically tense, frenetic, and claustrophobic, the picture emphasizes an adrenaline-driven performance and abrasive sound design to explore obsession, consequence, and moral deterioration. Th",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-07",
+      "operation": "rank",
+      "circleId": "circle-1",
+      "domain": "book",
+      "inputs": {
+        "anchors": [
+          "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ],
+        "optionIds": [
+          "98687A20-65EF-4344-86A0-1DAAB026656B",
+          "0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+          "5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+          "F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+          "2865BCC2-9760-435A-9B18-45F1E9E7C084",
+          "9E5710CE-D7F4-4E27-8909-B2E690FF0A91"
+        ]
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "97d1b6061c388feb74319dea69cee8d09829ebb65a2ff33c38e5ae5e3c323bed",
+        "fetchedAt": "2026-10-28T18:20:33.506Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "name": "Ursula K. Le Guin",
+          "type": "urn:entity:author"
+        }
+      ],
+      "results": [
+        {
+          "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+          "name": "Having and Being Had",
+          "domain": "book",
+          "rawAffinity": 0.8762126818051422,
+          "catalogue": {
+            "description": "Eula Biss critiques capitalism through personal essays after buying her first home.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+          "name": "Liberation Day",
+          "domain": "book",
+          "rawAffinity": 0.8758590935242447,
+          "catalogue": {
+            "description": "A collection of short stories exploring power, ethics, and justice in various settings.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+          "name": "Checkout 19",
+          "domain": "book",
+          "rawAffinity": 0.8709583426982554,
+          "catalogue": {
+            "description": "A young woman discovers her creative genius through literature and personal encounters.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "9E5710CE-D7F4-4E27-8909-B2E690FF0A91",
+          "name": "Showtime: Magic, Kareem, Riley, and the Los Angeles Lakers Dynasty of the 1980s",
+          "domain": "book",
+          "rawAffinity": 0.6309702250385171,
+          "catalogue": {
+            "description": "An in-depth look at the Los Angeles Lakers' 1980s dynasty, highlighting their success, key figures, and cultural impact.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+          "name": "LeBron, Inc.: The Making of a Billion-Dollar Athlete",
+          "domain": "book",
+          "rawAffinity": 0.6272306774633907,
+          "catalogue": {
+            "description": "The book details LeBron James's transformation from a basketball star to a business mogul and global brand.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "2865BCC2-9760-435A-9B18-45F1E9E7C084",
+          "name": "The Boys of Dunbar: A Story of Love, Hope, and Basketball",
+          "domain": "book",
+          "rawAffinity": 0.5848174706661229,
+          "catalogue": {
+            "description": "As the crack epidemic swept across inner-city America in the early 1980s, the streets of Baltimore were crime ridden. For poor kids from the housing projects, the future looked bleak. But basketball could provide the quickest ticket out, an opportunity to earn a college scholarship and perhaps even play in the NBA. Dunbar High School had one of the most successful basketball programs, not only in Baltimore but in the entire country, and in the early 1980s, the Dunbar Poets were arguably the best high school team of all time. Four starting players-Muggsy Bogues, Reggie Williams, David Wingate, ",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-08",
+      "operation": "rank",
+      "circleId": "circle-2",
+      "domain": "book",
+      "inputs": {
+        "anchors": [
+          "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ],
+        "optionIds": [
+          "98687A20-65EF-4344-86A0-1DAAB026656B",
+          "0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+          "5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+          "F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+          "2865BCC2-9760-435A-9B18-45F1E9E7C084",
+          "9E5710CE-D7F4-4E27-8909-B2E690FF0A91"
+        ]
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "fce09ec69fc58d540358dd7e6e5ea82ae04cca1a8d79d3bef78879f14f775d79",
+        "fetchedAt": "2026-10-28T18:20:40.003Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "name": "Kendrick Lamar",
+          "type": "urn:entity:artist"
+        }
+      ],
+      "results": [
+        {
+          "id": "F9EA7C2A-A4C9-4EB0-826C-4C537327E2B8",
+          "name": "LeBron, Inc.: The Making of a Billion-Dollar Athlete",
+          "domain": "book",
+          "rawAffinity": 0.9103351649682356,
+          "catalogue": {
+            "description": "The book details LeBron James's transformation from a basketball star to a business mogul and global brand.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "2865BCC2-9760-435A-9B18-45F1E9E7C084",
+          "name": "The Boys of Dunbar: A Story of Love, Hope, and Basketball",
+          "domain": "book",
+          "rawAffinity": 0.9013491270982429,
+          "catalogue": {
+            "description": "As the crack epidemic swept across inner-city America in the early 1980s, the streets of Baltimore were crime ridden. For poor kids from the housing projects, the future looked bleak. But basketball could provide the quickest ticket out, an opportunity to earn a college scholarship and perhaps even play in the NBA. Dunbar High School had one of the most successful basketball programs, not only in Baltimore but in the entire country, and in the early 1980s, the Dunbar Poets were arguably the best high school team of all time. Four starting players-Muggsy Bogues, Reggie Williams, David Wingate, ",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "9E5710CE-D7F4-4E27-8909-B2E690FF0A91",
+          "name": "Showtime: Magic, Kareem, Riley, and the Los Angeles Lakers Dynasty of the 1980s",
+          "domain": "book",
+          "rawAffinity": 0.8995037363131687,
+          "catalogue": {
+            "description": "An in-depth look at the Los Angeles Lakers' 1980s dynasty, highlighting their success, key figures, and cultural impact.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "98687A20-65EF-4344-86A0-1DAAB026656B",
+          "name": "Having and Being Had",
+          "domain": "book",
+          "rawAffinity": 0.7602621760329124,
+          "catalogue": {
+            "description": "Eula Biss critiques capitalism through personal essays after buying her first home.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "0926155C-266C-4338-8B01-4FD8CA4E1AAD",
+          "name": "Liberation Day",
+          "domain": "book",
+          "rawAffinity": 0.6418067790668698,
+          "catalogue": {
+            "description": "A collection of short stories exploring power, ethics, and justice in various settings.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "5FD156FD-6BE2-4AB5-A7DE-7850DC95A747",
+          "name": "Checkout 19",
+          "domain": "book",
+          "rawAffinity": 0.6289829532310065,
+          "catalogue": {
+            "description": "A young woman discovers her creative genius through literature and personal encounters.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-09",
+      "operation": "rank",
+      "circleId": "circle-1",
+      "domain": "artist",
+      "inputs": {
+        "anchors": [
+          "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ],
+        "optionIds": [
+          "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+          "C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+          "8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+          "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "E39030CC-3348-409F-B89F-66B4EA92BFD8",
+          "870C2FE9-88A2-49D7-B263-F8F99D364CD6"
+        ]
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "927817a92028d08723d74fe966c09351cfa78336116f8d6215e4f5f8a3cbd2ea",
+        "fetchedAt": "2026-10-28T18:20:43.874Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "name": "Ursula K. Le Guin",
+          "type": "urn:entity:author"
+        }
+      ],
+      "results": [
+        {
+          "id": "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+          "name": "Radiohead",
+          "domain": "artist",
+          "rawAffinity": 0.9442755563639301,
+          "catalogue": {
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+          "name": "Pixies",
+          "domain": "artist",
+          "rawAffinity": 0.9405634781670398,
+          "catalogue": {
+            "description": "Pixies are an American alternative rock band formed in Boston in 1986. Known for their loud-quiet-loud dynamics, surreal and often cryptic lyrics, and a blend of melodic hooks with abrasive guitar textures, they released seminal records including Come On Pilgrim (EP), Surfer Rosa, Doolittle, Bossanova and Trompe le Monde. They split in 1993, reunited in 2004 and have continued to record and tour with lineup changes (notably Kim Deal on bass and vocals until 2013, Paz Lenchantin 2016–2024, and Emma Richardson joining in 2024). Frequently cited as a key influence on the alternative and grunge ex",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+          "name": "Beck",
+          "domain": "artist",
+          "rawAffinity": 0.9382513499081678,
+          "catalogue": {
+            "description": "Beck Hansen is an American singer-songwriter and multi-instrumentalist celebrated for eclectic, genre-blending music that mixes folk, hip-hop, electronic, rock and experimental pop. Rising from the early-90s anti-folk and underground scenes in Los Angeles and New York, he broke into the mainstream with the 1994 hit \"Loser\" and consolidated critical and commercial success with albums such as Odelay, Sea Change, Morning Phase and Colors. His work is marked by inventive sampling, ironic and poetic lyrics, diverse production approaches and frequent collaborations with producers and guest musicians",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "name": "Tyler, the Creator",
+          "domain": "artist",
+          "rawAffinity": 0.8060728544462124,
+          "catalogue": {
+            "description": "Tyler, The Creator (Tyler Gregory Okonma) is an American artist whose work spans rap, singing, production and visual design. Rising to prominence as the founder and central figure of the alternative collective Odd Future, Tyler built a reputation for provocative lyrics, bold production choices and strong personal branding through fashion (Golf Wang) and the Camp Flog Gnaw Carnival. His albums blend hip hop with pop, R&B and psychedelic elements, culminating in mainstream critical success with records like Igor.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "E39030CC-3348-409F-B89F-66B4EA92BFD8",
+          "name": "A$AP Rocky",
+          "domain": "artist",
+          "rawAffinity": 0.775436537240674,
+          "catalogue": {
+            "description": "A$AP Rocky (Rakim Athelaston Mayers) is an American rapper, singer, songwriter and producer from Harlem, New York. Rising to fame with his 2011 mixtape Live.Love.ASAP and singles like \"Peso,\" he became a central figure in the A$AP Mob collective. Rocky is noted for blending atmospheric, experimental production with mainstream rap, his strong ties to fashion and visual style, and high-profile collaborations across hip hop and pop. He has released multiple acclaimed albums, including Long.Live.ASAP (2013), AT.LONG.LAST.ASAP (2015) and Testing (2018).",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "870C2FE9-88A2-49D7-B263-F8F99D364CD6",
+          "name": "ScHoolboy Q",
+          "domain": "artist",
+          "rawAffinity": 0.7435409827288433,
+          "catalogue": {
+            "description": "ScHoolboy Q is an American rapper from Los Angeles known for gritty, street-centered storytelling and a raspy delivery. A core member of the Black Hippy collective alongside Kendrick Lamar, Ab-Soul and Jay Rock, he rose from mixtape notoriety to mainstream success with projects on Top Dawg Entertainment and major labels. His music blends West Coast gangsta rap traditions with introspective narratives about drug use, violence, fatherhood and survival.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-10",
+      "operation": "rank",
+      "circleId": "circle-2",
+      "domain": "artist",
+      "inputs": {
+        "anchors": [
+          "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ],
+        "optionIds": [
+          "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+          "C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+          "8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+          "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "E39030CC-3348-409F-B89F-66B4EA92BFD8",
+          "870C2FE9-88A2-49D7-B263-F8F99D364CD6"
+        ]
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "ec426a6862fd2d923149c5edc4043391478f4bc8bc49b390cdbce88613da1559",
+        "fetchedAt": "2026-10-28T18:20:53.743Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "name": "Kendrick Lamar",
+          "type": "urn:entity:artist"
+        }
+      ],
+      "results": [
+        {
+          "id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+          "name": "Tyler, the Creator",
+          "domain": "artist",
+          "rawAffinity": 0.9642988545319553,
+          "catalogue": {
+            "description": "Tyler, The Creator (Tyler Gregory Okonma) is an American artist whose work spans rap, singing, production and visual design. Rising to prominence as the founder and central figure of the alternative collective Odd Future, Tyler built a reputation for provocative lyrics, bold production choices and strong personal branding through fashion (Golf Wang) and the Camp Flog Gnaw Carnival. His albums blend hip hop with pop, R&B and psychedelic elements, culminating in mainstream critical success with records like Igor.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "E39030CC-3348-409F-B89F-66B4EA92BFD8",
+          "name": "A$AP Rocky",
+          "domain": "artist",
+          "rawAffinity": 0.9639455618304392,
+          "catalogue": {
+            "description": "A$AP Rocky (Rakim Athelaston Mayers) is an American rapper, singer, songwriter and producer from Harlem, New York. Rising to fame with his 2011 mixtape Live.Love.ASAP and singles like \"Peso,\" he became a central figure in the A$AP Mob collective. Rocky is noted for blending atmospheric, experimental production with mainstream rap, his strong ties to fashion and visual style, and high-profile collaborations across hip hop and pop. He has released multiple acclaimed albums, including Long.Live.ASAP (2013), AT.LONG.LAST.ASAP (2015) and Testing (2018).",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "870C2FE9-88A2-49D7-B263-F8F99D364CD6",
+          "name": "ScHoolboy Q",
+          "domain": "artist",
+          "rawAffinity": 0.9618239465834652,
+          "catalogue": {
+            "description": "ScHoolboy Q is an American rapper from Los Angeles known for gritty, street-centered storytelling and a raspy delivery. A core member of the Black Hippy collective alongside Kendrick Lamar, Ab-Soul and Jay Rock, he rose from mixtape notoriety to mainstream success with projects on Top Dawg Entertainment and major labels. His music blends West Coast gangsta rap traditions with introspective narratives about drug use, violence, fatherhood and survival.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
+          "name": "Radiohead",
+          "domain": "artist",
+          "rawAffinity": 0.7919218255561347,
+          "catalogue": {
+            "description": "Radiohead are an English alternative rock band formed in Abingdon, Oxfordshire, in 1985. The five-member group—Thom Yorke, Jonny Greenwood, Colin Greenwood, Ed O'Brien and Philip Selway—rose from the breakthrough single \"Creep\" and early guitar-driven rock to become celebrated for ambitious, genre-defying albums (OK Computer, Kid A, In Rainbows). They blend rock, electronic, orchestral and experimental influences, work closely with producer Nigel Godrich and artist Stanley Donwood, and are noted for both critical acclaim and commercial success worldwide.",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "C9FC1FE6-2F92-4B49-9EE5-B531B8536B94",
+          "name": "Pixies",
+          "domain": "artist",
+          "rawAffinity": 0.7692014349373733,
+          "catalogue": {
+            "description": "Pixies are an American alternative rock band formed in Boston in 1986. Known for their loud-quiet-loud dynamics, surreal and often cryptic lyrics, and a blend of melodic hooks with abrasive guitar textures, they released seminal records including Come On Pilgrim (EP), Surfer Rosa, Doolittle, Bossanova and Trompe le Monde. They split in 1993, reunited in 2004 and have continued to record and tour with lineup changes (notably Kim Deal on bass and vocals until 2013, Paz Lenchantin 2016–2024, and Emma Richardson joining in 2024). Frequently cited as a key influence on the alternative and grunge ex",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "8431339C-7299-4A35-9AB3-DFE9DBEB7DED",
+          "name": "Beck",
+          "domain": "artist",
+          "rawAffinity": 0.7598421811380748,
+          "catalogue": {
+            "description": "Beck Hansen is an American singer-songwriter and multi-instrumentalist celebrated for eclectic, genre-blending music that mixes folk, hip-hop, electronic, rock and experimental pop. Rising from the early-90s anti-folk and underground scenes in Los Angeles and New York, he broke into the mainstream with the 1994 hit \"Loser\" and consolidated critical and commercial success with albums such as Odelay, Sea Change, Morning Phase and Colors. His work is marked by inventive sampling, ironic and poetic lyrics, diverse production approaches and frequent collaborations with producers and guest musicians",
+            "releaseYear": null,
+            "contentRating": null,
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-11",
+      "operation": "rank",
+      "circleId": "circle-1",
+      "domain": "movie",
+      "inputs": {
+        "anchors": [
+          "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ],
+        "optionIds": [
+          "20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+          "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+          "375E97BE-B457-443C-960E-DFEE01DF8BD1",
+          "19ECFF12-037A-40F5-ABF5-412FD6C96668",
+          "24A2FD28-FC76-4CCD-AC43-A015B539DBAA"
+        ]
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "11fdcbaeca8002f4fdbdc2ca60b092ae2388ccc6176d21375138b374bf134919",
+        "fetchedAt": "2026-10-28T18:21:03.617Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
+          "name": "Ursula K. Le Guin",
+          "type": "urn:entity:author"
+        }
+      ],
+      "results": [
+        {
+          "id": "20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+          "name": "Black Mirror: Bandersnatch",
+          "domain": "movie",
+          "rawAffinity": 0.9049440865666761,
+          "catalogue": {
+            "description": "Black Mirror: Bandersnatch (2018), directed by David Slade and created by Charlie Brooker, is an interactive psychological science-fiction drama starring Fionn Whitehead, Craig Parkinson and Alice Lowe. The piece follows a young programmer adapting a puzzling fantasy novel into a branching video game, with the interactive format folding the viewer’s choices into a meditation on free will, agency and mental deterioration. Through nonlinear, meta-fictional paths the work exposes a variety of outcomes and hidden narrative layers, producing a tense, unsettling and rewatchable experience that inter",
+            "releaseYear": 2018,
+            "contentRating": "TV-MA",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "name": "Joker",
+          "domain": "movie",
+          "rawAffinity": 0.894259822379504,
+          "catalogue": {
+            "description": "Joker (2019), directed by Todd Phillips and starring Joaquin Phoenix, Robert De Niro and Zazie Beetz, is a crime-drama thriller presented as a bleak character study and origin story. It follows a marginalized party clown and failed stand-up comedian who, amid poverty, illness, and social rejection, slips into violence and social unrest. The film combines gritty, period-inflected visuals with a psychological focus on trauma, identity, and class, delivering an intense, morally ambiguous emotional experience.",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+          "name": "Bird Box",
+          "domain": "movie",
+          "rawAffinity": 0.8916406130168526,
+          "catalogue": {
+            "description": "Bird Box (2018), directed by Susanne Bier and based on the novel by Josh Malerman, is a post-apocalyptic horror-thriller starring Sandra Bullock, Trevante Rhodes and John Malkovich. The film follows a mother who must protect two children in a world where an unseen presence drives people to suicide, alternating between the collapse of society and a perilous river journey to safety. Combining elements of psychological suspense, survival horror and speculative science fiction, the story focuses on trauma, parental duty, trust and the moral costs of survival. Its tone is tense, melancholic and emo",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "24A2FD28-FC76-4CCD-AC43-A015B539DBAA",
+          "name": "Uncut Gems",
+          "domain": "movie",
+          "rawAffinity": 0.8674602028364647,
+          "catalogue": {
+            "description": "Uncut Gems (2019), directed by Joshua Safdie and Ben Safdie, is a crime-drama thriller starring Adam Sandler, Julia Fox, LaKeith Stanfield, Idina Menzel and Kevin Garnett. The film follows a charismatic yet self-destructive New York jeweler who, burdened by debt and a gambling addiction, stakes everything on a rare Ethiopian opal while navigating loan sharks, a collapsing marriage and a risky auction. Stylistically tense, frenetic, and claustrophobic, the picture emphasizes an adrenaline-driven performance and abrasive sound design to explore obsession, consequence, and moral deterioration. Th",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "375E97BE-B457-443C-960E-DFEE01DF8BD1",
+          "name": "BlacKkKlansman",
+          "domain": "movie",
+          "rawAffinity": 0.8673907398507458,
+          "catalogue": {
+            "description": "BlacKkKlansman (2018), directed by Spike Lee and starring John David Washington, Adam Driver and Laura Harrier, is a biographical crime drama with sharp satirical edges. The film follows a Black Colorado Springs detective who infiltrates a local Ku Klux Klan chapter by conducting phone contact while a white colleague attends meetings in person. Combining investigative suspense with political commentary and archival material, it explores racism, identity, and institutional power while alternating dark humor and moral outrage. The result is emotionally charged, provocative, and stylistically bol",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "19ECFF12-037A-40F5-ABF5-412FD6C96668",
+          "name": "Blindspotting",
+          "domain": "movie",
+          "rawAffinity": 0.8424504329644585,
+          "catalogue": {
+            "description": "Blindspotting (2018), directed by Carlos López Estrada and written by Daveed Diggs and Rafael Casal, is a comedy-crime-drama starring Daveed Diggs, Rafael Casal, and Janina Gavankar. The film follows a man trying to finish his last three days of probation while his friendship with a volatile coworker is tested after a nearby police shooting in Oakland. It blends sharp humor, spoken-word performances, and tense interpersonal drama to examine race, gentrification, loyalty, and trauma. The result is emotionally urgent, often unsettling, and politically resonant.",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    },
+    {
+      "workflowId": "workflow-12",
+      "operation": "rank",
+      "circleId": "circle-2",
+      "domain": "movie",
+      "inputs": {
+        "anchors": [
+          "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ],
+        "optionIds": [
+          "20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+          "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+          "375E97BE-B457-443C-960E-DFEE01DF8BD1",
+          "19ECFF12-037A-40F5-ABF5-412FD6C96668",
+          "24A2FD28-FC76-4CCD-AC43-A015B539DBAA"
+        ]
+      },
+      "provenance": {
+        "mode": "live",
+        "source": "Qloo API",
+        "endpoint": "/v2/insights",
+        "documentation": "https://docs.qloo.com/reference/insights-api-deep-dive",
+        "schemaVersion": "1.0-preview.1",
+        "harnessVersion": "0.1.26",
+        "requestCount": 1,
+        "requestDigest": "a504ff4b368c578c87e5889bdc22ec740d60751457aba1b1afe71680b6881174",
+        "fetchedAt": "2026-10-28T18:21:13.503Z"
+      },
+      "resolvedAnchors": [
+        {
+          "input": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
+          "name": "Kendrick Lamar",
+          "type": "urn:entity:artist"
+        }
+      ],
+      "results": [
+        {
+          "id": "375E97BE-B457-443C-960E-DFEE01DF8BD1",
+          "name": "BlacKkKlansman",
+          "domain": "movie",
+          "rawAffinity": 0.926541408195683,
+          "catalogue": {
+            "description": "BlacKkKlansman (2018), directed by Spike Lee and starring John David Washington, Adam Driver and Laura Harrier, is a biographical crime drama with sharp satirical edges. The film follows a Black Colorado Springs detective who infiltrates a local Ku Klux Klan chapter by conducting phone contact while a white colleague attends meetings in person. Combining investigative suspense with political commentary and archival material, it explores racism, identity, and institutional power while alternating dark humor and moral outrage. The result is emotionally charged, provocative, and stylistically bol",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "19ECFF12-037A-40F5-ABF5-412FD6C96668",
+          "name": "Blindspotting",
+          "domain": "movie",
+          "rawAffinity": 0.9242563483665455,
+          "catalogue": {
+            "description": "Blindspotting (2018), directed by Carlos López Estrada and written by Daveed Diggs and Rafael Casal, is a comedy-crime-drama starring Daveed Diggs, Rafael Casal, and Janina Gavankar. The film follows a man trying to finish his last three days of probation while his friendship with a volatile coworker is tested after a nearby police shooting in Oakland. It blends sharp humor, spoken-word performances, and tense interpersonal drama to examine race, gentrification, loyalty, and trauma. The result is emotionally urgent, often unsettling, and politically resonant.",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "24A2FD28-FC76-4CCD-AC43-A015B539DBAA",
+          "name": "Uncut Gems",
+          "domain": "movie",
+          "rawAffinity": 0.9125632167256916,
+          "catalogue": {
+            "description": "Uncut Gems (2019), directed by Joshua Safdie and Ben Safdie, is a crime-drama thriller starring Adam Sandler, Julia Fox, LaKeith Stanfield, Idina Menzel and Kevin Garnett. The film follows a charismatic yet self-destructive New York jeweler who, burdened by debt and a gambling addiction, stakes everything on a rare Ethiopian opal while navigating loan sharks, a collapsing marriage and a risky auction. Stylistically tense, frenetic, and claustrophobic, the picture emphasizes an adrenaline-driven performance and abrasive sound design to explore obsession, consequence, and moral deterioration. Th",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+          "name": "Joker",
+          "domain": "movie",
+          "rawAffinity": 0.9015454401169599,
+          "catalogue": {
+            "description": "Joker (2019), directed by Todd Phillips and starring Joaquin Phoenix, Robert De Niro and Zazie Beetz, is a crime-drama thriller presented as a bleak character study and origin story. It follows a marginalized party clown and failed stand-up comedian who, amid poverty, illness, and social rejection, slips into violence and social unrest. The film combines gritty, period-inflected visuals with a psychological focus on trauma, identity, and class, delivering an intense, morally ambiguous emotional experience.",
+            "releaseYear": 2019,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "20B3DA90-4C15-4F0A-ACE2-A056B6269823",
+          "name": "Black Mirror: Bandersnatch",
+          "domain": "movie",
+          "rawAffinity": 0.8569129946436634,
+          "catalogue": {
+            "description": "Black Mirror: Bandersnatch (2018), directed by David Slade and created by Charlie Brooker, is an interactive psychological science-fiction drama starring Fionn Whitehead, Craig Parkinson and Alice Lowe. The piece follows a young programmer adapting a puzzling fantasy novel into a branching video game, with the interactive format folding the viewer’s choices into a meditation on free will, agency and mental deterioration. Through nonlinear, meta-fictional paths the work exposes a variety of outcomes and hidden narrative layers, producing a tense, unsettling and rewatchable experience that inter",
+            "releaseYear": 2018,
+            "contentRating": "TV-MA",
+            "source": "Qloo catalogue metadata"
+          }
+        },
+        {
+          "id": "420FB192-4E28-4035-B8F8-9FBD7BA7F81F",
+          "name": "Bird Box",
+          "domain": "movie",
+          "rawAffinity": 0.8372650899592261,
+          "catalogue": {
+            "description": "Bird Box (2018), directed by Susanne Bier and based on the novel by Josh Malerman, is a post-apocalyptic horror-thriller starring Sandra Bullock, Trevante Rhodes and John Malkovich. The film follows a mother who must protect two children in a world where an unseen presence drives people to suicide, alternating between the collapse of society and a perilous river journey to safety. Combining elements of psychological suspense, survival horror and speculative science fiction, the story focuses on trauma, parental duty, trust and the moral costs of survival. Its tone is tense, melancholic and emo",
+            "releaseYear": 2018,
+            "contentRating": "R",
+            "source": "Qloo catalogue metadata"
+          }
+        }
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "sequence": 1,
+      "phase": "plan",
+      "message": "Design one 60-minute conversation salon for 2 taste circles.",
+      "mode": "live",
+      "objective": "Maximize the weakest circle coverage while honoring every exact veto.",
+      "workflowLimit": 15
+    },
+    {
+      "sequence": 2,
+      "phase": "tool",
+      "message": "Discover book candidates for Speculative fiction readers.",
+      "workflowId": "workflow-01",
+      "operation": "recommend",
+      "circleId": "circle-1",
+      "domain": "book"
+    },
+    {
+      "sequence": 3,
+      "phase": "observed",
+      "message": "3 book results received.",
+      "workflowId": "workflow-01",
+      "resultCount": 3
+    },
+    {
+      "sequence": 4,
+      "phase": "tool",
+      "message": "Discover book candidates for Hip-hop listeners.",
+      "workflowId": "workflow-02",
+      "operation": "recommend",
+      "circleId": "circle-2",
+      "domain": "book"
+    },
+    {
+      "sequence": 5,
+      "phase": "observed",
+      "message": "3 book results received.",
+      "workflowId": "workflow-02",
+      "resultCount": 3
+    },
+    {
+      "sequence": 6,
+      "phase": "tool",
+      "message": "Discover artist candidates for Speculative fiction readers.",
+      "workflowId": "workflow-03",
+      "operation": "recommend",
+      "circleId": "circle-1",
+      "domain": "artist"
+    },
+    {
+      "sequence": 7,
+      "phase": "observed",
+      "message": "3 artist results received.",
+      "workflowId": "workflow-03",
+      "resultCount": 3
+    },
+    {
+      "sequence": 8,
+      "phase": "tool",
+      "message": "Discover artist candidates for Hip-hop listeners.",
+      "workflowId": "workflow-04",
+      "operation": "recommend",
+      "circleId": "circle-2",
+      "domain": "artist"
+    },
+    {
+      "sequence": 9,
+      "phase": "observed",
+      "message": "3 artist results received.",
+      "workflowId": "workflow-04",
+      "resultCount": 3
+    },
+    {
+      "sequence": 10,
+      "phase": "tool",
+      "message": "Discover movie candidates for Speculative fiction readers.",
+      "workflowId": "workflow-05",
+      "operation": "recommend",
+      "circleId": "circle-1",
+      "domain": "movie"
+    },
+    {
+      "sequence": 11,
+      "phase": "observed",
+      "message": "3 movie results received.",
+      "workflowId": "workflow-05",
+      "resultCount": 3
+    },
+    {
+      "sequence": 12,
+      "phase": "tool",
+      "message": "Discover movie candidates for Hip-hop listeners.",
+      "workflowId": "workflow-06",
+      "operation": "recommend",
+      "circleId": "circle-2",
+      "domain": "movie"
+    },
+    {
+      "sequence": 13,
+      "phase": "observed",
+      "message": "3 movie results received.",
+      "workflowId": "workflow-06",
+      "resultCount": 3
+    },
+    {
+      "sequence": 14,
+      "phase": "tool",
+      "message": "Compare book candidates for Speculative fiction readers.",
+      "workflowId": "workflow-07",
+      "operation": "rank",
+      "circleId": "circle-1",
+      "domain": "book"
+    },
+    {
+      "sequence": 15,
+      "phase": "observed",
+      "message": "6 book results received.",
+      "workflowId": "workflow-07",
+      "resultCount": 6
+    },
+    {
+      "sequence": 16,
+      "phase": "tool",
+      "message": "Compare book candidates for Hip-hop listeners.",
+      "workflowId": "workflow-08",
+      "operation": "rank",
+      "circleId": "circle-2",
+      "domain": "book"
+    },
+    {
+      "sequence": 17,
+      "phase": "observed",
+      "message": "6 book results received.",
+      "workflowId": "workflow-08",
+      "resultCount": 6
+    },
+    {
+      "sequence": 18,
+      "phase": "tool",
+      "message": "Compare artist candidates for Speculative fiction readers.",
+      "workflowId": "workflow-09",
+      "operation": "rank",
+      "circleId": "circle-1",
+      "domain": "artist"
+    },
+    {
+      "sequence": 19,
+      "phase": "observed",
+      "message": "6 artist results received.",
+      "workflowId": "workflow-09",
+      "resultCount": 6
+    },
+    {
+      "sequence": 20,
+      "phase": "tool",
+      "message": "Compare artist candidates for Hip-hop listeners.",
+      "workflowId": "workflow-10",
+      "operation": "rank",
+      "circleId": "circle-2",
+      "domain": "artist"
+    },
+    {
+      "sequence": 21,
+      "phase": "observed",
+      "message": "6 artist results received.",
+      "workflowId": "workflow-10",
+      "resultCount": 6
+    },
+    {
+      "sequence": 22,
+      "phase": "tool",
+      "message": "Compare movie candidates for Speculative fiction readers.",
+      "workflowId": "workflow-11",
+      "operation": "rank",
+      "circleId": "circle-1",
+      "domain": "movie"
+    },
+    {
+      "sequence": 23,
+      "phase": "observed",
+      "message": "6 movie results received.",
+      "workflowId": "workflow-11",
+      "resultCount": 6
+    },
+    {
+      "sequence": 24,
+      "phase": "tool",
+      "message": "Compare movie candidates for Hip-hop listeners.",
+      "workflowId": "workflow-12",
+      "operation": "rank",
+      "circleId": "circle-2",
+      "domain": "movie"
+    },
+    {
+      "sequence": 25,
+      "phase": "observed",
+      "message": "6 movie results received.",
+      "workflowId": "workflow-12",
+      "resultCount": 6
+    },
+    {
+      "sequence": 26,
+      "phase": "evaluate",
+      "message": "First search: weakest circle coverage 66.67/100.",
+      "considered": 216,
+      "counts": {
+        "book": 6,
+        "artist": 6,
+        "movie": 6
+      }
+    },
+    {
+      "sequence": 27,
+      "phase": "complete",
+      "message": "A balanced event brief is ready for the venue owner to review.",
+      "workflowCount": 12,
+      "considered": 216
+    }
+  ],
+  "limitations": [
+    "Cultural affinity does not predict an individual person or attendance.",
+    "Scores are relative within this run and must not be compared as calibrated measurements across runs.",
+    "No venue logistics, availability, rights, ticketing, or revenue is verified.",
+    "The search is bounded to one refinement and at most ten candidates per domain."
+  ],
+  "hostNotes": {
+    "notes": {
+      "excerpt": "Host-written introduction: Eula Biss examines ownership in Having and Being Had. Ask each guest to name an object that signals belonging, then discuss how owning it changes their relationship to work. No book passage is reproduced.",
+      "recording": "EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss the recording and public persona; no playback is assumed. Official artist release: https://www.youtube.com/watch?v=t-E2gm0a_N0",
+      "filmMoment": "Joker (2019): discuss the official teaser's public-performance framing, without screening the film. Invite disagreement rather than treating this as a shared taste. Source: https://www.youtube.com/watch?v=t433PEQGErc",
+      "question": "Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme."
+    },
+    "missing": [],
+    "completed": 4,
+    "source": "Host-entered preparation notes",
+    "verifiedByQloo": false,
+    "status": "host_choices_recorded"
+  }
+}

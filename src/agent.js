@@ -163,10 +163,11 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
     version: '1.0', id, mode: adapter.mode,
     evidenceLabel: adapter.mode === 'live' ? 'Live Qloo graph evidence' : 'Synthetic fixture evidence. No Qloo API was called.',
     status: feasible ? 'ready' : 'blocked', input,
-    anchorEvidence: input.circles.map(circle => ({ circleId: circle.id, name: circle.name, anchors: circle.anchors.map(value => {
+    anchorEvidence: input.circles.map(circle => ({ circleId: circle.id, name: circle.name, anchors: circle.anchors.map((value,index) => {
       const record = evidence.find(row => row.circleId === circle.id && row.resolvedAnchors.some(anchor => anchor.input === value));
       const resolved = record?.resolvedAnchors.find(anchor => anchor.input === value);
-      return resolved ? { ...resolved, workflowId: record.workflowId, source: 'Qloo resolver' } : { input: value, name: UUID.test(value) ? null : value, id: UUID.test(value) ? value : null, type: null, source: adapter.mode === 'fixture' ? 'Synthetic fixture input' : 'Provided input; readable identity not returned' };
+      const enteredText = circle.anchorLabels?.[index] ?? value;
+      return resolved ? { ...resolved, enteredText, enteredTextSource: 'Host-entered label', workflowId: record.workflowId, source: 'Qloo resolver' } : { input: value, enteredText, name: UUID.test(value) ? null : value, id: UUID.test(value) ? value : null, type: null, source: adapter.mode === 'fixture' ? 'Synthetic fixture input' : 'Provided input; readable identity not returned' };
     }) })),
     generatedAt: new Date().toISOString(), elapsedMs: Date.now() - started,
     decision: {

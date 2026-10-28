@@ -27,8 +27,8 @@ export function hostRunningOrder(program, value) {
   return program.schedule.map((row, index) => {
     const choice = index === 1 ? notes.excerpt : index === 2 ? notes.recording : index === 3 ? notes.filmMoment : '';
     let activity = row.activity;
-    if (choice) activity = `Host-selected material: ${choice}. ${activity}`;
-    if (index === 3 && notes.question) activity = `${choice ? `Host-selected focus: ${choice}. ` : ''}Ask the host's question: ${notes.question} Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.`;
+    if (choice) activity = `Host-selected material: ${choice}${/[.!?]$/u.test(choice) ? '' : '.'} ${activity}`;
+    if (index === 3 && notes.question) activity = `${choice ? `Host-selected focus: ${choice}${/[.!?]$/u.test(choice) ? '' : '.'} ` : ''}Ask the host's question: ${notes.question} Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.`;
     return { ...row, activity };
   });
 }

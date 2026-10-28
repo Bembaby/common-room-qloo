@@ -24,7 +24,13 @@ export function validateInput(value) {
       throw new AppError('INVALID_INPUT', `Circle ${index + 1} needs one to three cultural anchors.`);
     }
     const anchors = [...new Set(circle.anchors.map((anchor, i) => text(anchor, `Circle ${index + 1}, anchor ${i + 1}`, 160)))];
-    return { id: `circle-${index + 1}`, name: text(circle.name, `Circle ${index + 1} name`, 60), anchors };
+    let anchorLabels;
+    if (circle.anchorLabels !== undefined) {
+      if (!Array.isArray(circle.anchorLabels) || circle.anchorLabels.length !== circle.anchors.length) throw new AppError('INVALID_INPUT', 'Readable anchor labels must correspond to the supplied cultural anchors.');
+      const labels = circle.anchorLabels.map((label,i)=>text(label,`Circle ${index+1}, entered anchor ${i+1}`,160));
+      anchorLabels = anchors.map(anchor=>labels[circle.anchors.findIndex(value=>value.trim()===anchor)]);
+    }
+    return { id: `circle-${index + 1}`, name: text(circle.name, `Circle ${index + 1} name`, 60), anchors, ...(anchorLabels ? { anchorLabels } : {}) };
   });
   if (new Set(circles.map(circle => circle.name.toLowerCase())).size !== circles.length) {
     throw new AppError('INVALID_INPUT', 'Give each taste circle a different name.');

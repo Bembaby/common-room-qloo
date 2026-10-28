@@ -70,3 +70,11 @@ test('empty and rejected evidence never produces a host invitation or approved p
   assert.equal(result.curation,null);assert.equal(result.program,null);
   assert.equal(explainCuration(null,result.input,null,[]),null);
 });
+
+test('original host-entered anchor labels survive exact identity transport and do not change ranking inputs', async () => {
+  const input=fresh();input.circles[0].anchorLabels=['My original alias','Another original alias'];
+  const adapter=new FixtureAdapter(input);const result=await runPlan(input,adapter);
+  assert.deepEqual(result.input.circles[0].anchorLabels,input.circles[0].anchorLabels);
+  assert.equal(result.anchorEvidence[0].anchors[0].enteredText,'My original alias');
+  assert.deepEqual(result.evidence[0].inputs.anchors,fixture.input.circles[0].anchors);
+});

@@ -13,6 +13,7 @@ export function parseSavedRoom(raw, mode) {
   require(form && text(form.venue, 80) && [60, 90, 120].includes(Number(form.minutes)) && number(Number(form.coverage)) && [2, 3].includes(Number(form.circleCount)));
   require(list(form.circles, 3) && form.circles.length === 3 && form.circles.every(circle => text(circle.name, 60) && text(circle.anchors, 480)) && text(form.vetoes, 4800));
   require(list(saved.identities, 40) && saved.identities.every(row => Array.isArray(row) && row.length === 2 && text(row[0], 300) && uuid(row[1])));
+  require(saved.originalLabels === undefined || list(saved.originalLabels,40) && saved.originalLabels.every(row=>Array.isArray(row)&&row.length===2&&text(row[0],300)&&text(row[1],160)));
   require(saved.resultFormSnapshot == null || text(saved.resultFormSnapshot, 16_384));
   const result = saved.result;
   if (result) {
