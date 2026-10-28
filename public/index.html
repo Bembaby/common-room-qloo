@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f3eb">
+  <meta name="theme-color" content="#eae7dd">
   <meta name="description" content="Design a cultural night that gives every taste circle a reason to be in the room.">
   <title>Common Room | Cultural programming with evidence</title>
   <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/finish.css">
@@ -13,7 +13,7 @@
   <a class="skip" href="#planner">Skip to the planner</a>
   <header class="topbar">
     <a class="brand" href="/" aria-label="Common Room home"><span class="brand-mark" aria-hidden="true">c</span> common room<span class="brand-dot">.</span></a>
-    <div class="topbar-right"><span class="quiet hide-small">CULTURE, WITH A COMMON THREAD</span><span id="mode" class="mode">Loading mode</span></div>
+    <div class="topbar-right"><a class="quiet hide-small" href="#planner">The curator’s desk</a><span id="mode" class="mode">Loading mode</span></div>
   </header>
   <main id="main" class="shell">
     <section class="intro">
@@ -23,18 +23,19 @@
     <div id="mode-notice" class="notice" role="note"></div>
     <div class="workspace">
       <aside class="brief-panel">
-        <div class="section-head"><span class="step">01</span><div><h2>Set the room</h2><p>Three circles. One shared evening.</p></div></div>
+        <div class="section-head"><span class="step">01</span><div><h2>Set the room</h2><p id="circle-summary">Three circles. One shared evening.</p></div></div>
         <form id="planner" tabindex="-1">
           <label for="venue">Your venue</label><input id="venue" maxlength="80" required autocomplete="organization">
-          <div class="field-head"><h3>Taste circles</h3><span>PUBLIC CULTURAL ANCHORS</span></div>
+          <div class="field-head"><h3>Taste circles</h3><div class="circle-count"><label for="circle-count">How many?</label><select id="circle-count"><option value="2">Two circles</option><option value="3" selected>Three circles</option></select></div></div>
           <div id="circles"></div>
           <p id="anchor-note" class="field-note"></p>
-          <div class="field-pair"><div><label for="minutes">Time together</label><select id="minutes"><option value="60">60 minutes</option><option value="90" selected>90 minutes</option><option value="120">120 minutes</option></select></div><div><label for="coverage">Minimum coverage <output id="coverage-value" for="coverage">60</output></label><input id="coverage" type="range" min="0" max="100" step="1" value="60"></div></div>
+          <div class="field-pair"><div><label for="minutes">Time together</label><select id="minutes"><option value="60">60 minutes</option><option value="90" selected>90 minutes</option><option value="120">120 minutes</option></select></div><div><label for="coverage">Minimum for each circle <output id="coverage-value" for="coverage">60</output></label><input id="coverage" type="range" min="0" max="100" step="1" value="60" aria-describedby="coverage-note"></div></div><p id="coverage-note" class="field-note">A relative rank score out of 100, averaged across the three works. Higher means a stricter brief, not a predicted turnout.</p>
           <label for="vetoes">Hard vetoes <span class="optional">optional</span></label><textarea id="vetoes" rows="2" maxlength="4800" placeholder="Exact titles or entity IDs, one per line" aria-describedby="veto-note"></textarea>
           <p id="veto-note" class="field-note">Every veto is binding. Relative coverage is a comparison score, not predicted turnout.</p>
+          <p id="veto-feedback" class="field-note" role="status"></p>
           <div id="access-wrap" hidden><label for="access">Venue / judge access code</label><input id="access" type="password" autocomplete="off"></div>
-          <button id="run" class="primary" type="submit"><span>Find our common thread</span><span aria-hidden="true">↗</span></button>
-          <div class="form-actions"><button type="button" class="text-button" id="reset">Reset sample</button><button type="button" class="text-button" id="strict">Try a strict brief</button></div>
+          <button id="run" class="primary" type="submit" disabled><span>Find our common thread</span></button>
+          <div class="form-actions"><button type="button" class="text-button" id="reset" disabled>Reset sample</button><button type="button" class="text-button" id="strict" disabled>Try a strict brief</button></div>
         </form>
       </aside>
       <section class="canvas" aria-label="Your event plan">

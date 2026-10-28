@@ -2,10 +2,11 @@ import { randomUUID } from 'node:crypto';
 import { AppError } from './errors.js';
 import { DOMAINS, validateInput, isVetoed } from './input.js';
 import { optimize, rankScores } from './optimizer.js';
+import { explainCuration } from '../public/curation.js';
 
 export const SCORE_EXPLANATION = 'For each circle and domain, every candidate is ranked against the same shortlist. Relative score = 100 × (shortlist size - rank + 1) / shortlist size. Missing candidates receive 0 as a conservative evidence gap. A circle coverage score is the mean across the three slots. The agent maximizes the lowest circle coverage, then the average. These are application-derived rank scores, not Qloo probabilities, measured satisfaction, attendance, or revenue.';
 
-function makeProgram(bundle, input) {
+function makeProgram(bundle, input, curation) {
   if (!bundle) return null;
   const [book, artist, movie] = bundle.items;
   const welcome = input.minutes === 60 ? 5 : 10;
@@ -19,12 +20,20 @@ function makeProgram(bundle, input) {
     venue: input.venue,
     format: 'A hosted conversation salon',
     durationMinutes: input.minutes,
+    openingQuestion: curation.connectionQuestion,
+    invitations: curation.entryPoints,
+    preparation: [
+      `Prepare a short excerpt or a discussion-only introduction to ${book.name}.`,
+      `Choose a recording by ${artist.name} if playback is appropriate and permitted, or discuss it without playback.`,
+      `Prepare a conversation prompt about ${movie.name}; a full screening is not part of this timed salon.`,
+      'Check availability, access needs and any permissions before inviting guests. No rights or venue arrangements are verified.'
+    ],
     description: `A ${input.minutes}-minute conversation at ${input.venue}, built around ${book.name}, ${artist.name}, and ${movie.name}. Each selection has an inspectable reason to be in the room.`,
     schedule: [
-      { minutes: welcome, label: 'Open the room', activity: 'Invite each person to name one cultural work they would share with someone from another circle.' },
+      { minutes: welcome, label: 'Open the room', activity: `Invite each circle to introduce a familiar way into the program. ${curation.entryPoints.map(entry => entry.works.length ? `${entry.name}: ${entry.works.map(work => work.name).join(' or ')}.` : `${entry.name}: ask for a participant-chosen starting point; no returned rank support was available.`).join(' ')}` },
       { minutes: read, label: `Read: ${book.name}`, activity: `Use ${book.name} as the first discussion anchor. Ask: what would you want a first-time reader to notice?`, entityId: book.id },
       { minutes: listen, label: `Listen: ${artist.name}`, activity: `Discuss a participant-chosen recording by ${artist.name}. Ask: what feeling or detail would you connect to the book discussion?`, entityId: artist.id },
-      { minutes: discuss, label: `Discuss: ${movie.name}`, activity: `Use ${movie.name} as a film conversation prompt. Ask: where do the three works agree, and where do they surprise each other?`, entityId: movie.id },
+      { minutes: discuss, label: `Discuss: ${movie.name}`, activity: `Use ${movie.name} as a film conversation prompt. Ask: ${curation.connectionQuestion} Let participants name the connection or disagreement; do not assume a shared theme.`, entityId: movie.id },
       { minutes: close, label: 'Leave with a bridge', activity: 'Each participant names one unfamiliar work they now want to explore. Collect voluntary feedback before repeating the event.' }
     ],
     note: 'This is a planning brief with discussion prompts. No screening, performer availability, inventory, licensing, attendance, or sales is verified.'
@@ -131,6 +140,7 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
   if (insufficientDomain && !solution.missingDomains.length) reasons.push(`Fewer than three eligible ${insufficientDomain} candidates remain, so relative coverage is not sufficiently informative.`);
   if (solution.bundle && solution.bundle.metrics.minimum < input.minimumCoverage) reasons.push(`The strongest balanced plan reaches ${solution.bundle.metrics.minimum}/100 for its weakest circle, below your ${input.minimumCoverage}/100 minimum.`);
   emit(feasible ? 'complete' : 'blocked', feasible ? 'A balanced event brief is ready for the venue owner to review.' : 'No event meets the constraints. Keep the vetoes and ask the owner to revise the brief.', { workflowCount, considered: solution.considered });
+  const curation = explainCuration(solution.bundle, input, baseline, evidence);
   return {
     version: '1.0', id, mode: adapter.mode,
     evidenceLabel: adapter.mode === 'live' ? 'Live Qloo graph evidence' : 'Synthetic fixture evidence. No Qloo API was called.',
@@ -147,7 +157,8 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
       refined, initialMinimum,
       comparison: 'The baseline maximizes average rank coverage on the exact same eligible shortlist. It is not a measured real-world popularity baseline.'
     },
-    program: feasible ? makeProgram(solution.bundle, input) : null,
+    curation,
+    program: feasible ? makeProgram(solution.bundle, input, curation) : null,
     scoring: { explanation: SCORE_EXPLANATION, minimumCandidatesPerDomain: 3, missingMeans: 'Unobserved evidence, not dislike.' },
     budget: { workflowCount, workflowLimit: limit, note: 'A harness workflow may make several Qloo HTTP calls for entity resolution. This is not an API-request count.' },
     catalog: [...catalogMap.values()], evidence, trace,

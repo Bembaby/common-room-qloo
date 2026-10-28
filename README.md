@@ -2,7 +2,7 @@
 
 **One night. More than one crowd.**
 
-Common Room helps an independent bookshop, café, or small cultural venue choose one conversation salon for several taste circles. The agent discovers books, artists, and films, compares each circle against the same cultural shortlist, honors explicit vetoes, and prioritizes the least-served circle. It returns a practical host brief together with the evidence behind every selection.
+Common Room helps an independent bookshop, café, or small cultural venue agree on one conversation salon for two or three taste circles. The agent discovers books, artists, and films, compares each circle against the same cultural shortlist, honors explicit vetoes, and prioritizes the least-served circle. It explains observed entry points, shows the alternative program and per-circle tradeoffs, and returns a host copy with preparation notes, connecting prompts and retained evidence.
 
 **[Try the live app](https://common-room-eight.vercel.app) · [Executed evidence and limits](docs/EVIDENCE.md)**
 
@@ -21,11 +21,13 @@ Open <http://127.0.0.1:4312>.
 
 1. Click **Find our common thread** to build the sample night.
 2. Inspect **A reason for every seat** and the counterfactual that optimizes only the average.
-3. Click **Replace this book with a binding veto** to apply an exact veto and revise the plan.
+3. Choose **Veto this book**, **Veto this artist** or **Veto this movie**. Review the exact identity added to your brief, then run the updated brief. The next decision reports whether the veto matched an observed discovery.
 4. Click **Try a strict brief** to see a targeted second search and an honest refusal when the threshold cannot be met.
-5. Export the host brief and evidence JSON. The agent notebook records actual executed steps.
+5. Export the host brief and evidence JSON, or print the host copy. The Markdown includes preparation notes, rank-backed entry points, constraints and per-circle tradeoffs. The agent notebook records actual executed steps.
 
 Demo anchors are read-only because the fixture models only those anchors. Venue names, circle labels, timing, vetoes, and the comparison threshold are editable. Fresh cultural anchors require live mode.
+
+The connecting question is a participant-led hosting prompt. Common Room does not invent a shared theme or claim that Qloo supplied an interpretation of the works. Entry points describe the strongest observed relative ranks among the selected works; raw provider affinities remain separate.
 
 ## Verify the local work
 

@@ -57,6 +57,31 @@ assert.equal(chosen.metrics.minimum, balanced.minimum);
 assert.equal(chosen.metrics.average, balanced.average);
 assert.deepEqual(metrics(result.decision.baseline.items), average);
 assert.equal(result.decision.minimumGainVsAverage, round(balanced.minimum - average.minimum));
+if (result.curation) {
+  assert.equal(result.curation.sameAsAverage, chosen.items.every(item => result.decision.baseline.items.some(other => other.id === item.id)));
+  for (const circle of result.input.circles) {
+    const coverage = round(chosen.items.reduce((sum,item)=>sum+scores.get(`${circle.id}:${item.id}`),0)/3);
+    const baselineCoverage = round(result.decision.baseline.items.reduce((sum,item)=>sum+scores.get(`${circle.id}:${item.id}`),0)/3);
+    const row = result.curation.circles.find(item=>item.circleId===circle.id);
+    assert.equal(row.score,coverage);assert.equal(row.baseline,baselineCoverage);assert.equal(row.delta,round(coverage-baselineCoverage));
+    const available = chosen.items.filter(item=>item.scores[circle.id].observed);
+    const highest = Math.max(...available.map(item=>scores.get(`${circle.id}:${item.id}`)));
+    const expected = available.filter(item=>scores.get(`${circle.id}:${item.id}`)===highest).map(item=>item.id).sort();
+    const entry = result.curation.entryPoints.find(item=>item.circleId===circle.id);
+    assert.deepEqual(entry.works.map(item=>item.id).sort(),expected);
+    for(const work of entry.works){
+      const selected=chosen.items.find(item=>item.id===work.id);
+      assert.equal(work.score,scores.get(`${circle.id}:${work.id}`));
+      assert.equal(work.rank,selected.scores[circle.id].rank);assert.equal(work.totalOptions,selected.scores[circle.id].totalOptions);
+    }
+  }
+  for(const receipt of result.curation.vetoes){
+    assert.ok(result.input.vetoes.includes(receipt.value));
+    assert.equal(receipt.excludedFromBundle,true);
+    const returned = result.evidence.filter(record=>record.operation==='recommend').flatMap(record=>record.results).filter(item=>[item.id,item.name].some(value=>value.toLowerCase()===receipt.value.toLowerCase()));
+    assert.deepEqual([...receipt.matchedIds].sort(),[...new Set(returned.map(item=>item.id))].sort());
+  }
+}
 if (result.status === 'ready') {
   assert.ok(balanced.minimum >= result.input.minimumCoverage);
   assert.ok(domains.every(domain => candidates[domain].length >= 3));
@@ -65,6 +90,6 @@ if (result.status === 'ready') {
   assert.equal(result.program, null);
   assert.ok(balanced.minimum < result.input.minimumCoverage || domains.some(domain => candidates[domain].length < 3));
 }
-const report = { category: 'independent_live_rank_evaluation', verifiedAt: new Date().toISOString(), runId: result.id, inputSha256: createHash('sha256').update(bytes).digest('hex'), status: result.status, combinations: considered, balanced, averageOnly: average, minimumGain: round(balanced.minimum - average.minimum), note: 'Identical returned shortlist and vetoes. Rank coverage is not measured attendance, satisfaction or commercial impact.' };
+const report = { category: 'independent_live_rank_evaluation', verifiedAt: new Date().toISOString(), runId: result.id, inputSha256: createHash('sha256').update(bytes).digest('hex'), status: result.status, combinations: considered, balanced, averageOnly: average, minimumGain: round(balanced.minimum - average.minimum),curationVerified:Boolean(result.curation), note: 'Identical returned shortlist and vetoes. Rank coverage is not measured attendance, satisfaction or commercial impact.' };
 if (process.argv[3]) await writeFile(process.argv[3], JSON.stringify(report, null, 2));
 console.log(JSON.stringify(report));

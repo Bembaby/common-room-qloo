@@ -17,6 +17,7 @@ const files = new Map([
 ]);
 
 files.set("/finish.css", ["finish.css", "text/css; charset=utf-8"]);
+files.set('/curation.js', ['curation.js', 'text/javascript; charset=utf-8']);
 files.set("/assets/paper-grain.png", ["assets/paper-grain.png", "image/png"]);
 files.set("/assets/Manrope.ttf", ["assets/Manrope.ttf", "font/ttf"]);
 files.set("/assets/Newsreader.ttf", ["assets/Newsreader.ttf", "font/ttf"]);
