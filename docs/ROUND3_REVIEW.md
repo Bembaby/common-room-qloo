@@ -1,6 +1,6 @@
 # A more useful curator's desk
 
-October28 product and interface round. This is a scoped implementation review, not user research or an accessibility certification.
+October 28 product and interface round. This is a scoped implementation review, not user research or an accessibility certification.
 
 ## From scores to a hosting decision
 
@@ -14,7 +14,7 @@ Two-circle programming is now exposed alongside the existing three-circle experi
 
 The approved Watt If reference informed the attention to the working artifact and retained constraints. Common Room keeps its own paper, plum, literary type and credited Met artwork. Result selections now lead; the longer connecting question follows. In-result links connect program, circles, tradeoffs and host copy. Base controls and screen/print composition replace the earlier accumulating style overrides.
 
-The full core suite passes48 tests, including six new tests for ties, missing evidence, neutral comparisons, exact veto receipts, two-circle hosting and refusal. Fourteen earlier browser checks and eight new checks exercise the local fixture journey and explicitly injected failure states. The tested fixture host copy renders as two A4 pages. Checked text contrast is at least5.38:1; final checked input boundaries are3.5:1 and secondary-button boundaries3.42:1.
+The full core suite passes 48 tests, including six new tests for ties, missing evidence, neutral comparisons, exact veto receipts, two-circle hosting and refusal. Fourteen earlier browser checks and eight new checks exercise the local fixture journey and explicitly injected failure states. The tested fixture host copy renders as two A4 pages. Checked text contrast is at least 5.38:1; final checked input boundaries are 3.5:1 and secondary-button boundaries 3.42:1.
 
 ## Actual new Qloo execution
 
@@ -34,6 +34,6 @@ The actual provider runs and exports completed. The recording harness then faile
 
 The baseline is public revision e037f630b106b0826023a17ceb357f5ae6dccacf. Its actual live screenshots remain in repository history and the screenshot manifest. New genuine execution frames and clearly labeled saved-result render checks are listed separately under `docs/screenshots`. Different cultural inputs appear in the before and after images; they illustrate interface changes, not a provider-quality benchmark.
 
-A2:23.5 silent review edit uses the actual1920x1080 browser take, credited title cards and chapter captions. Waiting cuts and returns to an earlier approved run are labeled. Raw takes and exact edit ranges are retained privately. This is a picture edit, not completed natural narration or word-aligned speech. The narration script and timestamp-driven caption pipeline are prepared; no paid generation has been commissioned.
+A 2:23.5 silent review edit uses the actual 1920x1080 browser take, credited title cards and chapter captions. Waiting cuts and returns to an earlier approved run are labeled. Raw takes and exact edit ranges are retained privately. This is a picture edit, not completed natural narration or word-aligned speech. The narration script and timestamp-driven caption pipeline are prepared; no paid generation has been commissioned.
 
 The official-harness dependency advisories remain disclosed in DEPENDENCIES.md. No booking, inventory, rights, screening, performer, turnout or commercial outcome is verified. Deployment and review materials do not establish Devpost submission.

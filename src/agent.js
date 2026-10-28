@@ -40,6 +40,14 @@ function makeProgram(bundle, input, curation) {
   };
 }
 
+export function workflowLimitFor(circleCount, configured = 22) {
+  if (![2, 3].includes(circleCount)) throw new AppError('INVALID_INPUT', 'A brief needs two or three taste circles.', 400);
+  // Three discoveries and three comparisons per circle, then at most one
+  // deeper discovery and one revised-domain comparison per circle.
+  const completePlanMaximum = 7 * circleCount + 1;
+  return Math.min(completePlanMaximum, Math.max(1, Math.min(22, Math.floor(Number(configured) || 22))));
+}
+
 export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = () => {}, beforeWorkflow = () => {} } = {}) {
   const input = validateInput(rawInput);
   const started = Date.now();
@@ -48,7 +56,7 @@ export async function runPlan(rawInput, adapter, { maxWorkflows = 22, onEvent = 
   const evidence = [];
   const catalogMap = new Map();
   let workflowCount = 0;
-  const limit = Math.max(1, Math.min(22, Number(maxWorkflows) || 22));
+  const limit = workflowLimitFor(input.circles.length, maxWorkflows);
   const emit = (phase, message, details = {}) => {
     const event = { sequence: trace.length + 1, phase, message, ...details };
     trace.push(event);

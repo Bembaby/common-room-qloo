@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { timingSafeEqual } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { AppError, publicError } from './errors.js';
-import { runPlan } from './agent.js';
+import { runPlan, workflowLimitFor } from './agent.js';
 import { FixtureAdapter, fixture } from './fixtures.js';
 import { QlooHarnessAdapter, HARNESS_VERSION } from './harness.js';
 import { WorkflowBudget } from './budget.js';
@@ -109,14 +109,14 @@ export function createApp({ env = process.env, adapterFactory, budgetFactory } =
       // Keep the complete maximum plan available before spending sponsor quota.
       // Per-request limits may deliberately be lower, in which case the planner
       // will fail visibly rather than silently run a partial plan.
-      const perPlanLimit = Math.max(1, Math.min(22, Number(env.QLOO_MAX_WORKFLOWS) || 22));
+      const perPlanLimit = workflowLimitFor(input.circles.length, env.QLOO_MAX_WORKFLOWS);
       if (globalBudget?.beginPlan) planBudget = await globalBudget.beginPlan(perPlanLimit);
       else if (globalBudget) await globalBudget.ensureAvailable(perPlanLimit);
       const adapter = adapterFactory ? adapterFactory(input) : mode === 'live' ? new QlooHarnessAdapter({ env }) : new FixtureAdapter(input);
       const streaming = path.endsWith('/stream');
       if (streaming) response.writeHead(200, { 'Content-Type': 'application/x-ndjson; charset=utf-8', 'X-Accel-Buffering': 'no' });
       const result = await runPlan(input, adapter, {
-        maxWorkflows: env.QLOO_MAX_WORKFLOWS,
+        maxWorkflows: perPlanLimit,
         beforeWorkflow: () => (planBudget ?? globalBudget)?.consume(),
         onEvent: event => { if (streaming && !response.destroyed) response.write(`${JSON.stringify({ type: 'trace', data: event })}\n`); }
       });

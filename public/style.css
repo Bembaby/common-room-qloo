@@ -10,5 +10,3 @@ button{border:0}input:not([type=range]),textarea,select{width:100%;min-height:44
 .skip{position:fixed;z-index:100;left:20px;top:10px;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.skip:focus{width:auto;height:auto;overflow:visible;clip-path:none;padding:10px;background:var(--white)}.explanation,.comparison-note,.artifact-note{font-size:12px;line-height:1.8;color:var(--muted)}.explanation{margin-top:12px}section:focus{outline:none}section:focus-visible{outline:3px solid var(--focus);outline-offset:5px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 ::placeholder{color:#756576;opacity:1}
-
-

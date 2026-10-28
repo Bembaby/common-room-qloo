@@ -26,6 +26,49 @@ test('an asynchronous hosted quota failure stops before any provider adapter is 
   });
 });
 
+test('two-circle planning reserves its complete 15-workflow maximum when only 16 slots remain', async () => {
+  const input = structuredClone(fixture.input);
+  input.circles = input.circles.slice(0, 2);
+  input.minimumCoverage = 95;
+  let reserved, used = 0;
+  await serve({ env: { APP_MODE: 'live' }, adapterFactory: brief => new FixtureAdapter(brief), budgetFactory: () => ({
+    beginPlan: async count => {
+      assert.ok(count <= 16);
+      reserved = count;
+      return { consume: async () => { assert.ok(++used <= reserved); }, release: async () => {} };
+    }
+  }) }, async base => {
+    const response = await post(base, input);
+    assert.equal(response.status, 200);
+    const result = await response.json();
+    assert.equal(reserved, 15);
+    assert.equal(result.budget.workflowLimit, 15);
+    assert.equal(result.decision.refined, true);
+    assert.equal(used, result.budget.workflowCount);
+    assert.ok(used <= 15);
+    assert.equal(result.mode, 'fixture');
+  });
+});
+
+test('three-circle reservations remain 22 and a lower configured ceiling still stops visibly', async () => {
+  for (const configured of [undefined, '10']) {
+    let reserved, used = 0;
+    await serve({ env: { APP_MODE: 'live', QLOO_MAX_WORKFLOWS: configured }, adapterFactory: brief => new FixtureAdapter(brief), budgetFactory: () => ({
+      beginPlan: async count => { reserved = count; return { consume: async () => { used++; }, release: async () => {} }; }
+    }) }, async base => {
+      const response = await post(base, fixture.input);
+      const result = await response.json();
+      assert.equal(reserved, configured ? 10 : 22);
+      assert.ok(used <= reserved);
+      if (configured) {
+        assert.equal(response.status, 429);
+        assert.equal(result.error.code, 'WORKFLOW_BUDGET');
+        assert.equal(result.program, undefined);
+      } else assert.equal(response.status, 200);
+    });
+  }
+});
+
 test('HTTP app returns a complete plan and exposes no credential in config or health', async () => {
   await serve({ env: { APP_MODE: 'fixture', QLOO_API_KEY: 'do-not-emit-this-secret' } }, async base => {
     const health = await (await fetch(`${base}/api/health`)).json();
