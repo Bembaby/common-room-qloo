@@ -1,6 +1,6 @@
 {
   "createdAt": "2026-10-28T15:44:07.837Z",
-  "note": "Native browser screenshots, not generated execution imagery. Homepage proves reachability only. Fixture and actual live-result images remain separate. Local capture identity is retained by exact application content hashes until a release revision exists.",
+  "note": "Native browser screenshots, not generated execution imagery. Homepage proves reachability only. Fixture and actual live-result images remain separate. Local capture identity is retained by exact application content hashes until a release revision exists. Round3 keeps genuine native execution and visibly labeled saved-result layout replays separate. Its recording harness stopped after the actual strict result due to an ambiguous test selector; the provider outputs were retained and independently evaluated.",
   "files": [
     {
       "path": "docs/screenshots/cover.jpg",
@@ -164,6 +164,86 @@
         "timeSeconds": 131,
         "videoSha256": "ea3453f1828d8bd60b8a8400903941721a0bc3bf631eeed9dcb679f66b2aa99e"
       }
+    },
+    {
+      "path": "docs/screenshots/round3-live-home.png",
+      "sha256": "af1373452f59324a536a0b9572d3720285412ffbca3217a19f867d017adcb95e",
+      "bytes": 809446,
+      "category": "public_live_mode_homepage",
+      "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7"
+    },
+    {
+      "path": "docs/screenshots/round3-live-program.png",
+      "sha256": "2f75c1e2309de79722dcd561f1b8fca41300445ba4da1aba82869f534be7a810",
+      "bytes": 457890,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7",
+      "runId": "c76752b7-4b06-4156-846e-c2ae8e76c997"
+    },
+    {
+      "path": "docs/screenshots/round3-live-circles.png",
+      "sha256": "bd9810cf6d20541e32d1aef7af5494644ee6415e5235dd6024107b407d40194b",
+      "bytes": 408827,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7",
+      "runId": "c76752b7-4b06-4156-846e-c2ae8e76c997"
+    },
+    {
+      "path": "docs/screenshots/round3-live-veto.png",
+      "sha256": "e783846b58720b33c0b664b97965480db62c883a7db32e42ebe9fd9b66484fac",
+      "bytes": 403906,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7",
+      "runId": "5e4b86f1-8ff9-4957-b132-63e02429273f"
+    },
+    {
+      "path": "docs/screenshots/round3-live-refusal.png",
+      "sha256": "1f0b16e92c07f309d502aa3a4467a31f92189ecaad7d07c348a5b649a462f2f0",
+      "bytes": 405535,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7",
+      "runId": "6702f53e-a2fc-4f0f-99e2-f3aa314bfa07"
+    },
+    {
+      "path": "docs/screenshots/round3-live-host.png",
+      "sha256": "d9aa54a6d7c25d5de62f7f325841e330ad5ee09eb03c1d41926fd642a1ff1d39",
+      "bytes": 424512,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7",
+      "runId": "c76752b7-4b06-4156-846e-c2ae8e76c997"
+    },
+    {
+      "path": "docs/screenshots/round3-replay-mobile.png",
+      "sha256": "a4f194891d5f205c784d934d04fa251beb487fad2cc865645593d1964bc5d65f",
+      "bytes": 117279,
+      "category": "saved_actual_qloo_response_render_replay",
+      "sourceRevision": null,
+      "applicationContent": {
+        "public/app.js": "2c6801fe5f7ada4eb81542cfb160bf873c3f2c08bf849220ab6f8660d833d536",
+        "public/curation.js": "c0fd6ed474277a16db84254a647bea13fb8aee7889f89f20c5831e4993d5281c",
+        "public/style.css": "07c2ec55d1ead4b58820fb5bd186f1a015b95334656c1f9f4094c17d9606cb03",
+        "public/finish.css": "3bc8302dae4753af882edb2e4bd0ac4cd2f18f8ff1a07fae914befd995a8995f",
+        "public/index.html": "06e1b2f4a0ee20989e5542a3c07c390e8be37aa92cf61a4c4be74111d923ce8f"
+      },
+      "note": "Explicit on-screen replay label. Local final-UI render of actual recorded result, no new Qloo query.",
+      "runId": "c76752b7-4b06-4156-846e-c2ae8e76c997"
+    },
+    {
+      "path": "docs/screenshots/round3-replay-refusal-320.png",
+      "sha256": "226f2feec5f8b83d27462b3f8e90769f9cb0fcc3cce9c4fbc5ba467a11e51aa4",
+      "bytes": 98222,
+      "category": "saved_actual_qloo_response_render_replay",
+      "sourceRevision": null,
+      "applicationContent": {
+        "public/app.js": "2c6801fe5f7ada4eb81542cfb160bf873c3f2c08bf849220ab6f8660d833d536",
+        "public/curation.js": "c0fd6ed474277a16db84254a647bea13fb8aee7889f89f20c5831e4993d5281c",
+        "public/style.css": "07c2ec55d1ead4b58820fb5bd186f1a015b95334656c1f9f4094c17d9606cb03",
+        "public/finish.css": "3bc8302dae4753af882edb2e4bd0ac4cd2f18f8ff1a07fae914befd995a8995f",
+        "public/index.html": "06e1b2f4a0ee20989e5542a3c07c390e8be37aa92cf61a4c4be74111d923ce8f"
+      },
+      "note": "Explicit on-screen replay label. Local final-UI render of actual recorded result, no new Qloo query.",
+      "runId": "6702f53e-a2fc-4f0f-99e2-f3aa314bfa07"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-28T17:02:37.662Z"
 }

@@ -221,6 +221,7 @@ function section(title, description, children) {
 
 function renderResult(result) {
   currentResult = result;
+  $('#veto-feedback').textContent = '';
   resultFormSnapshot = JSON.stringify(readInput());
   const container = $('#results');
   container.replaceChildren();
@@ -295,7 +296,7 @@ function renderResult(result) {
       return card;
     })));
     if (ready) evidenceContainer.append(curatorialNote);
-    const coverageSection = section('A reason for every seat', `${curation.weakestCircles.join(' and ')} ${curation.weakestCircles.length === 1 ? 'has' : 'have'} the lowest coverage at ${format(bundle.metrics.minimum)}/100; your minimum is ${result.input.minimumCoverage}.`, [
+    const coverageSection = section('A reason for every seat', `Lowest circle coverage: ${curation.weakestCircles.join(' and ')}, at ${format(bundle.metrics.minimum)}/100. Your minimum is ${result.input.minimumCoverage}.`, [
       matrix(bundle, result.input), paragraph('100 means first in this shortlist. It does not mean certain interest. A missing graph result is shown as ? and counted conservatively as 0.', 'explanation')
     ]);
     coverageSection.id = 'circle-coverage';
@@ -315,7 +316,7 @@ function renderResult(result) {
       tradeoffs.id = 'program-tradeoffs';
       const alternative = node('details', { class: 'alternative-details' }, [node('summary', { text: 'See the alternative program and each circle’s tradeoff' }), paragraph(`Average-only program: ${baseline.items.map(item => item.name).join(' / ')}.`, 'alternative-works')]);
       const rows = node('div', { class: 'tradeoff-rows' });
-      for (const row of curation.circles) rows.append(node('div', { class: 'tradeoff-row' }, [node('strong', { text: row.name }), node('span', { text: `Average-only ${format(row.baseline)} / Balanced ${format(row.score)}` }), node('span', { class: row.delta > 0 ? 'delta gain' : row.delta < 0 ? 'delta loss' : 'delta', text: `${row.delta > 0 ? '+' : ''}${format(row.delta)} points` })]));
+      for (const row of curation.circles) rows.append(node('div', { class: 'tradeoff-row' }, [node('strong', { text: row.name }), node('span', { text: `Average-only ${format(row.baseline)}\nBalanced ${format(row.score)}` }), node('span', { class: row.delta > 0 ? 'delta gain' : row.delta < 0 ? 'delta loss' : 'delta', text: `${row.delta > 0 ? '+' : ''}${format(row.delta)} points` })]));
       alternative.append(rows);
       tradeoffs.append(alternative);
       evidenceContainer.append(tradeoffs);

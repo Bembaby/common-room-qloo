@@ -13,6 +13,7 @@ const files = ['README.md', 'LICENSE', 'package.json', 'package-lock.json', '.en
 files.push('docs/DEPENDENCIES.md');
 files.push('scripts/verify-evidence.js');
 files.push('docs/EVIDENCE.md');
+files.push('docs/ROUND3_REVIEW.md');
 async function collect(path) {
   for (const entry of await readdir(resolve(root, path), { withFileTypes: true })) {
     const name = `${path}/${entry.name}`;

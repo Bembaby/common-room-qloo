@@ -1,5 +1,7 @@
 # Executed evidence
 
+Latest product round: [ROUND3_REVIEW.md](ROUND3_REVIEW.md) records the new curator explanations, per-circle alternative, all-domain veto review, two-circle controls and host copy, along with three fresh actual Qloo results. The fresh and artist-veto cases have zero same-shortlist policy difference; the strict diagnostic has a2.96-point difference and remains refused. The partial recording-harness failure and explicitly labeled render replay are retained separately.
+
 Checked October 28, 2026. [Live app](https://common-room-eight.vercel.app), [public MIT source](https://github.com/Bembaby/common-room-qloo).
 
 ## Genuine hosted journeys

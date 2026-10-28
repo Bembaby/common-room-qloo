@@ -1,5 +1,7 @@
 # Judge walkthrough and optional recording
 
+October28 product round: the current silent review edit uses real1920x1080 public execution, including a fresh Radiohead identity choice, artist veto and strict refusal. The picture edit is2:23.5; narration is not generated. Use the current labels **Veto this book / artist / movie**, then review and run the changed brief. Current host copy includes preparation, rank-backed invitations, constraints and a print view. Natural narration and word timing require an authorized media allowance and working provider access. Do not label chapter captions as speech alignment.
+
 The event does not require a video. This script is useful for a short recording, live demo, or written judge-testing guide. Use real live mode for the submitted core demonstration. If showing the offline fixture, say “synthetic demo” clearly and keep its badge visible.
 
 ## Three-minute story
