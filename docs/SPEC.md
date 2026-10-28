@@ -125,7 +125,7 @@ The public submission path requires no login or access code. `PUBLIC_DEMO=true` 
 
 Only one live plan runs at a time. Per-IP limits cap plan submissions, and a shared persisted ledger caps workflows per hour. Each reservation is saved before its subprocess starts. A corrupt or unwritable ledger pauses live queries. Before starting a new plan, the server checks that the full configured per-plan allowance remains available.
 
-The ledger is designed for one process and one replica with persistent storage. Do not run a live CLI script concurrently against the same ledger. A multi-replica deployment needs a shared transactional limiter before it is safe to scale.
+The local file ledger is designed for one process and one replica with persistent storage. The Vercel entrypoint uses a private Blob coordinator with uncached reads, ETag conditional writes and one shared lease across all deployments. It reserves a full bounded plan before provider access. Only a confirmed complete planner outcome reconciles unused reservation slots; failures and uncertain outcomes retain the full reservation. Do not run quota-consuming CLI scripts against an independent ledger while the hosted app is active. See DEPLOYMENT.md for configuration and operational limits.
 
 The pinned harness has its own bounded HTTP retries; Common Room does not add workflow retries. The subprocess limit defaults to 25 seconds and combined output is capped at one megabyte. Qloo quota ownership and API availability remain external dependencies. Current event documentation did not publish a universal numeric rate allowance for this credential.
 

@@ -10,7 +10,7 @@ Use Node.js 22.19 or later. Run `npm ci --ignore-scripts`, `npm test`, then `npm
 
 The `public/` directory is the static output. Requests under `/api/` reach `api/index.js`. The harness and fixtures must be included in the function bundle. Its 800-second lifetime bounds at most 22 sequential workflows with a default 25-second deadline. Harness scratch files use the temporary filesystem. They are not the quota ledger.
 
-The hosted quota coordinator uses one dedicated **private Vercel Blob** object, `quota/shared-v1.json`. Every deployment reads uncached state and conditionally writes against its ETag. A plan reserves its entire maximum allowance before constructing the provider adapter. One shared 15-minute lease prevents concurrent live plans across instances. Lost acknowledgements retain reservations; missing or corrupt state stops all queries. Reservations are never refunded, including on failed plans. The terminal response follows the release attempt, so function freezing cannot routinely skip it. A failed release retains the lease until expiry.
+The hosted quota coordinator uses one dedicated **private Vercel Blob** object, `quota/shared-v1.json`. Every deployment reads uncached state and conditionally writes against its ETag. A plan reserves its entire maximum allowance before constructing the provider adapter. One shared 15-minute lease prevents concurrent live plans across instances. Lost acknowledgements retain reservations; missing or corrupt state stops all queries. A fully completed planner outcome can reconcile only its unused reserved workflow slots. Failed or interrupted runs retain the full reservation. The terminal response follows the release attempt, so function freezing cannot routinely skip it. A failed release retains the lease until expiry.
 
 The local file ledger supports a single persistent Node process. It must not be used as a serverless quota store. Do not run local quota-consuming scripts concurrently with the public app against an independent ledger.
 
@@ -23,6 +23,7 @@ APP_ACCESS_CODE=
 QLOO_API_KEY=organizer-issued-secret
 QLOO_MAX_WORKFLOWS=22
 QLOO_MAX_WORKFLOWS_PER_HOUR=88
+QLOO_MAX_TOTAL_WORKFLOWS=1000
 QLOO_TIMEOUT_MS=25000
 ```
 
@@ -43,3 +44,9 @@ Keep final source and assets stable after the deadline. Formal rules and structu
 No paid model API is required. Check the hosting account's included resources and spending controls before deployment. Included credit is shared and does not establish a project spending cap. Do not change shared billing settings or pause unrelated projects as a deployment side effect. The event credential's allowance and expiration also require verification before live activation.
 
 The in-memory per-IP limit is a secondary local defense, not a distributed rate limit. Blob reservations and the lease are the shared sponsor-quota boundary. Workflows are not HTTP-request counts: resolution and upstream retries can add requests. No venue outcomes or full accessibility certification is claimed.
+
+## Observed event allowance and request pacing
+
+The authenticated event root response on October 28 reported 50,000 requests/month, 49,857 remaining and 10 requests/second. This is an observed account response, not a universal Qloo entitlement or proof of the key's expiration date. The full-plan failure was a rate-limit response, not evidence of monthly exhaustion.
+
+Native shortlist resolution can issue parallel lookups inside one workflow. A trusted Node preload serializes HTTP starts at least 250 ms apart, including internal retries, while the unmodified pinned CLI still receives JSON stdin and retains its timeout/output/environment boundaries. The public coordinator permits 132 workflows/hour and 1,000 workflows over this judging release. The latter persists beyond hourly expiry. A workflow can need up to 13 identity lookups plus an Insights call, with at most three upstream attempts; a conservative 42-request allowance per workflow leaves headroom under the observed monthly balance. No existing reservation was erased when applying these provider-informed limits.

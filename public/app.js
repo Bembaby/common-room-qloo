@@ -322,7 +322,7 @@ try {
   $('#mode').classList.toggle('live', config.mode === 'live');
   $('#mode-notice').classList.toggle('live', config.mode === 'live');
   $('#mode-notice').textContent = config.mode === 'live'
-    ? 'Live mode uses your server-side Qloo credential. New anchors are resolved by the pinned Qloo harness. Ambiguous inputs and failed requests stop visibly.'
+    ? 'Live Qloo graph. Each new brief queries real cultural evidence. Ambiguous names need your choice; failures stay visible. One brief runs at a time to protect shared access.'
     : 'You are in the synthetic demo. Entity IDs, affinities, and audience relationships are invented fixtures. No Qloo API is called. Use live mode for a fresh graph-backed decision.';
   $('#anchor-note').textContent = config.mode === 'live'
     ? 'One public work or creator per line, up to three. The sample identities were resolved with Qloo. New names use its resolver; if a name is ambiguous, choose the intended identity before retrying.'

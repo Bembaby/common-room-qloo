@@ -127,6 +127,7 @@ export class QlooHarnessAdapter {
       QLOO_BASE_URL: QLOO_EVENT_BASE_URL,
       QLOO_TRUSTED_BASE_URL: QLOO_EVENT_BASE_URL,
       QLOO_RESOLUTION_PROVIDER: 'native',
+      NODE_OPTIONS: `--import=${new URL('./qloo-fetch-pacing.js', import.meta.url).href}`,
       QLOO_HOME: env.VERCEL === '1' ? join(tmpdir(), 'common-room-qloo-harness') : resolve('.data/qloo-harness')
     });
     this.execute = execute;

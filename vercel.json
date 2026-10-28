@@ -7,7 +7,7 @@
   "functions": {
     "api/index.js": {
       "maxDuration": 800,
-      "includeFiles": "{node_modules,public,fixtures}/**"
+      "includeFiles": "{node_modules,public,fixtures,src}/**"
     }
   },
   "rewrites": [{ "source": "/api/:path*", "destination": "/api/index" }],

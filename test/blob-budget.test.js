@@ -90,3 +90,14 @@ test('missing, corrupt or unavailable storage never resets the allowance', async
   await assert.rejects(new BlobWorkflowBudget({ client: unavailable }).beginPlan(22), { code: 'BUDGET_STORAGE' });
   assert.throws(() => createApp({ env: { APP_MODE: 'live', VERCEL: '1' } }), /durable shared quota/);
 });
+
+test('judging-period allowance survives hourly expiry and coordinator restarts', async () => {
+  let now = 4_000_000;
+  const store = memoryStore();
+  const options = { client: store.client, now: () => now, env: { QLOO_MAX_TOTAL_WORKFLOWS: '22' } };
+  const plan = await new BlobWorkflowBudget(options).beginPlan(22);
+  await plan.release();
+  now += 3_600_001;
+  await assert.rejects(new BlobWorkflowBudget(options).beginPlan(1), { code: 'TOTAL_WORKFLOW_LIMIT' });
+  assert.equal(store.state().totalReserved, 22);
+});
