@@ -1,6 +1,6 @@
 {
   "created_at": "2026-10-21",
-  "scope": "Local visual assets only. Not sponsor-execution evidence.",
+  "scope": "Static design assets and an explicitly narrated edit of actual Qloo execution. Decorative artwork is separate from provider evidence.",
   "rights": "docs/CREDITS.md",
   "artwork_source": "https://www.metmuseum.org/art/collection/search/436155",
   "files": [
@@ -33,6 +33,37 @@
       "path": "public/assets/paper-grain.png",
       "bytes": 14636,
       "sha256": "8eba6b135bb1eac434aa2cef0100311636bd9b78c461d89753d9a0fa6b6f8d42"
+    },
+    {
+      "path": "public/media/common-room-demo.mp4",
+      "bytes": 11658603,
+      "sha256": "a0296ea519adeea48872d44100aa0b710156ec75b915e4937f8be064862217e4"
+    },
+    {
+      "path": "public/media/common-room-demo.vtt",
+      "bytes": 3391,
+      "sha256": "578a905df0a1413759276cc79b053f681ac6569dcc4ab7bc8d6c0aa0fb689247"
+    },
+    {
+      "path": "public/media/common-room-demo.srt",
+      "bytes": 3518,
+      "sha256": "b5468882cdaccb6a301d4e1de8bb18acdeda61e240e51d23d5dac2a1380ff385"
+    },
+    {
+      "path": "public/media/transcript.txt",
+      "bytes": 1904,
+      "sha256": "f8fb58c8b6ba3dbd08c69c01241792fbb7db622bddd5e0c53a856fb8ce4d55ee"
+    },
+    {
+      "path": "public/media/manifest.json",
+      "bytes": 1245,
+      "sha256": "960ae8340b9b727cc20eae28ae77e3ba5057f5c701cbca65dbbf6f2a1dd12b4a"
+    },
+    {
+      "path": "public/media/demo-poster.jpg",
+      "bytes": 91273,
+      "sha256": "e2b608f1c71ba2e6c3044aec0692051ade4e6dba436dafb14ba0109e38c856d2"
     }
-  ]
+  ],
+  "updatedAt": "2026-10-28T17:34:15.109Z"
 }

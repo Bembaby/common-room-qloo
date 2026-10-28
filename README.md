@@ -8,6 +8,8 @@ Common Room helps an independent bookshop, café, or small cultural venue agree 
 
 Common Room completed genuine hosted Qloo planning, a binding book veto, and a strict refusal from a fresh anonymous browser on October 28. Both downloads were inspected. The default local application remains explicitly synthetic. Provider, hosting and contest-submission evidence are separate categories; this repository does not claim a final Devpost submission.
 
+[Watch the 2:03 real-execution walkthrough](https://common-room-eight.vercel.app/demo.html), with synthetic stock-voice narration, word highlights and a transcript. The application itself makes no language-model or ElevenLabs calls.
+
 ## Run it in one minute
 
 Use Node.js 22.19.0 or later. Install the pinned dependencies for the official harness and hosted quota coordinator.

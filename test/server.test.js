@@ -91,6 +91,30 @@ test('public mode rejects an access code in both local and function entrypoints'
   assert.throws(() => createApp({ env: { APP_MODE: 'fixture', PUBLIC_DEMO: 'true', APP_ACCESS_CODE: 'private' } }), /empty APP_ACCESS_CODE/);
 });
 
+test('the local walkthrough supports video seeking and rejects invalid byte ranges without exposing private files', async () => {
+  await serve({ env: { APP_MODE: 'fixture' } }, async base => {
+    assert.equal((await fetch(base + '/demo.html')).status, 200);
+    const head = await fetch(base + '/media/common-room-demo.mp4', { method: 'HEAD' });
+    assert.equal(head.status, 200);
+    const size = Number(head.headers.get('content-length'));
+    assert.ok(size > 1000);
+    const partial = await fetch(base + '/media/common-room-demo.mp4', { headers: { Range: 'bytes=0-31' } });
+    assert.equal(partial.status, 206);
+    assert.equal(partial.headers.get('content-range'), `bytes 0-31/${size}`);
+    const bytes = Buffer.from(await partial.arrayBuffer());
+    assert.equal(bytes.length, 32);
+    assert.equal(bytes.toString('ascii', 4, 8), 'ftyp');
+    const suffix = await fetch(base + '/media/common-room-demo.mp4', { headers: { Range: 'bytes=-16' } });
+    assert.equal(suffix.status, 206);
+    assert.equal((await suffix.arrayBuffer()).byteLength, 16);
+    for (const range of ['bytes=-0', 'bytes=9-2', `bytes=${size}-`, 'bytes=0-2,4-6', 'bytes=bad']) {
+      assert.equal((await fetch(base + '/media/common-room-demo.mp4', { headers: { Range: range } })).status, 416);
+    }
+    assert.equal((await fetch(base + '/media/owner-authorization-private.json')).status, 404);
+    assert.equal((await fetch(base + '/.data/media/credit-ledger.json')).status, 404);
+  });
+});
+
 test('missing event credential never spends a hosted quota reservation', async () => {
   let reservations = 0;
   await serve({ env: { APP_MODE: 'live' }, budgetFactory: () => ({ beginPlan: async () => { reservations++; } }) }, async base => {

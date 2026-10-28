@@ -1,6 +1,6 @@
 # Live evidence and public verification
 
-October 28 interface release: fresh anonymous Nina Simone input exercised actual identity-choice recovery and returned a genuine Qloo-backed 120-minute brief, run `3647d82e-9291-4ec0-a2c5-9bbdeee441a3`. Both exports, stale-result handling and 1440/768/390/320 layouts passed. Independent enumeration checked 567 combinations; both policies selected the same bundle in this case. The raw 2:23.8 browser recording is silent execution evidence, not finished narrated media. See EVIDENCE.md for provenance and limits.
+October 28 interface release: fresh anonymous Nina Simone input exercised actual identity-choice recovery and returned a genuine Qloo-backed 120-minute brief, run `3647d82e-9291-4ec0-a 2c5-9bbdeee441a3`. Both exports, stale-result handling and 1440/768/390/320 layouts passed. Independent enumeration checked 567 combinations; both policies selected the same bundle in this case. The raw 2:23.8 browser recording is silent execution evidence, not finished narrated media. See EVIDENCE.md for provenance and limits.
 
 Current state, October 28: **genuine hosted core journeys verified**. Fresh planning, binding veto, strict refusal, downloads and anonymous access passed. See [EVIDENCE.md](EVIDENCE.md) for actual run IDs, comparisons, failures and limits. The procedures below remain the reproducibility guide; they are not a final contest-submission receipt.
 
@@ -74,3 +74,7 @@ Only then record `public_live_verified` in STATUS. A reachable page, a synthetic
 ## What to keep private
 
 Never publish `.env`, `.data`, credentials, private access codes, or unrelated environment variables. Live evidence contains the submitted cultural interests and should be reviewed before selective publication. Preserve public cultural entity IDs and safe provenance needed for reproducibility, while excluding secrets. Retain a truthful failure record alongside success when it explains a material limitation.
+
+## October 28 third-round update
+
+See ROUND3_REVIEW.md and EVIDENCE.md for four new genuine hosted cases, including a fresh mobile two-circle result, actual artist veto and strict refusal. Current suite:52 core tests,14 existing and 8 new local browser checks. Saved-response layout replays remain explicitly labeled. The narrated2:03.2 film is an edited account of actual execution with synthetic stock-voice narration; its captions come from returned character timing. Subjective audio listening is not asserted.

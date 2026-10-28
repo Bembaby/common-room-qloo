@@ -1,6 +1,6 @@
 # Executed evidence
 
-Latest product round: [ROUND3_REVIEW.md](ROUND3_REVIEW.md) records the new curator explanations, per-circle alternative, all-domain veto review, two-circle controls and host copy, along with three fresh actual Qloo results. The fresh and artist-veto cases have zero same-shortlist policy difference; the strict diagnostic has a2.96-point difference and remains refused. The partial recording-harness failure and explicitly labeled render replay are retained separately.
+Latest product round: [ROUND3_REVIEW.md](ROUND3_REVIEW.md) records the new curator explanations, per-circle alternative, all-domain veto review, two-circle controls and host copy, along with four fresh actual Qloo results. The fresh and artist-veto cases have zero same-shortlist policy difference; the strict diagnostic has a 2.96-point difference and remains refused. The partial recording-harness failure and explicitly labeled render replay are retained separately.
 
 Checked October 28, 2026. [Live app](https://common-room-eight.vercel.app), [public MIT source](https://github.com/Bembaby/common-room-qloo).
 
@@ -58,7 +58,7 @@ The core suite passed all 42 tests. Fourteen existing local browser checks and e
 
 The design detector's paper-palette warning is an intentional exception documented by the existing material and typography direction. The two section numbers indicate the actual brief-to-decision sequence. An unused pulsing indicator was removed. Source scanning does not replace the rendered browser checks.
 
-The released interface at `0c27353472a9173d7c227ca62dd64dbfd92a4966` was then tested anonymously with a new cultural anchor, Nina Simone, a changed circle name and a 120-minute venue brief. The real resolver returned ambiguity; the browser chose the returned artist identity through the app and retried. The completed run `3647d82e-9291-4ec0-a2c5-9bbdeee441a3` used 18 workflows and selected Life of Pi, Sarah Vaughan and Dallas Buyers Club. Its schedule totaled 120 minutes, both exports were inspected, and the new result fit all four tested viewport widths without page overflow or JavaScript errors.
+The released interface at `0c27353472a9173d7c227ca62dd64dbfd92a4966` was then tested anonymously with a new cultural anchor, Nina Simone, a changed circle name and a 120-minute venue brief. The real resolver returned ambiguity; the browser chose the returned artist identity through the app and retried. The completed run `3647d82e-9291-4ec0-a 2c5-9bbdeee441a3` used 18 workflows and selected Life of Pi, Sarah Vaughan and Dallas Buyers Club. Its schedule totaled 120 minutes, both exports were inspected, and the new result fit all four tested viewport widths without page overflow or JavaScript errors.
 
 Independent recalculation examined 567 combinations. The balanced minimum was 63.49 and room average 69.14. In this case the average-only policy chose the same bundle, so the minimum difference was **0 points**. The policy does not improve every case. A raw browser recording retains the actual ambiguity, retry, roughly two-minute execution and completed result; it is silent evidence footage, not a finished narrated demo.
 
@@ -71,3 +71,11 @@ The app is a deterministic goal-directed agent and makes no runtime model API ca
 The official developer guide says event keys remain active through judging. An exact per-key expiration timestamp was not returned. Keep the public app and source available through judging and respect the remaining account allowance. Provider timestamps and observer timestamps are retained separately; a measured server/observer clock offset is recorded privately.
 
 Video is optional under the current event requirements. The release uses genuine application screenshots and reproducible instructions. Silent actual-execution footage and an optional narration script are prepared; no paid narration or media generation was commissioned.
+
+## Two-circle production and narrated demonstration
+
+Source `979aad2b89ae4de6ec01cbee701c09745ddfaf10` completed actual anonymous mobile run `02d1a617-6ddf-48db-bead-8b7ed4d1587e`, using12 workflows for a 60-minute brief. It selected One Flew Over the Cuckoo's Nest, Sly & The Family Stone and Boyhood. Independent enumeration of 180 combinations checked minimum 70 and average 71.11 versus average-only minimum 64.44 and average 73.88. The 5.56-point minimum difference is relative rank arithmetic, not observed venue impact. Actual result layouts, alternative rows, reduced motion and both downloads passed.
+
+The real earlier hourly refusal remains recorded. Two-circle plans now reserve their full 15-workflow bound rather than 22; no shared hourly or lifetime limit was raised or reset. The final core suite has52 passing tests, with 14 existing and 8 new scoped local browser checks.
+
+The [2:03.2 walkthrough](https://common-room-eight.vercel.app/demo.html) edits the actual three-circle recording from source `29644f200a4aff56157a1694dc1be2eada0162f7`. It shows real ambiguity, selection, artist veto and strict refusal. Wait cuts and the return to an earlier approved run are marked. Synthetic ElevenLabs stock-voice narration has305 individual word highlights from provider character timing, with maximum encoding quantization5ms before the 30fps frame grid. Public transcript, VTT, SRT and content hashes accompany it. Full film decode and visual frames were checked. Runtime audio listening was unavailable and is not claimed. The film uses no Higgsfield footage and never substitutes generated behavior for the app.

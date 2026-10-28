@@ -50,7 +50,19 @@ export class BlobWorkflowBudget {
     const id = randomUUID();
     const until = await this.mutate(state => {
       if (state.lease && state.lease.until > this.now()) throw new AppError('BUSY', 'Another live plan is running. Try again after it completes.', 429);
-      if (state.reservations.reduce((sum, r) => sum + r.count, 0) + count > this.limit) throw new AppError('GLOBAL_WORKFLOW_LIMIT', 'The shared hourly workflow allowance is reserved. Return after the window resets.', 429);
+      let reserved = state.reservations.reduce((sum, r) => sum + r.count, 0);
+      if (reserved + count > this.limit) {
+        if (count > this.limit) throw new AppError('GLOBAL_WORKFLOW_LIMIT', 'The configured shared allowance cannot cover this complete plan. Live queries are paused; your brief is preserved.', 429);
+        let retryAt = this.now();
+        for (const row of [...state.reservations].sort((a, b) => a.at - b.at)) {
+          reserved -= row.count;
+          retryAt = row.at + 3_600_000;
+          if (reserved + count <= this.limit) break;
+        }
+        const retryAfterSeconds = Math.max(1, Math.ceil((retryAt - this.now()) / 1000));
+        const minutes = Math.ceil(retryAfterSeconds / 60);
+        throw new AppError('GLOBAL_WORKFLOW_LIMIT', `The shared hourly workflow allowance is reserved. Try again in about ${minutes} ${minutes === 1 ? 'minute' : 'minutes'}, assuming no other plan starts. Your brief is preserved; no Qloo request was sent.`, 429, { retryAfterSeconds });
+      }
       if (state.totalReserved + count > this.totalLimit) throw new AppError('TOTAL_WORKFLOW_LIMIT', 'The judging-period workflow allowance is reserved. Live queries are paused to protect the event key. No fixture result was substituted.', 429);
       const until = this.now() + this.leaseMs;
       state.reservations.push({ id, at: this.now(), count });

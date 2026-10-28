@@ -23,3 +23,7 @@ Downloaded October 21, 2026. Pixels are unmodified. CSS uses responsive sizing/c
 The paper-grain PNG is an original deterministic procedural tile, not a photo: 192 by 192 RGBA, random seed 20261021, RGB 20/15/9 and alpha chosen from 0/0/0/0/2/3/5/7. These original assets follow the project MIT license.
 
 File hashes and source references are retained in ASSET_MANIFEST.json. Font licenses remain the controlling font terms; MIT does not replace them.
+
+## Narrated application walkthrough
+
+The video is an edit of actual Common Room/Qloo execution recorded October 28,2026, with marked waiting cuts and returns to an earlier approved run. Original title cards reuse the credited Degas artwork and licensed project fonts. Synthetic narration uses ElevenLabs Eric, a premade stock voice, and Multilingual v2 under the owner's existing subscription allowance. No voice cloning or Higgsfield generation was used. Provider character timestamps drive word highlights; SRT/VTT and transcript files are supplied. A static Manrope Medium instance is used only during local encoding, under the same OFL license. Third-party licenses and service terms retain their applicable scope; the project MIT source license does not replace them.

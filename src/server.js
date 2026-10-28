@@ -18,6 +18,11 @@ const files = new Map([
 
 files.set("/finish.css", ["finish.css", "text/css; charset=utf-8"]);
 files.set('/curation.js', ['curation.js', 'text/javascript; charset=utf-8']);
+files.set('/demo.html', ['demo.html', 'text/html; charset=utf-8']);
+files.set('/demo.css', ['demo.css', 'text/css; charset=utf-8']);
+for (const [name, type] of Object.entries({ 'common-room-demo.mp4': 'video/mp4', 'common-room-demo.vtt': 'text/vtt; charset=utf-8', 'common-room-demo.srt': 'application/x-subrip', 'demo-poster.jpg': 'image/jpeg', 'transcript.txt': 'text/plain; charset=utf-8', 'manifest.json': 'application/json' })) {
+  files.set(`/media/${name}`, [`media/${name}`, type]);
+}
 files.set("/assets/paper-grain.png", ["assets/paper-grain.png", "image/png"]);
 files.set("/assets/Manrope.ttf", ["assets/Manrope.ttf", "font/ttf"]);
 files.set("/assets/Newsreader.ttf", ["assets/Newsreader.ttf", "font/ttf"]);
@@ -75,10 +80,27 @@ export function createApp({ env = process.env, adapterFactory, budgetFactory } =
       if (request.method === 'GET' && path === '/api/config') {
         return sendJSON(200, { project: 'common-room', mode, accessCodeRequired: Boolean(env.APP_ACCESS_CODE), harnessVersion: HARNESS_VERSION, sample: mode === 'live' ? liveSample : fixture.input, resolvedAnchors: mode === 'live' ? resolvedAnchors : [] });
       }
-      if (request.method === 'GET' && files.has(path)) {
+      if (['GET', 'HEAD'].includes(request.method) && files.has(path)) {
         const [name, type] = files.get(path);
-        response.writeHead(200, { 'Content-Type': type });
-        return response.end(await readFile(new URL(`../public/${name}`, import.meta.url)));
+        const bytes = await readFile(new URL(`../public/${name}`, import.meta.url));
+        const headers = { 'Content-Type': type, 'Content-Length': bytes.length };
+        if (type === 'video/mp4') {
+          headers['Accept-Ranges'] = 'bytes';
+          const range = request.headers.range;
+          if (range) {
+            const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+            const start = match?.[1] ? Number(match[1]) : Math.max(0, bytes.length - Number(match?.[2]));
+            const end = match?.[1] && match[2] ? Math.min(Number(match[2]), bytes.length - 1) : bytes.length - 1;
+            if (!match || !Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end || start >= bytes.length) {
+              response.writeHead(416, { 'Content-Range': `bytes */${bytes.length}` });
+              return response.end();
+            }
+            response.writeHead(206, { ...headers, 'Content-Length': end - start + 1, 'Content-Range': `bytes ${start}-${end}/${bytes.length}` });
+            return response.end(request.method === 'HEAD' ? undefined : bytes.subarray(start, end + 1));
+          }
+        }
+        response.writeHead(200, headers);
+        return response.end(request.method === 'HEAD' ? undefined : bytes);
       }
       if (request.method !== 'POST' || !['/api/plan', '/api/plan/stream'].includes(path)) {
         return sendJSON(404, { error: { code: 'NOT_FOUND', message: 'This route does not exist.' } });

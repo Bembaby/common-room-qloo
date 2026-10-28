@@ -59,7 +59,7 @@ Require at least three eligible comparison candidates in each domain. A lone ret
 
 If the brief fails its threshold, is missing a domain, or has too few comparison candidates, select one follow-up search. Prefer a sparse domain; otherwise choose the lowest-scoring slot for the currently weakest circle. Request up to six candidates for that circle and domain. If new eligible IDs arrive, rerank that changed domain for every circle. Re-optimize once.
 
-The planner performs at most one such refinement. In the three-circle case it adds no more than four workflows, for a maximum of 22. If no new eligible entity is found, it avoids the redundant rerank. A budget shortfall raises a visible error instead of pretending a partial result is complete.
+The planner performs at most one such refinement. The complete maximum is 15 workflows for two circles and 22 for three: six initial workflows per circle, then one deeper discovery and one revised-domain comparison per circle. The server reserves that same complete maximum before constructing the adapter. If no new eligible entity is found, it avoids the redundant rerank. A budget shortfall raises a visible error instead of pretending a partial result is complete.
 
 ### Completion or refusal
 
@@ -131,4 +131,4 @@ The pinned harness has its own bounded HTTP retries; Common Room does not add wo
 
 ## Deliberately absent features
 
-No LLM, personal profiling, sensitive-trait inference, account-history import, contact collection, geolocation history, event publishing, booking, payments, ticketing, media hosting, or claimed logistics validation is implemented. These boundaries keep the artifact honest and the core decision reviewable.
+No LLM, personal profiling, sensitive-trait inference, account-history import, contact collection, geolocation history, event publishing, booking, payments, ticketing, or claimed logistics validation is implemented. These boundaries keep the artifact honest and the core decision reviewable.

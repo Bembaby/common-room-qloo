@@ -101,3 +101,31 @@ test('judging-period allowance survives hourly expiry and coordinator restarts',
   await assert.rejects(new BlobWorkflowBudget(options).beginPlan(1), { code: 'TOTAL_WORKFLOW_LIMIT' });
   assert.equal(store.state().totalReserved, 22);
 });
+
+test('quota recovery reports the actual complete-plan wait without writing or resetting the allowance', async () => {
+  let now = 4_000_000;
+  const store = memoryStore({ ...emptyQuota(), totalReserved: 20, reservations: [
+    { id: 'later', at: now - 1_000_000, count: 10 },
+    { id: 'earlier', at: now - 3_000_000, count: 10 }
+  ] });
+  const before = store.state();
+  const budget = new BlobWorkflowBudget({ client: store.client, now: () => now, env: { QLOO_MAX_WORKFLOWS_PER_HOUR: '25' } });
+  await assert.rejects(budget.beginPlan(15), error => {
+    assert.equal(error.code, 'GLOBAL_WORKFLOW_LIMIT');
+    assert.equal(error.details.retryAfterSeconds, 600);
+    assert.match(error.message, /about 10 minutes/);
+    return true;
+  });
+  assert.deepEqual(store.state(), before);
+  now += 600_001;
+  const plan = await budget.beginPlan(15);
+  assert.equal(store.state().totalReserved, 35);
+  await plan.release();
+  const tooSmall = new BlobWorkflowBudget({ client: memoryStore().client, env: { QLOO_MAX_WORKFLOWS_PER_HOUR: '10' } });
+  await assert.rejects(tooSmall.beginPlan(15), error => {
+    assert.equal(error.code, 'GLOBAL_WORKFLOW_LIMIT');
+    assert.equal(error.details, undefined);
+    assert.match(error.message, /cannot cover this complete plan/);
+    return true;
+  });
+});

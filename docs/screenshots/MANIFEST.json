@@ -243,7 +243,34 @@
       },
       "note": "Explicit on-screen replay label. Local final-UI render of actual recorded result, no new Qloo query.",
       "runId": "6702f53e-a2fc-4f0f-99e2-f3aa314bfa07"
+    },
+    {
+      "path": "docs/screenshots/round3-live-two-mobile.png",
+      "sha256": "fcfd67c69b8c31e8cd73a7f88b3b0174115b05c2084b4c55c7e15a145cd8b1f1",
+      "bytes": 118601,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "979aad2b89ae4de6ec01cbee701c09745ddfaf10",
+      "runId": "02d1a617-6ddf-48db-bead-8b7ed4d1587e",
+      "note": "Fresh anonymous two-circle/60-minute execution; no injected or cached response."
+    },
+    {
+      "path": "docs/screenshots/round3-live-two-desktop.png",
+      "sha256": "5aebba84700340fa547b680dad5a98c42737e1b808b39a251ab9772a67aa6d43",
+      "bytes": 331660,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "979aad2b89ae4de6ec01cbee701c09745ddfaf10",
+      "runId": "02d1a617-6ddf-48db-bead-8b7ed4d1587e",
+      "note": "Fresh anonymous two-circle/60-minute execution; no injected or cached response."
+    },
+    {
+      "path": "docs/screenshots/round3-live-two-host.png",
+      "sha256": "07d7e798ee8797b1e6f7405a61bd57d4fb1767b104868edf183c725ec0cd8b97",
+      "bytes": 373032,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "979aad2b89ae4de6ec01cbee701c09745ddfaf10",
+      "runId": "02d1a617-6ddf-48db-bead-8b7ed4d1587e",
+      "note": "Fresh anonymous two-circle/60-minute execution; no injected or cached response."
     }
   ],
-  "updatedAt": "2026-10-28T17:02:37.662Z"
+  "updatedAt": "2026-10-28T17:34:15.096Z"
 }

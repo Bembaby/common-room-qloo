@@ -1,0 +1,16 @@
+{
+  "createdAt": "2026-10-28T17:33:20.230Z",
+  "category": "narrated_edit_of_actual_application_execution",
+  "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7",
+  "outputSha256": "a0296ea519adeea48872d44100aa0b710156ec75b915e4937f8be064862217e4",
+  "durationSeconds": 123.2,
+  "wordCount": 305,
+  "captionFiles": {
+    "srt": "b5468882cdaccb6a301d4e1de8bb18acdeda61e240e51d23d5dac2a1380ff385",
+    "vtt": "578a905df0a1413759276cc79b053f681ac6569dcc4ab7bc8d6c0aa0fb689247"
+  },
+  "captionMethod": "Each spoken word uses actual ElevenLabs character timestamps, rounded to centiseconds for ASS. No interpolated word timing. Active word is highlighted in a separate band below the recorded application.",
+  "voice": "Eric, ElevenLabs premade stock voice, multilingual v2; synthetic narration",
+  "reviewLimit": "Owner delegated voice selection after phone playback was unavailable. Runtime cannot hear audio. Pacing, alignment, levels and frame composition are checked; subjective listening quality is not asserted.",
+  "processing": "Actual source ranges, crop/scale and held frames. Waiting cuts and returns to earlier approved results are labeled. No application behavior is generated. Credited public-domain artwork on title cards."
+}
