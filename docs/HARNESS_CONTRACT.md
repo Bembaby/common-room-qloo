@@ -5,11 +5,11 @@ Verified from official package source on October 21, 2026. See [SOURCES.md](SOUR
 ## Installation and invocation
 
 ```bash
-npm install --global @qloo/qloo-harness@0.1.26
-qloo --version
+npm ci --ignore-scripts
+node node_modules/@qloo/qloo-harness/dist/bin.js --version
 ```
 
-The expected version output is exactly `0.1.26`. The adapter refuses another version. It invokes the executable using Node `spawn` with `shell: false`, arguments `['exec', operation]`, and one JSON input object on stdin. It does not launch a model, a TUI, a shell pipeline, or an agent-generated command.
+The expected version output is exactly `0.1.26`. The adapter refuses another version. Set `QLOO_NODE_ENTRY=node_modules/@qloo/qloo-harness/dist/bin.js` for this installed entrypoint. It invokes the executable using Node `spawn` with `shell: false`, arguments `['exec', operation]` after the entrypoint, and one JSON input object on stdin. It does not launch a model, a TUI, a shell pipeline, or an agent-generated command.
 
 The only invoked operations are `recommend` and `rank`.
 

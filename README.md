@@ -21,7 +21,7 @@ Open <http://127.0.0.1:4312>.
 
 1. Click **Find our common thread** to build the sample night.
 2. Inspect **A reason for every seat** and the counterfactual that optimizes only the average.
-3. Click **What if this book is unavailable?** to apply a binding veto and revise the plan.
+3. Click **Replace this book with a binding veto** to apply an exact veto and revise the plan.
 4. Click **Try a strict brief** to see a targeted second search and an honest refusal when the threshold cannot be met.
 5. Export the host brief and evidence JSON. The agent notebook records actual executed steps.
 
@@ -45,11 +45,10 @@ Restricted execution environments may block localhost binding or subprocess test
 The live adapter uses the official `@qloo/qloo-harness` package, pinned to **0.1.26**. Its exact input and output contract is documented in [docs/HARNESS_CONTRACT.md](docs/HARNESS_CONTRACT.md). No model API is required.
 
 ```bash
-npm install --global @qloo/qloo-harness@0.1.26
 cp .env.example .env
 ```
 
-On Windows, avoid the npm `.cmd` shim at the subprocess boundary. Install the same pin locally with `npm install --prefix .tools/qloo --no-save --ignore-scripts @qloo/qloo-harness@0.1.26`, then set `QLOO_NODE_ENTRY=.tools/qloo/node_modules/@qloo/qloo-harness/dist/bin.js` in the ignored `.env`. The adapter invokes this trusted entrypoint with Node, still uses no shell, checks the exact version and sends cultural anchors only as JSON on stdin. This installs the CLI; it does not establish live API access.
+The pinned harness is already installed by `npm ci`. Set `QLOO_NODE_ENTRY=node_modules/@qloo/qloo-harness/dist/bin.js` in the ignored `.env`. This avoids Windows `.cmd` shims and uses the same trusted Node entrypoint across platforms. The adapter uses no shell, checks the exact version and sends cultural anchors only as JSON on stdin. Installation alone does not establish live API access.
 
 In your local environment, set `APP_MODE=live` and your individually issued `QLOO_API_KEY`. Obtain the credential through the [official event resource link](https://docs.qloo.com/reference/qloo-llm-hackathon-developer-guide#getting-your-api-key). Keep the key on the server.
 

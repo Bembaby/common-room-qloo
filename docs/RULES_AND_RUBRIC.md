@@ -1,6 +1,6 @@
 # Rules checkpoint and judging map
 
-Verified October 21, 2026 against the [official overview](https://qloo.devpost.com/) and [official rules](https://qloo.devpost.com/rules). Recheck before submitting. This is a short working checklist, not a replacement for the complete rules or personal eligibility review.
+Official overview rechecked October 28, 2026; formal rules reviewed October 21 against the [official overview](https://qloo.devpost.com/) and [official rules](https://qloo.devpost.com/rules). Recheck before submitting. This is a short working checklist, not a replacement for the complete rules or personal eligibility review.
 
 ## Current event facts
 
@@ -24,12 +24,12 @@ These gates are our implementation checklist derived from those requirements.
 | Gate | Current evidence | Remaining action |
 | --- | --- | --- |
 | New project history | New starter created October 21, 2026 | Confirm the owner's accurate project start answer |
-| Meaningful Qloo integration | Official adapter implemented and contract-tested with local doubles | Verify actual event credentials and fresh live graph results |
-| Agentic behavior | Executed goal/evaluate/refine/refuse loop in local scenarios | Demonstrate the same loop with live evidence |
-| Functional core | Completed host brief, exact veto revision, refusal, exports | Confirm fresh live input produces a useful decision |
-| Public application | Public anonymous configuration implemented | Publish with authorization and test in a fresh anonymous session |
-| Public source | Complete source and MIT license present locally | Publish the independent repository and verify anonymous clone/run |
-| Accurate story | Draft identifies synthetic versus live evidence | Replace all pending fields with verified facts |
+| Meaningful Qloo integration | Genuine event API results and rank evidence verified October 28 | Preserve provider and application limits; see EVIDENCE.md |
+| Agentic behavior | Hosted fresh brief, binding veto, targeted refinement and strict refusal executed | Retain scoped proof without claiming real venue outcomes |
+| Functional core | Host brief, exact veto revision, refusal and both downloads verified publicly | Keep final release available through judging |
+| Public application | Anonymous Vercel app with live backend and persistent quota coordinator | Verify the exact release used in the final package |
+| Public source | Public MIT repository, sanitized publication boundary and anonymous checkout | Retain final source revision and clean-checkout evidence |
+| Accurate story | Draft and public evidence distinguish synthetic, storage and real Qloo results | Obtain final owner review; a draft is not a submission |
 | Eligibility and accounts | Not established by this code | Owner confirms personal eligibility and completes account-owned steps |
 
 The public application must use `PUBLIC_DEMO=true`, an empty `APP_ACCESS_CODE`, and appropriate quota protection. A judge password or private deployment link cannot substitute for the public-access requirement. A synthetic-only deployment does not establish meaningful live Qloo integration.

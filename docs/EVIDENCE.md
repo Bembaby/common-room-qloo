@@ -56,10 +56,16 @@ The core suite passed all 42 tests. Fourteen existing local browser checks and e
 
 The design detector's paper-palette warning is an intentional exception documented by the existing material and typography direction. The two section numbers indicate the actual brief-to-decision sequence. An unused pulsing indicator was removed. Source scanning does not replace the rendered browser checks.
 
+The released interface at `0c27353472a9173d7c227ca62dd64dbfd92a4966` was then tested anonymously with a new cultural anchor, Nina Simone, a changed circle name and a 120-minute venue brief. The real resolver returned ambiguity; the browser chose the returned artist identity through the app and retried. The completed run `3647d82e-9291-4ec0-a2c5-9bbdeee441a3` used 18 workflows and selected Life of Pi, Sarah Vaughan and Dallas Buyers Club. Its schedule totaled 120 minutes, both exports were inspected, and the new result fit all four tested viewport widths without page overflow or JavaScript errors.
+
+Independent recalculation examined 567 combinations. The balanced minimum was 63.49 and room average 69.14. In this case the average-only policy chose the same bundle, so the minimum difference was **0 points**. The policy does not improve every case. A raw browser recording retains the actual ambiguity, retry, roughly two-minute execution and completed result; it is silent evidence footage, not a finished narrated demo.
+
+An anonymous public checkout installed the pinned dependencies and passed all 42 tests. The known four transitive dependency advisories remain disclosed. Public history and current publication files passed configured-secret and private-material scans.
+
 ## Material limits
 
 The app is a deterministic goal-directed agent and makes no runtime model API call. Cultural interests are public anchors, not demographic profiles. A host must independently arrange inventory, playback or screening rights, performer availability and venue logistics. No organizer research or real event outcomes have been measured. The pinned harness has known transitive dependency advisories, described in DEPENDENCIES.md. Browser checks are scoped verification, not an accessibility certification.
 
 The official developer guide says event keys remain active through judging. An exact per-key expiration timestamp was not returned. Keep the public app and source available through judging and respect the remaining account allowance. Provider timestamps and observer timestamps are retained separately; a measured server/observer clock offset is recorded privately.
 
-Video is optional under the current event requirements. The release uses genuine application screenshots and reproducible instructions; no paid narration or media generation was commissioned.
+Video is optional under the current event requirements. The release uses genuine application screenshots and reproducible instructions. Silent actual-execution footage and an optional narration script are prepared; no paid narration or media generation was commissioned.

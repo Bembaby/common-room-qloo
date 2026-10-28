@@ -1,5 +1,7 @@
 # Live evidence and public verification
 
+October 28 interface release: fresh anonymous Nina Simone input exercised actual identity-choice recovery and returned a genuine Qloo-backed 120-minute brief, run `3647d82e-9291-4ec0-a2c5-9bbdeee441a3`. Both exports, stale-result handling and 1440/768/390/320 layouts passed. Independent enumeration checked 567 combinations; both policies selected the same bundle in this case. The raw 2:23.8 browser recording is silent execution evidence, not finished narrated media. See EVIDENCE.md for provenance and limits.
+
 Current state, October 28: **genuine hosted core journeys verified**. Fresh planning, binding veto, strict refusal, downloads and anonymous access passed. See [EVIDENCE.md](EVIDENCE.md) for actual run IDs, comparisons, failures and limits. The procedures below remain the reproducibility guide; they are not a final contest-submission receipt.
 
 ## Evidence categories
