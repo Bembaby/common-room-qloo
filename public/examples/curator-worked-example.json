@@ -657,7 +657,7 @@
     "venue": "Independent Bookshop / Worked curator example",
     "format": "A hosted conversation salon",
     "durationMinutes": 60,
-    "openingQuestion": "What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker?",
+    "openingQuestion": "Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme.",
     "invitations": [
       {
         "circleId": "circle-1",
@@ -699,33 +699,41 @@
       {
         "minutes": 5,
         "label": "Open the room",
-        "activity": "Invite each circle to introduce a familiar way into the program. Speculative fiction readers: Having and Being Had. Hip-hop listeners: Tyler, the Creator."
+        "activity": "Invite each circle to introduce a familiar way into the program. Speculative fiction readers: Having and Being Had. Hip-hop listeners: Tyler, the Creator.",
+        "templateActivity": "Invite each circle to introduce a familiar way into the program. Speculative fiction readers: Having and Being Had. Hip-hop listeners: Tyler, the Creator."
       },
       {
         "minutes": 18,
         "label": "Read: Having and Being Had",
-        "activity": "Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?",
-        "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B"
+        "activity": "Host-selected material: Host-written introduction: Eula Biss examines ownership in Having and Being Had. Ask each guest to name an object that signals belonging, then discuss how owning it changes their relationship to work. No book passage is reproduced. Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?",
+        "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
+        "templateActivity": "Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?"
       },
       {
         "minutes": 14,
         "label": "Listen: Tyler, the Creator",
-        "activity": "Discuss a participant-chosen recording by Tyler, the Creator. Ask: what feeling or detail would you connect to the book discussion?",
-        "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C"
+        "activity": "Host-selected recording: EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss the recording and public persona; no playback is assumed. Official artist release: https://www.youtube.com/watch?v=t-E2gm0a_N0. Ask what detail connects or contrasts with the book introduction.",
+        "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
+        "templateActivity": "Discuss a participant-chosen recording by Tyler, the Creator. Ask: what feeling or detail would you connect to the book discussion?"
       },
       {
         "minutes": 18,
         "label": "Discuss: Joker",
-        "activity": "Use Joker as a film conversation prompt. Ask: What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker? Let participants name the connection or disagreement; do not assume a shared theme.",
-        "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0"
+        "activity": "Host-selected focus: Joker (2019): discuss the official teaser's public-performance framing, without screening the film. Invite disagreement rather than treating this as a shared taste. Source: https://www.youtube.com/watch?v=t433PEQGErc. Ask the host's question: Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme. Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.",
+        "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
+        "templateActivity": "Use Joker as a film conversation prompt. Ask: What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker? Let participants name the connection or disagreement; do not assume a shared theme."
       },
       {
         "minutes": 5,
         "label": "Leave with a bridge",
-        "activity": "Each participant names one unfamiliar work they now want to explore. Collect voluntary feedback before repeating the event."
+        "activity": "Each participant names one unfamiliar work they now want to explore. Collect voluntary feedback before repeating the event.",
+        "templateActivity": "Each participant names one unfamiliar work they now want to explore. Collect voluntary feedback before repeating the event."
       }
     ],
-    "note": "This is a proposed cultural shortlist and timed planning template. The host must choose the actual materials and connecting question before hosting. No screening, performer availability, inventory, licensing, attendance, or sales is verified."
+    "note": "This is a proposed cultural shortlist and timed planning template. The host must choose the actual materials and connecting question before hosting. No screening, performer availability, inventory, licensing, attendance, or sales is verified.",
+    "templateOpeningQuestion": "What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker?",
+    "preparationStatus": "host_choices_recorded",
+    "contentSource": "Application template with explicitly host-entered content choices. Qloo supports the shortlist, not these interpretations or permissions."
   },
   "scoring": {
     "explanation": "For each circle and domain, every candidate is ranked against the same shortlist. Relative score = 100 × (shortlist size - rank + 1) / shortlist size. Missing candidates receive 0 as a conservative evidence gap. A circle coverage score is the mean across the three slots. The agent maximizes the lowest circle coverage, then the average. These are application-derived rank scores, not Qloo probabilities, measured satisfaction, attendance, or revenue.",
@@ -2767,5 +2775,10 @@
     "source": "Host-entered preparation notes",
     "verifiedByQloo": false,
     "status": "host_choices_recorded"
+  },
+  "exportContext": {
+    "source": "Result restored from this tab",
+    "originalGeneratedAt": "2026-10-28T18:21:13.525Z",
+    "newProviderQuery": false
   }
 }

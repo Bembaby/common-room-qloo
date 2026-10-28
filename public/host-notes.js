@@ -26,9 +26,18 @@ export function hostRunningOrder(program, value) {
   const notes = normalizeHostNotes(value);
   return program.schedule.map((row, index) => {
     const choice = index === 1 ? notes.excerpt : index === 2 ? notes.recording : index === 3 ? notes.filmMoment : '';
-    let activity = row.activity;
+    const templateActivity = typeof row.templateActivity === 'string' ? row.templateActivity.slice(0,3000) : row.activity;
+    let activity = templateActivity;
     if (choice) activity = `Host-selected material: ${choice}${/[.!?]$/u.test(choice) ? '' : '.'} ${activity}`;
+    if (index === 2 && notes.recording) activity = `Host-selected recording: ${notes.recording}${/[.!?]$/u.test(notes.recording) ? '' : '.'} Ask what detail connects or contrasts with the book introduction.`;
     if (index === 3 && notes.question) activity = `${choice ? `Host-selected focus: ${choice}${/[.!?]$/u.test(choice) ? '' : '.'} ` : ''}Ask the host's question: ${notes.question} Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.`;
-    return { ...row, activity };
+    return { ...row, activity, templateActivity };
   });
+}
+
+export function compileHostProgram(program, value) {
+  if (!program) return null;
+  const state = hostNoteState(value);
+  const templateOpeningQuestion = program.templateOpeningQuestion ?? program.openingQuestion;
+  return { ...program, templateOpeningQuestion, openingQuestion: state.notes.question || templateOpeningQuestion, schedule: hostRunningOrder(program, state.notes), preparationStatus: state.status, contentSource: 'Application template with explicitly host-entered content choices. Qloo supports the shortlist, not these interpretations or permissions.' };
 }

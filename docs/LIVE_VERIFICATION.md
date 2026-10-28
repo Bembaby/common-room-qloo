@@ -1,3 +1,7 @@
+# Current October 28 verification
+
+See ROUND4_REVIEW.md and EVIDENCE.md for the new real identity/metadata/host-copy journey, veto/refusal, and scoped save/reopen checks. Current core suite: 59 tests. Saved-result render checks are labeled and never presented as fresh provider queries. The host copy is a proposed shortlist plus explicit host preparation, not a proven venue outcome.
+
 # Live evidence and public verification
 
 October 28 interface release: fresh anonymous Nina Simone input exercised actual identity-choice recovery and returned a genuine Qloo-backed 120-minute brief, run `3647d82e-9291-4ec0-a 2c5-9bbdeee441a3`. Both exports, stale-result handling and 1440/768/390/320 layouts passed. Independent enumeration checked 567 combinations; both policies selected the same bundle in this case. The raw 2:23.8 browser recording is silent execution evidence, not finished narrated media. See EVIDENCE.md for provenance and limits.
@@ -77,4 +81,4 @@ Never publish `.env`, `.data`, credentials, private access codes, or unrelated e
 
 ## October 28 third-round update
 
-See ROUND3_REVIEW.md and EVIDENCE.md for four new genuine hosted cases, including a fresh mobile two-circle result, actual artist veto and strict refusal. Current suite:52 core tests,14 existing and 8 new local browser checks. Saved-response layout replays remain explicitly labeled. The narrated2:03.2 film is an edited account of actual execution with synthetic stock-voice narration; its captions come from returned character timing. Subjective audio listening is not asserted.
+See ROUND3_REVIEW.md and EVIDENCE.md for four new genuine hosted cases, including a fresh mobile two-circle result, actual artist veto and strict refusal. Current suite: 52 core tests,14 existing and 8 new local browser checks. Saved-response layout replays remain explicitly labeled. The narrated2:03.2 film is an edited account of actual execution with synthetic stock-voice narration; its captions come from returned character timing. Subjective audio listening is not asserted.

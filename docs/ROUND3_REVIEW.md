@@ -1,3 +1,5 @@
+Historical third-round checkpoint. The current product, film and verification are described in [ROUND4_REVIEW.md](ROUND4_REVIEW.md).
+
 # A more useful curator's desk
 
 October 28 product and interface round. This is a scoped implementation review, not user research or an accessibility certification.

@@ -1,17 +1,15 @@
-A bookshop has one evening to bring different tastes together. Its readers, listeners and film regulars need a reason to join the same conversation. That is the job of Common Room.
+A bookshop has one evening and different cultural interests to serve. Common Room helps the host compare a shared shortlist, then turn it into a conversation they have actually prepared. Audience fit is a starting point, not a finished event.
 
-I start with public cultural anchors for two or three circles. The venue, timing and minimum are editable. A hard veto means exactly that: the agent cannot quietly put the excluded work back in.
+Here I enter Ursula K. Le Guin and Kendrick Lamar in the real public app. Qloo asks which identities I mean. I choose the returned author and artist. The query stages are real. Waiting periods are shortened in this edit.
 
-This is the real public application. Common Room asks Qloo for cultural candidates, then compares the same shortlist for every circle. The stages follow actual execution. Waiting periods are shortened in this edit.
+The result offers one book, one artist and one film. Catalogue notes help identify unfamiliar choices. The ranks support the shortlist, not a shared theme. In this case, balancing the least-served circle and optimizing the average choose the same program. There is no gain to claim.
 
-Here is the program: one book, one artist and one film. The connecting question gives the host a conversational arc. The entry points explain which selections rank strongest for each circle. These are relative ranks, not predictions about people, and the app does not invent a shared theme.
+Now I make four hosting choices. A written introduction to Eula Biss's book. An actual Tyler recording, EARFQUAKE. A discussion focus for Joker. And my own question about belonging, ownership and public identity. That connection is host-authored, not a Qloo finding.
 
-The least-served circle comes first in the decision. Open the alternative to see what optimizing only the average would choose, and how each circle's coverage changes. Sometimes both policies choose the same program. Common Room shows that too.
+Those choices enter the running order, printable copy and downloads. The evidence keeps the originating names and exact identities. Reloading restores the same saved result and notes. It does not make a new Qloo query.
 
-Suppose the host cannot use this artist. I add the exact identity as a veto, review the changed brief, and compare again. The new result confirms the exclusion from the actual discovery evidence.
+A hard veto stays binding. Here a new real query excludes the selected artist. The host reviews the changed brief before running again. The exclusion receipt is tied to the returned discovery evidence.
 
-If the minimum is too strict, the agent makes one targeted refinement. When the evidence still falls short, it stops. The rejected selections stay diagnostic. No approved host program is produced.
+Raise the minimum too far, and the agent makes one targeted refinement. If the evidence still falls short, it refuses. Diagnostic selections do not become an approved host program.
 
-For a feasible night, the host gets preparation notes, a timed running order and prompts tied to the selected works. The printable copy and downloads retain the evidence and constraints.
-
-The host still checks availability, permissions and venue arrangements. Common Room supplies a grounded starting point for a shared cultural evening, with the tradeoffs open to inspection.
+Common Room makes shortlist tradeoffs inspectable and keeps preparation beside the evidence. The host still checks materials, permissions and venue arrangements. This prototype has not been validated in a venue pilot. Try the public app, inspect the actual results, and shape your own evening.

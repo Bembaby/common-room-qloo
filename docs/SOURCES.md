@@ -57,3 +57,11 @@ The reviewed kit did not provide a universal numerical rate allowance for the ow
 No live sponsor request was made in preparation. No package source claim should be read as proof that the owner's credential works. Current verification status is in [STATUS.md](STATUS.md).
 
 October 28 final media pass used the timestamp API and read-only subscription/model/voice/history endpoints under explicit existing-credit authorization. The [speech documentation](https://elevenlabs.io/docs/overview/capabilities/text-to-speech/best-practices) informed restrained SSML pauses for Multilingual v2. Actual alignment, not estimated reading speed, drives the word highlights. Local FontTools 4.68.0 converts the existing OFL variable font into a static caption instance because libass otherwise falls back; it is ignored production tooling and adds no application dependency. Official Devpost dates, announcements, requirements and account state were refreshed before final review; no Common Room project or entry exists.
+
+## October 28 independent-review response
+
+Pinned `dist/qloo-tools.js` functions `compactEntity` and `interpretedEntity` confirm the optional catalogue descriptions, year/rating and original-input/resolved-identity records. The new live run 86a1a613-20aa-4ceb-b8ae-15ba4a93aef5 observed those fields through the official harness. Only bounded display data and requested signal identities are retained. The catalogue text never chooses a tool or changes ranking.
+
+The illustrative host preparation consulted the [publisher page for Having and Being Had](https://www.penguinrandomhouse.com/books/580422/having-and-being-had-by-eula-biss/9780525537465/), [official EARFQUAKE studio release](https://www.youtube.com/watch?v=t-E2gm0a_N0), [official Joker teaser](https://www.youtube.com/watch?v=t433PEQGErc) and [DC film page](https://www.dc.com/movies/joker-2019), checked October 28. The belonging/ownership/persona question is an authored interpretation, not a finding from Qloo or those sources. No passage, song or film footage is reproduced in the app or walkthrough.
+
+The [Fetch port-blocking standard](https://fetch.spec.whatwg.org/#bad-port) explains the observed intermittent localhost test failure. The HTTP test helper avoids its reserved ports when the operating system assigns one.

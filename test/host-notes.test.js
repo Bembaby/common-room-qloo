@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizeHostNotes, hostNoteState, hostNotesMarkdown, hostRunningOrder } from '../public/host-notes.js';
+import { normalizeHostNotes, hostNoteState, hostNotesMarkdown, hostRunningOrder, compileHostProgram } from '../public/host-notes.js';
 import { runPlan } from '../src/agent.js';
 import { FixtureAdapter, fixture } from '../src/fixtures.js';
 
@@ -22,5 +22,11 @@ test('host choices enter the running order and portable copy without changing pr
   assert.equal(hostNoteState(notes).status, 'host_choices_recorded');
   assert.ok(hostNotesMarkdown(notes).includes('entered by the host'));
   assert.equal(JSON.stringify(result), before);
+  const compiled=compileHostProgram(result.program,notes);
+  assert.equal(compiled.openingQuestion,notes.question);
+  assert.ok(!compiled.schedule[2].activity.includes('participant-chosen recording'));
+  assert.equal(result.program.openingQuestion,JSON.parse(before).program.openingQuestion);
+  assert.deepEqual(compileHostProgram(compiled,notes),compiled);
+  assert.equal(compileHostProgram(compiled,{}).openingQuestion,result.program.openingQuestion);
   assert.deepEqual(normalizeHostNotes({ question: '\u0000A\nquestion', extra: 'not supported' }), { excerpt: '', recording: '', filmMoment: '', question: 'A question' });
 });

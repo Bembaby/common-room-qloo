@@ -2,13 +2,17 @@
 
 **One night. More than one crowd.**
 
-Common Room helps an independent bookshop, café, or small cultural venue agree on one conversation salon for two or three taste circles. The agent discovers books, artists, and films, compares each circle against the same cultural shortlist, honors explicit vetoes, and prioritizes the least-served circle. It explains observed entry points, shows the alternative program and per-circle tradeoffs, and returns a host copy with preparation notes, connecting prompts and retained evidence.
+Common Room helps an independent bookshop, café, or small cultural venue balance a cultural shortlist for two or three taste circles, then prepare its own hosted conversation. The agent discovers books, artists, and films, compares each circle against the same cultural shortlist, honors explicit vetoes, and prioritizes the least-served circle. It explains observed entry points and per-circle tradeoffs. The host selects the actual introduction or passage, recording, film focus and connecting question; these choices enter the running order, print copy and both exports. A tab-local save can reopen the same result without another provider query.
 
 **[Try the live app](https://common-room-eight.vercel.app) · [Executed evidence and limits](docs/EVIDENCE.md)**
 
 Common Room completed genuine hosted Qloo planning, a binding book veto, and a strict refusal from a fresh anonymous browser on October 28. Both downloads were inspected. The default local application remains explicitly synthetic. Provider, hosting and contest-submission evidence are separate categories; this repository does not claim a final Devpost submission.
 
 [Watch the 2:03 real-execution walkthrough](https://common-room-eight.vercel.app/demo.html), with synthetic stock-voice narration, word highlights and a transcript. The application itself makes no language-model or ElevenLabs calls.
+
+[Read the worked host copy](https://common-room-eight.vercel.app/examples/curator-worked-example.md) · [Independent-review response and limits](docs/ROUND4_REVIEW.md)
+
+The objective uses equal slot and circle weights. It makes shortlist tradeoffs inspectable; it does not establish thematic coherence or predict a successful venue event. No venue pilot or measured time saving is claimed.
 
 ## Run it in one minute
 

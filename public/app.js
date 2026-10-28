@@ -1,5 +1,5 @@
 import { explainCuration, explainVetoes, slotNames } from './curation.js';
-import { hostFields, normalizeHostNotes, hostNoteState, hostNotesMarkdown, hostRunningOrder } from './host-notes.js';
+import { hostFields, normalizeHostNotes, hostNoteState, hostNotesMarkdown, hostRunningOrder, compileHostProgram } from './host-notes.js';
 import { parseSavedRoom } from './saved-room.js';
 const $ = selector => document.querySelector(selector);
 let config;
@@ -43,7 +43,12 @@ function focusField(selector) {
 }
 
 function updateBriefState() {
-  const changed = currentResult && JSON.stringify(readInput()) !== resultFormSnapshot;
+  const decisionSnapshot = value => JSON.stringify({ venue: value.venue, circles: value.circles.map(({name,anchors})=>({name,anchors})), minutes: value.minutes, minimumCoverage: value.minimumCoverage, vetoes: value.vetoes });
+  let changed = false;
+  if (currentResult) {
+    try { changed = decisionSnapshot(readInput()) !== decisionSnapshot(JSON.parse(resultFormSnapshot)); }
+    catch { changed = true; }
+  }
   const notice = $('#stale-notice');
   if (notice) notice.hidden = !changed;
   for (const veto of document.querySelectorAll('[data-veto]')) veto.disabled = Boolean(changed || busy);
@@ -94,7 +99,7 @@ function renderChoices(choices = [], context = {}) {
   panel.replaceChildren();
   panel.hidden = true;
   for (const choice of choices) {
-    if (!choice.candidates?.length) continue;
+    if (!choice.candidates?.length || !choice.input?.trim()) continue;
     const group = node('section', { class: 'resolution-choice' }, [node('h3', { text: `Which ${choice.input} did you mean?` }), paragraph(`${context.circleName ? context.circleName + ': ' : ''}Qloo returned these identities. Choose a specific cultural anchor, then run your brief again.`)]);
     for (const candidate of choice.candidates) {
       const button = node('button', { type: 'button', class: 'secondary', text: `${candidate.name} · ${candidate.type.replace('urn:entity:', '')} · ${candidate.id.slice(-6)}` });
@@ -242,7 +247,7 @@ function briefMarkdown(result) {
   }
   if (result.program) {
     lines.push(hostNotesMarkdown(currentHostNotes));
-    lines.push('## Host preparation', '', ...(result.program.preparation ?? []).map(value => `- ${value}`), '', '## One connecting question', '', result.program.openingQuestion ?? curation?.connectionQuestion ?? '', '');
+    lines.push('## Host preparation', '', ...(result.program.preparation ?? []).map(value => `- ${value}`), '', '## One connecting question', '', compileHostProgram(result.program,currentHostNotes).openingQuestion || curation?.connectionQuestion || '', '');
     lines.push(`## ${result.program.title}`, '', result.program.description, '', '| Minutes | Activity |', '| --- | --- |');
     for (const row of result.program.schedule) lines.push(`| ${row.minutes} | ${row.label.replaceAll('|', '/')} |`);
     lines.push('', '## Host prompts', '');
@@ -315,7 +320,7 @@ function renderResult(result, { formSnapshot, focus = true } = {}) {
   const brief = node('button', { class: 'secondary', type: 'button', text: ready ? 'Export host brief' : 'Export decision note' });
   brief.addEventListener('click', () => download(ready ? 'common-room-brief.md' : 'common-room-decision.md', briefMarkdown(result), 'text/markdown'));
   const evidence = node('button', { class: 'secondary', type: 'button', text: 'Export evidence JSON' });
-  evidence.addEventListener('click', () => download('common-room-evidence.json', JSON.stringify({ ...result, ...(ready ? { hostNotes: hostNoteState(currentHostNotes) } : {}), ...(restoredResult ? { exportContext: { source: 'Result restored from this tab', originalGeneratedAt: result.generatedAt, newProviderQuery: false } } : {}) }, null, 2), 'application/json'));
+  evidence.addEventListener('click', () => download('common-room-evidence.json', JSON.stringify({ ...result, ...(ready ? { program: compileHostProgram(result.program,currentHostNotes), hostNotes: hostNoteState(currentHostNotes) } : {}), ...(restoredResult ? { exportContext: { source: 'Result restored from this tab', originalGeneratedAt: result.generatedAt, newProviderQuery: false } } : {}) }, null, 2), 'application/json'));
   exports.append(brief, evidence);
   if (ready) {
     const print = node('button', { type: 'button', class: 'text-button', text: 'Print host copy' });
@@ -469,6 +474,10 @@ function updateHostCopy() {
   if (!status) return;
   status.textContent = `${state.completed}/4 host choices recorded. ${state.missing.length ? 'Preparation still needed before hosting.' : 'Content choices recorded; check permissions, availability and access needs.'}`;
   $('#host-copy > h3').textContent = state.missing.length ? 'Finish the host working copy' : 'Your host working copy';
+  $('.connecting-question').textContent = state.notes.question || currentResult.curation?.connectionQuestion || currentResult.program.openingQuestion;
+  $('.curatorial-note > h3').textContent = state.notes.question ? 'Your connecting question' : 'A shortlist to shape together.';
+  $('.curatorial-note').classList.toggle('has-host-question',Boolean(state.notes.question));
+  $('.curation-context').textContent = state.notes.question ? 'Host-authored interpretation. Qloo supplied the shortlist and ranks; it did not verify this thematic connection or any permissions.' : 'This is a draft discussion prompt. Qloo supports the shortlist; choose your materials and connection in the host copy below.';
   $('.host-notes-copy').replaceChildren(node('h4', { text: 'Your content choices' }), ...hostFields.map(field => node('div', { class: 'host-choice' }, [node('strong', { text: field.label }), paragraph(state.notes[field.key] || 'Still to choose before hosting.')])), paragraph('Host-entered notes. Qloo does not verify these materials, the connection or permissions.', 'explanation'));
   hostRunningOrder(currentResult.program, state.notes).forEach((row, index) => {
     const activity = document.querySelectorAll('#host-copy .program-row > div:last-child > p')[index];
@@ -565,10 +574,14 @@ async function run(event) {
       GLOBAL_WORKFLOW_LIMIT: error.message,
       TOTAL_WORKFLOW_LIMIT: 'The event allowance is reserved. Live planning is paused. You can still edit your brief.',
       BUDGET_STORAGE: 'The shared quota store could not be checked. Live planning is paused. Try again later.',
-      QLOO_NEEDS_INPUT: 'Qloo found more than one matching identity. Choose the intended anchor below, then try again.',
+      QLOO_NEEDS_INPUT: error.details?.choices?.some(choice=>choice.input?.trim()&&choice.candidates?.length) ? 'Qloo found more than one matching identity. Choose the intended anchor below, then try again.' : 'Qloo could not resolve a cultural anchor. Edit the indicated circle or use an exact Qloo identity, then try again. Your brief is preserved.',
       ACCESS_CODE: 'Check the venue or judge access code, then try your brief again.'
     };
     $('#error').replaceChildren(paragraph(recoveries[error.code] ?? `${error.message} Your brief has been kept. No completed plan is available.`));
+    if (error.code === 'QLOO_NEEDS_INPUT' && /^circle-[1-3]$/u.test(error.details?.circleId ?? '')) {
+      const edit = node('button', { type: 'button', class: 'secondary', text: 'Review this circle’s anchors' });
+      edit.addEventListener('click',()=>focusField(`#circle-anchors-${Number(error.details.circleId.slice(-1))-1}`));$('#error').append(edit);
+    }
     if (error.code) $('#error').append(paragraph(`Reference: ${error.code}`, 'error-reference'));
     $('#error').hidden = false;
     $('#retry').textContent = 'Try the brief again';

@@ -1,16 +1,25 @@
 {
-  "createdAt": "2026-10-28T17:33:20.230Z",
-  "category": "narrated_edit_of_actual_application_execution",
-  "sourceRevision": "29644f200a4aff56157a1694dc1be2eada0162f7",
-  "outputSha256": "a0296ea519adeea48872d44100aa0b710156ec75b915e4937f8be064862217e4",
-  "durationSeconds": 123.2,
-  "wordCount": 305,
+  "createdAt": "2026-10-28T18:51:38.158Z",
+  "category": "narrated_actual_execution_and_explicit_saved_run_preparation",
+  "sourceRevisions": [
+    "bf1d691134736294f6d31e2841f4dae6f78e0437",
+    "bcdfaed1c8337ce2f216ebd7865d63fda2c8383a"
+  ],
+  "runIds": [
+    "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+    "89d29674-38f0-4164-8be7-37a38b14b444",
+    "ea3d33fb-17c4-4bde-a4d1-85f14ede16e8"
+  ],
+  "durationSeconds": 123.5,
+  "wordCount": 308,
+  "outputSha256": "b1a3d2898c8137f078e35efbb0537e9fa1338f2dd6aebacedc7a44b61518a569",
   "captionFiles": {
-    "srt": "b5468882cdaccb6a301d4e1de8bb18acdeda61e240e51d23d5dac2a1380ff385",
-    "vtt": "578a905df0a1413759276cc79b053f681ac6569dcc4ab7bc8d6c0aa0fb689247"
+    "srt": "551d1ac97ce037851158ddf80a48460174a26cc80d6433cc576cf7f6a7a2f017",
+    "vtt": "76e6b780529d5ae8815c794107dc11813b2e94f597d52a8163832119bf5ffc60"
   },
-  "captionMethod": "Each spoken word uses actual ElevenLabs character timestamps, rounded to centiseconds for ASS. No interpolated word timing. Active word is highlighted in a separate band below the recorded application.",
-  "voice": "Eric, ElevenLabs premade stock voice, multilingual v2; synthetic narration",
-  "reviewLimit": "Owner delegated voice selection after phone playback was unavailable. Runtime cannot hear audio. Pacing, alignment, levels and frame composition are checked; subjective listening quality is not asserted.",
-  "processing": "Actual source ranges, crop/scale and held frames. Waiting cuts and returns to earlier approved results are labeled. No application behavior is generated. Credited public-domain artwork on title cards."
+  "voice": "ElevenLabs Eric premade stock voice, Multilingual v2; synthetic narration",
+  "captionMethod": "308 individual word highlights from actual character alignment, rounded to centiseconds before the 30fps frame grid.",
+  "processing": "Actual browser recordings and held actual captures. Waiting periods are visibly shortened. Saved-real-result preparation scenes are explicitly labeled and make no new provider claim. No application behavior or cultural relationship is generated.",
+  "reviewLimit": "Runtime cannot hear audio; owner delegated voice selection. Pacing, pauses, levels, alignment, full decode and visual frames are checked, not subjective listening.",
+  "hostExample": "Illustrative host-authored notes by Codex, not a venue pilot or Qloo-derived theme."
 }

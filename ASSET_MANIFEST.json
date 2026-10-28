@@ -36,34 +36,44 @@
     },
     {
       "path": "public/media/common-room-demo.mp4",
-      "bytes": 11658603,
-      "sha256": "a0296ea519adeea48872d44100aa0b710156ec75b915e4937f8be064862217e4"
+      "bytes": 7713892,
+      "sha256": "b1a3d2898c8137f078e35efbb0537e9fa1338f2dd6aebacedc7a44b61518a569"
     },
     {
       "path": "public/media/common-room-demo.vtt",
-      "bytes": 3391,
-      "sha256": "578a905df0a1413759276cc79b053f681ac6569dcc4ab7bc8d6c0aa0fb689247"
+      "bytes": 3374,
+      "sha256": "76e6b780529d5ae8815c794107dc11813b2e94f597d52a8163832119bf5ffc60"
     },
     {
       "path": "public/media/common-room-demo.srt",
-      "bytes": 3518,
-      "sha256": "b5468882cdaccb6a301d4e1de8bb18acdeda61e240e51d23d5dac2a1380ff385"
+      "bytes": 3498,
+      "sha256": "551d1ac97ce037851158ddf80a48460174a26cc80d6433cc576cf7f6a7a2f017"
     },
     {
       "path": "public/media/transcript.txt",
-      "bytes": 1904,
-      "sha256": "f8fb58c8b6ba3dbd08c69c01241792fbb7db622bddd5e0c53a856fb8ce4d55ee"
+      "bytes": 1917,
+      "sha256": "ef5b093ce8db0d5b22a0489755bba7707a1d762fc25a9d1399540f4f07fb8e6f"
     },
     {
       "path": "public/media/manifest.json",
-      "bytes": 1245,
-      "sha256": "960ae8340b9b727cc20eae28ae77e3ba5057f5c701cbca65dbbf6f2a1dd12b4a"
+      "bytes": 1493,
+      "sha256": "3b405708b717ba4b72706ba45298c711b16e0d58adf76184c077f3fba89ee21d"
     },
     {
       "path": "public/media/demo-poster.jpg",
-      "bytes": 91273,
-      "sha256": "e2b608f1c71ba2e6c3044aec0692051ade4e6dba436dafb14ba0109e38c856d2"
+      "bytes": 90969,
+      "sha256": "1d4b5e958a9a7066d3d7e58c50a59579ffddc7db4e43aab1e5c99c5c9ba84133"
+    },
+    {
+      "path": "public/examples/curator-worked-example.md",
+      "bytes": 7068,
+      "sha256": "9cb9a1aa012f150613b1951ad80eafced07d9c81c9b560ec1938bc80307dde8d"
+    },
+    {
+      "path": "public/examples/curator-worked-example.json",
+      "bytes": 124785,
+      "sha256": "e78b3598afa273cb3afbde474a8d3839787c1072638ecccd39de4641e1ca2cb7"
     }
   ],
-  "updatedAt": "2026-10-28T17:38:52.645Z"
+  "updatedAt": "2026-10-28T18:56:12.610Z"
 }

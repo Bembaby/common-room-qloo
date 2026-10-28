@@ -270,7 +270,69 @@
       "sourceRevision": "979aad2b89ae4de6ec01cbee701c09745ddfaf10",
       "runId": "02d1a617-6ddf-48db-bead-8b7ed4d1587e",
       "note": "Fresh anonymous two-circle/60-minute execution; no injected or cached response."
+    },
+    {
+      "path": "docs/screenshots/round4-live-catalogue.png",
+      "bytes": 448107,
+      "sha256": "232290d98d89645da19de9e046d2e8ea9bc23f37eb04262cc59a2d57152f3449",
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "bf1d691134736294f6d31e2841f4dae6f78e0437",
+      "runId": "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+      "note": "Actual anonymous application outcome; host notes are an illustrative host-authored example, not a venue pilot."
+    },
+    {
+      "path": "docs/screenshots/round4-live-anchors.png",
+      "bytes": 385617,
+      "sha256": "dd6a7a9a137eb166adddec100645dbfc3b848f30a2f480c1e6a418127dbaa127",
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "bf1d691134736294f6d31e2841f4dae6f78e0437",
+      "runId": "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+      "note": "Actual anonymous application outcome; host notes are an illustrative host-authored example, not a venue pilot."
+    },
+    {
+      "path": "docs/screenshots/round4-live-host.png",
+      "bytes": 433664,
+      "sha256": "a80a40b80a53f13554daa03f5369610c41a9f507196ad4b71021a722671ac029",
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "bf1d691134736294f6d31e2841f4dae6f78e0437",
+      "runId": "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+      "note": "Actual anonymous application outcome; host notes are an illustrative host-authored example, not a venue pilot."
+    },
+    {
+      "path": "docs/screenshots/round4-live-mobile.png",
+      "bytes": 117984,
+      "sha256": "eaa7c6a0dbdbd7f1a9b9e1f354ff8bae28ab95fd8264a4a31d8f92b7d715e1d2",
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "bf1d691134736294f6d31e2841f4dae6f78e0437",
+      "runId": "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+      "note": "Actual anonymous application outcome; host notes are an illustrative host-authored example, not a venue pilot."
+    },
+    {
+      "path": "docs/screenshots/round4-saved-host.png",
+      "bytes": 402972,
+      "sha256": "6bf8bc75b5e519d68faae53db67578b577708fa41569545745772cf4ec069bc9",
+      "category": "saved_actual_result_render_review",
+      "sourceRevision": "bcdfaed1c8337ce2f216ebd7865d63fda2c8383a",
+      "runId": "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+      "note": "Explicit on-screen saved-result/no-query label. This is a render review, not a fresh provider call."
+    },
+    {
+      "path": "docs/screenshots/round4-saved-refusal.png",
+      "bytes": 414532,
+      "sha256": "c23a10501de1e8cdde415b954f77c33313f2c8ff99643a915b0eff7b9d5a5274",
+      "category": "saved_actual_result_render_review",
+      "sourceRevision": "bcdfaed1c8337ce2f216ebd7865d63fda2c8383a",
+      "runId": "ea3d33fb-17c4-4bde-a4d1-85f14ede16e8",
+      "note": "Explicit on-screen saved-result/no-query label. This is a render review, not a fresh provider call."
+    },
+    {
+      "path": "docs/screenshots/round4-before-fixture.png",
+      "bytes": 324709,
+      "sha256": "41987fcd815866a4e9674649b136c9b93a0c6ddfcdc24b8f4e2a1b0d793a9f7a",
+      "category": "actual_local_synthetic_fixture_execution",
+      "sourceRevision": "85e7c120e7a49fe39e47384bcf33f7910336702d",
+      "note": "Controlled local fixture baseline, not Qloo evidence."
     }
   ],
-  "updatedAt": "2026-10-28T17:38:52.632Z"
+  "updatedAt": "2026-10-28T18:56:12.597Z"
 }
