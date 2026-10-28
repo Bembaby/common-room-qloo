@@ -1,8 +1,8 @@
-<!-- R6_PUBLIC_START -->
+<!-- R7_PUBLIC_START -->
 # Current native-browser walkthrough, October 28
 
-Jessica is an ElevenLabs premade female voice rendered with authorized existing credits. The 122.4-second film preserves its speech phonemes and adds pauses only between actual aligned words. Full native Chrome capture and editorial eased camera moves show real application behavior. Existing public-domain Degas artwork and licensed font credits below still apply. No Higgsfield generation, music playback, film excerpt or cloned personal voice is used.
-<!-- R6_PUBLIC_END -->
+Jessica is an ElevenLabs premade female voice rendered with full Eleven v4 using authorized existing credits and an owner-approved short-sample direction. The 88.5-second film retains the coherent source take with one fixed gain. No internal speech cuts, inserted silence or time stretching. Actual native Chrome capture and eased editorial camera moves show genuine application behavior. Existing public-domain Degas artwork and licensed font credits below still apply. No Higgsfield generation, music playback, film excerpt or cloned personal voice is used.
+<!-- R7_PUBLIC_END -->
 
 # Visual asset credits
 

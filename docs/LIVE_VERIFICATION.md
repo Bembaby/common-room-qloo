@@ -1,10 +1,10 @@
-<!-- R6_PUBLIC_START -->
+<!-- R7_PUBLIC_START -->
 # Current execution and media verification, October 28
 
-The current native-browser demo and new actual Qloo run IDs are documented in [EVIDENCE.md](EVIDENCE.md). Independent calculations verify 216/180/270 bundles and binding refusal/veto behavior. 61 core tests pass. Media checks cover the exact 3,672-frame file, 240 actual timed words, 56 cues, full decode, safe caption area and native browser playback at 1440/768/390/320. Objective levels are approximately -16.29 LUFS and -1.30 dBTP after AAC. This does not claim subjective listening approval. Older checkpoints below keep their original category.
-<!-- R6_PUBLIC_END -->
+The current native-browser film uses the actual Qloo cases in [EVIDENCE.md](EVIDENCE.md), independently checked across 216/180/270 bundles. Application, adapter and quota code are unchanged in this audio revision. Media verification covers 2,655 decoded frames at 1920x1080/30fps, square pixels, 243 actual aligned words, 56 standard cues, transcript equality and direction-tag exclusion. The complete narration PCM matches its source through one fixed gain, with zero internal cuts, inserted silence or time stretching. Post-AAC levels are -23.94 LUFS and -2.00 dBTP, 7.65 LU quieter than the previous film. Word-event rounding error is at most 4ms before the 30fps grid. The owner approved the short sample direction; objective checks do not establish subjective full-take listening approval. Older checkpoints keep their original category.
+<!-- R7_PUBLIC_END -->
 
-# Current demo and anonymous execution verification, October 28
+# Historical round5 execution verification, October 28
 
 Source 03a449e executed fresh, veto and strict cases, independently checked across 216/180/270 combinations. The current demo uses those actual runs with recorded host preparation and same-tab recovery. Read DEMO_SCRIPT.md and EVIDENCE.md for source, run IDs and exact scope. The 59-test suite and scoped UI checks remain separate from provider evidence.
 

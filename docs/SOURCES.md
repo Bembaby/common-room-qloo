@@ -1,8 +1,8 @@
-<!-- R6_PUBLIC_START -->
-# Native recording and editorial timing, verified October 28,2026
+<!-- R7_PUBLIC_START -->
+# Narration repair references, verified October 28, 2026
 
-Official [FFmpeg gdigrab documentation](https://ffmpeg.org/ffmpeg-devices.html#gdigrab) documents capture of a specific window by observed handle. Official [zoompan filter documentation](https://ffmpeg.org/ffmpeg-filters.html#zoompan) supports the editorial camera implementation. These are implementation references, not provider evidence. Actual model/voice metadata and returned character alignment were checked using the existing authorized ElevenLabs account; exact request identities and credit accounting stay private. No new charges or hosting purchase were made.
-<!-- R6_PUBLIC_END -->
+Official [model selection guidance](https://elevenlabs.io/docs/eleven-api/choosing-the-right-model), [TTS best practices](https://elevenlabs.io/docs/overview/capabilities/text-to-speech/best-practices), [pause guidance](https://elevenlabs.io/docs/help-center/product/core-capabilities/text-to-speech/how-can-i-add-pauses) and the [timestamp endpoint](https://elevenlabs.io/docs/api-reference/text-to-speech/convert-with-timestamps/) informed the full Eleven v4 take, restrained native pause direction and actual alignment. Account model/voice metadata were also checked. The quieter fixed-gain mix is a user preference, not a claim of a mandatory loudness specification. Provider timing is not an acoustic splice boundary; the complete source is preserved without internal cuts. [EBU streaming loudness guidance](https://tech.ebu.ch/docs/r/r128s2.pdf) supplied measurement context. Detailed production diagnostics and account receipts stay private. These references do not establish subjective listening approval.
+<!-- R7_PUBLIC_END -->
 
 # Source register
 

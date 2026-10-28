@@ -1,8 +1,8 @@
-<!-- R6_PUBLIC_START -->
+<!-- R7_PUBLIC_START -->
 # Current walkthrough and verification, October 28
 
-[Open Common Room](https://common-room-eight.vercel.app) or [watch the new 122.4-second Jessica demo](https://common-room-eight.vercel.app/demo.html?v=jessica-r6). Real full-browser capture, eased zooms, 39 added breathing rests and a verified zero-query reload replace the previous tight edit. 61 core tests pass. New fresh/veto/strict runs retain actual Qloo provenance and independently checked 216/180/270 bundle comparisons, with zero policy gain in all three. See [the execution record](docs/EVIDENCE.md) and [film provenance](docs/DEMO_SCRIPT.md). Older checkpoints below retain their original scope.
-<!-- R6_PUBLIC_END -->
+[Open Common Room](https://common-room-eight.vercel.app) or [watch the Jessica walkthrough](https://common-room-eight.vercel.app/demo.html?v=jessica-r7). The 88.5-second film uses one coherent full Eleven v4 take, native pauses and a quieter mix. No internal speech cuts, inserted silence or time stretching. Real full-browser footage, eased camera moves and a verified zero-query reload are preserved. The recorded fresh/veto/strict cases have independently checked 216/180/270 bundle comparisons, with zero policy gain in all three. [Execution record](docs/EVIDENCE.md), [film provenance](docs/DEMO_SCRIPT.md). Older checkpoints retain their original scope.
+<!-- R7_PUBLIC_END -->
 
 # Common Room
 

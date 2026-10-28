@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-10-28T21:40:02.766Z",
+  "createdAt": "2026-10-28T23:01:28.437Z",
   "category": "narrated_actual_native_browser_execution_and_saved_result_interaction",
   "sourceRevisions": [
     "ae6a6850bce42bcdc4d83880334e01ea7dbe1e10"
@@ -9,20 +9,20 @@
     "a9a0d7e2-21a1-414e-9db9-677bd3bdff49",
     "8a71df8a-90b1-450a-a97d-ee591a06afc6"
   ],
-  "durationSeconds": 122.4,
-  "videoFrames": 3672,
+  "durationSeconds": 88.5,
+  "videoFrames": 2655,
   "frameRate": 30,
   "pixelAspectRatio": "1:1",
-  "wordCount": 240,
+  "wordCount": 243,
   "standardCaptionCues": 56,
-  "outputSha256": "24d705a7b0b540b192cae0ac3a0fee5919fa714365754b99e87af2b099e767ed",
+  "outputSha256": "afe21e13cae97bc562658ede6c0c7a188731f2da0b3b59de70e5b879a233c7d1",
   "captionFiles": {
-    "srt": "8a1eb353e15d5072833e9ba04ad61cdb211e24098754fa2b87b49453c7082a7a",
-    "vtt": "657b2e330df26ccb2f75656cd0d097845ab03452e4dc829ccc03eb282c651c6c"
+    "srt": "1136d9d1eb631bb99ee4192f747f0708ae3e054a1ccb556c75c5a085e88d3e57",
+    "vtt": "c8e0e57284cb6e0f980b0500399a497cd385b223f475f159a3d8d4e374ea139f"
   },
-  "voice": "ElevenLabs Jessica premade female voice, Eleven v3 Conversational; synthetic narration selected after a sample comparison",
-  "captionMethod": "240 individual word highlights use actual provider character timing shifted exactly by inter-word silence insertion. 56 phrase-aware standard cues. Centisecond event rounding precedes the 30 fps grid.",
-  "processing": "Full native Chrome window with real address bar and loading state. Editorial camera moves ease into focused views and return to the full window. Long waits are cut and typing is paced. The same real fresh result is reopened for export and reload; the reload makes zero queries. Veto and strict cases are new real queries. 39 pauses retain the original speech phonemes and pitch. No generated application behavior, frozen screenshots or added top provenance labels.",
-  "reviewLimit": "The root runtime cannot listen. The owner chose the Jessica sample; full-take subjective listening approval is not claimed. Objective audio levels, decoded visual sequence, text/timing and native player checks are distinct evidence.",
+  "voice": "ElevenLabs Jessica premade female voice, full Eleven v4; synthetic narration using an owner-approved short-sample direction",
+  "captionMethod": "243 individual word highlights use the new take actual provider character alignment. Nonspoken direction tags are excluded. 56 phrase-aware standard cues. Centisecond event rounding precedes the 30 fps grid.",
+  "processing": "A coherent provider take with one fixed gain, no internal speech cuts, inserted silence or time stretching. Native pauses and word releases are retained. Post-AAC measured -23.94 LUFS and -2.00 dBTP, 7.65 LU quieter than the prior release. Full native Chrome recordings are retimed to the new voice with eased editorial camera moves; one continuous camera envelope follows the host fields. Waits are cut and typing paced. Same-result exports and a real navigation reload make zero queries. Veto and strict cases are genuine recorded queries. No new Qloo requests in this revision. No generated application behavior, frozen screenshots or added top provenance labels.",
+  "reviewLimit": "The owner approved the short Jessica sample direction. The root runtime cannot listen, so full-take auditory acceptance and phonetic perfection are not claimed. Objective PCM continuity, post-encode levels, captions, decoded frames and actual player checks are distinct evidence.",
   "hostExample": "Illustrative host-authored preparation by Codex, not a venue pilot or a Qloo-derived theme."
 }

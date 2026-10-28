@@ -36,33 +36,33 @@
     },
     {
       "path": "public/media/common-room-demo.mp4",
-      "bytes": 30106988,
-      "sha256": "24d705a7b0b540b192cae0ac3a0fee5919fa714365754b99e87af2b099e767ed"
+      "bytes": 25796691,
+      "sha256": "afe21e13cae97bc562658ede6c0c7a188731f2da0b3b59de70e5b879a233c7d1"
     },
     {
       "path": "public/media/common-room-demo.vtt",
-      "bytes": 3163,
-      "sha256": "657b2e330df26ccb2f75656cd0d097845ab03452e4dc829ccc03eb282c651c6c"
+      "bytes": 3174,
+      "sha256": "c8e0e57284cb6e0f980b0500399a497cd385b223f475f159a3d8d4e374ea139f"
     },
     {
       "path": "public/media/common-room-demo.srt",
-      "bytes": 3314,
-      "sha256": "8a1eb353e15d5072833e9ba04ad61cdb211e24098754fa2b87b49453c7082a7a"
+      "bytes": 3325,
+      "sha256": "1136d9d1eb631bb99ee4192f747f0708ae3e054a1ccb556c75c5a085e88d3e57"
     },
     {
       "path": "public/media/transcript.txt",
-      "bytes": 1428,
-      "sha256": "8e2f2ee235a1cc8c582876bc7294a112e9d6e77b89c1218057a9a20c55f0ebaf"
+      "bytes": 1439,
+      "sha256": "6e9285fff02a9361235cbaddcf2e8085bff5dc29b66387c9b10da5f7ccb3e731"
     },
     {
       "path": "public/media/manifest.json",
-      "bytes": 1982,
-      "sha256": "3928268f906ab4dac4887eebad90d9555e9fbeab2ea63dac932e1c61992bf244"
+      "bytes": 2239,
+      "sha256": "8c20970bebdf5504d215df3b8b4cc200a1f5fa75b279d9f574b46c5822737dff"
     },
     {
       "path": "public/media/demo-poster.jpg",
-      "bytes": 80181,
-      "sha256": "35e359e2882a5d5db2da4cd2526b3f5597a894c0b552de6e2e41f35c71844214"
+      "bytes": 83114,
+      "sha256": "46e21ebde60ccdc56b0c82d6e0e25bd04878a85fd4aad241f4ee457b545d4647"
     },
     {
       "path": "public/examples/curator-worked-example.md",
@@ -75,5 +75,5 @@
       "sha256": "6db1b717c55292247a2fb7119b4b4aaed7b14af15ca2d98e73f91c0c1545ddd4"
     }
   ],
-  "updatedAt": "2026-10-28T18:56:12.610Z"
+  "updatedAt": "2026-10-28T23:01:28.470Z"
 }
