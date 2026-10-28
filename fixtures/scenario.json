@@ -1,0 +1,44 @@
+{
+  "label": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records.",
+  "input": {
+    "venue": "The Lantern Bookshop",
+    "circles": [
+      { "name": "Speculative readers", "anchors": ["Ursula K. Le Guin", "Octavia E. Butler"] },
+      { "name": "After-hours listeners", "anchors": ["Nujabes", "Khruangbin"] },
+      { "name": "Slow-cinema regulars", "anchors": ["Wong Kar-wai", "Hayao Miyazaki"] }
+    ],
+    "vetoes": [],
+    "minimumCoverage": 60,
+    "minutes": 90,
+    "scenario": "common-room"
+  },
+  "entities": [
+    { "id": "00000000-0000-4000-8000-000000001001", "name": "The Dispossessed", "domain": "book", "affinities": [0.98, 0.14, 0.36] },
+    { "id": "00000000-0000-4000-8000-000000001002", "name": "A Psalm for the Wild-Built", "domain": "book", "affinities": [0.88, 0.30, 0.40] },
+    { "id": "00000000-0000-4000-8000-000000001003", "name": "Piranesi", "domain": "book", "affinities": [0.80, 0.35, 0.45] },
+    { "id": "00000000-0000-4000-8000-000000001004", "name": "Kitchen", "domain": "book", "affinities": [0.44, 0.82, 0.86] },
+    { "id": "00000000-0000-4000-8000-000000001005", "name": "Jazz", "domain": "book", "affinities": [0.42, 0.97, 0.38] },
+    { "id": "00000000-0000-4000-8000-000000001006", "name": "The Creative Act", "domain": "book", "affinities": [0.20, 0.89, 0.32] },
+    { "id": "00000000-0000-4000-8000-000000001007", "name": "Invisible Cities", "domain": "book", "affinities": [0.72, 0.72, 0.73] },
+    { "id": "00000000-0000-4000-8000-000000001008", "name": "The Art of Gathering", "domain": "book", "affinities": [0.38, 0.46, 0.97] },
+    { "id": "00000000-0000-4000-8000-000000001009", "name": "Bluets", "domain": "book", "affinities": [0.48, 0.62, 0.74] },
+    { "id": "00000000-0000-4000-8000-000000002001", "name": "Nujabes", "domain": "artist", "affinities": [0.40, 0.99, 0.52] },
+    { "id": "00000000-0000-4000-8000-000000002002", "name": "Khruangbin", "domain": "artist", "affinities": [0.38, 0.92, 0.62] },
+    { "id": "00000000-0000-4000-8000-000000002003", "name": "BADBADNOTGOOD", "domain": "artist", "affinities": [0.24, 0.87, 0.44] },
+    { "id": "00000000-0000-4000-8000-000000002004", "name": "Ichiko Aoba", "domain": "artist", "affinities": [0.84, 0.68, 0.82] },
+    { "id": "00000000-0000-4000-8000-000000002005", "name": "Brian Eno", "domain": "artist", "affinities": [0.79, 0.60, 0.74] },
+    { "id": "00000000-0000-4000-8000-000000002006", "name": "Ryuichi Sakamoto", "domain": "artist", "affinities": [0.74, 0.78, 0.98] },
+    { "id": "00000000-0000-4000-8000-000000002007", "name": "Alice Coltrane", "domain": "artist", "affinities": [0.90, 0.54, 0.45] },
+    { "id": "00000000-0000-4000-8000-000000002008", "name": "Men I Trust", "domain": "artist", "affinities": [0.48, 0.82, 0.86] },
+    { "id": "00000000-0000-4000-8000-000000002009", "name": "Adrianne Lenker", "domain": "artist", "affinities": [0.80, 0.72, 0.72] },
+    { "id": "00000000-0000-4000-8000-000000003001", "name": "Perfect Days", "domain": "movie", "affinities": [0.82, 0.84, 0.98] },
+    { "id": "00000000-0000-4000-8000-000000003002", "name": "Paterson", "domain": "movie", "affinities": [0.98, 0.51, 0.88] },
+    { "id": "00000000-0000-4000-8000-000000003003", "name": "After Yang", "domain": "movie", "affinities": [0.78, 0.74, 0.82] },
+    { "id": "00000000-0000-4000-8000-000000003004", "name": "In the Mood for Love", "domain": "movie", "affinities": [0.63, 0.68, 0.94] },
+    { "id": "00000000-0000-4000-8000-000000003005", "name": "Soul", "domain": "movie", "affinities": [0.66, 0.98, 0.74] },
+    { "id": "00000000-0000-4000-8000-000000003006", "name": "Kiki's Delivery Service", "domain": "movie", "affinities": [0.90, 0.52, 0.80] },
+    { "id": "00000000-0000-4000-8000-000000003007", "name": "Frances Ha", "domain": "movie", "affinities": [0.36, 0.93, 0.76] },
+    { "id": "00000000-0000-4000-8000-000000003008", "name": "Before Sunrise", "domain": "movie", "affinities": [0.84, 0.64, 0.85] },
+    { "id": "00000000-0000-4000-8000-000000003009", "name": "Only Lovers Left Alive", "domain": "movie", "affinities": [0.76, 0.86, 0.87] }
+  ]
+}

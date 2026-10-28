@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3eb">
+  <meta name="description" content="Design a cultural night that gives every taste circle a reason to be in the room.">
+  <title>Common Room | Cultural programming with evidence</title>
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/finish.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the planner</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Common Room home"><span class="brand-mark" aria-hidden="true">c</span> common room<span class="brand-dot">.</span></a>
+    <div class="topbar-right"><span class="quiet hide-small">CULTURE, WITH A COMMON THREAD</span><span id="mode" class="mode">Loading mode</span></div>
+  </header>
+  <main id="main" class="shell">
+    <section class="intro">
+      <div><h1>One night.<br>More than one crowd.</h1><p class="lede">Bring readers, listeners, and film lovers into the same room. Find a cultural thread. See who it serves. Keep the evidence.</p><a class="workspace-jump" href="#planner">Set the room</a></div>
+      <figure class="intro-note"><img src="/assets/collection-art.jpg" alt="A detail from Edgar Degas's painting of dancers preparing together onstage" width="1200" height="900"><figcaption><p>Good programming makes room for the quietest interest, too.</p><a href="https://www.metmuseum.org/art/collection/search/436155" target="_blank" rel="noreferrer">Edgar Degas, The Rehearsal of the Ballet Onstage, ca. 1874. The Met, public domain.</a></figcaption></figure>
+    </section>
+    <div id="mode-notice" class="notice" role="note"></div>
+    <div class="workspace">
+      <aside class="brief-panel">
+        <div class="section-head"><span class="step">01</span><div><h2>Set the room</h2><p>Three circles. One shared evening.</p></div></div>
+        <form id="planner">
+          <label for="venue">Your venue</label><input id="venue" maxlength="80" required autocomplete="organization">
+          <div class="field-head"><h3>Taste circles</h3><span>PUBLIC CULTURAL ANCHORS</span></div>
+          <div id="circles"></div>
+          <p id="anchor-note" class="field-note"></p>
+          <div class="field-pair"><div><label for="minutes">Time together</label><select id="minutes"><option value="60">60 minutes</option><option value="90" selected>90 minutes</option><option value="120">120 minutes</option></select></div><div><label for="coverage">Minimum coverage <output id="coverage-value" for="coverage">60</output></label><input id="coverage" type="range" min="0" max="100" step="1" value="60"></div></div>
+          <label for="vetoes">Hard vetoes <span class="optional">optional</span></label><textarea id="vetoes" rows="2" maxlength="4800" placeholder="Exact titles or entity IDs, one per line"></textarea>
+          <p class="field-note">Every veto is binding. Relative coverage is a comparison score, not predicted turnout.</p>
+          <div id="access-wrap" hidden><label for="access">Venue / judge access code</label><input id="access" type="password" autocomplete="off"></div>
+          <button id="run" class="primary" type="submit"><span>Find our common thread</span><span aria-hidden="true">↗</span></button>
+          <div class="form-actions"><button type="button" class="text-button" id="reset">Reset sample</button><button type="button" class="text-button" id="strict">Try a strict brief</button></div>
+        </form>
+      </aside>
+      <section class="canvas" aria-label="Your event plan">
+        <div class="canvas-top"><div class="section-head"><span class="step">02</span><div><h2>Find the common thread</h2><p id="canvas-subtitle">A decision, with a reason for every seat.</p></div></div><span class="small-label">BOOKS × MUSIC × FILM</span></div>
+        <div id="error" class="error" role="alert" tabindex="-1" hidden></div>
+        <button id="retry" type="button" class="secondary recovery-action" hidden>Try the brief again</button>
+        <div id="running" class="running" role="status" hidden><span class="pulse" aria-hidden="true"></span><div><strong>The agent is working through the brief.</strong><p id="progress-text">Preparing the search.</p></div></div>
+        <div id="empty" class="empty-state">
+          <div class="room-art" aria-hidden="true"><div class="orbit orbit-a">read</div><div class="orbit orbit-b">listen</div><div class="orbit orbit-c">discuss</div><div class="room-center">meet<br>here.</div></div>
+          <h3>Different tastes.<br>A shared starting point.</h3><p>The agent searches each circle's cultural connections, compares the same shortlist, and makes a plan for the least-served circle as well as the whole room.</p>
+          <div class="empty-foot"><span>01 DISCOVER</span><span>02 BALANCE</span><span>03 EXPLAIN</span></div>
+        </div>
+        <div id="results" hidden></div>
+        <details id="trace-wrap" class="trace-wrap" hidden><summary><span>Agent notebook</span><span id="trace-count">0 steps</span></summary><ol id="trace" class="trace"></ol></details>
+      </section>
+    </div>
+    <footer><span class="brand-small">common room.</span><p>Qloo supplies cultural evidence in live mode. Common Room makes the programming decision.<br>No demographic inference. No invented attendance claims.</p><a href="https://github.com/qloo/qloo-hackathon-kit" target="_blank" rel="noreferrer">Qloo hackathon kit ↗</a></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "name": "common-room",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An evidence-led cultural programming agent for independent venues.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test",
+    "demo:evidence": "node scripts/demo-evidence.js",
+    "live:check": "node --env-file-if-exists=.env scripts/live-check.js",
+    "live:smoke": "node --env-file-if-exists=.env scripts/live-smoke.js",
+    "live:plan": "node --env-file-if-exists=.env scripts/live-plan.js",
+    "host:verify": "node --env-file-if-exists=.env.local scripts/verify-hosted-budget.js",
+    "release:stage": "node scripts/stage-release.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@qloo/qloo-harness": "0.1.26",
+    "@vercel/blob": "2.8.2"
+  },
+  "overrides": {
+    "zod": "4.6.7",
+    "brace-expansion": "5.0.12",
+    "@earendil-works/pi-coding-agent": {
+      "undici": "8.12.3"
+    }
+  }
+}

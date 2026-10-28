@@ -1,0 +1,11 @@
+{
+  "venue": "Your independent venue",
+  "circles": [
+    { "name": "Speculative readers", "anchors": ["Ursula K. Le Guin", "Octavia E. Butler"] },
+    { "name": "After-hours listeners", "anchors": ["Nujabes", "Khruangbin"] },
+    { "name": "Slow-cinema regulars", "anchors": ["Wong Kar-wai", "Hayao Miyazaki"] }
+  ],
+  "vetoes": [],
+  "minimumCoverage": 60,
+  "minutes": 90
+}

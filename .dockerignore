@@ -1,0 +1,12 @@
+.env
+.env.*
+node_modules
+.data
+.tools
+.git
+artifacts/live-*
+*.log
+.vercel
+.impeccable
+AGENTS.md
+CODEX_START.md

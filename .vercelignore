@@ -1,0 +1,16 @@
+.env
+.env.*
+.data
+.tools
+.git
+.vercel
+artifacts/live-*
+*.log
+AGENTS.md
+CODEX_START.md
+.impeccable
+PRODUCT.md
+DESIGN.md
+docs/STATUS.md
+docs/BUILD_BACKLOG.md
+docs/SUBMISSION_DRAFT.md

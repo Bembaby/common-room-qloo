@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.tools/
+.data/
+.vercel/
+artifacts/live-*.json
+artifacts/live-*.md
+*.log
+.DS_Store
+
+.vercel
+.env*
+!.env.example
