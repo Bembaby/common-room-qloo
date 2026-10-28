@@ -1,3 +1,5 @@
+Historical fourth-round review. The current film and newer execution evidence are in [DEMO_SCRIPT.md](DEMO_SCRIPT.md) and [EVIDENCE.md](EVIDENCE.md).
+
 # From shortlist to host working copy
 
 October 28, 2026. A separate reviewer started with no conversation history and assessed published 85e7c12 using the actual app, public source, film, official rules and prepared text. Its subjective baseline score was 5.25/10, with its lowest score for unvalidated venue usefulness. This is a critical software/product review, not venue research or a competition forecast.

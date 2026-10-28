@@ -1,25 +1,28 @@
 {
-  "createdAt": "2026-10-28T18:51:38.158Z",
-  "category": "narrated_actual_execution_and_explicit_saved_run_preparation",
+  "createdAt": "2026-10-28T20:30:11.300Z",
+  "category": "narrated_actual_application_execution_and_saved_result_interaction",
   "sourceRevisions": [
-    "bf1d691134736294f6d31e2841f4dae6f78e0437",
-    "bcdfaed1c8337ce2f216ebd7865d63fda2c8383a"
+    "03a449e3b3726fef80fbc35835ba2c5a5df68673"
   ],
   "runIds": [
-    "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
-    "89d29674-38f0-4164-8be7-37a38b14b444",
-    "ea3d33fb-17c4-4bde-a4d1-85f14ede16e8"
+    "bee88242-d9c0-4df2-a5ff-a2a1910a187d",
+    "06b5564d-c50d-476b-bfd5-062da28700a7",
+    "c80c9a19-b186-4c02-b389-d56aa2ffe313"
   ],
-  "durationSeconds": 123.5,
-  "wordCount": 308,
-  "outputSha256": "b1a3d2898c8137f078e35efbb0537e9fa1338f2dd6aebacedc7a44b61518a569",
+  "durationSeconds": 88.6,
+  "videoFrames": 2658,
+  "frameRate": 30,
+  "pixelAspectRatio": "1:1",
+  "wordCount": 229,
+  "standardCaptionCues": 53,
+  "outputSha256": "01cd562914747193658e8d079e3ba5f8c243587fc032b48bbea60f85386eade3",
   "captionFiles": {
-    "srt": "551d1ac97ce037851158ddf80a48460174a26cc80d6433cc576cf7f6a7a2f017",
-    "vtt": "76e6b780529d5ae8815c794107dc11813b2e94f597d52a8163832119bf5ffc60"
+    "srt": "0a47fe913c6998822b18f5a17f927e3aba2a1bc6d6a02143018d1cae1f32391e",
+    "vtt": "a1e1ad78dac030b18589a70b00da16ec04c89e846b9bcb0895f5e92d6f933abc"
   },
-  "voice": "ElevenLabs Eric premade stock voice, Multilingual v2; synthetic narration",
-  "captionMethod": "308 individual word highlights from actual character alignment, rounded to centiseconds before the 30fps frame grid.",
-  "processing": "Actual browser recordings and held actual captures. Waiting periods are visibly shortened. Saved-real-result preparation scenes are explicitly labeled and make no new provider claim. No application behavior or cultural relationship is generated.",
-  "reviewLimit": "Runtime cannot hear audio; owner delegated voice selection. Pacing, pauses, levels, alignment, full decode and visual frames are checked, not subjective listening.",
-  "hostExample": "Illustrative host-authored notes by Codex, not a venue pilot or Qloo-derived theme."
+  "voice": "ElevenLabs Jessica premade female voice, Eleven v3 Conversational; synthetic narration selected after a sample comparison",
+  "captionMethod": "229 individual word highlights use actual provider character timing, retimed by exact audio phrase edits. Phrase-aware standard cues preserve titles and complete clauses. Centisecond event rounding precedes the 30fps grid.",
+  "processing": "Actual application videos with waiting cuts and paced typing. Saved-result scenes reopen the same actual runs and make no new provider claim. Host notes, downloads, reload, veto staging and refusal are recorded interactions. No generated application behavior, frozen screenshots or added top provenance labels.",
+  "reviewLimit": "The root runtime cannot listen. The owner selected the short Jessica sample; full-take subjective listening is not claimed. File decode, exact picture length, actual text/timing, visual cuts and native-player checks are separate evidence.",
+  "hostExample": "Illustrative host-authored preparation by Codex, not a venue pilot or a Qloo-derived theme."
 }

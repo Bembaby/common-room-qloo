@@ -1,15 +1,17 @@
-A bookshop has one evening and different cultural interests to serve. Common Room helps the host compare a shared shortlist, then turn it into a conversation they have actually prepared. Audience fit is a starting point, not a finished event.
+Say you're putting on a bookshop evening. You've got readers and music fans. How do you give both a way in?
 
-Here I enter Ursula K. Le Guin and Kendrick Lamar in the real public app. Qloo asks which identities I mean. I choose the returned author and artist. The query stages are real. Waiting periods are shortened in this edit.
+I enter Ursula Le Guin for the readers, and Kendrick Lamar for the listeners. Pick the author and artist you mean. Then Qloo searches across books, music and film.
 
-The result offers one book, one artist and one film. Catalogue notes help identify unfamiliar choices. The ranks support the shortlist, not a shared theme. In this case, balancing the least-served circle and optimizing the average choose the same program. There is no gain to claim.
+This is recorded Qloo execution, with long waits cut.
 
-Now I make four hosting choices. A written introduction to Eula Biss's book. An actual Tyler recording, EARFQUAKE. A discussion focus for Joker. And my own question about belonging, ownership and public identity. That connection is host-authored, not a Qloo finding.
+Here's the shortlist: Having and Being Had, Tyler, the Creator, and Joker. I can open the catalogue context and compare each circle's relative ranks. The two policies tie here. There's no gain to claim.
 
-Those choices enter the running order, printable copy and downloads. The evidence keeps the originating names and exact identities. Reloading restores the same saved result and notes. It does not make a new Qloo query.
+Now, let's make it an evening. I write the book introduction, choose a recording, set the film discussion, and add my own connecting question. Qloo grounds the shortlist. This interpretation is mine.
 
-A hard veto stays binding. Here a new real query excludes the selected artist. The host reviews the changed brief before running again. The exclusion receipt is tied to the returned discovery evidence.
+Those choices go straight into the running order. I download the brief and evidence. Reload the page, and the same result and notes come back without another query.
 
-Raise the minimum too far, and the agent makes one targeted refinement. If the evidence still falls short, it refuses. Diagnostic selections do not become an approved host program.
+What if an artist's off the table? I stage the veto, check the changed brief, then run again. Tyler is excluded, and the replacement is visible.
 
-Common Room makes shortlist tradeoffs inspectable and keeps preparation beside the evidence. The host still checks materials, permissions and venue arrangements. This prototype has not been validated in a venue pilot. Try the public app, inspect the actual results, and shape your own evening.
+Now push the minimum too high. The agent tries one deeper search. Still short? It refuses, and keeps the veto. No approved program is produced.
+
+The host still checks materials and permissions. Venue usefulness needs a real pilot. Explore the evidence, shape the conversation, and make room for different tastes.

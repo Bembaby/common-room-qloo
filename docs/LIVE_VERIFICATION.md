@@ -1,3 +1,7 @@
+# Current demo and anonymous execution verification, October 28
+
+Source 03a449e executed fresh, veto and strict cases, independently checked across 216/180/270 combinations. The current demo uses those actual runs with recorded host preparation and same-tab recovery. Read DEMO_SCRIPT.md and EVIDENCE.md for source, run IDs and exact scope. The 59-test suite and scoped UI checks remain separate from provider evidence.
+
 # Current October 28 verification
 
 See ROUND4_REVIEW.md and EVIDENCE.md for the new real identity/metadata/host-copy journey, veto/refusal, and scoped save/reopen checks. Current core suite: 59 tests. Saved-result render checks are labeled and never presented as fresh provider queries. The host copy is a proposed shortlist plus explicit host preparation, not a proven venue outcome.

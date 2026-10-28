@@ -1,16 +1,16 @@
 # Saved worked example, not a new query
 
-Actual anonymous Qloo run `86a1a613-20aa-4ceb-b8ae-15ba4a93aef5`, October 28, 2026, source `bf1d691134736294f6d31e2841f4dae6f78e0437`. Re-exported with the current host-copy compiler. The preparation is an illustrative host-authored example by Codex, not venue research or a Qloo-derived theme. No playback, screening or rights verification is claimed.
+Actual anonymous Qloo run `bee88242-d9c0-4df2-a5ff-a2a1910a187d`, October 28, 2026, source `03a449e3b3726fef80fbc35835ba2c5a5df68673`. Reopened to record and export host preparation, without another provider query. The introduction, recording, film focus and question are an illustrative host-authored example by Codex, not venue research or a Qloo-derived theme. No playback, screening or rights verification is claimed.
 
 # Common Room event brief
 
 Evidence: Live Qloo graph evidence
 
 Status: ready
-Venue: Independent Bookshop / Worked curator example
-Run: 86a1a613-20aa-4ceb-b8ae-15ba4a93aef5
+Venue: Common Room / Bookshop evening
+Run: bee88242-d9c0-4df2-a5ff-a2a1910a187d
 
-Generated: 2026-10-28T18:21:13.525Z
+Generated: 2026-10-28T19:46:45.457Z
 
 ## Decision
 
@@ -51,10 +51,10 @@ Both policies selected the same three works in this run.
 
 These notes are entered by the host. Qloo supports the cultural shortlist, not the thematic connection or permissions.
 
-- Book excerpt or introduction: Host-written introduction: Eula Biss examines ownership in Having and Being Had. Ask each guest to name an object that signals belonging, then discuss how owning it changes their relationship to work. No book passage is reproduced.
-- Recording to discuss: EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss the recording and public persona; no playback is assumed. Official artist release: https://www.youtube.com/watch?v=t-E2gm0a_N0
-- Film moment or question: Joker (2019): discuss the official teaser's public-performance framing, without screening the film. Invite disagreement rather than treating this as a shared taste. Source: https://www.youtube.com/watch?v=t433PEQGErc
-- Your connecting question: Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme.
+- Book excerpt or introduction: Introduce Having and Being Had through ownership and belonging. Ask guests to name an object that signals belonging. Discussion only; no passage is reproduced.
+- Recording to discuss: EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss its public persona; no playback is assumed.
+- Film moment or question: Joker (2019): discuss public performance in the official teaser. Invite disagreement; no screening is assumed.
+- Your connecting question: What does belonging cost when it depends on what we own, the persona we perform, or recognition from others? Compare one example from each work, then say where the comparison breaks.
 
 All four content choices are recorded. The host still checks availability, permissions and access needs.
 
@@ -67,11 +67,11 @@ All four content choices are recorded. The host still checks availability, permi
 
 ## One connecting question
 
-Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme.
+What does belonging cost when it depends on what we own, the persona we perform, or recognition from others? Compare one example from each work, then say where the comparison breaks.
 
 ## Three Ways Into One Room
 
-A 60-minute conversation at Independent Bookshop / Worked curator example, built around Having and Being Had, Tyler, the Creator, and Joker. Each selection has an inspectable reason to be in the room.
+A 60-minute conversation at Common Room / Bookshop evening, built around Having and Being Had, Tyler, the Creator, and Joker. Each selection has an inspectable reason to be in the room.
 
 | Minutes | Activity |
 | --- | --- |
@@ -84,9 +84,9 @@ A 60-minute conversation at Independent Bookshop / Worked curator example, built
 ## Host prompts
 
 - Invite each circle to introduce a familiar way into the program. Speculative fiction readers: Having and Being Had. Hip-hop listeners: Tyler, the Creator.
-- Host-selected material: Host-written introduction: Eula Biss examines ownership in Having and Being Had. Ask each guest to name an object that signals belonging, then discuss how owning it changes their relationship to work. No book passage is reproduced. Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?
-- Host-selected recording: EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss the recording and public persona; no playback is assumed. Official artist release: https://www.youtube.com/watch?v=t-E2gm0a_N0. Ask what detail connects or contrasts with the book introduction.
-- Host-selected focus: Joker (2019): discuss the official teaser's public-performance framing, without screening the film. Invite disagreement rather than treating this as a shared taste. Source: https://www.youtube.com/watch?v=t433PEQGErc. Ask the host's question: Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme. Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.
+- Host-selected material: Introduce Having and Being Had through ownership and belonging. Ask guests to name an object that signals belonging. Discussion only; no passage is reproduced. Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?
+- Host-selected recording: EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss its public persona; no playback is assumed. Ask what detail connects or contrasts with the book introduction.
+- Host-selected focus: Joker (2019): discuss public performance in the official teaser. Invite disagreement; no screening is assumed. Ask the host's question: What does belonging cost when it depends on what we own, the persona we perform, or recognition from others? Compare one example from each work, then say where the comparison breaks. Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.
 - Each participant names one unfamiliar work they now want to explore. Collect voluntary feedback before repeating the event.
 
 This is a proposed cultural shortlist and timed planning template. The host must choose the actual materials and connecting question before hosting. No screening, performer availability, inventory, licensing, attendance, or sales is verified.

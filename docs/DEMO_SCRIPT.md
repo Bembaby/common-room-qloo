@@ -1,37 +1,23 @@
 # The Common Room walkthrough
 
-[Watch the film](https://common-room-eight.vercel.app/demo.html). The current edit is 2:03.5,1920x1080,30fps,H.264/AAC, with 308 actual provider-timed word highlights and 47 standard caption cues. The public transcript, SRT, VTT and hash/provenance manifest accompany it.
-
-## The story
+[Watch the current film](https://common-room-eight.vercel.app/demo.html?v=jessica-r5). The 88.6-second edit uses actual application videos from source 03a449e, Jessica synthetic narration, 229 provider-timed word highlights and 53 phrase-aware caption cues. There are no added top provenance labels or frozen screenshots.
 
 | Time | Actual material |
 | --- | --- |
-|0:00 to0:14|A host's shortlist/preparation task, credited title card and public homepage|
-|0:14 to0:28|Entered Ursula K. Le Guin and Kendrick Lamar anchors, real author/artist choices and actual Qloo stages|
-|0:28 to0:48|Returned selections, catalogue context and the neutral policy comparison|
-|0:48 to1:06|Four concrete host-authored preparation choices, shown from the labeled saved actual result|
-|1:06 to1:19|Running order, readable origins, exports and same-result reopen|
-|1:19 to1:32|Actual binding artist-veto query and labeled saved exclusion review|
-|1:32 to1:43|Actual strict query/refinement and labeled saved refusal review|
-|1:43 to2:03|Inspectability, host responsibility, absence of venue validation and public app|
+|0:00 to 0:08|Bookshop task, native homepage and entering cultural anchors|
+|0:08 to 0:18|Actual returned author/artist choices, with the choice buttons in frame|
+|0:18 to 0:22|Actual Qloo progress, with waiting cuts disclosed in narration|
+|0:22 to 0:35|Returned shortlist, catalogue context, per-circle ranks and the neutral comparison|
+|0:35 to 0:49|Real typing into four host fields on the same reopened actual result|
+|0:49 to 0:58|Compiled running order, actual downloads, reload and visibly restored question|
+|0:58 to 1:08|Veto staged and reviewed before the real query, then the changed shortlist|
+|1:08 to 1:18|Strict minimum, actual targeted search and the complete refusal status|
+|1:18 to 1:29|Retained constraint, host responsibilities, pilot limitation and public app|
 
-Fresh-query footage comes from public sourcebf1d691134736294f6d31e2841f4dae6f78e0437. Saved-real-result preparation and decision captures use sourcebcdfaed1c8337ce2f216ebd7865d63fda2c8383a. Exact source ranges, held frames, source hashes and scene classifications are retained privately. The public media manifest names the actual runs and source revisions.
+The live runs are bee88242-d9c0-4df2-a5ff-a2a1910a187d, 06b5564d-c50d-476b-bfd5-062da28700a7 and c80c9a19-b186-4c02-b389-d56aa2ffe313. Independent enumeration checked 216, 180 and 270 bundles. All three policy gains are zero. The completed case reaches minimum 66.67 and average 72.22; the veto replacement reaches 70 and 73.89; the strict diagnostic remains refused below 95.
 
-Waiting cuts are labeled. Saved-result scenes are separately labeled and make no new-query claim. They show the actual exported Qloo result reopened for host preparation and readable decision review. They are not another live execution or a fixture. No generated footage substitutes for application behavior, and no copyrighted book, music or film material is played.
+The host preparation retake reopens the same actual fresh result and makes no provider call. It records actual typing, downloads and reload rather than implying actions from static images. The strict recording reopens the earlier actual veto result before one fresh strict query. These edits do not establish another sponsor execution. The [worked copy](https://common-room-eight.vercel.app/examples/curator-worked-example.md) retains the actual run and explicit host-authored source.
 
-Synthetic narration uses ElevenLabs Eric, a premade stock voice and Multilingual v2. The owner delegated voice selection after phone playback was unavailable. Runtime listening is unavailable. Actual text/alignment, pacing, pauses, levels, font, full decode and visual frames were checked without claiming subjective listening. Active word starts encode within5ms of supplied character timing before the 30fps frame grid. Stable dim text between words avoids flicker.
+The public [transcript](https://common-room-eight.vercel.app/media/transcript.txt), [SRT](https://common-room-eight.vercel.app/media/common-room-demo.srt), [VTT](https://common-room-eight.vercel.app/media/common-room-demo.vtt) and [media manifest](https://common-room-eight.vercel.app/media/manifest.json) identify the exact film and provenance. Actual speech timing is retimed only by source phrase trim/concatenation; the voice is not sped up. Provider alignment and frame quantization limit phonetic precision.
 
-## The worked host copy
-
-The example introduction, recording, film focus and connecting question were authored for the demonstration. A question about belonging, ownership and persona is a host interpretation, not a Qloo-derived theme or organizer feedback. [Read the saved copy](https://common-room-eight.vercel.app/examples/curator-worked-example.md). The app balances a shortlist and preserves preparation. Its usefulness in a real venue remains unvalidated.
-
-## Try it yourself
-
-1. Open anonymously and confirm LIVE QLOO. Choose two or three taste circles and public cultural anchors.
-2. Resolve specific returned identities if names are ambiguous, then run an achievable brief. The notebook shows actual stages.
-3. Inspect selections, optional catalogue facts, circle coverage and the average-only alternative. Scores are relative within this shortlist.
-4. Enter the actual introduction/passage, recording, film focus and question in the host copy. Review the running order and both exports.
-5. Reload to reopen the saved result with its original time and no provider query. Clear saved room when appropriate.
-6. Stage an exact veto and explicitly rerun. A strict minimum can trigger one refinement and refusal without an approved host program.
-
-Protective concurrency, hourly and judging-period limits remain. Quota errors preserve the brief and report recovery. Do not reset allowance or label the independent synthetic fixture as live evidence. The optional film supplements the required usable app.
+Exact picture-frame count, full decode, dimensions, square pixels, every transcript token, word events and phrase boundaries are checked. Caption placement is reviewed with native Chrome controls visible, within that stated scope. The owner selected Jessica after listening to samples; the root runtime cannot listen and makes no subjective full-take listening claim. Optional media does not replace the working app or validate venue usefulness.

@@ -1,187 +1,211 @@
 1
-00:00:00,035 --> 00:00:01,916
-A bookshop has one evening and different
+00:00:00,000 --> 00:00:00,880
+Say you're putting on
 
 2
-00:00:01,962 --> 00:00:04,679
-cultural interests to serve. Common Room helps
+00:00:00,920 --> 00:00:01,920
+a bookshop evening.
 
 3
-00:00:04,714 --> 00:00:06,989
-the host compare a shared shortlist, then
+00:00:02,040 --> 00:00:03,440
+You've got readers
 
 4
-00:00:07,036 --> 00:00:08,545
-turn it into a conversation they have
+00:00:03,520 --> 00:00:04,640
+and music fans.
 
 5
-00:00:08,580 --> 00:00:09,613
-actually prepared.
+00:00:04,800 --> 00:00:06,720
+How do you give both
 
 6
-00:00:10,461 --> 00:00:12,492
-Audience fit is a starting point, not
+00:00:06,920 --> 00:00:08,420
+a way in?
 
 7
-00:00:12,527 --> 00:00:13,363
-a finished event.
+00:00:08,480 --> 00:00:09,920
+I enter Ursula Le Guin
 
 8
-00:00:14,210 --> 00:00:15,882
-Here I enter Ursula K. Le Guin
+00:00:09,960 --> 00:00:10,880
+for the readers,
 
 9
-00:00:15,952 --> 00:00:17,786
-and Kendrick Lamar in the real public
+00:00:10,920 --> 00:00:11,760
+and Kendrick Lamar
 
 10
-00:00:17,856 --> 00:00:20,584
-app. Qloo asks which identities I mean.
+00:00:11,780 --> 00:00:12,880
+for the listeners.
 
 11
-00:00:21,211 --> 00:00:23,289
-I choose the returned author and artist.
+00:00:12,928 --> 00:00:13,600
+Pick the author
 
 12
-00:00:23,580 --> 00:00:25,948
-The query stages are real. Waiting periods
+00:00:13,620 --> 00:00:14,880
+and artist you mean.
 
 13
-00:00:25,983 --> 00:00:28,328
-are shortened in this edit. The result
+00:00:14,928 --> 00:00:15,840
+Then Qloo searches
 
 14
-00:00:28,375 --> 00:00:30,964
-offers one book, one artist and one
+00:00:15,897 --> 00:00:18,160
+across books, music and film.
 
 15
-00:00:31,022 --> 00:00:35,155
-film. Catalogue notes help identify unfamiliar choices.
+00:00:18,440 --> 00:00:20,424
+This is recorded Qloo execution,
 
 16
-00:00:35,689 --> 00:00:38,139
-The ranks support the shortlist, not a
+00:00:20,504 --> 00:00:21,944
+with long waits cut.
 
 17
-00:00:38,185 --> 00:00:41,041
-shared theme. In this case, balancing the
+00:00:22,131 --> 00:00:23,491
+Here's the shortlist:
 
 18
-00:00:41,088 --> 00:00:44,826
-least-served circle and optimizing the average choose
+00:00:23,560 --> 00:00:24,931
+Having and Being Had,
 
 19
-00:00:44,861 --> 00:00:47,136
-the same program. There is no gain
+00:00:25,038 --> 00:00:26,931
+Tyler, the Creator, and Joker.
 
 20
-00:00:47,194 --> 00:00:49,063
-to claim. Now I make four hosting
+00:00:27,211 --> 00:00:29,091
+I can open the catalogue context
 
 21
-00:00:49,110 --> 00:00:51,850
-choices. A written introduction to Eula Biss's
+00:00:29,111 --> 00:00:31,331
+and compare each circle's relative ranks.
 
 22
-00:00:51,908 --> 00:00:55,960
-book. An actual Tyler recording, EARFQUAKE. A
+00:00:31,451 --> 00:00:33,331
+The two policies tie here.
 
 23
-00:00:56,029 --> 00:00:58,572
-discussion focus for Joker. And my own
+00:00:33,398 --> 00:00:35,451
+There's no gain to claim.
 
 24
-00:00:58,630 --> 00:01:01,695
-question about belonging, ownership and public identity.
+00:00:35,751 --> 00:00:37,431
+Now, let's make it an evening.
 
 25
-00:01:01,950 --> 00:01:04,435
-That connection is host-authored, not a Qloo
+00:00:37,631 --> 00:00:39,111
+I write the book introduction,
 
 26
-00:01:04,516 --> 00:01:07,453
-finding. Those choices enter the running order,
+00:00:39,145 --> 00:00:40,151
+choose a recording,
 
 27
-00:01:07,674 --> 00:01:10,472
-printable copy and downloads. The evidence keeps
+00:00:40,271 --> 00:00:41,671
+set the film discussion,
 
 28
-00:01:10,507 --> 00:01:13,723
-the originating names and exact identities. Reloading
+00:00:41,771 --> 00:00:44,071
+and add my own connecting question.
 
 29
-00:01:13,769 --> 00:01:16,602
-restores the same saved result and notes.
+00:00:44,231 --> 00:00:46,071
+Qloo grounds the shortlist.
 
 30
-00:01:16,892 --> 00:01:18,297
-It does not make a new Qloo
+00:00:46,151 --> 00:00:48,231
+This interpretation is mine.
 
 31
-00:01:18,378 --> 00:01:21,397
-query. A hard veto stays binding. Here
+00:00:48,531 --> 00:00:49,891
+Those choices go straight
 
 32
-00:01:21,432 --> 00:01:23,336
-a new real query excludes the selected
+00:00:49,939 --> 00:00:50,931
+into the running order.
 
 33
-00:01:23,382 --> 00:01:25,994
-artist. The host reviews the changed brief
+00:00:51,131 --> 00:00:52,851
+I download the brief and evidence.
 
 34
-00:01:26,064 --> 00:01:27,191
-before running again.
+00:00:52,977 --> 00:00:54,371
+Reload the page,
 
 35
-00:01:28,038 --> 00:01:29,536
-The exclusion receipt is tied to the
+00:00:54,391 --> 00:00:55,651
+and the same result and notes
 
 36
-00:01:29,594 --> 00:01:32,740
-returned discovery evidence. Raise the minimum too
+00:00:55,715 --> 00:00:58,011
+come back without another query.
 
 37
-00:01:32,822 --> 00:01:35,016
-far, and the agent makes one targeted
+00:00:58,311 --> 00:01:00,711
+What if an artist's off the table?
 
 38
-00:01:35,086 --> 00:01:37,976
-refinement. If the evidence still falls short,
+00:01:00,791 --> 00:01:01,911
+I stage the veto,
 
 39
-00:01:38,034 --> 00:01:41,227
-it refuses. Diagnostic selections do not become
+00:01:01,951 --> 00:01:03,271
+check the changed brief,
 
 40
-00:01:41,250 --> 00:01:43,665
-an approved host program. Common Room makes
+00:01:03,287 --> 00:01:03,991
+then run again.
 
 41
-00:01:43,793 --> 00:01:47,404
-shortlist tradeoffs inspectable and keeps preparation
+00:01:04,124 --> 00:01:05,751
+Tyler is excluded,
 
 42
-00:01:47,462 --> 00:01:50,364
-beside the evidence. The host still checks
+00:01:05,761 --> 00:01:07,431
+and the replacement is visible.
 
 43
-00:01:50,411 --> 00:01:53,243
-materials, permissions and venue arrangements. This
+00:01:07,731 --> 00:01:09,651
+Now push the minimum too high.
 
 44
-00:01:53,290 --> 00:01:55,542
-prototype has not been validated in a
+00:01:09,771 --> 00:01:11,731
+The agent tries one deeper search.
 
 45
-00:01:55,589 --> 00:01:58,723
-venue pilot. Try the public app, inspect
+00:01:11,811 --> 00:01:12,771
+Still short?
 
 46
-00:01:58,758 --> 00:02:00,627
-the actual results, and shape your own
+00:01:12,904 --> 00:01:15,171
+It refuses, and keeps the veto.
 
 47
-00:02:00,685 --> 00:02:01,045
-evening.
+00:01:15,304 --> 00:01:17,331
+No approved program is produced.
+
+48
+00:01:17,631 --> 00:01:18,671
+The host still checks
+
+49
+00:01:18,719 --> 00:01:20,431
+materials and permissions.
+
+50
+00:01:20,498 --> 00:01:23,151
+Venue usefulness needs a real pilot.
+
+51
+00:01:23,211 --> 00:01:24,351
+Explore the evidence,
+
+52
+00:01:24,391 --> 00:01:25,551
+shape the conversation,
+
+53
+00:01:25,591 --> 00:01:27,711
+and make room for different tastes.

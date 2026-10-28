@@ -1,3 +1,7 @@
+## Current demo replacement, October 28
+
+The current 88.6-second Jessica walkthrough records actual interactions from source 03a449e and the three new anonymous Qloo runs documented in [DEMO_SCRIPT.md](DEMO_SCRIPT.md). Host typing, downloads, reload, staged veto and refusal are visible. Saved-result interaction remains separate from fresh execution. All three new policy gains are zero. Earlier checkpoints below retain their original evidence category.
+
 # Executed evidence
 
 Current verified round: [ROUND4_REVIEW.md](ROUND4_REVIEW.md). A repeat two-anchor journey retained exactly 15 starts across identity choice and completion; real catalogue metadata, host preparation, both exports, no-query reload, veto and strict refusal were executed. All three new policy gains are zero. The saved worked example and explicitly labeled saved-response layout captures are separate from fresh provider executions.

@@ -65,3 +65,7 @@ Pinned `dist/qloo-tools.js` functions `compactEntity` and `interpretedEntity` co
 The illustrative host preparation consulted the [publisher page for Having and Being Had](https://www.penguinrandomhouse.com/books/580422/having-and-being-had-by-eula-biss/9780525537465/), [official EARFQUAKE studio release](https://www.youtube.com/watch?v=t-E2gm0a_N0), [official Joker teaser](https://www.youtube.com/watch?v=t433PEQGErc) and [DC film page](https://www.dc.com/movies/joker-2019), checked October 28. The belonging/ownership/persona question is an authored interpretation, not a finding from Qloo or those sources. No passage, song or film footage is reproduced in the app or walkthrough.
 
 The [Fetch port-blocking standard](https://fetch.spec.whatwg.org/#bad-port) explains the observed intermittent localhost test failure. The HTTP test helper avoids its reserved ports when the operating system assigns one.
+
+## Conversational narration and playback verification, October 28
+
+Official [text-to-speech capabilities](https://elevenlabs.io/docs/overview/capabilities/text-to-speech), [voice settings](https://elevenlabs.io/docs/api-reference/voices/settings/get-default/) and [best practices](https://elevenlabs.io/docs/overview/capabilities/text-to-speech/best-practices) were checked. Read-only account model/voice metadata verified the selected premade voice, conversational model, included balance and disabled overages. Actual provider character timing and exact request identities are retained privately. No account identifiers or credentials are published.

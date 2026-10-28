@@ -1,17 +1,20 @@
 {
   "version": "1.0",
-  "id": "86a1a613-20aa-4ceb-b8ae-15ba4a93aef5",
+  "id": "bee88242-d9c0-4df2-a5ff-a2a1910a187d",
   "mode": "live",
   "evidenceLabel": "Live Qloo graph evidence",
   "status": "ready",
   "input": {
-    "venue": "Independent Bookshop / Worked curator example",
+    "venue": "Common Room / Bookshop evening",
     "circles": [
       {
         "id": "circle-1",
         "name": "Speculative fiction readers",
         "anchors": [
           "45DDBDC9-3442-4686-9E88-2066D8FEB674"
+        ],
+        "anchorLabels": [
+          "Ursula K. Le Guin"
         ]
       },
       {
@@ -19,6 +22,9 @@
         "name": "Hip-hop listeners",
         "anchors": [
           "C915A918-39C5-47A3-A101-D9FA1DECBD9C"
+        ],
+        "anchorLabels": [
+          "Kendrick Lamar"
         ]
       }
     ],
@@ -37,6 +43,8 @@
           "id": "45DDBDC9-3442-4686-9E88-2066D8FEB674",
           "name": "Ursula K. Le Guin",
           "type": "urn:entity:author",
+          "enteredText": "Ursula K. Le Guin",
+          "enteredTextSource": "Host-entered label",
           "workflowId": "workflow-01",
           "source": "Qloo resolver"
         }
@@ -51,14 +59,16 @@
           "id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
           "name": "Kendrick Lamar",
           "type": "urn:entity:artist",
+          "enteredText": "Kendrick Lamar",
+          "enteredTextSource": "Host-entered label",
           "workflowId": "workflow-02",
           "source": "Qloo resolver"
         }
       ]
     }
   ],
-  "generatedAt": "2026-10-28T18:21:13.525Z",
-  "elapsedMs": 75302,
+  "generatedAt": "2026-10-28T19:46:45.457Z",
+  "elapsedMs": 67139,
   "decision": {
     "feasible": true,
     "reasons": [],
@@ -654,10 +664,10 @@
   },
   "program": {
     "title": "Three Ways Into One Room",
-    "venue": "Independent Bookshop / Worked curator example",
+    "venue": "Common Room / Bookshop evening",
     "format": "A hosted conversation salon",
     "durationMinutes": 60,
-    "openingQuestion": "Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme.",
+    "openingQuestion": "What does belonging cost when it depends on what we own, the persona we perform, or recognition from others? Compare one example from each work, then say where the comparison breaks.",
     "invitations": [
       {
         "circleId": "circle-1",
@@ -694,7 +704,7 @@
       "Prepare the chosen film focus and discussion question. No full screening is assumed.",
       "Check availability, access needs and any permissions before inviting guests. No rights or venue arrangements are verified."
     ],
-    "description": "A 60-minute conversation at Independent Bookshop / Worked curator example, built around Having and Being Had, Tyler, the Creator, and Joker. Each selection has an inspectable reason to be in the room.",
+    "description": "A 60-minute conversation at Common Room / Bookshop evening, built around Having and Being Had, Tyler, the Creator, and Joker. Each selection has an inspectable reason to be in the room.",
     "schedule": [
       {
         "minutes": 5,
@@ -705,21 +715,21 @@
       {
         "minutes": 18,
         "label": "Read: Having and Being Had",
-        "activity": "Host-selected material: Host-written introduction: Eula Biss examines ownership in Having and Being Had. Ask each guest to name an object that signals belonging, then discuss how owning it changes their relationship to work. No book passage is reproduced. Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?",
+        "activity": "Host-selected material: Introduce Having and Being Had through ownership and belonging. Ask guests to name an object that signals belonging. Discussion only; no passage is reproduced. Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?",
         "entityId": "98687A20-65EF-4344-86A0-1DAAB026656B",
         "templateActivity": "Use Having and Being Had as the first discussion anchor. Ask: what would you want a first-time reader to notice?"
       },
       {
         "minutes": 14,
         "label": "Listen: Tyler, the Creator",
-        "activity": "Host-selected recording: EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss the recording and public persona; no playback is assumed. Official artist release: https://www.youtube.com/watch?v=t-E2gm0a_N0. Ask what detail connects or contrasts with the book introduction.",
+        "activity": "Host-selected recording: EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss its public persona; no playback is assumed. Ask what detail connects or contrasts with the book introduction.",
         "entityId": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
         "templateActivity": "Discuss a participant-chosen recording by Tyler, the Creator. Ask: what feeling or detail would you connect to the book discussion?"
       },
       {
         "minutes": 18,
         "label": "Discuss: Joker",
-        "activity": "Host-selected focus: Joker (2019): discuss the official teaser's public-performance framing, without screening the film. Invite disagreement rather than treating this as a shared taste. Source: https://www.youtube.com/watch?v=t433PEQGErc. Ask the host's question: Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme. Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.",
+        "activity": "Host-selected focus: Joker (2019): discuss public performance in the official teaser. Invite disagreement; no screening is assumed. Ask the host's question: What does belonging cost when it depends on what we own, the persona we perform, or recognition from others? Compare one example from each work, then say where the comparison breaks. Invite each circle to contribute an example or disagreement. The host's interpretation is separate from Qloo ranks.",
         "entityId": "5F98082A-A0AC-4453-8D8B-FCFBCB9ED4C0",
         "templateActivity": "Use Joker as a film conversation prompt. Ask: What detail from Having and Being Had would you carry into a conversation about Tyler, the Creator and Joker? Let participants name the connection or disagreement; do not assume a shared theme."
       },
@@ -1476,7 +1486,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "fe3607eb288736052ae5a1fe120d62f3478013fe6c8039dbeecab313776ff5e5",
-        "fetchedAt": "2026-10-28T18:20:02.762Z"
+        "fetchedAt": "2026-10-28T19:45:42.553Z"
       },
       "resolvedAnchors": [
         {
@@ -1545,7 +1555,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "4ccccd79b946c93ad8b907069e8d9f6615a55e420a2e663d9f6451c72c6d5929",
-        "fetchedAt": "2026-10-28T18:20:05.527Z"
+        "fetchedAt": "2026-10-28T19:45:45.238Z"
       },
       "resolvedAnchors": [
         {
@@ -1614,7 +1624,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "fdbc8368aadb6514b99bee95e93d7888ed0e944df368aaf2db1a2d4d017deb8c",
-        "fetchedAt": "2026-10-28T18:20:10.910Z"
+        "fetchedAt": "2026-10-28T19:45:50.639Z"
       },
       "resolvedAnchors": [
         {
@@ -1683,7 +1693,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "6f57a2ac7b34127b96df4745856e72a8fdeefdb518536cd5e8c9b8962e61b8c5",
-        "fetchedAt": "2026-10-28T18:20:16.352Z"
+        "fetchedAt": "2026-10-28T19:45:55.852Z"
       },
       "resolvedAnchors": [
         {
@@ -1752,7 +1762,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "47e4b73d7858d6675ba07020249f1b76841620c4b946fc125ba2ddd337dcaf5a",
-        "fetchedAt": "2026-10-28T18:20:19.975Z"
+        "fetchedAt": "2026-10-28T19:45:59.456Z"
       },
       "resolvedAnchors": [
         {
@@ -1821,7 +1831,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "85bb2fdbe2235bd2c78f58fb5c75ed37b73c20b6c1390a7986a5b468ec9675f4",
-        "fetchedAt": "2026-10-28T18:20:23.597Z"
+        "fetchedAt": "2026-10-28T19:46:03.178Z"
       },
       "resolvedAnchors": [
         {
@@ -1897,7 +1907,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "97d1b6061c388feb74319dea69cee8d09829ebb65a2ff33c38e5ae5e3c323bed",
-        "fetchedAt": "2026-10-28T18:20:33.506Z"
+        "fetchedAt": "2026-10-28T19:46:09.510Z"
       },
       "resolvedAnchors": [
         {
@@ -2009,7 +2019,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "fce09ec69fc58d540358dd7e6e5ea82ae04cca1a8d79d3bef78879f14f775d79",
-        "fetchedAt": "2026-10-28T18:20:40.003Z"
+        "fetchedAt": "2026-10-28T19:46:15.814Z"
       },
       "resolvedAnchors": [
         {
@@ -2121,7 +2131,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "927817a92028d08723d74fe966c09351cfa78336116f8d6215e4f5f8a3cbd2ea",
-        "fetchedAt": "2026-10-28T18:20:43.874Z"
+        "fetchedAt": "2026-10-28T19:46:22.128Z"
       },
       "resolvedAnchors": [
         {
@@ -2233,7 +2243,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "ec426a6862fd2d923149c5edc4043391478f4bc8bc49b390cdbce88613da1559",
-        "fetchedAt": "2026-10-28T18:20:53.743Z"
+        "fetchedAt": "2026-10-28T19:46:25.868Z"
       },
       "resolvedAnchors": [
         {
@@ -2345,7 +2355,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "11fdcbaeca8002f4fdbdc2ca60b092ae2388ccc6176d21375138b374bf134919",
-        "fetchedAt": "2026-10-28T18:21:03.617Z"
+        "fetchedAt": "2026-10-28T19:46:35.675Z"
       },
       "resolvedAnchors": [
         {
@@ -2457,7 +2467,7 @@
         "harnessVersion": "0.1.26",
         "requestCount": 1,
         "requestDigest": "a504ff4b368c578c87e5889bdc22ec740d60751457aba1b1afe71680b6881174",
-        "fetchedAt": "2026-10-28T18:21:13.503Z"
+        "fetchedAt": "2026-10-28T19:46:45.438Z"
       },
       "resolvedAnchors": [
         {
@@ -2771,10 +2781,10 @@
   ],
   "hostNotes": {
     "notes": {
-      "excerpt": "Host-written introduction: Eula Biss examines ownership in Having and Being Had. Ask each guest to name an object that signals belonging, then discuss how owning it changes their relationship to work. No book passage is reproduced.",
-      "recording": "EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss the recording and public persona; no playback is assumed. Official artist release: https://www.youtube.com/watch?v=t-E2gm0a_N0",
-      "filmMoment": "Joker (2019): discuss the official teaser's public-performance framing, without screening the film. Invite disagreement rather than treating this as a shared taste. Source: https://www.youtube.com/watch?v=t433PEQGErc",
-      "question": "Host-authored connection: What does belonging cost when it depends on something we own, a persona we perform, or recognition from other people? Compare one example from each work and name where the comparison breaks down. This is my curatorial prompt, not a Qloo-derived theme."
+      "excerpt": "Introduce Having and Being Had through ownership and belonging. Ask guests to name an object that signals belonging. Discussion only; no passage is reproduced.",
+      "recording": "EARFQUAKE, the 2019 IGOR studio recording by Tyler, the Creator. Discuss its public persona; no playback is assumed.",
+      "filmMoment": "Joker (2019): discuss public performance in the official teaser. Invite disagreement; no screening is assumed.",
+      "question": "What does belonging cost when it depends on what we own, the persona we perform, or recognition from others? Compare one example from each work, then say where the comparison breaks."
     },
     "missing": [],
     "completed": 4,
@@ -2784,7 +2794,7 @@
   },
   "exportContext": {
     "source": "Result restored from this tab",
-    "originalGeneratedAt": "2026-10-28T18:21:13.525Z",
+    "originalGeneratedAt": "2026-10-28T19:46:45.457Z",
     "newProviderQuery": false
   }
 }

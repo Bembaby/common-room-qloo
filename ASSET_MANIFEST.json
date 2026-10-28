@@ -36,43 +36,43 @@
     },
     {
       "path": "public/media/common-room-demo.mp4",
-      "bytes": 7713892,
-      "sha256": "b1a3d2898c8137f078e35efbb0537e9fa1338f2dd6aebacedc7a44b61518a569"
+      "bytes": 19383467,
+      "sha256": "01cd562914747193658e8d079e3ba5f8c243587fc032b48bbea60f85386eade3"
     },
     {
       "path": "public/media/common-room-demo.vtt",
-      "bytes": 3374,
-      "sha256": "76e6b780529d5ae8815c794107dc11813b2e94f597d52a8163832119bf5ffc60"
+      "bytes": 3001,
+      "sha256": "a1e1ad78dac030b18589a70b00da16ec04c89e846b9bcb0895f5e92d6f933abc"
     },
     {
       "path": "public/media/common-room-demo.srt",
-      "bytes": 3498,
-      "sha256": "551d1ac97ce037851158ddf80a48460174a26cc80d6433cc576cf7f6a7a2f017"
+      "bytes": 3143,
+      "sha256": "0a47fe913c6998822b18f5a17f927e3aba2a1bc6d6a02143018d1cae1f32391e"
     },
     {
       "path": "public/media/transcript.txt",
-      "bytes": 1917,
-      "sha256": "ef5b093ce8db0d5b22a0489755bba7707a1d762fc25a9d1399540f4f07fb8e6f"
+      "bytes": 1359,
+      "sha256": "c3f651af706a9144371b2cce0088088d31942f7e74257f8f4e5a18e94ee43efd"
     },
     {
       "path": "public/media/manifest.json",
-      "bytes": 1493,
-      "sha256": "3b405708b717ba4b72706ba45298c711b16e0d58adf76184c077f3fba89ee21d"
+      "bytes": 1852,
+      "sha256": "157ff449f5b6acf5472a6dc25f89ed57b806fbdcc24b5e204c122bcbb4631ba9"
     },
     {
       "path": "public/media/demo-poster.jpg",
-      "bytes": 90969,
-      "sha256": "1d4b5e958a9a7066d3d7e58c50a59579ffddc7db4e43aab1e5c99c5c9ba84133"
+      "bytes": 82144,
+      "sha256": "4087e4b2bdf207d171ed111be716ee0cc81f3ee966de7b4f4d3fdd4bebda32ad"
     },
     {
       "path": "public/examples/curator-worked-example.md",
-      "bytes": 7047,
-      "sha256": "59bb77a86ae5a8b721a68e4f18fddc61db31ad32a49173d60dbced8c192f788f"
+      "bytes": 6277,
+      "sha256": "323a33dda0cca5057c5545e12f306999e0fba590b17da01a6c2f302e8f7d10c2"
     },
     {
       "path": "public/examples/curator-worked-example.json",
-      "bytes": 125249,
-      "sha256": "5d8834b8c9ddc22f7804c2c5eaad8c63195ffc37d03e12632584b3621af6a075"
+      "bytes": 124721,
+      "sha256": "629e488a6a0951841083509c63dc13b62d101ef027c4346c28569fadd67b8b21"
     }
   ],
   "updatedAt": "2026-10-28T18:56:12.610Z"
