@@ -63,8 +63,8 @@ export function createApp({ env = process.env, adapterFactory, budgetFactory } =
     const path = new URL(request.url, 'http://localhost').pathname;
     let acquired = false;
     let planBudget;
-    const releaseBudget = async () => {
-      if (planBudget?.release) await planBudget.release().catch(() => {});
+    const releaseBudget = async (options) => {
+      if (planBudget?.release) await planBudget.release(options).catch(() => {});
       planBudget = undefined;
     };
     try {
@@ -121,7 +121,7 @@ export function createApp({ env = process.env, adapterFactory, budgetFactory } =
       });
       // Functions may freeze as soon as the response ends. Complete the shared
       // lease release first; failed releases remain locked until safe expiry.
-      await releaseBudget();
+      await releaseBudget({ completed: true });
       if (streaming) return response.end(`${JSON.stringify({ type: 'result', data: result })}\n`);
       return sendJSON(200, result);
     } catch (error) {

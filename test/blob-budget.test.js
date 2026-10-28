@@ -68,6 +68,20 @@ test('expired lease stops work and an old release cannot unlock a newer owner', 
   await assert.rejects(current.consume(), { code: 'WORKFLOW_BUDGET' });
 });
 
+test('only a confirmed complete plan reconciles its unused reserved slots', async () => {
+  const store = memoryStore();
+  const budget = new BlobWorkflowBudget({ client: store.client, env: { QLOO_MAX_WORKFLOWS_PER_HOUR: '22' } });
+  const complete = await budget.beginPlan(22);
+  for (let i = 0; i < 18; i++) await complete.consume();
+  await complete.release({ completed: true });
+  assert.equal(store.state().reservations[0].count, 18);
+  const failed = await budget.beginPlan(4);
+  await failed.consume();
+  await failed.release();
+  assert.equal(store.state().reservations[1].count, 4);
+  await assert.rejects(budget.beginPlan(1), { code: 'GLOBAL_WORKFLOW_LIMIT' });
+});
+
 test('missing, corrupt or unavailable storage never resets the allowance', async () => {
   for (const initial of [null, { ...emptyQuota(), version: 2 }, { ...emptyQuota(), reservations: [{ at: 0, count: -1 }] }, { ...emptyQuota(), lease: {} }]) {
     await assert.rejects(new BlobWorkflowBudget({ client: memoryStore(initial).client }).beginPlan(22), { code: 'BUDGET_STORAGE' });

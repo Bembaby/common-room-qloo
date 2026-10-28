@@ -49,7 +49,7 @@ export class BlobWorkflowBudget {
       if (state.lease && state.lease.until > this.now()) throw new AppError('BUSY', 'Another live plan is running. Try again after it completes.', 429);
       if (state.reservations.reduce((sum, r) => sum + r.count, 0) + count > this.limit) throw new AppError('GLOBAL_WORKFLOW_LIMIT', 'The shared hourly workflow allowance is reserved. Return after the window resets.', 429);
       const until = this.now() + this.leaseMs;
-      state.reservations.push({ at: this.now(), count });
+      state.reservations.push({ id, at: this.now(), count });
       state.lease = { id, until };
       return until;
     });
@@ -60,10 +60,17 @@ export class BlobWorkflowBudget {
         if (released || this.now() >= until || used >= count) throw new AppError('WORKFLOW_BUDGET', 'This plan reservation expired or was exhausted. No further Qloo workflow was started.', 429);
         used++;
       },
-      release: async () => {
+      release: async ({ completed = false } = {}) => {
         if (released) return;
         released = true;
-        await this.mutate(state => { if (state.lease?.id === id) state.lease = null; });
+        await this.mutate(state => {
+          if (state.lease?.id !== id) return;
+          // Only a fully returned planner outcome can reconcile unused slots.
+          // Interrupted or failed runs keep their entire conservative reservation.
+          const reservation = state.reservations.find(row => row.id === id);
+          if (completed && reservation && used > 0) reservation.count = used;
+          state.lease = null;
+        });
       }
     };
   }
