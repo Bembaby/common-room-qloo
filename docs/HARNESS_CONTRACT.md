@@ -40,7 +40,7 @@ The app supplies at most ten candidate IDs. It uses the same candidate IDs for e
 
 ## Normalized result used by this app
 
-The required envelope has `schema_version: "1.0-preview.1"`, the requested operation, a supported status, and a results array. Each accepted entity has a UUID `entity_id`, a bounded nonempty `name`, the expected `urn:entity:*` type, and an optional finite numeric `affinity`.
+The required envelope has `schema_version: "1.0-preview.1"`, the requested operation, a supported status, and a results array. Each accepted entity has a UUID `entity_id`, a bounded nonempty `name`, and either the expected `urn:entity:*` type or generic `type: "urn:entity"` with that exact cultural subtype. An optional affinity must be finite and numeric. The generic-type/subtype representation was observed in actual event results October 28 and verified against `compactEntity` in pinned `dist/qloo-tools.js`, which preserves both fields. Wrong or absent subtypes remain rejected.
 
 Successful results must identify `Qloo API` as their provenance source, `/v2/insights` as the endpoint, and at least one corresponding GET request in the provenance array. Names, IDs, type, affinity, and a bounded provenance summary enter the application model. Arbitrary entity descriptions and nested metadata do not.
 
@@ -50,7 +50,7 @@ The harness also supplies interpretation, resolution, query-intent, and executio
 | --- | --- |
 | `ok` with valid results | Normalize candidates and provenance |
 | Empty supported result | Continue with an evidence gap; never invent a candidate |
-| `needs_input` | Return `QLOO_NEEDS_INPUT`; require specificity or a verified UUID |
+| `needs_input` | Return `QLOO_NEEDS_INPUT`; show bounded validated candidate identities, let the owner choose, then retry with its verified UUID |
 | `partial`, `degraded`, unknown status, or version drift | Fail closed as a contract mismatch |
 | Duplicate ID, wrong domain, missing name, invalid affinity | Reject the result |
 | Rank returns an unrequested ID | Reject the result |

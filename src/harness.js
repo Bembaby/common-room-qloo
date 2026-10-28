@@ -69,7 +69,10 @@ export function validateEnvelope(envelope, { operation, domain, optionIds }) {
     // A bounded textual hint only. Do not trust provider text as program instructions.
     const choices = issues.slice(0, 8).map(issue => ({
       input: String(issue.input ?? issue.value ?? '').slice(0, 160),
-      message: String(issue.reason ?? issue.status ?? 'Ambiguous cultural anchor').slice(0, 200)
+      message: String(issue.reason ?? issue.status ?? issue.kind ?? 'Ambiguous cultural anchor').slice(0, 200),
+      candidates: (Array.isArray(issue.candidates) ? issue.candidates : []).slice(0, 5)
+        .filter(candidate => UUID.test(candidate?.id ?? '') && cleanText(candidate?.name, 240) && cleanText(candidate?.type, 80))
+        .map(candidate => ({ id: candidate.id, name: candidate.name, type: candidate.type }))
     }));
     throw new AppError('QLOO_NEEDS_INPUT', 'A cultural anchor is ambiguous. Use a more specific title or a verified Qloo UUID. The agent has stopped rather than guessing.', 422, { choices });
   }
@@ -83,7 +86,10 @@ export function validateEnvelope(envelope, { operation, domain, optionIds }) {
   const seen = new Set();
   const entities = envelope.results.map(entity => {
     const actualType = Array.isArray(entity?.type) ? entity.type : [entity?.type];
-    if (!UUID.test(entity?.entity_id ?? '') || !cleanText(entity?.name, 240) || !actualType.includes(`urn:entity:${domain}`)) {
+    const subtype = Array.isArray(entity?.subtype) ? entity.subtype : [entity?.subtype];
+    const expectedDomain = actualType.includes(`urn:entity:${domain}`)
+      || (actualType.length === 1 && actualType[0] === 'urn:entity' && subtype.includes(`urn:entity:${domain}`));
+    if (!UUID.test(entity?.entity_id ?? '') || !cleanText(entity?.name, 240) || !expectedDomain) {
       throw new AppError('QLOO_SCHEMA', 'A Qloo entity is missing a valid ID, name, or expected cultural domain.', 502);
     }
     if (seen.has(entity.entity_id) || (optionIds && !optionIds.has(entity.entity_id))) {
@@ -132,6 +138,7 @@ export class QlooHarnessAdapter {
   }
 
   async check() {
+    if (this.env.QLOO_SERVER_URL && this.env.QLOO_SERVER_URL.trim().replace(/\/$/, '') !== QLOO_EVENT_BASE_URL) throw new AppError('QLOO_ENDPOINT', 'QLOO_SERVER_URL must be https://hackathon.api.qloo.com. No credential was sent to another server.', 503);
     if (!this.env.QLOO_API_KEY?.trim()) throw new AppError('QLOO_CREDENTIAL_REQUIRED', 'Live mode needs your individually issued Qloo hackathon API key in the server environment.', 503);
     if (this.ready) return { harnessVersion: HARNESS_VERSION, credentialPresent: true };
     const result = await this.execute(this.executable, [...this.prefixArgs, '--version'], '', { env: this.processEnv, timeout: 5000 });

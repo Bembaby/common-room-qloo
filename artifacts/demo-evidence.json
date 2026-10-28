@@ -1,6 +1,6 @@
 {
   "category": "synthetic_local_evaluation",
-  "generatedAt": "2026-10-28T14:01:10.141Z",
+  "generatedAt": "2026-10-28T14:18:45.077Z",
   "actualQlooRequests": 0,
   "fixture": "fixtures/scenario.json",
   "claims": "These runs verify software behavior on invented fixture relationships. They do not validate Qloo access, real affinities, attendance, demand, or revenue.",
@@ -9,7 +9,7 @@
       "name": "Balanced night",
       "result": {
         "version": "1.0",
-        "id": "9a97f680-695b-405d-93da-d2474d7d2409",
+        "id": "16c252ac-f317-4eb3-97ca-49e769515b87",
         "mode": "fixture",
         "evidenceLabel": "Synthetic fixture evidence. No Qloo API was called.",
         "status": "ready",
@@ -46,8 +46,8 @@
           "minutes": 90,
           "scenario": "common-room"
         },
-        "generatedAt": "2026-10-28T14:01:10.135Z",
-        "elapsedMs": 11,
+        "generatedAt": "2026-10-28T14:18:45.071Z",
+        "elapsedMs": 10,
         "decision": {
           "feasible": true,
           "reasons": [],
@@ -1620,7 +1620,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "6e08f8d9becd09e3c27e71c74e43d4daa31bc8ada8d648887235c9d3cf7d9232",
-              "fetchedAt": "2026-10-28T14:01:10.125Z",
+              "fetchedAt": "2026-10-28T14:18:45.061Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1663,7 +1663,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "d0b5ed57c493dd30927fd264637018255b9bdc1947b33a3313464d2c8f700077",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1706,7 +1706,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "db8390a69e84bc2d65723dafcf1a8c85af35251829665c055f5e148ee6dcba0e",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1749,7 +1749,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a7805eea988811e65ed086e205c8efbec18680503b1f08f23b77089e40f3be67",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1792,7 +1792,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "f8c868be45e4f0552d4bad67132af956a18add5196a4d42bafe2772bea415aab",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1835,7 +1835,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "8f5c6a2f6ba0cd06a8eb2fe5aa91612402dfba265ff7df829d3e905fea262c18",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1878,7 +1878,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "41bccf20787a516029f10a62a710f08c4021a13391492a66e494307c5ee16735",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1921,7 +1921,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "0b4735f84fd3bf60ce79133dea67e184f809c8c3963e4e4c313fa8822380f07a",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -1964,7 +1964,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a5b19382fccf1109cc7484efadc504ad7f4acfc6ed8d12e7d2ac22e8410dda42",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2016,7 +2016,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "63665b8c258c26d9fc21f925a6ca2744dad9e8f8a957f8cf58b3f12879f7c4f1",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2098,7 +2098,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "d1efa7490aee408a98a5ed65aae311ccfc9fa89fb3c42b3df75a923d20260da5",
-              "fetchedAt": "2026-10-28T14:01:10.126Z",
+              "fetchedAt": "2026-10-28T14:18:45.062Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2180,7 +2180,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "5f5db6bb4f6b5cfc9cc4e43a94ce4f5dafaf290851c11dcae2f4684d8b60b205",
-              "fetchedAt": "2026-10-28T14:01:10.127Z",
+              "fetchedAt": "2026-10-28T14:18:45.063Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2262,7 +2262,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "7567e2042888b4b6650eb578a1f351f58e34d07be87e86d2426e205e146db596",
-              "fetchedAt": "2026-10-28T14:01:10.127Z",
+              "fetchedAt": "2026-10-28T14:18:45.063Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2344,7 +2344,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "88c929cac58242875e93746a667c3fedfc065000509131fe33850c3fa1bb8298",
-              "fetchedAt": "2026-10-28T14:01:10.127Z",
+              "fetchedAt": "2026-10-28T14:18:45.063Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2426,7 +2426,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "65be99ba5d11f3fd1272af7472f0579fe8ba3b2858f2d7756336e275cd770231",
-              "fetchedAt": "2026-10-28T14:01:10.127Z",
+              "fetchedAt": "2026-10-28T14:18:45.063Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2508,7 +2508,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "2d992c2c532d6fe1a4305525d16a97ddae7747bbd71ef6cae3c61d1a581d5c7d",
-              "fetchedAt": "2026-10-28T14:01:10.127Z",
+              "fetchedAt": "2026-10-28T14:18:45.063Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2590,7 +2590,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "1e21842f0378cabbbb052b5c24c8d6eaaae4702a55cb241d05c101158f2d6c11",
-              "fetchedAt": "2026-10-28T14:01:10.127Z",
+              "fetchedAt": "2026-10-28T14:18:45.063Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -2672,7 +2672,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "b9205da388fcc8eacebc3ce1d32ba042f2336ba0742247065239311c391208aa",
-              "fetchedAt": "2026-10-28T14:01:10.127Z",
+              "fetchedAt": "2026-10-28T14:18:45.063Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -3055,7 +3055,7 @@
       "name": "Selected book vetoed",
       "result": {
         "version": "1.0",
-        "id": "182dcdbb-447b-4f33-a6cd-b7fda1249210",
+        "id": "7739d3bc-7b2f-4391-962b-18648be0d4ea",
         "mode": "fixture",
         "evidenceLabel": "Synthetic fixture evidence. No Qloo API was called.",
         "status": "ready",
@@ -3094,7 +3094,7 @@
           "minutes": 90,
           "scenario": "common-room"
         },
-        "generatedAt": "2026-10-28T14:01:10.138Z",
+        "generatedAt": "2026-10-28T14:18:45.074Z",
         "elapsedMs": 2,
         "decision": {
           "feasible": true,
@@ -4625,7 +4625,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "6e08f8d9becd09e3c27e71c74e43d4daa31bc8ada8d648887235c9d3cf7d9232",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4668,7 +4668,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "d0b5ed57c493dd30927fd264637018255b9bdc1947b33a3313464d2c8f700077",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4711,7 +4711,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "db8390a69e84bc2d65723dafcf1a8c85af35251829665c055f5e148ee6dcba0e",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4754,7 +4754,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a7805eea988811e65ed086e205c8efbec18680503b1f08f23b77089e40f3be67",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4797,7 +4797,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "f8c868be45e4f0552d4bad67132af956a18add5196a4d42bafe2772bea415aab",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4840,7 +4840,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "8f5c6a2f6ba0cd06a8eb2fe5aa91612402dfba265ff7df829d3e905fea262c18",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4883,7 +4883,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "41bccf20787a516029f10a62a710f08c4021a13391492a66e494307c5ee16735",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4926,7 +4926,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "0b4735f84fd3bf60ce79133dea67e184f809c8c3963e4e4c313fa8822380f07a",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -4969,7 +4969,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a5b19382fccf1109cc7484efadc504ad7f4acfc6ed8d12e7d2ac22e8410dda42",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5020,7 +5020,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "9ea4d5e2625493800250618b8b331a7fb3d59a7a3c0fcbb75cef942001137280",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5095,7 +5095,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "15d1de7d9c5c9f1648503e94634e70ec45f159e15c64dee56226273a5d9c88d5",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5170,7 +5170,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "2873817efb019f1112e6c1160e6e8e8c0d10facb336f2f24614e1a64228e4dae",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5246,7 +5246,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "7567e2042888b4b6650eb578a1f351f58e34d07be87e86d2426e205e146db596",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5328,7 +5328,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "88c929cac58242875e93746a667c3fedfc065000509131fe33850c3fa1bb8298",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5410,7 +5410,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "65be99ba5d11f3fd1272af7472f0579fe8ba3b2858f2d7756336e275cd770231",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5492,7 +5492,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "2d992c2c532d6fe1a4305525d16a97ddae7747bbd71ef6cae3c61d1a581d5c7d",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5574,7 +5574,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "1e21842f0378cabbbb052b5c24c8d6eaaae4702a55cb241d05c101158f2d6c11",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -5656,7 +5656,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "b9205da388fcc8eacebc3ce1d32ba042f2336ba0742247065239311c391208aa",
-              "fetchedAt": "2026-10-28T14:01:10.136Z",
+              "fetchedAt": "2026-10-28T14:18:45.072Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -6045,7 +6045,7 @@
       "name": "Strict coverage refusal",
       "result": {
         "version": "1.0",
-        "id": "27d695cb-e1e4-4f45-bd73-3f09acb19e31",
+        "id": "f97d1f89-9d25-4bf2-9b72-aee3432ebf9f",
         "mode": "fixture",
         "evidenceLabel": "Synthetic fixture evidence. No Qloo API was called.",
         "status": "blocked",
@@ -6082,8 +6082,8 @@
           "minutes": 90,
           "scenario": "common-room"
         },
-        "generatedAt": "2026-10-28T14:01:10.141Z",
-        "elapsedMs": 3,
+        "generatedAt": "2026-10-28T14:18:45.076Z",
+        "elapsedMs": 2,
         "decision": {
           "feasible": false,
           "reasons": [
@@ -7670,7 +7670,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "6e08f8d9becd09e3c27e71c74e43d4daa31bc8ada8d648887235c9d3cf7d9232",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -7713,7 +7713,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "d0b5ed57c493dd30927fd264637018255b9bdc1947b33a3313464d2c8f700077",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -7756,7 +7756,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "db8390a69e84bc2d65723dafcf1a8c85af35251829665c055f5e148ee6dcba0e",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -7799,7 +7799,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a7805eea988811e65ed086e205c8efbec18680503b1f08f23b77089e40f3be67",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -7842,7 +7842,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "f8c868be45e4f0552d4bad67132af956a18add5196a4d42bafe2772bea415aab",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -7885,7 +7885,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "8f5c6a2f6ba0cd06a8eb2fe5aa91612402dfba265ff7df829d3e905fea262c18",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -7928,7 +7928,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "41bccf20787a516029f10a62a710f08c4021a13391492a66e494307c5ee16735",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -7971,7 +7971,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "0b4735f84fd3bf60ce79133dea67e184f809c8c3963e4e4c313fa8822380f07a",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8014,7 +8014,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a5b19382fccf1109cc7484efadc504ad7f4acfc6ed8d12e7d2ac22e8410dda42",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8066,7 +8066,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "63665b8c258c26d9fc21f925a6ca2744dad9e8f8a957f8cf58b3f12879f7c4f1",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8148,7 +8148,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "d1efa7490aee408a98a5ed65aae311ccfc9fa89fb3c42b3df75a923d20260da5",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8230,7 +8230,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "5f5db6bb4f6b5cfc9cc4e43a94ce4f5dafaf290851c11dcae2f4684d8b60b205",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8312,7 +8312,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "7567e2042888b4b6650eb578a1f351f58e34d07be87e86d2426e205e146db596",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8394,7 +8394,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "88c929cac58242875e93746a667c3fedfc065000509131fe33850c3fa1bb8298",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8476,7 +8476,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "65be99ba5d11f3fd1272af7472f0579fe8ba3b2858f2d7756336e275cd770231",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8558,7 +8558,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "2d992c2c532d6fe1a4305525d16a97ddae7747bbd71ef6cae3c61d1a581d5c7d",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8640,7 +8640,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "1e21842f0378cabbbb052b5c24c8d6eaaae4702a55cb241d05c101158f2d6c11",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8722,7 +8722,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "b9205da388fcc8eacebc3ce1d32ba042f2336ba0742247065239311c391208aa",
-              "fetchedAt": "2026-10-28T14:01:10.138Z",
+              "fetchedAt": "2026-10-28T14:18:45.074Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8795,7 +8795,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "87626a9d6709eb326b90136bcddd4d32eecd3e1e5b291e41e56fe748c4e12a21",
-              "fetchedAt": "2026-10-28T14:01:10.139Z",
+              "fetchedAt": "2026-10-28T14:18:45.075Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8866,7 +8866,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "d37d5e19704887bce675b383da8f8e43a953438a4ffb94721a3a10f24346f6c0",
-              "fetchedAt": "2026-10-28T14:01:10.139Z",
+              "fetchedAt": "2026-10-28T14:18:45.075Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -8955,7 +8955,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "bd65b49a67bad46988c40c44b037edabcbb36bb103ccb9664cd84ecfae943af0",
-              "fetchedAt": "2026-10-28T14:01:10.139Z",
+              "fetchedAt": "2026-10-28T14:18:45.075Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -9044,7 +9044,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "c54af2bd09ba76cd965a2bb2400e593e04f05b1048404cd4b236e0421ae6cfe9",
-              "fetchedAt": "2026-10-28T14:01:10.139Z",
+              "fetchedAt": "2026-10-28T14:18:45.075Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": [
@@ -9503,7 +9503,7 @@
       "name": "No graph evidence",
       "result": {
         "version": "1.0",
-        "id": "c05c874c-e789-47b7-9a0f-1280c148539c",
+        "id": "7cf1651a-4685-4b34-9879-4e95a25a267a",
         "mode": "fixture",
         "evidenceLabel": "Synthetic fixture evidence. No Qloo API was called.",
         "status": "blocked",
@@ -9540,7 +9540,7 @@
           "minutes": 90,
           "scenario": "empty"
         },
-        "generatedAt": "2026-10-28T14:01:10.141Z",
+        "generatedAt": "2026-10-28T14:18:45.077Z",
         "elapsedMs": 0,
         "decision": {
           "feasible": false,
@@ -9589,7 +9589,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "6e08f8d9becd09e3c27e71c74e43d4daa31bc8ada8d648887235c9d3cf7d9232",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9613,7 +9613,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "d0b5ed57c493dd30927fd264637018255b9bdc1947b33a3313464d2c8f700077",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9637,7 +9637,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "db8390a69e84bc2d65723dafcf1a8c85af35251829665c055f5e148ee6dcba0e",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9661,7 +9661,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a7805eea988811e65ed086e205c8efbec18680503b1f08f23b77089e40f3be67",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9685,7 +9685,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "f8c868be45e4f0552d4bad67132af956a18add5196a4d42bafe2772bea415aab",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9709,7 +9709,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "8f5c6a2f6ba0cd06a8eb2fe5aa91612402dfba265ff7df829d3e905fea262c18",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9733,7 +9733,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "41bccf20787a516029f10a62a710f08c4021a13391492a66e494307c5ee16735",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9757,7 +9757,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "0b4735f84fd3bf60ce79133dea67e184f809c8c3963e4e4c313fa8822380f07a",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9781,7 +9781,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "a5b19382fccf1109cc7484efadc504ad7f4acfc6ed8d12e7d2ac22e8410dda42",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []
@@ -9805,7 +9805,7 @@
               "documentation": "fixtures/scenario.json",
               "requestCount": 0,
               "requestDigest": "87626a9d6709eb326b90136bcddd4d32eecd3e1e5b291e41e56fe748c4e12a21",
-              "fetchedAt": "2026-10-28T14:01:10.141Z",
+              "fetchedAt": "2026-10-28T14:18:45.077Z",
               "warning": "Synthetic demonstration. These IDs and affinities are invented, not Qloo records."
             },
             "results": []

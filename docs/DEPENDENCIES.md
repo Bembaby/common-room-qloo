@@ -10,4 +10,6 @@ Common Room exposes only the validated `qloo exec recommend` and `qloo exec rank
 
 Before claiming a fully verified live release, evaluate an official updated harness or a reproducibly patched dependency tree, inspect its workflow contract and run genuine event-key compatibility checks. Do not silently replace dependencies, edit vendored code or claim a clean audit on the current pin. Registry audit checks are distinct from provider execution.
 
+The official registry still reports 0.1.26 as the latest harness. An isolated lockfile patch experiment produced a zero-finding audit while the actual installed files remained at the upstream shrinkwrap versions. That experiment was rejected and the accurate lockfile restored. Verification must inspect installed package manifests as well as audit output. No patched-install claim is made.
+
 Advisories: [brace expansion](https://github.com/advisories/GHSA-q2hr-2g5m-vwhr), [Undici](https://github.com/advisories/GHSA-3wwx-pv8p-q78v). Read the full current audit for the remaining advisory IDs.

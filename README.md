@@ -4,7 +4,7 @@
 
 Common Room helps an independent bookshop, café, or small cultural venue choose one conversation salon for several taste circles. The agent discovers books, artists, and films, compares each circle against the same cultural shortlist, honors explicit vetoes, and prioritizes the least-served circle. It returns a practical host brief together with the evidence behind every selection.
 
-This repository contains a working application, an official Qloo harness adapter, a bounded planning loop, tests and reproducible synthetic evaluations. **Live Qloo access remains blocked by event-key issuance.** The default application is explicitly labeled as a synthetic demo. A real Vercel private-storage check is separate evidence and does not establish Qloo success or contest submission.
+This repository contains a working application, an official Qloo harness adapter, a bounded planning loop, tests and reproducible synthetic evaluations. **Real event API access was confirmed October 28. Hosted end-to-end verification is in progress.** The default local application remains explicitly synthetic. Private-storage checks, real Qloo responses, hosted journeys and contest submission are separate evidence categories.
 
 ## Run it in one minute
 

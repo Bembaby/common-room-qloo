@@ -17,6 +17,35 @@ function node(tag, attributes = {}, children = []) {
 const paragraph = (text, className = '') => node('p', { text, class: className });
 const format = number => Number(number).toFixed(1).replace(/\.0$/, '');
 
+function providerError(value, status) {
+  const error = new Error(`${value?.message ?? 'The request failed.'} (${value?.code ?? status})`);
+  error.details = value?.details;
+  return error;
+}
+
+function renderChoices(choices = []) {
+  const panel = $('#resolution');
+  panel.replaceChildren();
+  panel.hidden = true;
+  for (const choice of choices) {
+    if (!choice.candidates?.length) continue;
+    const group = node('section', { class: 'resolution-choice' }, [node('h3', { text: `Which ${choice.input} did you mean?` }), paragraph('Qloo returned these identities. Choose a specific cultural anchor, then run your brief again.')]);
+    for (const candidate of choice.candidates) {
+      const button = node('button', { type: 'button', class: 'secondary', text: `${candidate.name} · ${candidate.type.replace('urn:entity:', '')}` });
+      button.addEventListener('click', () => {
+        for (const input of document.querySelectorAll('#circles textarea')) {
+          input.value = input.value.split('\n').map(anchor => anchor.trim() === choice.input ? candidate.id : anchor).join('\n');
+        }
+        group.replaceChildren(paragraph(`Selected ${candidate.name} (${candidate.type.replace('urn:entity:', '')}). Its verified Qloo ID is now in your brief.`, 'resolution-selected'));
+        $('#retry').focus();
+      });
+      group.append(button);
+    }
+    panel.append(group);
+    panel.hidden = false;
+  }
+}
+
 function reset() {
   if (busy) return;
   const sample = config.sample;
@@ -45,6 +74,7 @@ function readInput() {
     circles: config.sample.circles.map((_, index) => ({
       name: $(`#circle-name-${index}`).value,
       anchors: $(`#circle-anchors-${index}`).value.split('\n').map(value => value.trim()).filter(Boolean)
+        .map(value => config.resolvedAnchors?.find(anchor => anchor.name === value)?.id ?? value)
     })),
     minutes: Number($('#minutes').value),
     minimumCoverage: Number($('#coverage').value),
@@ -213,6 +243,7 @@ async function run(event) {
   $('#strict').disabled = true;
   $('#error').hidden = true;
   $('#retry').hidden = true;
+  $('#resolution').hidden = true;
   $('#planner').setAttribute('aria-busy', 'true');
   $('#results').hidden = true;
   $('#empty').hidden = true;
@@ -229,7 +260,7 @@ async function run(event) {
     });
     if (!response.ok) {
       const value = await response.json();
-      throw new Error(`${value.error?.message ?? 'The request failed.'} (${value.error?.code ?? response.status})`);
+      throw providerError(value.error, response.status);
     }
     const reader = response.body.getReader();
     const decoder = new TextDecoder();
@@ -239,7 +270,7 @@ async function run(event) {
       const item = JSON.parse(line);
       if (item.type === 'trace') trace(item.data);
       if (item.type === 'result') { gotResult = true; renderResult(item.data); }
-      if (item.type === 'error') throw new Error(`${item.error.message} (${item.error.code})`);
+      if (item.type === 'error') throw providerError(item.error);
     };
     while (true) {
       const { value, done } = await reader.read();
@@ -256,6 +287,7 @@ async function run(event) {
     $('#error').hidden = false;
     $('#retry').textContent = 'Try the brief again';
     $('#retry').hidden = false;
+    renderChoices(error.details?.choices);
     $('#error').focus({ preventScroll: true });
     $('#error').scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
   } finally {
@@ -293,7 +325,7 @@ try {
     ? 'Live mode uses your server-side Qloo credential. New anchors are resolved by the pinned Qloo harness. Ambiguous inputs and failed requests stop visibly.'
     : 'You are in the synthetic demo. Entity IDs, affinities, and audience relationships are invented fixtures. No Qloo API is called. Use live mode for a fresh graph-backed decision.';
   $('#anchor-note').textContent = config.mode === 'live'
-    ? 'One anchor per line, up to three per circle. Use public works or creators. An exact Qloo entity UUID avoids ambiguous titles.'
+    ? 'One public work or creator per line, up to three. The sample identities were resolved with Qloo. New names use its resolver; if a name is ambiguous, choose the intended identity before retrying.'
     : 'Sample anchors are fixed because this fixture only models these circles. Labels, vetoes, timing, and the coverage threshold are editable.';
   $('#access-wrap').hidden = !config.accessCodeRequired;
   reset();

@@ -8,6 +8,7 @@ import { FixtureAdapter, fixture } from './fixtures.js';
 import { QlooHarnessAdapter, HARNESS_VERSION } from './harness.js';
 import { WorkflowBudget } from './budget.js';
 import { validateInput } from './input.js';
+import { liveSample, resolvedAnchors } from './live-sample.js';
 
 const files = new Map([
   ['/', ['index.html', 'text/html; charset=utf-8']],
@@ -71,7 +72,7 @@ export function createApp({ env = process.env, adapterFactory, budgetFactory } =
         return sendJSON(200, { ok: true, project: 'common-room', mode, liveVerified: false, note: 'Health checks server availability, not Qloo credentials or live evidence.' });
       }
       if (request.method === 'GET' && path === '/api/config') {
-        return sendJSON(200, { project: 'common-room', mode, accessCodeRequired: Boolean(env.APP_ACCESS_CODE), harnessVersion: HARNESS_VERSION, sample: fixture.input });
+        return sendJSON(200, { project: 'common-room', mode, accessCodeRequired: Boolean(env.APP_ACCESS_CODE), harnessVersion: HARNESS_VERSION, sample: mode === 'live' ? liveSample : fixture.input, resolvedAnchors: mode === 'live' ? resolvedAnchors : [] });
       }
       if (request.method === 'GET' && files.has(path)) {
         const [name, type] = files.get(path);

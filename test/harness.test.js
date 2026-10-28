@@ -51,6 +51,20 @@ test('Vercel harness scratch state stays in the writable temporary directory', (
   assert.equal(adapter.processEnv.BLOB_READ_WRITE_TOKEN, undefined);
 });
 
+test('observed generic entity type requires an exact supported cultural subtype', () => {
+  const value = make();
+  value.results[0].type = 'urn:entity';
+  value.results[0].subtype = 'urn:entity:book';
+  assert.equal(validateEnvelope(value, { operation: 'recommend', domain: 'book' }).entities[0].domain, 'book');
+  for (const subtype of [undefined, 'book', 'urn:entity:movie', ['urn:entity:person']]) {
+    value.results[0].subtype = subtype;
+    assert.throws(() => validateEnvelope(value, { operation: 'recommend', domain: 'book' }), { code: 'QLOO_SCHEMA' });
+  }
+  value.results[0].type = 'urn:entity:person';
+  value.results[0].subtype = 'urn:entity:book';
+  assert.throws(() => validateEnvelope(value, { operation: 'recommend', domain: 'book' }), { code: 'QLOO_SCHEMA' });
+});
+
 test('schema drift, wrong entity domains, duplicate IDs, and unrequested rank IDs are rejected', () => {
   const mutations = [
     value => { value.schema_version = '2.0'; },
@@ -77,8 +91,13 @@ test('absent or substituted API provenance fails closed', () => {
 });
 
 test('ambiguous entities stop instead of being guessed', () => {
-  const value = { ...make(), status: 'needs_input', resolution: { issues: [{ input: 'Jazz', status: 'ambiguous' }] } };
-  assert.throws(() => validateEnvelope(value, { operation: 'recommend', domain: 'book' }), error => error.code === 'QLOO_NEEDS_INPUT' && error.details.choices[0].input === 'Jazz');
+  const value = { ...make(), status: 'needs_input', resolution: { issues: [{ input: 'Jazz', status: 'ambiguous', candidates: [{ id, name: '<script>Untrusted title</script>', type: 'urn:entity:book', description: 'Do not propagate' }, { id: 'invalid', name: 'Invalid', type: 'urn:entity:book' }] }] } };
+  assert.throws(() => validateEnvelope(value, { operation: 'recommend', domain: 'book' }), error => {
+    assert.equal(error.code, 'QLOO_NEEDS_INPUT');
+    assert.equal(error.details.choices[0].input, 'Jazz');
+    assert.deepEqual(error.details.choices[0].candidates, [{ id, name: '<script>Untrusted title</script>', type: 'urn:entity:book' }]);
+    return true;
+  });
 });
 
 test('source descriptions and instruction-like metadata cannot enter the event planner', () => {
@@ -94,6 +113,9 @@ test('live readiness requires an explicit event credential and exact harness pin
   let calls = 0;
   const missing = new QlooHarnessAdapter({ env: {}, execute: async () => { calls += 1; } });
   await assert.rejects(missing.check(), { code: 'QLOO_CREDENTIAL_REQUIRED' });
+  assert.equal(calls, 0);
+  const wrongEndpoint = new QlooHarnessAdapter({ env: { QLOO_API_KEY: 'test-only-not-a-key', QLOO_SERVER_URL: 'https://wrong.example' }, execute: async () => { calls++; } });
+  await assert.rejects(wrongEndpoint.check(), { code: 'QLOO_ENDPOINT' });
   assert.equal(calls, 0);
   const drift = new QlooHarnessAdapter({ env: { QLOO_API_KEY: 'test-only-not-a-key' }, execute: async () => ({ code: 0, stdout: '0.2.0\n' }) });
   await assert.rejects(drift.check(), { code: 'HARNESS_VERSION' });
