@@ -1,6 +1,6 @@
 # Live evidence and public verification
 
-Current state: **pending real Qloo credentials and live execution**. The local fixture demo and tests are complete. Do not change that status until these gates are actually executed.
+Current state, October 28: **genuine hosted core journeys verified**. Fresh planning, binding veto, strict refusal, downloads and anonymous access passed. See [EVIDENCE.md](EVIDENCE.md) for actual run IDs, comparisons, failures and limits. The procedures below remain the reproducibility guide; they are not a final contest-submission receipt.
 
 ## Evidence categories
 

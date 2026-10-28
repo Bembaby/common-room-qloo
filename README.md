@@ -4,7 +4,9 @@
 
 Common Room helps an independent bookshop, café, or small cultural venue choose one conversation salon for several taste circles. The agent discovers books, artists, and films, compares each circle against the same cultural shortlist, honors explicit vetoes, and prioritizes the least-served circle. It returns a practical host brief together with the evidence behind every selection.
 
-This repository contains a working application, an official Qloo harness adapter, a bounded planning loop, tests and reproducible synthetic evaluations. **Real event API access was confirmed October 28. Hosted end-to-end verification is in progress.** The default local application remains explicitly synthetic. Private-storage checks, real Qloo responses, hosted journeys and contest submission are separate evidence categories.
+**[Try the live app](https://common-room-eight.vercel.app) · [Executed evidence and limits](docs/EVIDENCE.md)**
+
+Common Room completed genuine hosted Qloo planning, a binding book veto, and a strict refusal from a fresh anonymous browser on October 28. Both downloads were inspected. The default local application remains explicitly synthetic. Provider, hosting and contest-submission evidence are separate categories; this repository does not claim a final Devpost submission.
 
 ## Run it in one minute
 
@@ -86,7 +88,7 @@ For a conventional Node host, use one replica and persist `.data`. On Vercel, th
 
 A workflow can perform entity resolution plus an Insights request. The pinned harness can retry retryable HTTP requests internally, up to three attempts. Common Room adds no workflow retry and imposes a 25-second subprocess deadline by default. Workflow counts are **not** API-request counts.
 
-The optional `APP_ACCESS_CODE` setting is only for private development. Public submission mode refuses to start if that code is set. Hosting, registration, repository publication, and submission have not been performed by this starter.
+The optional `APP_ACCESS_CODE` setting is only for private development. Public submission mode refuses to start if that code is set. The Vercel app and this source are public; contest submission requires its own confirmed receipt.
 
 ## Container
 
@@ -110,6 +112,8 @@ The remaining gates are real API verification, a fresh-input evidence run and a 
 | File | Purpose |
 | --- | --- |
 | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | Hosting, shared quota, access checks and operational limits |
+| [docs/EVIDENCE.md](docs/EVIDENCE.md) | Actual hosted journeys, independent rank evaluation and limitations |
+| [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md) | Pinned dependencies and known upstream advisory limitations |
 | [docs/SPEC.md](docs/SPEC.md) | Product behavior, scores, architecture, and boundaries |
 | [docs/HARNESS_CONTRACT.md](docs/HARNESS_CONTRACT.md) | Pinned official command/schema contract |
 | [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md) | A concise judge walkthrough and optional recording script |

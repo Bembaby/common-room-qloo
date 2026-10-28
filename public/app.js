@@ -2,6 +2,9 @@ const $ = selector => document.querySelector(selector);
 let config;
 let currentResult;
 let busy = false;
+let resultFormSnapshot;
+let progressStage = 1;
+let elapsedTimer;
 const scrollBehavior = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
 function node(tag, attributes = {}, children = []) {
@@ -18,9 +21,25 @@ const paragraph = (text, className = '') => node('p', { text, class: className }
 const format = number => Number(number).toFixed(1).replace(/\.0$/, '');
 
 function providerError(value, status) {
-  const error = new Error(`${value?.message ?? 'The request failed.'} (${value?.code ?? status})`);
+  const error = new Error(value?.message ?? 'The request could not be completed. Your brief is still here.');
+  error.code = value?.code ?? String(status ?? 'CONNECTION');
   error.details = value?.details;
   return error;
+}
+
+function focusField(selector) {
+  const field = $(selector);
+  field.focus({ preventScroll: true });
+  field.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
+}
+
+function updateBriefState() {
+  const changed = currentResult && JSON.stringify(readInput()) !== resultFormSnapshot;
+  const notice = $('#stale-notice');
+  if (notice) notice.hidden = !changed;
+  const veto = $('#veto-selected');
+  if (veto) veto.disabled = Boolean(changed || busy);
+  $('#run span').textContent = changed ? 'Update the common thread' : 'Find our common thread';
 }
 
 function renderChoices(choices = []) {
@@ -48,6 +67,15 @@ function renderChoices(choices = []) {
 
 function reset() {
   if (busy) return;
+  currentResult = undefined;
+  resultFormSnapshot = undefined;
+  $('#run span').textContent = 'Find our common thread';
+  $('#results').hidden = true;
+  $('#error').hidden = true;
+  $('#retry').hidden = true;
+  $('#resolution').hidden = true;
+  $('#trace-wrap').hidden = true;
+  $('#empty').hidden = false;
   const sample = config.sample;
   $('#venue').value = sample.venue;
   $('#minutes').value = sample.minutes;
@@ -57,7 +85,7 @@ function reset() {
   $('#circles').replaceChildren();
   sample.circles.forEach((circle, index) => {
     const name = node('input', { id: `circle-name-${index}`, value: circle.name, maxlength: '60', 'aria-label': `Circle ${index + 1} name`, required: '' });
-    const anchors = node('textarea', { id: `circle-anchors-${index}`, rows: '2', maxlength: '480', 'aria-label': `Circle ${index + 1} cultural anchors`, required: '' });
+    const anchors = node('textarea', { id: `circle-anchors-${index}`, rows: '2', maxlength: '480', 'aria-label': `Circle ${index + 1} cultural anchors`, 'aria-describedby': 'anchor-note', required: '' });
     anchors.value = circle.anchors.join('\n');
     anchors.readOnly = config.mode === 'fixture';
     const card = node('div', { class: 'circle' }, [
@@ -90,6 +118,14 @@ function trace(event) {
   $('#trace').append(li);
   $('#trace-count').textContent = `${event.sequence} steps`;
   $('#progress-text').textContent = event.message;
+  if (['evaluate', 'refine', 'complete', 'blocked'].includes(event.phase)) progressStage = 3;
+  else if (event.operation === 'rank') progressStage = Math.max(progressStage, 2);
+  for (const step of document.querySelectorAll('[data-stage]')) {
+    const number = Number(step.dataset.stage);
+    step.classList.toggle('passed', number < progressStage);
+    if (number === progressStage) step.setAttribute('aria-current', 'step');
+    else step.removeAttribute('aria-current');
+  }
   $('#trace-wrap').hidden = false;
 }
 
@@ -159,6 +195,7 @@ function section(title, description, children) {
 
 function renderResult(result) {
   currentResult = result;
+  resultFormSnapshot = JSON.stringify(readInput());
   const container = $('#results');
   container.replaceChildren();
   container.hidden = false;
@@ -169,25 +206,41 @@ function renderResult(result) {
     node('span', { class: `pill${ready ? '' : ' blocked'}`, text: ready ? 'BRIEF READY' : 'CONSTRAINTS NOT MET' })
   ]));
   container.append(paragraph(result.evidenceLabel, 'artifact-note'));
+  container.append(node('div', { id: 'stale-notice', class: 'stale-notice', role: 'status', hidden: '' }, [paragraph('Your brief has changed. This result and its exports still describe the previous brief.'), node('button', { type: 'submit', form: 'planner', class: 'secondary', text: 'Run the updated brief' })]));
+  const exports = node('div', { class: 'result-actions export-actions' });
+  const brief = node('button', { class: 'secondary', type: 'button', text: ready ? 'Export host brief' : 'Export decision note' });
+  brief.addEventListener('click', () => download(ready ? 'common-room-brief.md' : 'common-room-decision.md', briefMarkdown(result), 'text/markdown'));
+  const evidence = node('button', { class: 'secondary', type: 'button', text: 'Export evidence JSON' });
+  evidence.addEventListener('click', () => download('common-room-evidence.json', JSON.stringify(result, null, 2), 'application/json'));
+  exports.append(brief, evidence);
+  container.append(exports);
   if (!ready) {
     container.append(node('div', { class: 'blocked-reasons' }, [
       ...result.decision.reasons.map(reason => paragraph(reason)),
-      paragraph('The agent kept your vetoes, used its one refinement, and stopped. Adjust the minimum, change the cultural anchors in live mode, or revisit a veto before running again.')
+      paragraph(`Your vetoes are intact. ${result.decision.refined ? 'The agent tried one targeted refinement and stopped.' : 'The search stopped without approving a plan.'} Review the minimum or your cultural anchors before trying again.`)
     ]));
+    const recovery = node('div', { class: 'result-actions recovery-actions' });
+    const minimum = node('button', { type: 'button', class: 'secondary', text: 'Review the minimum' });
+    const vetoes = node('button', { type: 'button', class: 'text-button', text: 'Review the vetoes' });
+    minimum.addEventListener('click', () => focusField('#coverage'));
+    vetoes.addEventListener('click', () => focusField('#vetoes'));
+    recovery.append(minimum, vetoes);
+    container.append(recovery);
   }
   if (bundle) {
-    if (!ready) container.append(paragraph('Best unqualified candidate, shown for diagnosis only. This is not an approved event brief.', 'explanation'));
-    container.append(node('div', { class: 'selection-grid' }, bundle.items.map(item => node('article', { class: `selection-card ${item.domain}` }, [
-      node('span', { class: 'domain', text: { book: '01 / READ', artist: '02 / LISTEN', movie: '03 / DISCUSS' }[item.domain] }),
+    const evidenceContainer = ready ? container : node('details', { class: 'diagnostic-details' }, [node('summary', { text: 'Why the best candidate fell short' }), paragraph('For diagnosis only. These selections do not form an approved event brief.', 'explanation')]);
+    if (!ready) container.append(evidenceContainer);
+    evidenceContainer.append(node('div', { class: 'selection-grid' }, bundle.items.map(item => node('article', { class: `selection-card ${item.domain}` }, [
+      node('span', { class: 'domain', text: { book: 'Read', artist: 'Listen', movie: 'Discuss' }[item.domain] }),
       node('h4', { text: item.name }),
-      paragraph(`${item.discoveryIds.length} discovery workflow${item.discoveryIds.length === 1 ? '' : 's'} · ${result.mode === 'fixture' ? 'synthetic' : 'Qloo evidence'}`)
+      paragraph(`Returned for ${result.input.circles.filter(circle => item.scores[circle.id]?.observed).length} of ${result.input.circles.length} circles · ${result.mode === 'fixture' ? 'synthetic evidence' : 'Qloo evidence'}`)
     ]))));
-    container.append(section('A reason for every seat', 'Coverage is relative to this shortlist. The lowest circle matters as much as the overall room.', [
+    evidenceContainer.append(section('A reason for every seat', `The least-served circle reaches ${format(bundle.metrics.minimum)}/100; your minimum is ${result.input.minimumCoverage}. Scores compare candidates within this run.`, [
       matrix(bundle, result.input), paragraph('100 means first in this shortlist. It does not mean certain interest. A missing graph result is shown as ? and counted conservatively as 0.', 'explanation')
     ]));
     const baseline = result.decision.baseline;
     if (baseline) {
-      container.append(section('What changes when the quietest circle counts?', 'Both strategies use the same cultural candidates and the same vetoes.', [
+      evidenceContainer.append(section('What changes when the quietest circle counts?', 'Both strategies use the same cultural candidates and the same vetoes.', [
         node('div', { class: 'comparison' }, [
           node('div', { class: 'metric' }, [node('span', { class: 'metric-label', text: 'Optimize the average' }), paragraph(`${format(baseline.metrics.minimum)}/100`, 'metric-value'), paragraph('Weakest circle coverage'), paragraph(`Room average: ${format(baseline.metrics.average)}`)]),
           node('div', { class: 'metric highlight' }, [node('span', { class: 'metric-label', text: 'Make room for each circle' }), paragraph(`${format(bundle.metrics.minimum)}/100`, 'metric-value'), paragraph('Weakest circle coverage'), paragraph(`Room average: ${format(bundle.metrics.average)}`)])
@@ -206,22 +259,24 @@ function renderResult(result) {
       }
       details.append(node('div', { class: 'evidence-row' }, rows));
     }
-    container.append(details);
+    evidenceContainer.append(details);
   }
   if (result.program) {
+    let minute = 0;
+    const time = value => `${String(Math.floor(value / 60)).padStart(2, '0')}:${String(value % 60).padStart(2, '0')}`;
+    const schedule = node('ol', { class: 'schedule', 'aria-label': 'Host running order, with elapsed times' }, result.program.schedule.map(row => {
+      const start = minute;
+      minute += row.minutes;
+      return node('li', { class: 'program-row' }, [node('div', { class: 'schedule-time' }, [node('span', { class: 'time-range', text: `${time(start)} to ${time(minute)}` }), node('span', { class: 'duration', text: `${row.minutes} min` })]), node('div', {}, [node('h4', { text: row.label }), paragraph(row.activity)])]);
+    }));
     container.append(section('A night the host can actually run', result.program.description, [
-      ...result.program.schedule.map(row => node('div', { class: 'program-row' }, [node('span', { class: 'duration', text: `${row.minutes} MIN` }), node('div', {}, [node('h4', { text: row.label }), paragraph(row.activity)])])),
+      schedule,
       paragraph(result.program.note, 'explanation')
     ]));
   }
   const actions = node('div', { class: 'result-actions' });
-  const brief = node('button', { class: 'secondary', type: 'button', text: 'Export host brief ↗' });
-  brief.addEventListener('click', () => download('common-room-brief.md', briefMarkdown(result), 'text/markdown'));
-  const evidence = node('button', { class: 'secondary', type: 'button', text: 'Export evidence JSON ↗' });
-  evidence.addEventListener('click', () => download('common-room-evidence.json', JSON.stringify(result, null, 2), 'application/json'));
-  actions.append(brief, evidence);
   if (ready) {
-    const veto = node('button', { class: 'secondary', type: 'button', text: 'What if this book is unavailable?' });
+    const veto = node('button', { id: 'veto-selected', class: 'secondary', type: 'button', text: 'Replace this book with a binding veto' });
     veto.addEventListener('click', () => {
       if (busy) return;
       const existing = $('#vetoes').value.trim();
@@ -231,7 +286,12 @@ function renderResult(result) {
     actions.append(veto);
   }
   container.append(actions);
-  container.append(paragraph(`${result.budget.workflowCount}/${result.budget.workflowLimit} bounded workflows · ${result.decision.refined ? 'One targeted refinement used' : 'Initial search met the brief'} · No auto-publishing`, 'explanation'));
+  const generated = new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(result.generatedAt));
+  container.append(paragraph(`${generated} · ${result.budget.workflowCount}/${result.budget.workflowLimit} bounded workflows · ${result.decision.refined ? 'One targeted refinement used' : 'No refinement used'} · No auto-publishing`, 'explanation run-metadata'));
+  const heading = container.querySelector('.decision-header h3');
+  heading.setAttribute('tabindex', '-1');
+  heading.focus({ preventScroll: true });
+  heading.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
 }
 
 async function run(event) {
@@ -239,20 +299,36 @@ async function run(event) {
   if (busy) return;
   busy = true;
   $('#run').disabled = true;
+  $('#quick-run').disabled = true;
+  $('#quick-run').textContent = 'Working through the brief';
   $('#reset').disabled = true;
   $('#strict').disabled = true;
   $('#error').hidden = true;
   $('#retry').hidden = true;
   $('#resolution').hidden = true;
   $('#planner').setAttribute('aria-busy', 'true');
+  for (const field of document.querySelectorAll('#planner input, #planner textarea, #planner select')) field.disabled = true;
   $('#results').hidden = true;
   $('#empty').hidden = true;
   $('#running').hidden = false;
   $('#trace').replaceChildren();
   $('#trace-count').textContent = '0 steps';
   $('#trace-wrap').hidden = false;
-  $('#trace-wrap').open = true;
+  $('#trace-wrap').open = false;
+  progressStage = 1;
+  for (const step of document.querySelectorAll('[data-stage]')) {
+    step.classList.remove('passed');
+    if (step.dataset.stage === '1') step.setAttribute('aria-current', 'step');
+    else step.removeAttribute('aria-current');
+  }
+  const started = Date.now();
+  $('#elapsed').textContent = '0:00 elapsed';
+  elapsedTimer = setInterval(() => {
+    const seconds = Math.floor((Date.now() - started) / 1000);
+    $('#elapsed').textContent = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')} elapsed`;
+  }, 1000);
   $('#progress-text').textContent = 'Preparing the search.';
+  $('#running').scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
   let gotResult = false;
   try {
     const response = await fetch('/api/plan/stream', {
@@ -283,7 +359,16 @@ async function run(event) {
     if (!gotResult) throw new Error('The connection ended before the agent returned a decision. No completed plan is available.');
     $('#trace-wrap').open = false;
   } catch (error) {
-    $('#error').textContent = error.message;
+    const recoveries = {
+      BUSY: 'Another room is being planned. Wait for it to finish, then try your preserved brief again.',
+      GLOBAL_WORKFLOW_LIMIT: 'The shared hourly allowance is reserved. Return after the window resets. Your brief is still here.',
+      TOTAL_WORKFLOW_LIMIT: 'The event allowance is reserved. Live planning is paused. You can still edit your brief.',
+      BUDGET_STORAGE: 'The shared quota store could not be checked. Live planning is paused. Try again later.',
+      QLOO_NEEDS_INPUT: 'Qloo found more than one matching identity. Choose the intended anchor below, then try again.',
+      ACCESS_CODE: 'Check the venue or judge access code, then try your brief again.'
+    };
+    $('#error').replaceChildren(paragraph(recoveries[error.code] ?? `${error.message} Your brief has been kept. No completed plan is available.`));
+    if (error.code) $('#error').append(paragraph(`Reference: ${error.code}`, 'error-reference'));
     $('#error').hidden = false;
     $('#retry').textContent = 'Try the brief again';
     $('#retry').hidden = false;
@@ -291,16 +376,23 @@ async function run(event) {
     $('#error').focus({ preventScroll: true });
     $('#error').scrollIntoView({ behavior: scrollBehavior(), block: 'nearest' });
   } finally {
+    clearInterval(elapsedTimer);
     busy = false;
     $('#run').disabled = false;
+    $('#quick-run').disabled = false;
+    $('#quick-run').textContent = 'Plan this brief';
     $('#reset').disabled = false;
     $('#strict').disabled = false;
     $('#running').hidden = true;
     $('#planner').setAttribute('aria-busy', 'false');
+    for (const field of document.querySelectorAll('#planner input, #planner textarea, #planner select')) field.disabled = false;
+    updateBriefState();
   }
 }
 
 $('#coverage').addEventListener('input', () => { $('#coverage-value').textContent = $('#coverage').value; });
+$('#planner').addEventListener('input', updateBriefState);
+$('#planner').addEventListener('change', updateBriefState);
 $('#planner').addEventListener('submit', run);
 $('#retry').addEventListener('click', () => {
   if (!config) location.reload();
@@ -328,6 +420,10 @@ try {
     ? 'One public work or creator per line, up to three. The sample identities were resolved with Qloo. New names use its resolver; if a name is ambiguous, choose the intended identity before retrying.'
     : 'Sample anchors are fixed because this fixture only models these circles. Labels, vetoes, timing, and the coverage threshold are editable.';
   $('#access-wrap').hidden = !config.accessCodeRequired;
+  $('#quick-run').disabled = false;
+  $('#start-note').textContent = config.mode === 'live'
+    ? 'The sample is ready to run. Live searches can take a couple of minutes.'
+    : 'Explore the fixed sample. Synthetic evidence, with no Qloo API calls.';
   reset();
 } catch (error) {
   $('#error').textContent = error.message;

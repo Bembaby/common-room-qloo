@@ -11,6 +11,8 @@ const directories = ['src', 'api', 'test', 'fixtures', 'public'];
 directories.push('docs/screenshots');
 const files = ['README.md', 'LICENSE', 'package.json', 'package-lock.json', '.env.example', '.gitignore', '.dockerignore', '.vercelignore', 'Dockerfile', 'vercel.json', 'ASSET_MANIFEST.json', 'docs/SPEC.md', 'docs/HARNESS_CONTRACT.md', 'docs/SOURCES.md', 'docs/CREDITS.md', 'docs/DEPLOYMENT.md', 'docs/DEMO_SCRIPT.md', 'docs/LIVE_VERIFICATION.md', 'docs/RULES_AND_RUBRIC.md', 'scripts/live-check.js', 'scripts/live-plan.js', 'scripts/live-smoke.js', 'scripts/verify-hosted-budget.js', 'scripts/init-hosted-budget.js', 'scripts/stage-release.js', 'scripts/demo-evidence.js', 'artifacts/demo-evidence.json', 'artifacts/demo-evidence.md'];
 files.push('docs/DEPENDENCIES.md');
+files.push('scripts/verify-evidence.js');
+files.push('docs/EVIDENCE.md');
 async function collect(path) {
   for (const entry of await readdir(resolve(root, path), { withFileTypes: true })) {
     const name = `${path}/${entry.name}`;

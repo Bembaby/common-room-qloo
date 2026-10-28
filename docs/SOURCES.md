@@ -4,6 +4,10 @@ Latest verification: **October 28, 2026**. Use primary sources for changes to th
 
 ## October 28 continuation
 
+The official developer guide became readable through a direct HTTPS fetch later in this session. Its Quotas, Limits & Key Expiration section states that event keys remain active through the end of judging. Exact per-key expiration time is still not returned. An authenticated root diagnostic verified 10 requests/second and a 50,000-request monthly allowance; the private receipt retains remaining allowance, request ID and headers. Those observations informed request pacing and the persistent release allowance.
+
+Actual event recommendation output and pinned `dist/qloo-tools.js` compactEntity established generic type plus precise subtype handling. Actual author/person resolution established the explicit identity-choice recovery. Full anonymous hosted checks and independent same-shortlist evaluation are indexed in EVIDENCE.md.
+
 - [Current event](https://qloo.devpost.com/) and authenticated Devpost requirements/dates: deadline remains October 30 at 11:45 p.m. EDT. Public functional app, public licensed source and text required. Video is optional.
 - [Approved key follow-up](https://qloo.devpost.com/forum_topics/45711-common-room-api-key-request-follow-up-before-october-30-deadline): posted and zero replies at this check. No duplicate request sent.
 - [Organizer clarification](https://qloo.devpost.com/forum_topics/45690-tasteatlas-no-cost-judging-access-and-cached-demo-requirements): manager Ian Cook confirms free event API calls through judging without automatic paid charges and requires a usable live tool/app. Exact personal quota remains unknown.

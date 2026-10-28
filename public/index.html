@@ -10,28 +10,28 @@
   <script type="module" src="/app.js"></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to the planner</a>
+  <a class="skip" href="#planner">Skip to the planner</a>
   <header class="topbar">
     <a class="brand" href="/" aria-label="Common Room home"><span class="brand-mark" aria-hidden="true">c</span> common room<span class="brand-dot">.</span></a>
     <div class="topbar-right"><span class="quiet hide-small">CULTURE, WITH A COMMON THREAD</span><span id="mode" class="mode">Loading mode</span></div>
   </header>
   <main id="main" class="shell">
     <section class="intro">
-      <div><h1>One night.<br>More than one crowd.</h1><p class="lede">Bring readers, listeners, and film lovers into the same room. Find a cultural thread. See who it serves. Keep the evidence.</p><a class="workspace-jump" href="#planner">Set the room</a></div>
+      <div><h1>One night.<br>More than one crowd.</h1><p class="lede">Bring readers, listeners, and film lovers into the same room. Choose a book, an artist, and a film that give every circle a way in.</p><div class="intro-actions"><button id="quick-run" class="primary" type="submit" form="planner" disabled>Plan this brief</button><a class="workspace-jump" href="#planner">Make it your own</a></div><p id="start-note" class="start-note">Start with the sample below, or bring your own cultural anchors.</p></div>
       <figure class="intro-note"><img src="/assets/collection-art.jpg" alt="A detail from Edgar Degas's painting of dancers preparing together onstage" width="1200" height="900"><figcaption><p>Good programming makes room for the quietest interest, too.</p><a href="https://www.metmuseum.org/art/collection/search/436155" target="_blank" rel="noreferrer">Edgar Degas, The Rehearsal of the Ballet Onstage, ca. 1874. The Met, public domain.</a></figcaption></figure>
     </section>
     <div id="mode-notice" class="notice" role="note"></div>
     <div class="workspace">
       <aside class="brief-panel">
         <div class="section-head"><span class="step">01</span><div><h2>Set the room</h2><p>Three circles. One shared evening.</p></div></div>
-        <form id="planner">
+        <form id="planner" tabindex="-1">
           <label for="venue">Your venue</label><input id="venue" maxlength="80" required autocomplete="organization">
           <div class="field-head"><h3>Taste circles</h3><span>PUBLIC CULTURAL ANCHORS</span></div>
           <div id="circles"></div>
           <p id="anchor-note" class="field-note"></p>
           <div class="field-pair"><div><label for="minutes">Time together</label><select id="minutes"><option value="60">60 minutes</option><option value="90" selected>90 minutes</option><option value="120">120 minutes</option></select></div><div><label for="coverage">Minimum coverage <output id="coverage-value" for="coverage">60</output></label><input id="coverage" type="range" min="0" max="100" step="1" value="60"></div></div>
-          <label for="vetoes">Hard vetoes <span class="optional">optional</span></label><textarea id="vetoes" rows="2" maxlength="4800" placeholder="Exact titles or entity IDs, one per line"></textarea>
-          <p class="field-note">Every veto is binding. Relative coverage is a comparison score, not predicted turnout.</p>
+          <label for="vetoes">Hard vetoes <span class="optional">optional</span></label><textarea id="vetoes" rows="2" maxlength="4800" placeholder="Exact titles or entity IDs, one per line" aria-describedby="veto-note"></textarea>
+          <p id="veto-note" class="field-note">Every veto is binding. Relative coverage is a comparison score, not predicted turnout.</p>
           <div id="access-wrap" hidden><label for="access">Venue / judge access code</label><input id="access" type="password" autocomplete="off"></div>
           <button id="run" class="primary" type="submit"><span>Find our common thread</span><span aria-hidden="true">↗</span></button>
           <div class="form-actions"><button type="button" class="text-button" id="reset">Reset sample</button><button type="button" class="text-button" id="strict">Try a strict brief</button></div>
@@ -42,7 +42,7 @@
         <div id="error" class="error" role="alert" tabindex="-1" hidden></div>
         <button id="retry" type="button" class="secondary recovery-action" hidden>Try the brief again</button>
         <div id="resolution" class="resolution" aria-label="Choose the intended cultural anchor" hidden></div>
-        <div id="running" class="running" role="status" hidden><span class="pulse" aria-hidden="true"></span><div><strong>The agent is working through the brief.</strong><p id="progress-text">Preparing the search.</p></div></div>
+        <div id="running" class="running" hidden><div class="running-title"><strong>Finding a thread for your room.</strong><span id="elapsed" aria-hidden="true">0:00 elapsed</span></div><ol class="progress-stages" aria-label="Planning progress"><li data-stage="1" aria-current="step">Discover</li><li data-stage="2">Compare</li><li data-stage="3">Check &amp; decide</li></ol><p id="progress-text" role="status">Preparing the search.</p><p class="running-note">Your brief is saved in this page. Keep it open while the search runs.</p></div>
         <div id="empty" class="empty-state">
           <div class="room-art" aria-hidden="true"><div class="orbit orbit-a">read</div><div class="orbit orbit-b">listen</div><div class="orbit orbit-c">discuss</div><div class="room-center">meet<br>here.</div></div>
           <h3>Different tastes.<br>A shared starting point.</h3><p>The agent searches each circle's cultural connections, compares the same shortlist, and makes a plan for the least-served circle as well as the whole room.</p>

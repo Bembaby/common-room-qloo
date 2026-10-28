@@ -1,0 +1,104 @@
+{
+  "createdAt": "2026-10-28T15:35:22.759Z",
+  "note": "Native browser screenshots, not generated execution imagery. Homepage proves reachability only. Fixture and actual live-result images remain separate. Local capture identity is retained by exact application content hashes until a release revision exists.",
+  "files": [
+    {
+      "path": "docs/screenshots/cover.jpg",
+      "sha256": "cd6a981f220920e57b77b280cbd5c0b3470d94004a0a95fbab3b461882be848a",
+      "bytes": 226022,
+      "category": "public_live_mode_homepage",
+      "sourceRevision": "e853a577ff950d78163e7444b4f8beb728eddb19"
+    },
+    {
+      "path": "docs/screenshots/fixture-desktop.png",
+      "sha256": "31d87862b8a0b75bdb0c9930a8c61de23ddfee93592163501a07807171a2deea",
+      "bytes": 967028,
+      "category": "synthetic_fixture_screen",
+      "sourceRevision": null,
+      "source": "Local fixture app after UI round 2; captured before release commit",
+      "applicationContent": {
+        "public/index.html": "c9aefc4cfa12d6a989856db8a87e118f90767853ca8d0c40c0e95e3942116b35",
+        "public/app.js": "d23852b327b9ee865aa0377b3814c89d55205981156cbc529c1feea385026580",
+        "public/style.css": "a46c28b916952d5b1c697d99c2c03ad2880ac36aedf359be626f78abffd5bf54",
+        "public/finish.css": "6ae0b0d5c4ee2d05910536a498684b659a4bc36be64c3511650889ed7c5daf08"
+      }
+    },
+    {
+      "path": "docs/screenshots/fixture-mobile-320.png",
+      "sha256": "a881855e63b00d372a42854a4e99b6ca4e7c0a33f96ac0cc19f2e631dc56b0d5",
+      "bytes": 549422,
+      "category": "synthetic_fixture_screen",
+      "sourceRevision": null,
+      "source": "Local fixture app after UI round 2; captured before release commit",
+      "applicationContent": {
+        "public/index.html": "c9aefc4cfa12d6a989856db8a87e118f90767853ca8d0c40c0e95e3942116b35",
+        "public/app.js": "d23852b327b9ee865aa0377b3814c89d55205981156cbc529c1feea385026580",
+        "public/style.css": "a46c28b916952d5b1c697d99c2c03ad2880ac36aedf359be626f78abffd5bf54",
+        "public/finish.css": "6ae0b0d5c4ee2d05910536a498684b659a4bc36be64c3511650889ed7c5daf08"
+      }
+    },
+    {
+      "path": "docs/screenshots/fixture-mobile.png",
+      "sha256": "ddee99d8416588bc719054c03bae1a0b7f934a51138a04da51e814eb773b155a",
+      "bytes": 532163,
+      "category": "synthetic_fixture_screen",
+      "sourceRevision": null,
+      "source": "Local fixture app after UI round 2; captured before release commit",
+      "applicationContent": {
+        "public/index.html": "c9aefc4cfa12d6a989856db8a87e118f90767853ca8d0c40c0e95e3942116b35",
+        "public/app.js": "d23852b327b9ee865aa0377b3814c89d55205981156cbc529c1feea385026580",
+        "public/style.css": "a46c28b916952d5b1c697d99c2c03ad2880ac36aedf359be626f78abffd5bf54",
+        "public/finish.css": "6ae0b0d5c4ee2d05910536a498684b659a4bc36be64c3511650889ed7c5daf08"
+      }
+    },
+    {
+      "path": "docs/screenshots/fixture-results.png",
+      "sha256": "95695ddae017c1e7709540beadc663a1d02edc1bb377b19e577cf39192147246",
+      "bytes": 1401971,
+      "category": "synthetic_fixture_screen",
+      "sourceRevision": null,
+      "source": "Local fixture app after UI round 2; captured before release commit",
+      "applicationContent": {
+        "public/index.html": "c9aefc4cfa12d6a989856db8a87e118f90767853ca8d0c40c0e95e3942116b35",
+        "public/app.js": "d23852b327b9ee865aa0377b3814c89d55205981156cbc529c1feea385026580",
+        "public/style.css": "a46c28b916952d5b1c697d99c2c03ad2880ac36aedf359be626f78abffd5bf54",
+        "public/finish.css": "6ae0b0d5c4ee2d05910536a498684b659a4bc36be64c3511650889ed7c5daf08"
+      }
+    },
+    {
+      "path": "docs/screenshots/live-desktop.png",
+      "sha256": "78b4676b0901a3a6fcc2e563003b2eba8a082320924e70176ecf3232322c516f",
+      "bytes": 1266681,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "e853a577ff950d78163e7444b4f8beb728eddb19"
+    },
+    {
+      "path": "docs/screenshots/live-mobile-320.png",
+      "sha256": "678fdbf20ff34de0e868a92f3b163d7a9f1b32bfa30fa75f94572684c78b7c71",
+      "bytes": 744305,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "e853a577ff950d78163e7444b4f8beb728eddb19"
+    },
+    {
+      "path": "docs/screenshots/live-mobile.png",
+      "sha256": "0358003d54b8e01bedd2ef8bd6f0318cdb77f0248e24d3819d33a1c0f783f5fa",
+      "bytes": 764859,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "e853a577ff950d78163e7444b4f8beb728eddb19"
+    },
+    {
+      "path": "docs/screenshots/live-refusal.png",
+      "sha256": "72dacb7019eaef5ba9adcd974110e40cc913ecb3bcbbfcbc75b4c3199d353531",
+      "bytes": 1134092,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "e853a577ff950d78163e7444b4f8beb728eddb19"
+    },
+    {
+      "path": "docs/screenshots/live-workspace.png",
+      "sha256": "da8778e2170835a646fd8b3a8069a5345939aab471caf2e96f2cc097d656aa3b",
+      "bytes": 330406,
+      "category": "actual_hosted_live_result",
+      "sourceRevision": "e853a577ff950d78163e7444b4f8beb728eddb19"
+    }
+  ]
+}
